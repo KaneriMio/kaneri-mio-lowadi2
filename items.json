@@ -8,7 +8,7 @@
     "price": 8,
     "image": "https://i.ibb.co/F4Sh8VMK/corne-abondance.png",
     "category": "Черный рынок",
-    "servers": ["🇺🇦", "🇷🇺"]
+    "servers": ["🇺🇳", "🇷🇺"]
   },
   {
     "id": "2",
@@ -19,7 +19,7 @@
     "price": 8,
     "image": "https://i.ibb.co/dwtryG3B/pomme-or.png",
     "category": "Черный рынок",
-    "servers": ["🇺🇦", "🇷🇺"]
+    "servers": ["🇺🇳", "🇷🇺"]
   },
   {
     "id": "3",
@@ -30,6 +30,6 @@
     "price": 8,
     "image": "https://i.ibb.co/qGchCL5/fragment-nuage.png",
     "category": "Черный рынок",
-    "servers": ["🇺🇦", "🇷🇺"]
+    "servers": ["🇺🇳", "🇷🇺"]
   }
 ]

@@ -11,10 +11,8 @@
       --btn-active: #84522b;
       --btn-inactive: #eee4dc;
       --text-main: #2b2d42;
-      --text-muted: #8d99ae;
       --card-bg: #ffffff;
-      --tag-black-market: #a3704c;
-      --tag-zm: #cfa846;
+      --tag-bg: #a3704c;
       --section-bg: #fdfaf7;
     }
 
@@ -55,6 +53,7 @@
       outline: none;
     }
 
+    /* Фильтры по серверам */
     .filters {
       display: flex;
       gap: 10px;
@@ -71,12 +70,14 @@
       cursor: pointer;
       font-weight: bold;
       font-size: 14px;
+      white-space: nowrap;
     }
 
     .filter-btn.active {
       background-color: var(--btn-active);
       color: #fff;
     }
+
     /* Сетка и карточки */
     .grid {
       display: grid;
@@ -95,9 +96,7 @@
       transition: transform 0.2s;
     }
 
-    .card:hover {
-      transform: translateY(-2px);
-    }
+    .card:hover { transform: translateY(-2px); }
 
     .image-wrapper {
       height: 180px;
@@ -121,42 +120,71 @@
       border-top: 1px solid #f0f0f0;
     }
 
-    .tag {
-      align-self: flex-start;
-      font-size: 10px;
-      font-weight: bold;
-      text-transform: uppercase;
-      padding: 4px 8px;
-      border-radius: 4px;
-      color: #fff;
+    /* Список флагов вместо категории */
+    .card-servers-tags {
+      display: flex;
+      gap: 6px;
       margin-bottom: 12px;
     }
-    .tag.черный-рынок { background-color: var(--tag-black-market); }
-    .tag.зя { background-color: var(--tag-zm); }
+
+    .server-tag {
+      font-size: 12px;
+      background-color: var(--tag-bg);
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     .card-title {
       font-size: 18px;
       font-weight: bold;
-      margin: 0 0 12px 0;
+      margin: 0 0 8px 0;
+      color: #222;
     }
 
-    /* Флаги на карточке */
-    .card-flags {
-      display: flex;
-      gap: 6px;
-      font-size: 16px;
-      margin-bottom: 12px;
+    .card-description {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+      margin: 0 0 20px 0;
+      flex-grow: 1;
     }
 
+    /* Подвал карточки с корзиной */
     .card-footer {
       border-top: 1px solid #f5f5f5;
       padding-top: 12px;
       font-size: 12px;
       color: #999;
       margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    /* БОКОВАЯ ШТОРКА (ДРОЭР) */
+    .card-footer strong { color: #333; }
+
+    .cart-btn {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.2s;
+    }
+
+    .cart-btn:hover {
+      background: #f0f0f0;
+    }
+
+    /* БОКОВАЯ ШТОРКА */
     .drawer-overlay {
       position: fixed;
       top: 0;
@@ -170,10 +198,7 @@
       transition: opacity 0.3s, visibility 0.3s;
     }
 
-    .drawer-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
 
     .drawer {
       position: fixed;
@@ -209,15 +234,12 @@
       margin-bottom: 20px;
     }
 
-    .drawer-image-wrapper img {
-      max-height: 150px;
-      object-fit: contain;
-    }
+    .drawer-image-wrapper img { max-height: 150px; object-fit: contain; }
 
     .drawer-title {
       font-size: 24px;
       font-weight: bold;
-      margin: 0 0 8px 0;
+      margin: 0 0 12px 0;
       color: #3b2314;
     }
 
@@ -240,7 +262,6 @@
       border-left: 4px solid #ebdcd0;
     }
 
-    /* Строка серверов во вкладке */
     .server-flags-list {
       display: flex;
       gap: 8px;
@@ -250,13 +271,7 @@
       border-radius: 8px;
     }
 
-    /* Нижние блоки: Наличие и Цена */
-    .drawer-row {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
+    .drawer-row { display: flex; gap: 15px; margin-top: 20px; }
     .drawer-col { flex: 1; }
 
     .status-box {
@@ -288,20 +303,27 @@
 </header>
 
 <div class="container">
+  <!-- Строка поиска -->
   <div class="search-container">
     <input type="text" id="search" class="search-input" placeholder="Поиск по названию...">
   </div>
 
+  <!-- Фильтры по серверам (Флаги) -->
+    <!-- Фильтры по категориям -->
   <div class="filters">
     <button class="filter-btn active" data-category="all">Все предметы</button>
-    <button class="filter-btn" data-category="черный рынок">Черный рынок</button>
-    <button class="filter-btn" data-category="зя">ЗЯ</button>
+    <button class="filter-btn" data-category="Черный рынок">Черный рынок</button>
+    <button class="filter-btn" data-category="Валюта">Валюта</button>
+    <button class="filter-btn" data-category="Окрасы">Окрасы</button>
+    <button class="filter-btn" data-category="Другое">Другое</button>
   </div>
 
+
+  <!-- Контейнер для карточек -->
   <div class="grid" id="products"></div>
 </div>
 
-<!-- Элементы боковой шторки -->
+<!-- Боковая шторка -->
 <div class="drawer-overlay" id="overlay"></div>
 <div class="drawer" id="drawer">
   <button class="drawer-close" id="closeDrawer">&times;</button>
@@ -311,7 +333,6 @@
   </div>
   
   <h2 class="drawer-title" id="d-name">Название</h2>
-  <div class="tag" id="d-tag">Категория</div>
 
   <div class="section-label">Доступные сервера</div>
   <div class="server-flags-list" id="d-flags"></div>
@@ -333,13 +354,13 @@
     </div>
   </div>
 </div>
+
 <script>
 let itemsData = [];
 const container = document.getElementById('products');
 const searchInput = document.getElementById('search');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
-// Элементы шторки
 const overlay = document.getElementById('overlay');
 const drawer = document.getElementById('drawer');
 const closeDrawerBtn = document.getElementById('closeDrawer');
@@ -347,19 +368,22 @@ const closeDrawerBtn = document.getElementById('closeDrawer');
 let currentCategory = 'all';
 let searchQuery = '';
 
+// Загрузка данных
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
     itemsData = data;
     renderItems();
-  });
+  })
+  .catch(err => console.error('Ошибка:', err));
 
+// Отрисовка карточек
 function renderItems() {
   container.innerHTML = '';
   
   const filtered = itemsData.filter(item => {
     const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = currentCategory === 'all' || item.category.toLowerCase() === currentCategory.toLowerCase();
+    const matchesCategory = currentCategory === 'all' || (item.category && item.category.toLowerCase() === currentCategory.toLowerCase());
     return matchesSearch && matchesCategory;
   });
 
@@ -367,23 +391,32 @@ function renderItems() {
     const card = document.createElement('div');
     card.className = 'card';
 
-    const tagClass = item.category.toLowerCase().replace(/\s+/g, '-');
-    const flagsHtml = (item.servers || []).join(' ');
+    // Создаем плашки с флагами серверов
+    const flagsHtml = (item.servers || []).map(flag => `<span class="server-tag">${flag}</span>`).join(' ');
 
     card.innerHTML = `
       <div class="image-wrapper">
         <img src="${item.image}" alt="${item.name}">
       </div>
       <div class="card-body">
-        <div class="tag ${tagClass}">${item.category}</div>
+        <div class="card-servers-tags">${flagsHtml}</div>
         <h3 class="card-title">${item.name}</h3>
-        <div class="card-flags">${flagsHtml}</div>
+        <p class="card-description">${item.description || ''}</p>
         <div class="card-footer">
-          В наличии: <strong>${item.count} шт.</strong>
+          <span>В наличии: <strong>${item.count} шт.</strong></span>
+          <button class="cart-btn" title="Добавить в корзину">🛒</button>
         </div>
       </div>
     `;
 
+    // Клик по кнопке корзины
+    const cartBtn = card.querySelector('.cart-btn');
+    cartBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      alert(`Товар "${item.name}" добавлен в корзину!`);
+    });
+
+    // Клик по самой карточке открывает шторку
     card.addEventListener('click', () => openDrawer(item));
     container.appendChild(card);
   });
@@ -392,11 +425,6 @@ function renderItems() {
 function openDrawer(item) {
   document.getElementById('d-image').src = item.image;
   document.getElementById('d-name').innerText = item.name;
-  
-  const tagEl = document.getElementById('d-tag');
-  tagEl.innerText = item.category;
-  tagEl.className = 'tag ' + item.category.toLowerCase().replace(/\s+/g, '-');
-
   document.getElementById('d-flags').innerText = (item.servers || []).join(' ');
   document.getElementById('d-description').innerText = item.description || 'Нет описания';
   document.getElementById('d-get').innerText = item.howto || 'Не указано';
@@ -415,14 +443,17 @@ function closeDrawer() {
 closeDrawerBtn.addEventListener('click', closeDrawer);
 overlay.addEventListener('click', closeDrawer);
 
+// Поиск
 searchInput.addEventListener('input', (e) => {
   searchQuery = e.target.value;
   renderItems();
 });
 
+// Фильтрация кнопками категорий
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('add'); // для совместимости
     btn.classList.add('active');
     currentCategory = btn.getAttribute('data-category');
     renderItems();
@@ -432,3 +463,4 @@ filterBtns.forEach(btn => {
 
 </body>
 </html>
+
