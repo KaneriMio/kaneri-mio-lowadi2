@@ -3,7 +3,7 @@ backend:
   repo: KaneriMio/kaneri-mio-lowadi2
   branch: main
   auth_type: implicit
-  client_id: Ov23lidAKbylTfwCz5AT
+  client_id: Ov23lizaMKvjbHCEZr6n
 
 media_folder: "images"
 public_folder: "/images"
