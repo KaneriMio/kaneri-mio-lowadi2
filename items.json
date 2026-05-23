@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "1",
+    "name": "Редкое седло",
+    "price": 1200,
+    "image": "https://via.placeholder.com/300",
+    "category": "аксессуары"
+  },
+  {
+    "id": "2",
+    "name": "Окраска Звёздная ночь",
+    "price": 3000,
+    "image": "https://via.placeholder.com/300",
+    "category": "окрасы"
+  }
+][]
