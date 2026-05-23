@@ -22,7 +22,7 @@
     "price": 8,
     "image": "https://i.ibb.co/dwtryG3B/pomme-or.png",
     "category": "Черный рынок",
-    "servers": ["🇺🇳", "🇷🇺"],
+    "servers": ["🇷🇺"],
     "isRare": true,
     "isHot": false,
     "isNew": true
@@ -36,7 +36,7 @@
     "price": 8,
     "image": "https://i.ibb.co/qGchCL5/fragment-nuage.png",
     "category": "Черный рынок",
-    "servers": ["🇺🇳", "🇷🇺"],
+    "servers": ["🇷🇺"],
     "isRare": true,
     "isHot": false,
     "isNew": true
