@@ -105,7 +105,7 @@
     }
     .filter-btn.active { background-color: var(--btn-active); color: #fff; }
 
-    /* Блок виртуальных подстраниц ЗЯ и ИЗЯ */
+    /* Блок подстраниц для ЗЯ и ИЗЯ */
     .sub-filters {
       display: none;
       gap: 10px;
@@ -215,6 +215,9 @@
     .admin-icons-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
     .admin-mini-icon { width: 36px; height: 36px; object-fit: contain; background: transparent; padding: 0; border: none; }
 
+    /* Новые стили для вывода картинки спутника на прозрачном фоне */
+    .companion-img { width: 42px; height: 42px; object-fit: contain; background: transparent; vertical-align: middle; margin-left: 5px; }
+
     .server-flags-list { display: flex; gap: 8px; font-size: 20px; background: var(--section-bg); padding: 12px; border-radius: 8px; }
 
     .option-select-block { background: var(--section-bg); padding: 12px; border-radius: 8px; border: 1px dashed #ddd; margin-bottom: 10px; }
@@ -249,25 +252,7 @@
     .clear-cart-btn { background-color: #d32f2f; width: 48px; height: 48px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
     .clear-cart-btn svg { width: 22px; height: 22px; }
 
-    /* Изменено: Всплывающее уведомление сверху справа, зелёное, с бледно-белой полоской слева */
-    .toast { 
-      position: fixed; 
-      top: 20px; 
-      right: 20px; 
-      background: #2e7d32; /* Насыщенный зелёный фон */
-      color: #fff; 
-      border-left: 5px solid rgba(255, 255, 255, 0.6); /* Бледно-белая вертикальная полоска */
-      padding: 14px 20px; 
-      border-radius: 8px; 
-      display: flex; 
-      align-items: center; 
-      gap: 15px; 
-      box-shadow: 0 4px 15px rgba(46,125,50,0.3); 
-      z-index: 2000; 
-      transform: translateY(-100px); /* Вылетает сверху */
-      opacity: 0; 
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    }
+    .toast { position: fixed; top: 20px; right: 20px; background: #2e7d32; color: #fff; border-left: 5px solid rgba(255, 255, 255, 0.6); padding: 14px 20px; border-radius: 8px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(46,125,50,0.3); z-index: 2000; transform: translateY(-100px); opacity: 0; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     .toast.show { transform: translateY(0); opacity: 1; }
     .toast-close { background: none; border: none; color: rgba(255,255,255,0.8); font-size: 18px; cursor: pointer; padding: 0; margin-left: auto; }
 
@@ -358,6 +343,16 @@
     <div class="info-box note-box">
       <div id="d-note-text">⚠️ Покупка только навесом</div>
       <div class="admin-icons-grid" id="d-admin-icons"></div>
+    </div>
+  </div>
+
+  <!-- Новые характеристики окраса (Порода, Вид, Спутник) -->
+  <div id="d-meta-container" style="display: none;">
+    <div class="section-label">Характеристики масти</div>
+    <div class="info-box" style="padding: 12px 16px;">
+      <div style="margin-bottom: 6px;"><strong>Порода:</strong> <span id="d-breed">-</span></div>
+      <div style="margin-bottom: 6px;"><strong>Вид:</strong> <span id="d-type">-</span></div>
+      <div style="display: flex; align-items: center;"><strong>Спутник:</strong> <span id="d-companion" style="margin-left: 5px;">Нет</span></div>
     </div>
   </div>
 
@@ -499,7 +494,7 @@ let currentCategory = 'all';
 let currentSubCategory = 'all'; 
 let toastTimeout;
 
-// Подгрузка данных каталога
+// Загрузка
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
@@ -509,7 +504,6 @@ fetch('./items.json')
   })
   .catch(err => console.error('Ошибка:', err));
 
-// Заполнение выпадающего списка ЧР предметами с меткой isNaves
 function buildNavesDropdown() {
   optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
   itemsData.forEach(item => {
@@ -523,32 +517,20 @@ function buildNavesDropdown() {
   });
 }
 
-// Изменено: Функция мгновенного перерасчёта цены прямо внутри шторки информации
 function recalcDrawerPrice() {
   if (!activeItemForDrawer) return;
-  
   let currentPrice = activeItemForDrawer.price || 0;
   
-  // Добавляем стоимость навесного ЧР
   const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
   if (chosenCrOpt) {
     currentPrice += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
   }
-  
-  // Добавляем фиксированную стоимость ФК (+30)
-  if (optFkSelect.value !== 'none') {
-    currentPrice += 30;
-  }
-  
-  // Добавляем фиксированную стоимость Навыков (+20)
-  if (optSkillsSelect.value !== 'none') {
-    currentPrice += 20;
-  }
+  if (optFkSelect.value !== 'none') currentPrice += 30;
+  if (optSkillsSelect.value !== 'none') currentPrice += 20;
   
   document.getElementById('d-price').innerText = `${currentPrice} ₽`;
 }
 
-// Вешаем слушатели событий на переключение селекторов в шторке для живого перерасчета
 optCrSelect.addEventListener('change', recalcDrawerPrice);
 optFkSelect.addEventListener('change', recalcDrawerPrice);
 optSkillsSelect.addEventListener('change', recalcDrawerPrice);
@@ -594,13 +576,11 @@ function renderItems() {
     let cardMetaHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
       const type = (item.colorType || 'ЗЯ').toUpperCase();
-      if (type === 'ЗЯ') {
+      if (type === 'ЗЯ' || type === 'ИЗЯ') {
         cardMetaHtml = `<div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>`;
-      } else if (type === 'ИЗЯ') {
-        cardMetaHtml = `
-          <div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>
-          <div class="card-meta-text">Копий: <span>${item.copies || 0} шт.</span></div>
-        `;
+        if (type === 'ИЗЯ') {
+          cardMetaHtml += `<div class="card-meta-text">Копий: <span>${item.copies || 0} шт.</span></div>`;
+        }
       }
     }
 
@@ -683,7 +663,6 @@ function addToCart(item) {
     if (chosenCrOpt) {
       extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
     }
-    
     if (selectedFk !== 'none') extraCost += 30;
     if (selectedSkills !== 'none') extraCost += 20;
   }
@@ -713,7 +692,6 @@ function addToCart(item) {
   renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
-// Функция обновления интерфейса корзины — строка копий полностью удалена!
 function updateCartUI() {
   cartItemsContainer.innerHTML = '';
   let total = 0;
@@ -726,7 +704,6 @@ function updateCartUI() {
     const cartItemEl = document.createElement('div');
     cartItemEl.className = 'cart-item';
 
-    // Формирование метаданных в корзине: без вывода количества копий!
     let optionsMetaHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
       const type = (item.colorType || 'ЗЯ').toUpperCase();
@@ -838,7 +815,7 @@ function openProductDrawer(item) {
   tagEl.innerText = item.category || 'Другое';
   tagEl.className = 'tag ' + (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
 
-  // Очистка и наполнение админских мини-иконок
+  // Очистка и наполнение админских мини-иконок в Примечании
   const noteContainer = document.getElementById('d-note-container');
   const noteText = document.getElementById('d-note-text');
   const adminIconsGrid = document.getElementById('d-admin-icons');
@@ -860,7 +837,25 @@ function openProductDrawer(item) {
     noteContainer.style.display = 'none';
   }
 
-  // Поведение выпадающих списков настроек
+  // Изменено: Наполнение блока Характеристик масти (Порода, Вид, Спутник)
+  const metaContainer = document.getElementById('d-meta-container');
+  if (item.category && item.category.toLowerCase() === 'окрасы') {
+    document.getElementById('d-breed').innerText = item.breed || 'Не указана';
+    document.getElementById('d-type').innerText = item.type || 'Обычный';
+    
+    const companionSpan = document.getElementById('d-companion');
+    if (item.companionImage && item.companionImage.trim() !== "") {
+      // Если админ добавил ссылку на иконку спутника в JSON
+      companionSpan.innerHTML = `<img class="companion-img" src="${item.companionImage}" alt="Спутник">`;
+    } else {
+      companionSpan.innerText = 'Нет';
+    }
+    metaContainer.style.display = 'block';
+  } else {
+    metaContainer.style.display = 'none';
+  }
+
+  // Поведение выпадающих списков настроек окраса
   const optionsContainer = document.getElementById('d-options-container');
   if (item.category && item.category.toLowerCase() === 'окрасы') {
     optCrSelect.value = 'none';
@@ -871,7 +866,7 @@ function openProductDrawer(item) {
     optionsContainer.style.display = 'none';
   }
 
-  // Скрытие лишней информации у окрасов
+  // Скрытие описания и блока «Как получить» только у окрасов
   const descLabel = document.getElementById('d-desc-label');
   const descBox = document.getElementById('d-description');
   const getLabel = document.getElementById('d-get-label');
@@ -894,7 +889,6 @@ function openProductDrawer(item) {
   document.getElementById('d-flags').innerText = (item.servers || []).join(' ');
   document.getElementById('d-count').innerText = `${item.count || 0} шт`;
   
-  // Вызываем стартовый расчет, чтобы шторка сразу показала базовую цену
   overlay.classList.add('active');
   productDrawer.classList.add('active');
   recalcDrawerPrice(); 

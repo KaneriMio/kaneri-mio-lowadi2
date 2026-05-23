@@ -78,6 +78,9 @@
     "hasExtraCr": false,
     "hasFk": false,
     "hasSkills": true,
+    "breed": "Шагия",
+    "type": "Пегас",
+    "companionImage": "https://i.ibb.co/spnY40bB/compagnon-shika.png",
     "adminIcons": [
       "https://i.ibb.co/k2vNDdKr/couverture-hypnos.png"
     ]
