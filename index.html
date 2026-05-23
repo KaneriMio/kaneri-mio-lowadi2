@@ -29,7 +29,6 @@
       overflow-x: hidden;
     }
 
-    /* Исправленная шапка: текст по центру, корзина со свободным отступом */
     header {
       background-color: var(--header-bg);
       color: #fff;
@@ -54,30 +53,10 @@
       align-items: center;
     }
 
-    .header-cart-btn svg {
-      width: 28px;
-      height: 28px;
-      fill: none;
-      stroke: #fff;
-      stroke-width: 2;
-    }
+    .header-cart-btn svg { width: 28px; height: 28px; fill: none; stroke: #fff; stroke-width: 2; }
+    .cart-badge { position: absolute; top: -5px; right: -8px; background: #d32f2f; color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 10px; }
 
-    .cart-badge {
-      position: absolute;
-      top: -5px;
-      right: -8px;
-      background: #d32f2f;
-      color: #fff;
-      font-size: 11px;
-      padding: 2px 6px;
-      border-radius: 10px;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px 15px;
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 15px; }
     .search-panel {
       background: #fff;
       padding: 12px 15px;
@@ -126,7 +105,7 @@
     }
     .filter-btn.active { background-color: var(--btn-active); color: #fff; }
 
-    /* Блок виртуальных подстраниц ЗЯ и ИЗЯ */
+    /* Блок подстраниц для ЗЯ и ИЗЯ */
     .sub-filters {
       display: none;
       gap: 10px;
@@ -151,7 +130,6 @@
 
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
     
-    /* ИНТЕРАКТИВНАЯ КАРТОЧКА: Тень и Блеск */
     .card {
       background-color: var(--card-bg);
       border-radius: 12px;
@@ -164,7 +142,6 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Эффект глянцевого блика при наведении */
     .card::after {
       content: '';
       position: absolute;
@@ -177,15 +154,11 @@
 
     .card:hover { 
       transform: translateY(-5px); 
-      box-shadow: 0 12px 24px rgba(74, 40, 16, 0.15); /* Мягкая тень */
+      box-shadow: 0 12px 24px rgba(74, 40, 16, 0.15);
     }
 
-    .card:hover::after {
-      left: 150%;
-      transition: left 0.6s ease-in-out;
-    }
+    .card:hover::after { left: 150%; transition: left 0.6s ease-in-out; }
 
-    /* Плавное увеличение предмета */
     .image-wrapper { height: 180px; display: flex; align-items: center; justify-content: center; padding: 20px; position: relative; overflow: hidden; }
     .card img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform 0.3s ease; }
     .card:hover img { transform: scale(1.08); }
@@ -204,31 +177,23 @@
 
     .card-title { font-size: 18px; font-weight: bold; margin: 0 0 6px 0; color: #222; }
     
-    /* Стили для текста метаданных ЗЯ/ИЗЯ на карточках */
     .card-meta-text { font-size: 13px; color: #614635; font-weight: 500; margin-bottom: 4px; }
     .card-meta-text span { font-weight: normal; color: #777; }
 
-    .card-description { font-size: 13px; color: #666; line-height: 1.5; margin: 8px 0 20px 0; flex-grow: 1; }
+    /* Сделали текст описания на витрине более жирным */
+    .card-description { font-size: 13px; color: #444; font-weight: 500; line-height: 1.5; margin: 8px 0 20px 0; flex-grow: 1; }
 
     .card-footer { border-top: 1px solid #f5f5f5; padding-top: 12px; font-size: 12px; color: #999; margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
     .card-footer strong { color: #333; }
     .out-of-stock { color: #d32f2f !important; }
     .out-of-stock strong { color: #d32f2f !important; }
 
-    /* Мягкий зеленый квадрат корзины */
-    .cart-btn {
-      background: #2e7d32; border: none; border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s;
-    }
+    .cart-btn { background: #2e7d32; border: none; border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
     .cart-btn:hover { background: #215d25; }
     .cart-btn svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; }
 
-    /* Селектор изменения количества прямо на карточке витрины */
-    .card-qty-controls {
-      display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #ddd; padding: 3px 6px; border-radius: 8px; height: 36px;
-    }
-    .card-qty-btn {
-      background: #f5f5f5; border: 1px solid #e0e0e0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 14px; color: #333;
-    }
+    .card-qty-controls { display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #ddd; padding: 3px 6px; border-radius: 8px; height: 36px; }
+    .card-qty-btn { background: #f5f5f5; border: 1px solid #e0e0e0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 14px; color: #333; }
     .card-qty-btn:hover { background: #e0e0e0; }
     .card-qty-value { font-size: 13px; font-weight: bold; min-width: 14px; text-align: center; color: #333; }
 
@@ -249,13 +214,12 @@
     
     .note-box { background-color: #fff3e0; border-left: 4px solid #ffb74d; color: #b78103; font-weight: 500; }
     
-    /* Сетка для мини-иконок админа в примечании */
-    .admin-icons-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-    .admin-mini-icon { width: 32px; height: 32px; object-fit: contain; background: #fff; padding: 2px; border: 1px solid #e0e0e0; border-radius: 4px; }
+    /* Исправлено: Предметы админа теперь отображаются без рамок и на прозрачном фоне */
+    .admin-icons-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
+    .admin-mini-icon { width: 36px; height: 36px; object-fit: contain; background: transparent; padding: 0; border: none; }
 
     .server-flags-list { display: flex; gap: 8px; font-size: 20px; background: var(--section-bg); padding: 12px; border-radius: 8px; }
 
-    /* Селекторы кастомных опций окраса (ЧР, ФК, навыки) */
     .option-select-block { background: var(--section-bg); padding: 12px; border-radius: 8px; border: 1px dashed #ddd; margin-bottom: 10px; }
     .option-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px; font-weight: 500; }
     .option-row:last-child { margin-bottom: 0; }
@@ -266,7 +230,6 @@
     .status-box { background: var(--section-bg); padding: 14px; border-radius: 8px; font-weight: bold; font-size: 15px; color: #614635; text-align: center; }
     .price-box { background: #e8f5e9; border: 1px solid #c8e6c9; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; color: #2e7d32; text-align: center; }
 
-    /* Большая кнопка добавления внизу инфо-шторки */
     .drawer-buy-btn { background-color: #2e7d32; color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 16px; font-weight: bold; width: 100%; margin-top: 25px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.2s; }
     .drawer-buy-btn:hover { background-color: #215d25; }
     .drawer-buy-btn svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; }
@@ -290,19 +253,10 @@
     .clear-cart-btn { background-color: #d32f2f; width: 48px; height: 48px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
     .clear-cart-btn svg { width: 22px; height: 22px; }
 
-    /* Брендовое кофейно-коричневое уведомление (Toast) */
-    .toast { 
-      position: fixed; bottom: 20px; right: 20px; 
-      background: var(--header-bg); 
-      color: #f7ede2; border-left: 5px solid var(--tag-colors);
-      padding: 14px 20px; border-radius: 8px; display: flex; 
-      align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(74,40,16,0.25); 
-      z-index: 2000; transform: translateY(100px); opacity: 0; transition: all 0.3s; 
-    }
+    .toast { position: fixed; bottom: 20px; right: 20px; background: var(--header-bg); color: #f7ede2; border-left: 5px solid var(--tag-colors); padding: 14px 20px; border-radius: 8px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(74,40,16,0.25); z-index: 2000; transform: translateY(100px); opacity: 0; transition: all 0.3s; }
     .toast.show { transform: translateY(0); opacity: 1; }
     .toast-close { background: none; border: none; color: var(--btn-inactive); font-size: 18px; cursor: pointer; padding: 0; margin-left: auto; }
 
-    /* Всплывающее окно предупреждения Навеса (По центру) */
     .popup-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); background: #fff; width: 90%; max-width: 400px; padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 3000; text-align: center; display: none; transition: transform 0.2s; }
     .popup-modal.active { display: block; transform: translate(-50%, -50%) scale(1); }
     .popup-title { font-size: 20px; font-weight: bold; margin-bottom: 12px; color: #4a2810; }
@@ -317,7 +271,6 @@
 
 <header>
   <span>🐴 Lowadi | Kaneri Mio Company</span>
-  <!-- Детализированная иконка корзины с сеточкой в шапке -->
   <button class="header-cart-btn" id="openCartBtn" title="Открыть корзину">
     <svg viewBox="0 0 24 24">
       <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -376,7 +329,7 @@
 
 <div class="drawer-overlay" id="overlay"></div>
 
-<!-- 1. ШТОРКА ИНФОРМАЦИИ О ТОВАРЕ (СПРАВА) -->
+<!-- 1. ШТОРКА ИНФОРМАЦИИ О ТОВАРЕ -->
 <div class="drawer" id="drawer">
   <button class="drawer-close" id="closeDrawer">&times;</button>
   <div class="drawer-image-wrapper">
@@ -394,46 +347,44 @@
     </div>
   </div>
 
-  <!-- Блок выбора опций окраса -->
+  <!-- Изменено: Обновленный интерактивный блок опций окраса -->
   <div id="d-options-container" style="display: none;">
     <div class="section-label">Настройка окраса</div>
     <div class="option-select-block">
-      <div class="option-row" id="opt-cr-row" style="display: none;">
+      <!-- Навесной ЧР подгружается из каталога -->
+      <div class="option-row" id="opt-cr-row">
         <label for="opt-cr-select">Дополнительный ЧР:</label>
         <select id="opt-cr-select" class="option-select">
-          <option value="none">Без предметов</option>
-          <option value="Философский камень">Философский камень (+100₽)</option>
-          <option value="Длань Фемиды">Длань Фемиды (+50₽)</option>
-          <option value="Кровь Медузы">Кровь Медузы (+70₽)</option>
+          <option value="none" data-price="0">Без предметов</option>
         </select>
       </div>
-      <div class="option-row" id="opt-fk-row" style="display: none;">
-        <label for="opt-fk-select">ФК (Фон Кавалок):</label>
-        <select id="opt-fk-select" class="option-select">
-          <option value="none">Обычный фон</option>
-          <option value="Летний пейзаж">Летний пейзаж (+30₽)</option>
-          <option value="Зимняя сказка">Зимняя сказка (+40₽)</option>
-        </select>
-      </div>
-      <div class="option-row" id="opt-skills-row" style="display: none;">
-        <label for="opt-skills-select">Комплект навыков:</label>
+      <!-- Навыки (+20р) -->
+      <div class="option-row" id="opt-skills-row">
+        <label for="opt-skills-select">С навыками:</label>
         <select id="opt-skills-select" class="option-select">
-          <option value="none">Без навыков</option>
-          <option value="100 навыков">100 навыков (+20₽)</option>
-          <option value="500 навыков">500 навыков (+60₽)</option>
-          <option value="1000 навыков">1000 навыков (+100₽)</option>
+          <option value="none" data-price="0">Нет</option>
+          <option value="С навыками" data-price="20">Да (+20₽)</option>
+        </select>
+      </div>
+      <!-- ФК (+30р) -->
+      <div class="option-row" id="opt-fk-row">
+        <label for="opt-fk-select">С ФК:</label>
+        <select id="opt-fk-select" class="option-select">
+          <option value="none" data-price="0">Нет</option>
+          <option value="С ФК" data-price="30">Да (+30₽)</option>
         </select>
       </div>
     </div>
   </div>
 
-  <div class="section-label">Доступные сервера</div>
+  <div class="section-label" id="d-servers-label">Доступные сервера</div>
   <div class="server-flags-list" id="d-flags"></div>
 
-  <div class="section-label">Описание</div>
+  <!-- Эти два лейбла и боксы будут скрываться или меняться скриптом -->
+  <div class="section-label" id="d-desc-label">Описание</div>
   <div class="info-box" id="d-description">Описание предмета</div>
 
-  <div class="section-label">Как получить</div>
+  <div class="section-label" id="d-get-label">Как получить</div>
   <div class="info-box" id="d-get">Способы получения</div>
 
   <div class="drawer-row">
@@ -457,7 +408,7 @@
   </button>
 </div>
 
-<!-- 2. ШТОРКА КОРЗИНЫ (СПРАВА) -->
+<!-- 2. ШТОРКА КОРЗИНЫ -->
 <div class="drawer" id="cartDrawer">
   <button class="drawer-close" id="closeCartDrawer">&times;</button>
   <h2 class="drawer-title">Ваша корзина</h2>
@@ -518,9 +469,6 @@ const openCartBtn = document.getElementById('openCartBtn');
 const closeCartDrawerBtn = document.getElementById('closeCartDrawer');
 const drawerAddCartBtn = document.getElementById('drawerAddCartBtn');
 
-const optCrRow = document.getElementById('opt-cr-row');
-const optFkRow = document.getElementById('opt-fk-row');
-const optSkillsRow = document.getElementById('opt-skills-row');
 const optCrSelect = document.getElementById('opt-cr-select');
 const optFkSelect = document.getElementById('opt-fk-select');
 const optSkillsSelect = document.getElementById('opt-skills-select');
@@ -541,14 +489,31 @@ let currentCategory = 'all';
 let currentSubCategory = 'all'; 
 let toastTimeout;
 
+// Подгрузка данных из items.json
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
     itemsData = data;
+    buildNavesDropdown(); // Наполняем выпадающий список навесных ЧР из каталога
     renderItems();
   })
-  .catch(err => console.error('Ошибка загрузки каталога:', err));
+  .catch(err => console.error('Ошибка:', err));
 
+// Функция динамического поиска навесных предметов в общем каталоге
+function buildNavesDropdown() {
+  optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
+  itemsData.forEach(item => {
+    if (item.isNaves === true) {
+      const opt = document.createElement('option');
+      opt.value = item.name;
+      opt.setAttribute('data-price', item.price || 0);
+      opt.innerText = `${item.name} (+${item.price || 0}₽)`;
+      optCrSelect.appendChild(opt);
+    }
+  });
+}
+
+// Отрисовка карточек с улучшенным плотным шрифтом
 function renderItems() {
   container.innerHTML = '';
   const query = searchInput.value.toLowerCase();
@@ -587,6 +552,7 @@ function renderItems() {
     else if (item.isHot) badgeHtml = '<span class="badge hot">Hot</span>';
     else if (item.isRare) badgeHtml = '<span class="badge limited">Limited</span>';
 
+    // Текстовые данные на плитках ЗЯ и ИЗЯ по вашему правилу
     let cardMetaHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
       const type = (item.colorType || 'ЗЯ').toUpperCase();
@@ -665,6 +631,7 @@ function addToCart(item) {
     return;
   }
 
+  // Расчет динамической стоимости модификаций окраса
   let selectedCr = "none";
   let selectedFk = "none";
   let selectedSkills = "none";
@@ -675,14 +642,15 @@ function addToCart(item) {
     selectedFk = optFkSelect.value;
     selectedSkills = optSkillsSelect.value;
 
-    if (selectedCr === "Философский камень") extraCost += 100;
-    if (selectedCr === "Длань Фемиды") extraCost += 50;
-    if (selectedCr === "Кровь Медузы") extraCost += 70;
-    if (selectedFk === "Летний пейзаж") extraCost += 30;
-    if (selectedFk === "Зимняя сказка") extraCost += 40;
-    if (selectedSkills === "100 навыков") extraCost += 20;
-    if (selectedSkills === "500 навыков") extraCost += 60;
-    if (selectedSkills === "1000 навыков") extraCost += 100;
+    // Берем цену ЧР прямо из выбранного тега <option>
+    const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
+    if (chosenCrOpt) {
+      extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
+    }
+    
+    // Прибавляем фиксированные наценки для навыков (+20) и ФК (+30)
+    if (selectedFk !== 'none') extraCost += 30;
+    if (selectedSkills !== 'none') extraCost += 20;
   }
 
   const cartItemId = `${item.id}_${selectedCr}_${selectedFk}_${selectedSkills}`;
@@ -710,7 +678,7 @@ function addToCart(item) {
   renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
-// Функция обновления интерфейса корзины с кастомными сборками
+// Функция обновления интерфейса корзины с выводом опций по вашему примеру
 function updateCartUI() {
   cartItemsContainer.innerHTML = '';
   let total = 0;
@@ -723,7 +691,7 @@ function updateCartUI() {
     const cartItemEl = document.createElement('div');
     cartItemEl.className = 'cart-item';
 
-    // Формирование метаданных для категории Окрасы (ЗЯ/ИЗЯ)
+    // Формирование текстовых строк в корзине строго по вашему примеру
     let optionsMetaHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
       const type = (item.colorType || 'ЗЯ').toUpperCase();
@@ -733,11 +701,11 @@ function updateCartUI() {
       }
       
       let addons = [];
-      if (item.chosenCr !== 'none') addons.push(`ЧР: ${item.chosenCr}`);
-      if (item.chosenFk !== 'none') addons.push(`Фон: ${item.chosenFk}`);
-      if (item.chosenSkills !== 'none') addons.push(item.chosenSkills);
+      if (item.chosenCr !== 'none') addons.push(`Доп ЧР: ${item.chosenCr} х1`);
+      if (item.chosenFk !== 'none') addons.push(`ФК: Да`);
+      if (item.chosenSkills !== 'none') addons.push(`Навыки: Да`);
       
-      let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">+ ${addons.join(', ')}</div>` : '';
+      let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">${addons.join('<br>')}</div>` : '';
       optionsMetaHtml = `<div class="cart-item-meta" style="color:#b17a53; font-weight:bold; margin-top:4px;">Категория: ${type}</div>${extraInfo}${addonsText}`;
     }
 
@@ -762,7 +730,6 @@ function updateCartUI() {
   cartBadge.innerText = totalItemsCount;
 }
 
-// Изменение количества по ключу сборки
 window.changeQtyByKey = function(key, change) {
   const item = cart.find(i => i.cartKey === key);
   if (!item) return;
@@ -784,7 +751,6 @@ window.changeQtyByKey = function(key, change) {
   renderItems();
 };
 
-// Изменение количества кнопками на самой карточке витрины
 window.changeQty = function(id, change) {
   const item = cart.find(i => i.id === id);
   if (item) {
@@ -792,7 +758,6 @@ window.changeQty = function(id, change) {
   }
 };
 
-// Удаление по уникальному ключу
 window.removeFromCartByKey = function(key) {
   cart = cart.filter(i => i.cartKey !== key);
   updateCartUI();
@@ -819,6 +784,7 @@ checkoutBtn.addEventListener('click', () => {
   renderItems();
   closeAllDrawers();
 });
+
 function showToast(msg) {
   clearTimeout(toastTimeout);
   toastMessage.innerText = msg;
@@ -829,7 +795,7 @@ function showToast(msg) {
 function hideToast() { cartToast.classList.remove('show'); }
 closeToastBtn.addEventListener('click', hideToast);
 
-// Открытие инфо-шторки с проверками ЗЯ/ИЗЯ и рендером иконок админа
+// Открытие инфо-шторки с удалением лишних блоков у окрасов
 function openProductDrawer(item) {
   activeItemForDrawer = item;
   cartDrawer.classList.remove('active');
@@ -841,7 +807,7 @@ function openProductDrawer(item) {
   tagEl.innerText = item.category || 'Другое';
   tagEl.className = 'tag ' + (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
 
-  // Проверка Золотого Яблока и генерация мини-иконок админа
+  // Очистка и заполнение админских мини-иконок на прозрачном фоне
   const noteContainer = document.getElementById('d-note-container');
   const noteText = document.getElementById('d-note-text');
   const adminIconsGrid = document.getElementById('d-admin-icons');
@@ -863,42 +829,40 @@ function openProductDrawer(item) {
     noteContainer.style.display = 'none';
   }
 
-  // Отображение выпадающих списков настройки (только для Окрасов)
+  // Поведение выпадающих списков настроек
   const optionsContainer = document.getElementById('d-options-container');
   if (item.category && item.category.toLowerCase() === 'окрасы') {
     optCrSelect.value = 'none';
     optFkSelect.value = 'none';
     optSkillsSelect.value = 'none';
-
-    optCrRow.style.display = item.hasExtraCr ? 'flex' : 'none';
-    optFkRow.style.display = item.hasFk ? 'flex' : 'none';
-    optSkillsRow.style.display = item.hasSkills ? 'flex' : 'none';
-
-    optionsContainer.style.display = (item.hasExtraCr || item.hasFk || item.hasSkills) ? 'block' : 'none';
+    optionsContainer.style.display = 'block';
   } else {
     optionsContainer.style.display = 'none';
   }
 
-  // Форматирование описания под правила ЗЯ / ИЗЯ (выводим сервера в шторку)
+  // Изменено: Удаление «Описание масти» и «Как получить» из шторки у окрасов
+  const descLabel = document.getElementById('d-desc-label');
   const descBox = document.getElementById('d-description');
-  const availableServersText = (item.servers && item.servers.length > 0) ? item.servers.join(', ') : 'Нет в наличии';
-  
+  const getLabel = document.getElementById('d-get-label');
+  const getBox = document.getElementById('d-get');
+
   if (item.category && item.category.toLowerCase() === 'окрасы') {
-    const type = (item.colorType || 'ЗЯ').toUpperCase();
-    let metaDescription = `<strong>Категория:</strong> ${type}<br><strong>Автор:</strong> ${item.author || 'Не указан'}<br>`;
-    if (type === 'ИЗЯ') {
-      metaDescription += `<strong>Всего копий масти:</strong> ${item.copies || 0} шт.<br>`;
-    }
-    metaDescription += `<strong>Доступно на серверах:</strong> ${availableServersText}<br><br>`;
-    metaDescription += `<strong>Описание масти:</strong><br>${item.description || 'Нет описания'}`;
-    descBox.innerHTML = metaDescription;
+    descLabel.style.display = 'none';
+    descBox.style.display = 'none';
+    getLabel.style.display = 'none';
+    getBox.style.display = 'none';
   } else {
+    descLabel.style.display = 'block';
+    descBox.style.display = 'block';
     descBox.innerText = item.description || 'Нет описания';
+    getLabel.style.display = 'block';
+    getBox.style.display = 'block';
+    getBox.innerText = item.howto || 'Не указано';
   }
 
   document.getElementById('d-flags').innerText = (item.servers || []).join(' ');
   document.getElementById('d-count').innerText = `${item.count || 0} шт`;
-  document.getElementById('d-price').innerText = `${item.price || 0}₽`;
+  document.getElementById('d-price').innerText = `${item.price || 0} \u20bd`;
 
   if (!item.count || item.count === 0) {
     drawerAddCartBtn.style.background = '#ccc';

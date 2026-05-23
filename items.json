@@ -39,7 +39,8 @@
     "servers": ["🇷🇺"],
     "isRare": true,
     "isHot": false,
-    "isNew": true
+    "isNew": true,
+    "isNaves": true
   },
 {
     "id": "4",
