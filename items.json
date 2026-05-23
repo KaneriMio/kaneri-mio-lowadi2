@@ -4,14 +4,14 @@
     "name": "Рог Изобилия",
     "description": "Открывает множество сокровищ: экю, пропуски, снаряжение и божественных лошадей",
     "howto": "Купить на Черном рынке за 100 пропусков, выиграть в акциях, получить за выполнение целей дня",
-    "count": 5,
+    "count": 0,
     "price": 8,
     "image": "https://i.ibb.co/F4Sh8VMK/corne-abondance.png",
     "category": "Черный рынок",
-    "servers": ["🇺🇳", "🇷🇺"],
-    "isRare": true,
-    "isHot": false,
-    "isNew": true
+    "servers": ["🇷🇺"],
+    "isRare": false,
+    "isHot": true,
+    "isNew": false
   },
   {
     "id": "2",

@@ -46,15 +46,15 @@
       padding: 30px 15px;
     }
 
-    /* Единая поисковая панель */
+    /* Панель поиска с селектами */
     .search-panel {
       background: #fff;
-      padding: 10px 15px;
+      padding: 12px 15px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 12px;
       align-items: center;
       margin-bottom: 20px;
     }
@@ -63,12 +63,12 @@
       flex: 1;
       min-width: 200px;
       padding: 10px;
-      border: none;
+      border: 1px solid #eee;
+      border-radius: 6px;
       font-size: 14px;
       outline: none;
     }
 
-    /* Блок фильтров внутри поиска */
     .search-filters {
       display: flex;
       flex-wrap: wrap;
@@ -77,7 +77,7 @@
     }
 
     .search-select {
-      padding: 8px 12px;
+      padding: 10px 12px;
       border: 1px solid #ddd;
       border-radius: 6px;
       background-color: #fff;
@@ -87,31 +87,7 @@
       cursor: pointer;
     }
 
-    .search-checkbox-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #4a2a16;
-      cursor: pointer;
-      user-select: none;
-      background: var(--btn-inactive);
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background 0.2s;
-    }
-
-    .search-checkbox-label:has(input:checked) {
-      background: var(--btn-active);
-      color: #fff;
-    }
-
-    .search-checkbox-label input {
-      display: none;
-    }
-
-    /* Категории под поиском */
+    /* Категории */
     .filters {
       display: flex;
       gap: 10px;
@@ -136,7 +112,7 @@
       color: #fff;
     }
 
-    /* Сетка карточек */
+    /* Сетка и карточки */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -151,17 +127,20 @@
       flex-direction: column;
       box-shadow: 0 4px 6px rgba(0,0,0,0.02);
       cursor: pointer;
+      position: relative;
       transition: transform 0.2s;
     }
 
     .card:hover { transform: translateY(-2px); }
 
+    /* Обертка картинки и системные метки */
     .image-wrapper {
       height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
+      position: relative;
     }
 
     .card img {
@@ -169,6 +148,23 @@
       max-width: 100%;
       object-fit: contain;
     }
+
+    /* Стили меток NEW, Hot, Limited */
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .badge.new { background-color: #2e7d32; }
+    .badge.hot { background-color: #d32f2f; }
+    .badge.limited { background-color: #f57c00; }
 
     .card-body {
       padding: 20px;
@@ -178,7 +174,6 @@
       border-top: 1px solid #f0f0f0;
     }
 
-    /* Тег категории на карточке */
     .tag {
       align-self: flex-start;
       font-size: 10px;
@@ -221,6 +216,14 @@
     }
 
     .card-footer strong { color: #333; }
+    
+    /* Красный текст, если нет на складе */
+    .out-of-stock {
+      color: #d32f2f !important;
+    }
+    .out-of-stock strong {
+      color: #d32f2f !important;
+    }
 
     .cart-btn {
       background: #ffffff;
@@ -347,12 +350,12 @@
 </header>
 
 <div class="container">
-  <!-- Единая панель поиска и фильтров -->
+  <!-- Панель поиска и выпадающих списков -->
   <div class="search-panel">
     <input type="text" id="search" class="search-input" placeholder="Поиск по названию...">
     
     <div class="search-filters">
-      <!-- Фильтр по серверам -->
+      <!-- Сервер -->
       <select id="serverFilter" class="search-select">
         <option value="all">Все сервера</option>
         <option value="🇷🇺">🇷🇺 RU</option>
@@ -361,19 +364,19 @@
         <option value="🇦🇶">🇦🇶 AQ</option>
       </select>
 
-      <!-- Быстрые чекбоксы-переключатели -->
-      <label class="search-checkbox-label">
-        <input type="checkbox" id="stockFilter"> В наличии
-      </label>
-      <label class="search-checkbox-label">
-        <input type="checkbox" id="rareFilter"> Редкое
-      </label>
-      <label class="search-checkbox-label">
-        <input type="checkbox" id="hotFilter"> Горячее
-      </label>
-      <label class="search-checkbox-label">
-        <input type="checkbox" id="newFilter"> Новое
-      </label>
+      <!-- Наличие -->
+      <select id="stockFilter" class="search-select">
+        <option value="all">Все (в наличии и нет)</option>
+        <option value="available">Только в наличии</option>
+      </select>
+
+      <!-- Метки -->
+      <select id="tagFilter" class="search-select">
+        <option value="all">Все метки</option>
+        <option value="new">Новинки (NEW)</option>
+        <option value="limited">Редкие (Limited)</option>
+        <option value="hot">Горячие (Hot)</option>
+      </select>
     </div>
   </div>
 
@@ -426,17 +429,13 @@
 <script>
 let itemsData = [];
 
-// Элементы поиска и фильтров
 const container = document.getElementById('products');
 const searchInput = document.getElementById('search');
 const serverSelect = document.getElementById('serverFilter');
-const stockCheckbox = document.getElementById('stockFilter');
-const rareCheckbox = document.getElementById('rareFilter');
-const hotCheckbox = document.getElementById('hotFilter');
-const newCheckbox = document.getElementById('newFilter');
+const stockSelect = document.getElementById('stockFilter');
+const tagSelect = document.getElementById('tagFilter');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
-// Элементы шторки
 const overlay = document.getElementById('overlay');
 const drawer = document.getElementById('drawer');
 const closeDrawerBtn = document.getElementById('closeDrawer');
@@ -452,34 +451,30 @@ fetch('./items.json')
   })
   .catch(err => console.error('Ошибка:', err));
 
-// Функция отрисовки
+// Отрисовка
 function renderItems() {
   container.innerHTML = '';
   
   const query = searchInput.value.toLowerCase();
   const selectedServer = serverSelect.value;
-  const filterStock = stockCheckbox.checked;
-  const filterRare = rareCheckbox.checked;
-  const filterHot = hotCheckbox.checked;
-  const filterNew = newCheckbox.checked;
+  const stockValue = stockSelect.value;
+  const tagValue = tagSelect.value;
 
   const filtered = itemsData.filter(item => {
-    // 1. Поиск по имени
     const matchesSearch = item.name.toLowerCase().includes(query);
-    
-    // 2. Поиск по вкладке категории
     const matchesCategory = currentCategory === 'all' || (item.category && item.category.toLowerCase() === currentCategory.toLowerCase());
-    
-    // 3. Поиск по серверу
     const matchesServer = selectedServer === 'all' || (item.servers && item.servers.includes(selectedServer));
     
-    // 4. Дополнительные чекбоксы
-    const matchesStock = !filterStock || (item.count && item.count > 0);
-    const matchesRare = !filterRare || item.isRare === true;
-    const matchesHot = !filterHot || item.isHot === true;
-    const matchesNew = !filterNew || item.isNew === true;
+    // Фильтр по наличию (если выбрано available, то скрываем элементы с count <= 0)
+    const matchesStock = stockValue === 'all' || (item.count && item.count > 0);
+    
+    // Фильтр по меткам
+    let matchesTag = true;
+    if (tagValue === 'new') matchesTag = item.isNew === true;
+    if (tagValue === 'limited') matchesTag = item.isRare === true;
+    if (tagValue === 'hot') matchesTag = item.isHot === true;
 
-    return matchesSearch && matchesCategory && matchesServer && matchesStock && matchesRare && matchesHot && matchesNew;
+    return matchesSearch && matchesCategory && matchesServer && matchesStock && matchesTag;
   });
 
   filtered.forEach(item => {
@@ -487,30 +482,42 @@ function renderItems() {
     card.className = 'card';
 
     const tagClass = (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
+    const isOutOfStock = !item.count || item.count === 0;
+
+    // Генерируем HTML для угловой метки товара
+    let badgeHtml = '';
+    if (item.isNew) badgeHtml = '<span class="badge new">NEW</span>';
+    else if (item.isHot) badgeHtml = '<span class="badge hot">Hot</span>';
+    else if (item.isRare) badgeHtml = '<span class="badge limited">Limited</span>';
 
     card.innerHTML = `
       <div class="image-wrapper">
+        ${badgeHtml}
         <img src="${item.image}" alt="${item.name}">
       </div>
       <div class="card-body">
         <div class="tag ${tagClass}">${item.category || 'Другое'}</div>
         <h3 class="card-title">${item.name}</h3>
         <p class="card-description">${item.description || ''}</p>
-        <div class="card-footer">
+        
+        <!-- Вывод цены на карточку -->
+        <div style="font-size: 16px; font-weight: bold; color: #2e7d32; margin-bottom: 12px;">
+          ${item.price || 0} ₽
+        </div>
+
+        <div class="card-footer ${isOutOfStock ? 'out-of-stock' : ''}">
           <span>В наличии: <strong>${item.count || 0} шт.</strong></span>
           <button class="cart-btn" title="Добавить в корзину">🛒</button>
         </div>
       </div>
     `;
 
-    // Клик по корзине
     const cartBtn = card.querySelector('.cart-btn');
     cartBtn.addEventListener('click', (e) => {
       e.stopPropagation(); 
       alert(`Товар "${item.name}" добавлен в корзину!`);
     });
 
-    // Клик по карточке открывает шторку
     card.addEventListener('click', () => openDrawer(item));
     container.appendChild(card);
   });
@@ -542,15 +549,11 @@ function closeDrawer() {
 closeDrawerBtn.addEventListener('click', closeDrawer);
 overlay.addEventListener('click', closeDrawer);
 
-// Слушатели событий на все элементы фильтрации
 searchInput.addEventListener('input', renderItems);
 serverSelect.addEventListener('change', renderItems);
-stockCheckbox.addEventListener('change', renderItems);
-rareCheckbox.addEventListener('change', renderItems);
-hotCheckbox.addEventListener('change', renderItems);
-newCheckbox.addEventListener('change', renderItems);
+stockSelect.addEventListener('change', renderItems);
+tagSelect.addEventListener('change', renderItems);
 
-// Переключение категорий под поиском
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
