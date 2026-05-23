@@ -1076,16 +1076,83 @@ openFavBtn.addEventListener('click', () => {
   renderItems(); 
 });
 
-openCartBtn.addEventListener('click', openCartDrawer);
+// Функция гарантированного закрытия абсолютно всех окон, шторок и оверлея
+function closeAllDrawers() {
+  overlay.classList.remove('active');
+  productDrawer.classList.remove('active');
+  cartDrawer.classList.remove('active');
+  appleModal.classList.remove('active');
+}
+
+// Привязка обработчиков закрытия на крестики и затемненный фон (оверлей)
 closeDrawerBtn.addEventListener('click', closeAllDrawers);
 closeCartDrawerBtn.addEventListener('click', closeAllDrawers);
-overlay.addEventListener('click', closeAllDrawers);
+modalCloseBtn.addEventListener('click', closeAllDrawers);
+overlay.addEventListener('click', closeAllDrawers); // Клик по любому месту вне шторки
 
+// Клик по кнопке корзины в шапке
+openCartBtn.addEventListener('click', openCartDrawer);
+
+// Клик по большой зеленой кнопке внутри шторки товара
+drawerAddCartBtn.addEventListener('click', () => {
+  if (!activeItemForDrawer || !activeItemForDrawer.count || activeItemForDrawer.count === 0) return;
+  addToCart(activeItemForDrawer);
+});
+
+// Клик по кнопке «В каталог» на центральной плашке яблок
+modalGoCatalogBtn.addEventListener('click', () => {
+  // Сначала полностью закрываем плашку и оверлей
+  closeAllDrawers();
+  
+  // Активируем вкладку главной категории Окрасы
+  filterBtns.forEach(b => b.classList.remove('active'));
+  const colorsBtn = Array.from(filterBtns).find(b => b.getAttribute('data-category') === 'Окрасы');
+  if (colorsBtn) {
+    colorsBtn.classList.add('active');
+    currentCategory = 'Окрасы';
+    subFiltersContainer.style.display = 'flex'; // открываем панель ЗЯ / ИЗЯ
+  }
+  
+  // Сбрасываем активные стили кнопок подкатегорий
+  subFilterBtns.forEach(sb => sb.classList.remove('active'));
+  
+  // Интеллектуальное перенаправление в зависимости от типа яблока
+  if (currentAppleType === 'изя') {
+    const izyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
+    if (izyaBtn) izyaBtn.classList.add('active');
+    currentSubCategory = 'ИЗЯ';
+    showToast('Перенаправление в каталог ИЗЯ...');
+  } else {
+    const zyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ЗЯ');
+    if (zyaBtn) zyaBtn.classList.add('active');
+    currentSubCategory = 'ЗЯ';
+    showToast('Перенаправление в каталог ЗЯ...');
+  }
+  
+  renderItems(); // Обновляем витрину
+});
+
+// Клик по сердечку в шапке (Виртуальная страница Избранного)
+openFavBtn.addEventListener('click', () => {
+  isFavoritesPage = !isFavoritesPage; 
+  
+  if (isFavoritesPage) {
+    openFavBtn.classList.add('fav-page-active'); 
+    showToast('Переход на страницу Избранного ❤️');
+  } else {
+    openFavBtn.classList.remove('fav-page-active');
+    showToast('Возврат в общий каталог товаров');
+  }
+  renderItems(); 
+});
+
+// Слушатели ввода поиска и выпадающих селекторов
 searchInput.addEventListener('input', renderItems);
 serverSelect.addEventListener('change', renderItems);
 stockSelect.addEventListener('change', renderItems);
 tagSelect.addEventListener('change', renderItems);
 
+// Обработка кликов по главным категориям
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
@@ -1102,6 +1169,7 @@ filterBtns.forEach(btn => {
   });
 });
 
+// Обработка кликов по подкатегориям ЗЯ / ИЗЯ
 subFilterBtns.forEach(sBtn => {
   sBtn.addEventListener('click', () => {
     subFilterBtns.forEach(b => b.classList.remove('active'));
