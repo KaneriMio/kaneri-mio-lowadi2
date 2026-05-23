@@ -105,7 +105,7 @@
     }
     .filter-btn.active { background-color: var(--btn-active); color: #fff; }
 
-    /* Блок подстраниц для ЗЯ и ИЗЯ */
+    /* Блок виртуальных подстраниц ЗЯ и ИЗЯ */
     .sub-filters {
       display: none;
       gap: 10px;
@@ -180,7 +180,6 @@
     .card-meta-text { font-size: 13px; color: #614635; font-weight: 500; margin-bottom: 4px; }
     .card-meta-text span { font-weight: normal; color: #777; }
 
-    /* Сделали текст описания на витрине более жирным */
     .card-description { font-size: 13px; color: #444; font-weight: 500; line-height: 1.5; margin: 8px 0 20px 0; flex-grow: 1; }
 
     .card-footer { border-top: 1px solid #f5f5f5; padding-top: 12px; font-size: 12px; color: #999; margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
@@ -213,8 +212,6 @@
     .info-box { background-color: var(--section-bg); border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.5; color: #4a4a4a; border-left: 4px solid #ebdcd0; }
     
     .note-box { background-color: #fff3e0; border-left: 4px solid #ffb74d; color: #b78103; font-weight: 500; }
-    
-    /* Исправлено: Предметы админа теперь отображаются без рамок и на прозрачном фоне */
     .admin-icons-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
     .admin-mini-icon { width: 36px; height: 36px; object-fit: contain; background: transparent; padding: 0; border: none; }
 
@@ -245,7 +242,6 @@
     
     .quantity-controls { display: flex; align-items: center; gap: 8px; margin-top: 5px; }
     .qty-btn { background: #fff; border: 1px solid #ddd; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; font-size: 14px; }
-    
     .remove-item-btn { position: absolute; top: 12px; right: 12px; background: none; border: none; color: #d32f2f; font-size: 16px; cursor: pointer; }
 
     .cart-footer-actions { border-top: 1px solid #eee; padding-top: 15px; display: flex; gap: 10px; align-items: center; }
@@ -253,9 +249,27 @@
     .clear-cart-btn { background-color: #d32f2f; width: 48px; height: 48px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
     .clear-cart-btn svg { width: 22px; height: 22px; }
 
-    .toast { position: fixed; bottom: 20px; right: 20px; background: var(--header-bg); color: #f7ede2; border-left: 5px solid var(--tag-colors); padding: 14px 20px; border-radius: 8px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(74,40,16,0.25); z-index: 2000; transform: translateY(100px); opacity: 0; transition: all 0.3s; }
+    /* Изменено: Всплывающее уведомление сверху справа, зелёное, с бледно-белой полоской слева */
+    .toast { 
+      position: fixed; 
+      top: 20px; 
+      right: 20px; 
+      background: #2e7d32; /* Насыщенный зелёный фон */
+      color: #fff; 
+      border-left: 5px solid rgba(255, 255, 255, 0.6); /* Бледно-белая вертикальная полоска */
+      padding: 14px 20px; 
+      border-radius: 8px; 
+      display: flex; 
+      align-items: center; 
+      gap: 15px; 
+      box-shadow: 0 4px 15px rgba(46,125,50,0.3); 
+      z-index: 2000; 
+      transform: translateY(-100px); /* Вылетает сверху */
+      opacity: 0; 
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    }
     .toast.show { transform: translateY(0); opacity: 1; }
-    .toast-close { background: none; border: none; color: var(--btn-inactive); font-size: 18px; cursor: pointer; padding: 0; margin-left: auto; }
+    .toast-close { background: none; border: none; color: rgba(255,255,255,0.8); font-size: 18px; cursor: pointer; padding: 0; margin-left: auto; }
 
     .popup-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); background: #fff; width: 90%; max-width: 400px; padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 3000; text-align: center; display: none; transition: transform 0.2s; }
     .popup-modal.active { display: block; transform: translate(-50%, -50%) scale(1); }
@@ -316,7 +330,7 @@
     <button class="filter-btn" data-category="Другое">Другое</button>
   </div>
 
-  <!-- Дополнительные Подстраницы (для ЗЯ и ИЗЯ) -->
+  <!-- Дополнительные Подстраницы -->
   <div class="sub-filters" id="subFiltersContainer">
     <button class="sub-filter-btn active" data-subcategory="all">Все окрасы</button>
     <button class="sub-filter-btn" data-subcategory="ЗЯ">Каталог ЗЯ</button>
@@ -347,18 +361,16 @@
     </div>
   </div>
 
-  <!-- Изменено: Обновленный интерактивный блок опций окраса -->
+  <!-- Блок выбора опций окраса -->
   <div id="d-options-container" style="display: none;">
     <div class="section-label">Настройка окраса</div>
     <div class="option-select-block">
-      <!-- Навесной ЧР подгружается из каталога -->
       <div class="option-row" id="opt-cr-row">
         <label for="opt-cr-select">Дополнительный ЧР:</label>
         <select id="opt-cr-select" class="option-select">
           <option value="none" data-price="0">Без предметов</option>
         </select>
       </div>
-      <!-- Навыки (+20р) -->
       <div class="option-row" id="opt-skills-row">
         <label for="opt-skills-select">С навыками:</label>
         <select id="opt-skills-select" class="option-select">
@@ -366,7 +378,6 @@
           <option value="С навыками" data-price="20">Да (+20₽)</option>
         </select>
       </div>
-      <!-- ФК (+30р) -->
       <div class="option-row" id="opt-fk-row">
         <label for="opt-fk-select">С ФК:</label>
         <select id="opt-fk-select" class="option-select">
@@ -380,7 +391,6 @@
   <div class="section-label" id="d-servers-label">Доступные сервера</div>
   <div class="server-flags-list" id="d-flags"></div>
 
-  <!-- Эти два лейбла и боксы будут скрываться или меняться скриптом -->
   <div class="section-label" id="d-desc-label">Описание</div>
   <div class="info-box" id="d-description">Описание предмета</div>
 
@@ -489,17 +499,17 @@ let currentCategory = 'all';
 let currentSubCategory = 'all'; 
 let toastTimeout;
 
-// Подгрузка данных из items.json
+// Подгрузка данных каталога
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
     itemsData = data;
-    buildNavesDropdown(); // Наполняем выпадающий список навесных ЧР из каталога
+    buildNavesDropdown(); 
     renderItems();
   })
   .catch(err => console.error('Ошибка:', err));
 
-// Функция динамического поиска навесных предметов в общем каталоге
+// Заполнение выпадающего списка ЧР предметами с меткой isNaves
 function buildNavesDropdown() {
   optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
   itemsData.forEach(item => {
@@ -513,7 +523,36 @@ function buildNavesDropdown() {
   });
 }
 
-// Отрисовка карточек с улучшенным плотным шрифтом
+// Изменено: Функция мгновенного перерасчёта цены прямо внутри шторки информации
+function recalcDrawerPrice() {
+  if (!activeItemForDrawer) return;
+  
+  let currentPrice = activeItemForDrawer.price || 0;
+  
+  // Добавляем стоимость навесного ЧР
+  const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
+  if (chosenCrOpt) {
+    currentPrice += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
+  }
+  
+  // Добавляем фиксированную стоимость ФК (+30)
+  if (optFkSelect.value !== 'none') {
+    currentPrice += 30;
+  }
+  
+  // Добавляем фиксированную стоимость Навыков (+20)
+  if (optSkillsSelect.value !== 'none') {
+    currentPrice += 20;
+  }
+  
+  document.getElementById('d-price').innerText = `${currentPrice} ₽`;
+}
+
+// Вешаем слушатели событий на переключение селекторов в шторке для живого перерасчета
+optCrSelect.addEventListener('change', recalcDrawerPrice);
+optFkSelect.addEventListener('change', recalcDrawerPrice);
+optSkillsSelect.addEventListener('change', recalcDrawerPrice);
+
 function renderItems() {
   container.innerHTML = '';
   const query = searchInput.value.toLowerCase();
@@ -552,7 +591,6 @@ function renderItems() {
     else if (item.isHot) badgeHtml = '<span class="badge hot">Hot</span>';
     else if (item.isRare) badgeHtml = '<span class="badge limited">Limited</span>';
 
-    // Текстовые данные на плитках ЗЯ и ИЗЯ по вашему правилу
     let cardMetaHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
       const type = (item.colorType || 'ЗЯ').toUpperCase();
@@ -631,7 +669,6 @@ function addToCart(item) {
     return;
   }
 
-  // Расчет динамической стоимости модификаций окраса
   let selectedCr = "none";
   let selectedFk = "none";
   let selectedSkills = "none";
@@ -642,13 +679,11 @@ function addToCart(item) {
     selectedFk = optFkSelect.value;
     selectedSkills = optSkillsSelect.value;
 
-    // Берем цену ЧР прямо из выбранного тега <option>
     const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
     if (chosenCrOpt) {
       extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
     }
     
-    // Прибавляем фиксированные наценки для навыков (+20) и ФК (+30)
     if (selectedFk !== 'none') extraCost += 30;
     if (selectedSkills !== 'none') extraCost += 20;
   }
@@ -678,7 +713,7 @@ function addToCart(item) {
   renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
-// Функция обновления интерфейса корзины с выводом опций по вашему примеру
+// Функция обновления интерфейса корзины — строка копий полностью удалена!
 function updateCartUI() {
   cartItemsContainer.innerHTML = '';
   let total = 0;
@@ -691,14 +726,11 @@ function updateCartUI() {
     const cartItemEl = document.createElement('div');
     cartItemEl.className = 'cart-item';
 
-    // Формирование текстовых строк в корзине строго по вашему примеру
+    // Формирование метаданных в корзине: без вывода количества копий!
     let optionsMetaHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
       const type = (item.colorType || 'ЗЯ').toUpperCase();
       let extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
-      if (type === 'ИЗЯ') {
-        extraInfo += `<div>Копий: ${item.copies || 0} шт.</div>`;
-      }
       
       let addons = [];
       if (item.chosenCr !== 'none') addons.push(`Доп ЧР: ${item.chosenCr} х1`);
@@ -795,7 +827,6 @@ function showToast(msg) {
 function hideToast() { cartToast.classList.remove('show'); }
 closeToastBtn.addEventListener('click', hideToast);
 
-// Открытие инфо-шторки с удалением лишних блоков у окрасов
 function openProductDrawer(item) {
   activeItemForDrawer = item;
   cartDrawer.classList.remove('active');
@@ -807,7 +838,7 @@ function openProductDrawer(item) {
   tagEl.innerText = item.category || 'Другое';
   tagEl.className = 'tag ' + (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
 
-  // Очистка и заполнение админских мини-иконок на прозрачном фоне
+  // Очистка и наполнение админских мини-иконок
   const noteContainer = document.getElementById('d-note-container');
   const noteText = document.getElementById('d-note-text');
   const adminIconsGrid = document.getElementById('d-admin-icons');
@@ -840,7 +871,7 @@ function openProductDrawer(item) {
     optionsContainer.style.display = 'none';
   }
 
-  // Изменено: Удаление «Описание масти» и «Как получить» из шторки у окрасов
+  // Скрытие лишней информации у окрасов
   const descLabel = document.getElementById('d-desc-label');
   const descBox = document.getElementById('d-description');
   const getLabel = document.getElementById('d-get-label');
@@ -862,25 +893,11 @@ function openProductDrawer(item) {
 
   document.getElementById('d-flags').innerText = (item.servers || []).join(' ');
   document.getElementById('d-count').innerText = `${item.count || 0} шт`;
-  document.getElementById('d-price').innerText = `${item.price || 0} \u20bd`;
-
-  if (!item.count || item.count === 0) {
-    drawerAddCartBtn.style.background = '#ccc';
-    drawerAddCartBtn.style.cursor = 'not-allowed';
-    drawerAddCartBtn.innerText = 'Нет в наличии';
-  } else {
-    drawerAddCartBtn.style.background = '#2e7d32';
-    drawerAddCartBtn.style.cursor = 'pointer';
-    drawerAddCartBtn.innerHTML = `
-      <svg viewBox="0 0 24 24">
-        <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" fill="none"/>
-        <circle cx="8" cy="21" r="1.5" fill="#fff"/>
-        <circle cx="18" cy="21" r="1.5" fill="#fff"/>
-      </svg> Добавить в корзину`;
-  }
-
+  
+  // Вызываем стартовый расчет, чтобы шторка сразу показала базовую цену
   overlay.classList.add('active');
   productDrawer.classList.add('active');
+  recalcDrawerPrice(); 
 }
 
 drawerAddCartBtn.addEventListener('click', () => {
@@ -916,7 +933,7 @@ modalGoCatalogBtn.addEventListener('click', () => {
     subFiltersContainer.style.display = 'flex';
   }
   subFilterBtns.forEach(sb => sb.classList.remove('active'));
-  subFilterBtns[0].classList.add('active');
+  subFilterBtns.classList.add('active');
   currentSubCategory = 'all';
   renderItems();
 });
