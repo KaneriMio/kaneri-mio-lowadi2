@@ -53,248 +53,22 @@
       align-items: center;
     }
 
-    .header-cart-btn svg {
-      width: 28px;
-      height: 28px;
-      fill: none;
-      stroke: #fff;
-      stroke-width: 2;
-    }
+    .header-cart-btn svg { width: 28px; height: 28px; fill: none; stroke: #fff; stroke-width: 2; }
+    .cart-badge { position: absolute; top: -5px; right: -8px; background: #d32f2f; color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 10px; }
 
-    .cart-badge {
-      position: absolute;
-      top: -5px;
-      right: -8px;
-      background: #d32f2f;
-      color: #fff;
-      font-size: 11px;
-      padding: 2px 6px;
-      border-radius: 10px;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px 15px;
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 15px; }
 
     .search-panel {
-      background: #fff;
-      padding: 12px 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 20px;
+      background: #fff; padding: 12px 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 20px;
     }
 
-    .search-input {
-      flex: 1;
-      min-width: 200px;
-      padding: 10px;
-      border: 1px solid #eee;
-      border-radius: 6px;
-      font-size: 14px;
-      outline: none;
-    }
-
+    .search-input { flex: 1; min-width: 200px; padding: 10px; border: 1px solid #eee; border-radius: 6px; font-size: 14px; outline: none; }
     .search-filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-    .search-select {
-      padding: 10px 12px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      background-color: #fff;
-      font-size: 13px;
-      outline: none;
-      color: #4a2a16;
-      cursor: pointer;
-    }
+    .search-select { padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff; font-size: 13px; outline: none; color: #4a2a16; cursor: pointer; }
 
-    /* Главные категории */
     .filters { display: flex; gap: 10px; margin-bottom: 15px; overflow-x: auto; }
-    .filter-btn {
-      background-color: var(--btn-inactive);
-      color: #4a2a16;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 14px;
-      white-space: nowrap;
-    }
+    .filter-btn { background-color: var(--btn-inactive); color: #4a2a16; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px; white-space: nowrap; }
     .filter-btn.active { background-color: var(--btn-active); color: #fff; }
-    /* Блок подстраниц для ЗЯ и ИЗЯ (выплывает при выборе Окрасов) */
-    .sub-filters {
-      display: none;
-      gap: 10px;
-      margin-bottom: 30px;
-      padding-left: 10px;
-      border-left: 3px solid var(--btn-active);
-    }
-    .sub-filter-btn {
-      background-color: #ffffff;
-      color: #84522b;
-      border: 1px solid #84522b;
-      padding: 8px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 12px;
-    }
-    .sub-filter-btn.active {
-      background-color: #84522b;
-      color: #ffffff;
-    }
-
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -150%;
-      width: 50%; height: 100%;
-      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-      transform: skewX(-25deg);
-      transition: none;
-    }
-
-    .card:hover { 
-      transform: translateY(-5px); 
-      box-shadow: 0 12px 24px rgba(74, 40, 16, 0.15);
-    }
-
-    .card:hover::after { left: 150%; transition: left 0.6s ease-in-out; }
-
-    .image-wrapper { height: 180px; display: flex; align-items: center; justify-content: center; padding: 20px; position: relative; overflow: hidden; }
-    .card img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform 0.3s ease; }
-    .card:hover img { transform: scale(1.08); }
-
-    .badge { position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 20px; color: #fff; text-transform: uppercase; z-index: 2; }
-    .badge.new { background-color: #2e7d32; }
-    .badge.hot { background-color: #d32f2f; }
-    .badge.limited { background-color: #f57c00; }
-
-    .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; border-top: 1px solid #f0f0f0; }
-    
-    .tag { align-self: flex-start; font-size: 10px; font-weight: bold; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; color: #fff; margin-bottom: 12px; }
-    .tag.черный-рынок { background-color: var(--tag-black-market); }
-    .tag.валюта { background-color: var(--tag-currency); }
-    .tag.окрасы { background-color: var(--tag-colors); }
-    .tag.другое { background-color: var(--tag-other); }
-
-    .card-title { font-size: 18px; font-weight: bold; margin: 0 0 8px 0; color: #222; }
-    .card-description { font-size: 13px; color: #666; line-height: 1.5; margin: 0 0 20px 0; flex-grow: 1; }
-
-    .card-footer { border-top: 1px solid #f5f5f5; padding-top: 12px; font-size: 12px; color: #999; margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
-    .card-footer strong { color: #333; }
-    .out-of-stock { color: #d32f2f !important; }
-    .out-of-stock strong { color: #d32f2f !important; }
-
-    .cart-btn {
-      background: #2e7d32; border: none; border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s;
-    }
-    .cart-btn:hover { background: #215d25; }
-    .cart-btn svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; }
-
-    .card-qty-controls {
-      display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #ddd; padding: 3px 6px; border-radius: 8px; height: 36px;
-    }
-    .card-qty-btn {
-      background: #f5f5f5; border: 1px solid #e0e0e0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 14px; color: #333;
-    }
-    .card-qty-btn:hover { background: #e0e0e0; }
-    .card-qty-value { font-size: 13px; font-weight: bold; min-width: 14px; text-align: center; color: #333; }
-
-    /* ШТОРКИ */
-    .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
-    .drawer-overlay.active { opacity: 1; visibility: visible; }
-
-    .drawer { position: fixed; top: 0; right: -460px; width: 100%; max-width: 450px; height: 100%; background: #fff; z-index: 1001; box-shadow: -5px 0 25px rgba(0,0,0,0.15); transition: right 0.3s ease-in-out; display: flex; flex-direction: column; padding: 24px; overflow-y: auto; }
-    .drawer.active { right: 0 !important; }
-
-    .drawer-close { align-self: flex-end; background: none; border: none; font-size: 24px; cursor: pointer; color: #999; }
-    .drawer-image-wrapper { display: flex; justify-content: center; margin-bottom: 20px; }
-    .drawer-image-wrapper img { max-height: 150px; object-fit: contain; }
-    .drawer-title { font-size: 24px; font-weight: bold; margin: 0 0 12px 0; color: #3b2314; }
-
-    .section-label { font-size: 11px; font-weight: bold; color: #a38570; text-transform: uppercase; margin: 20px 0 8px 0; letter-spacing: 0.5px; }
-    .info-box { background-color: var(--section-bg); border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.5; color: #4a4a4a; border-left: 4px solid #ebdcd0; }
-    
-    .note-box { background-color: #fff3e0; border-left: 4px solid #ffb74d; color: #b78103; font-weight: 500; }
-    
-    .server-flags-list { display: flex; gap: 8px; font-size: 20px; background: var(--section-bg); padding: 12px; border-radius: 8px; }
-
-    .drawer-row { display: flex; gap: 15px; margin-top: 20px; }
-    .drawer-col { flex: 1; }
-    .status-box { background: var(--section-bg); padding: 14px; border-radius: 8px; font-weight: bold; font-size: 15px; color: #614635; text-align: center; }
-    .price-box { background: #e8f5e9; border: 1px solid #c8e6c9; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; color: #2e7d32; text-align: center; }
-
-    .drawer-buy-btn { background-color: #2e7d32; color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 16px; font-weight: bold; width: 100%; margin-top: 25px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.2s; }
-    .drawer-buy-btn:hover { background-color: #215d25; }
-    .drawer-buy-btn svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; }
-
-    /* КОРЗИНА */
-    .cart-items-list { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
-    .cart-item { display: flex; gap: 12px; background: var(--section-bg); padding: 12px; border-radius: 8px; position: relative; border: 1px solid #eee; }
-    .cart-item img { width: 60px; height: 60px; object-fit: contain; }
-    .cart-item-details { flex-grow: 1; display: flex; flex-direction: column; gap: 4px; }
-    .cart-item-name { font-weight: bold; font-size: 14px; }
-    .cart-item-meta { font-size: 12px; color: #666; }
-    .cart-item-price { font-weight: bold; color: #2e7d32; font-size: 13px; }
-    
-    .quantity-controls { display: flex; align-items: center; gap: 8px; margin-top: 5px; }
-    .qty-btn { background: #fff; border: 1px solid #ddd; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; font-size: 14px; }
-    
-    .remove-item-btn { position: absolute; top: 12px; right: 12px; background: none; border: none; color: #d32f2f; font-size: 16px; cursor: pointer; }
-
-    .cart-footer-actions { border-top: 1px solid #eee; padding-top: 15px; display: flex; gap: 10px; align-items: center; }
-    .buy-btn { flex-grow: 1; background-color: #2e7d32; color: white; border: none; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; }
-    .clear-cart-btn { background-color: #d32f2f; width: 48px; height: 48px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .clear-cart-btn svg { width: 22px; height: 22px; }
-
-    /* Брендовое кофейно-коричневое уведомление (Toast) */
-    .toast { 
-      position: fixed; bottom: 20px; right: 20px; 
-      background: var(--header-bg); 
-      color: #f7ede2; border-left: 5px solid var(--tag-colors);
-      padding: 14px 20px; border-radius: 8px; display: flex; 
-      align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(74,40,16,0.25); 
-      z-index: 2000; transform: translateY(100px); opacity: 0; transition: all 0.3s; 
-    }
-    .toast.show { transform: translateY(0); opacity: 1; }
-    .toast-close { background: none; border: none; color: var(--btn-inactive); font-size: 18px; cursor: pointer; padding: 0; margin-left: auto; }
-
-    /* Всплывающее окно предупреждения Навеса (По центру) */
-    .popup-modal {
-      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9);
-      background: #fff; width: 90%; max-width: 400px; padding: 25px;
-      border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      z-index: 3000; text-align: center; display: none; transition: transform 0.2s;
-    }
-    .popup-modal.active { display: block; transform: translate(-50%, -50%) scale(1); }
-    .popup-title { font-size: 20px; font-weight: bold; margin-bottom: 12px; color: #4a2810; }
-    .popup-text { font-size: 14px; color: #555; line-height: 1.5; margin-bottom: 20px; }
-    .popup-actions { display: flex; gap: 12px; justify-content: center; }
-    .popup-btn { padding: 10px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; }
-    .popup-btn-catalog { background-color: #2e7d32; color: #fff; }
-    .popup-btn-close { background-color: #eee; color: #333; }
-  </style>
-</head>
 <body>
 
 <header>
@@ -356,7 +130,6 @@
 </div>
 
 <div class="drawer-overlay" id="overlay"></div>
-
 <!-- 1. ШТОРКА ИНФОРМАЦИИ О ТОВАРЕ -->
 <div class="drawer" id="drawer">
   <button class="drawer-close" id="closeDrawer">&times;</button>
@@ -366,10 +139,50 @@
   <h2 class="drawer-title" id="d-name">Название</h2>
   <div class="tag" id="d-tag">Категория</div>
 
-  <!-- Блок примечания -->
+  <!-- Блок примечания и мини-иконок админа -->
   <div id="d-note-container" style="display: none;">
     <div class="section-label">Примечание</div>
-    <div class="info-box note-box">⚠️ Покупка только навесом</div>
+    <div class="info-box note-box">
+      <div id="d-note-text">⚠️ Покупка только навесом</div>
+      <!-- Сетка мини-иконок, которые выставляет админ -->
+      <div class="admin-icons-grid" id="d-admin-icons"></div>
+    </div>
+  </div>
+
+  <!-- Новое: Интерактивный блок выбора опций (ЧР, ФК, навыки) для Окрасов -->
+  <div id="d-options-container" style="display: none;">
+    <div class="section-label">Настройка окраса</div>
+    <div class="option-select-block">
+      <!-- Селектор предметов ЧР -->
+      <div class="option-row" id="opt-cr-row" style="display: none;">
+        <label for="opt-cr-select">Дополнительный ЧР:</label>
+        <select id="opt-cr-select" class="option-select">
+          <option value="none">Без предметов</option>
+          <option value="Философский камень">Философский камень (+100₽)</option>
+          <option value="Длань Фемиды">Длань Фемиды (+50₽)</option>
+          <option value="Кровь Медузы">Кровь Медузы (+70₽)</option>
+        </select>
+      </div>
+      <!-- Селектор ФК -->
+      <div class="option-row" id="opt-fk-row" style="display: none;">
+        <label for="opt-fk-select">ФК (Фон Кавалок):</label>
+        <select id="opt-fk-select" class="option-select">
+          <option value="none">Обычный фон</option>
+          <option value="Летний пейзаж">Летний пейзаж (+30₽)</option>
+          <option value="Зимняя сказка">Зимняя сказка (+40₽)</option>
+        </select>
+      </div>
+      <!-- Селектор навыков -->
+      <div class="option-row" id="opt-skills-row" style="display: none;">
+        <label for="opt-skills-select">Комплект навыков:</label>
+        <select id="opt-skills-select" class="option-select">
+          <option value="none">Без навыков</option>
+          <option value="100 навыков">100 навыков (+20₽)</option>
+          <option value="500 навыков">500 навыков (+60₽)</option>
+          <option value="1000 навыков">1000 навыков (+100₽)</option>
+        </select>
+      </div>
+    </div>
   </div>
 
   <div class="section-label">Доступные сервера</div>
@@ -414,7 +227,6 @@
 
   <div class="cart-footer-actions">
     <button class="buy-btn" id="checkoutBtn">Приобрести</button>
-    <!-- Исправлено: Качественный SVG-контур мусорного бака с полосками -->
     <button class="clear-cart-btn" id="clearCartBtn" title="Очистить корзину">
       <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
@@ -452,11 +264,9 @@ const stockSelect = document.getElementById('stockFilter');
 const tagSelect = document.getElementById('tagFilter');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
-// Элементы подстраниц
 const subFiltersContainer = document.getElementById('subFiltersContainer');
 const subFilterBtns = document.querySelectorAll('.sub-filter-btn');
 
-// Элементы окон и оверлея
 const overlay = document.getElementById('overlay');
 const productDrawer = document.getElementById('drawer');
 const cartDrawer = document.getElementById('cartDrawer');
@@ -466,7 +276,14 @@ const openCartBtn = document.getElementById('openCartBtn');
 const closeCartDrawerBtn = document.getElementById('closeCartDrawer');
 const drawerAddCartBtn = document.getElementById('drawerAddCartBtn');
 
-// Элементы кнопок центральной плашки
+// Элементы настройки окрасов в шторке
+const optCrRow = document.getElementById('opt-cr-row');
+const optFkRow = document.getElementById('opt-fk-row');
+const optSkillsRow = document.getElementById('opt-skills-row');
+const optCrSelect = document.getElementById('opt-cr-select');
+const optFkSelect = document.getElementById('opt-fk-select');
+const optSkillsSelect = document.getElementById('opt-skills-select');
+
 const modalGoCatalogBtn = document.getElementById('modalGoCatalogBtn');
 const modalCloseBtn = document.getElementById('modalCloseBtn');
 
@@ -480,19 +297,19 @@ const toastMessage = document.getElementById('toastMessage');
 const closeToastBtn = document.getElementById('closeToastBtn');
 
 let currentCategory = 'all';
-let currentSubCategory = 'all'; // Хранит состояние 'all', 'ЗЯ', 'ИЗЯ'
+let currentSubCategory = 'all'; 
 let toastTimeout;
 
-// Загрузка каталога предметов
+// Загрузка
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
     itemsData = data;
     renderItems();
   })
-  .catch(err => console.error('Ошибка загрузки каталога:', err));
+  .catch(err => console.error('Ошибка:', err));
 
-// Отрисовка каталога с учетом категорий и подстраниц
+// Отрисовка витрины по вашим правилам
 function renderItems() {
   container.innerHTML = '';
   const query = searchInput.value.toLowerCase();
@@ -504,7 +321,6 @@ function renderItems() {
     const matchesSearch = item.name.toLowerCase().includes(query);
     const matchesCategory = currentCategory === 'all' || (item.category && item.category.toLowerCase() === currentCategory.toLowerCase());
     
-    // Фильтрация по подстраницам ЗЯ / ИЗЯ (работает только в категории Окрасы)
     let matchesSubCategory = true;
     if (currentCategory.toLowerCase() === 'окрасы' && currentSubCategory !== 'all') {
       matchesSubCategory = item.colorType && item.colorType.toLowerCase() === currentSubCategory.toLowerCase();
@@ -531,6 +347,20 @@ function renderItems() {
     if (item.isNew) badgeHtml = '<span class="badge new">NEW</span>';
     else if (item.isHot) badgeHtml = '<span class="badge hot">Hot</span>';
     else if (item.isRare) badgeHtml = '<span class="badge limited">Limited</span>';
+
+    // Формируем уникальные строки под каждый тип окраса
+    let cardMetaHtml = '';
+    if (item.category && item.category.toLowerCase() === 'окрасы') {
+      const type = (item.colorType || 'ЗЯ').toUpperCase();
+      if (type === 'ЗЯ') {
+        cardMetaHtml = `<div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>`;
+      } else if (type === 'ИЗЯ') {
+        cardMetaHtml = `
+          <div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>
+          <div class="card-meta-text">Копий: <span>${item.copies || 0} шт.</span></div>
+        `;
+      }
+    }
 
     const inCart = cart.find(c => c.id === item.id);
 
@@ -566,6 +396,7 @@ function renderItems() {
       <div class="card-body">
         <div class="tag ${tagClass}">${item.category || 'Другое'}</div>
         <h3 class="card-title">${item.name}</h3>
+        ${cardMetaHtml}
         <p class="card-description">${item.description || ''}</p>
         <div style="font-size: 16px; font-weight: bold; color: #2e7d32; margin-bottom: 12px;">${item.price || 0} ₽</div>
         <div class="card-footer ${isOutOfStock ? 'out-of-stock' : ''}">
@@ -588,17 +419,39 @@ function renderItems() {
   });
 }
 
-// Попытка добавления в корзину с проверкой на Золотое Яблоко
 function addToCart(item) {
   if (item.name.trim().toLowerCase() === 'золотое яблоко') {
-    // Закрываем инфо-шторку, если она открыта, и выводим центральную плашку
     productDrawer.classList.remove('active');
     overlay.classList.add('active');
     appleModal.classList.add('active');
-    return; // Прерываем добавление в корзину
+    return;
   }
 
-  const existingProduct = cart.find(cartItem => cartItem.id === item.id);
+  // Считываем выбранные опции из шторки (если товар добавляется через неё)
+  let selectedCr = "none";
+  let selectedFk = "none";
+  let selectedSkills = "none";
+  let extraCost = 0;
+
+  if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
+    selectedCr = optCrSelect.value;
+    selectedFk = optFkSelect.value;
+    selectedSkills = optSkillsSelect.value;
+
+    if (selectedCr === "Философский камень") extraCost += 100;
+    if (selectedCr === "Длань Фемиды") extraCost += 50;
+    if (selectedCr === "Кровь Медузы") extraCost += 70;
+    if (selectedFk === "Летний пейзаж") extraCost += 30;
+    if (selectedFk === "Зимняя сказка") extraCost += 40;
+    if (selectedSkills === "100 навыков") extraCost += 20;
+    if (selectedSkills === "500 навыков") extraCost += 60;
+    if (selectedSkills === "1000 навыков") extraCost += 100;
+  }
+
+  // Создаем уникальный ключ для товара в корзине с учётом его кастомной сборки
+  const cartItemId = `${item.id}_${selectedCr}_${selectedFk}_${selectedSkills}`;
+  const existingProduct = cart.find(cartItem => cartItem.cartKey === cartItemId);
+  
   if (existingProduct) {
     if (existingProduct.quantity >= item.count) {
       showToast(`В наличии всего ${item.count} шт.`);
@@ -606,14 +459,22 @@ function addToCart(item) {
     }
     existingProduct.quantity++;
   } else {
-    cart.push({ ...item, quantity: 1 });
+    cart.push({ 
+      ...item, 
+      cartKey: cartItemId,
+      price: item.price + extraCost, // Добавляем наценку к базовой стоимости
+      chosenCr: selectedCr,
+      chosenFk: selectedFk,
+      chosenSkills: selectedSkills,
+      quantity: 1 
+    });
   }
   
   updateCartUI();
   renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
-// Функция обновления интерфейса корзины и цен
+// Функция обновления интерфейса корзины с кастомными сборками
 function updateCartUI() {
   cartItemsContainer.innerHTML = '';
   let total = 0;
@@ -627,31 +488,36 @@ function updateCartUI() {
     cartItemEl.className = 'cart-item';
 
     // Формирование метаданных для категории Окрасы (ЗЯ/ИЗЯ)
-    let colorMetaHtml = '';
+    let optionsMetaHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
-      const type = item.colorType ? item.colorType.toUpperCase() : 'ЗЯ';
-      let extraInfo = '';
-      if (type === 'ЗЯ') {
-        extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
-      } else if (type === 'ИЗЯ') {
-        extraInfo = `<div>Автор: ${item.author || 'Не указан'} | Копии: ${item.copies || 0} шт.</div>`;
+      const type = (item.colorType || 'ЗЯ').toUpperCase();
+      let extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
+      if (type === 'ИЗЯ') {
+        extraInfo += `<div>Копий: ${item.copies || 0} шт.</div>`;
       }
-      colorMetaHtml = `<div class="cart-item-meta" style="color:#b17a53; font-weight:bold; margin-top:4px;">Категория: ${type}</div>${extraInfo}`;
+      
+      let addons = [];
+      if (item.chosenCr !== 'none') addons.push(`ЧР: ${item.chosenCr}`);
+      if (item.chosenFk !== 'none') addons.push(`Фон: ${item.chosenFk}`);
+      if (item.chosenSkills !== 'none') addons.push(item.chosenSkills);
+      
+      let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">+ ${addons.join(', ')}</div>` : '';
+      optionsMetaHtml = `<div class="cart-item-meta" style="color:#b17a53; font-weight:bold; margin-top:4px;">Категория: ${type}</div>${extraInfo}${addonsText}`;
     }
 
     cartItemEl.innerHTML = `
       <img src="${item.image}" alt="${item.name}">
       <div class="cart-item-details">
         <div class="cart-item-name">${item.name}</div>
-        ${colorMetaHtml}
+        ${optionsMetaHtml}
         <div class="cart-item-price" style="margin-top:4px;">${item.price * item.quantity} ₽</div>
         <div class="quantity-controls">
-          <button class="qty-btn" onclick="changeQty('${item.id}', -1)">-</button>
+          <button class="qty-btn" onclick="changeQtyByKey('${item.cartKey}', -1)">-</button>
           <span style="font-size: 13px; font-weight: bold; min-width: 15px; text-align: center;">${item.quantity}</span>
-          <button class="qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+          <button class="qty-btn" onclick="changeQtyByKey('${item.cartKey}', 1)">+</button>
         </div>
       </div>
-      <button class="remove-item-btn" onclick="removeFromCart('${item.id}')">&times;</button>
+      <button class="remove-item-btn" onclick="removeFromCartByKey('${item.cartKey}')">&times;</button>
     `;
     cartItemsContainer.appendChild(cartItemEl);
   });
@@ -660,16 +526,16 @@ function updateCartUI() {
   cartBadge.innerText = totalItemsCount;
 }
 
-// Изменение количества товара
-window.changeQty = function(id, change) {
-  const item = cart.find(i => i.id === id);
+// Изменение количества товара по ключу сборки
+window.changeQtyByKey = function(key, change) {
+  const item = cart.find(i => i.cartKey === key);
   if (!item) return;
   
-  const originalItem = itemsData.find(i => i.id === id);
+  const originalItem = itemsData.find(i => i.id === item.id);
   const newQty = item.quantity + change;
 
   if (newQty <= 0) {
-    removeFromCart(id);
+    removeFromCartByKey(key);
     return;
   }
   if (originalItem && newQty > originalItem.count) {
@@ -682,15 +548,22 @@ window.changeQty = function(id, change) {
   renderItems();
 };
 
-// Удаление отдельного предмета
-window.removeFromCart = function(id) {
-  cart = cart.filter(i => i.id !== id);
+// Изменение количества кнопками на самой карточке витрины
+window.changeQty = function(id, change) {
+  const item = cart.find(i => i.id === id);
+  if (item) {
+    changeQtyByKey(item.cartKey, change);
+  }
+};
+
+// Удаление по уникальному ключу
+window.removeFromCartByKey = function(key) {
+  cart = cart.filter(i => i.cartKey !== key);
   updateCartUI();
   renderItems();
   showToast('Товар удален из корзины.');
 };
 
-// Полная очистка корзины
 clearCartBtn.addEventListener('click', () => {
   if (cart.length === 0) return;
   cart = [];
@@ -699,7 +572,6 @@ clearCartBtn.addEventListener('click', () => {
   showToast('Корзина полностью очищена.');
 });
 
-// Кнопка «Приобрести»
 checkoutBtn.addEventListener('click', () => {
   if (cart.length === 0) {
     showToast('Ваша корзина пуста!');
@@ -711,21 +583,17 @@ checkoutBtn.addEventListener('click', () => {
   renderItems();
   closeAllDrawers();
 });
-
-// Кофейно-коричневые уведомления (Toast)
 function showToast(msg) {
   clearTimeout(toastTimeout);
   toastMessage.innerText = msg;
   cartToast.classList.add('show');
-  toastTimeout = setTimeout(hideToast, 1500); // 1.5 секунды
+  toastTimeout = setTimeout(hideToast, 1500);
 }
 
-function hideToast() {
-  cartToast.classList.remove('show');
-}
+function hideToast() { cartToast.classList.remove('show'); }
 closeToastBtn.addEventListener('click', hideToast);
 
-// Открытие инфо-шторки
+// Открытие инфо-шторки с проверками ЗЯ/ИЗЯ и рендером иконок админа
 function openProductDrawer(item) {
   activeItemForDrawer = item;
   cartDrawer.classList.remove('active');
@@ -737,16 +605,62 @@ function openProductDrawer(item) {
   tagEl.innerText = item.category || 'Другое';
   tagEl.className = 'tag ' + (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
 
+  // Проверка Золотого Яблока и генерация мини-иконок админа
   const noteContainer = document.getElementById('d-note-container');
+  const noteText = document.getElementById('d-note-text');
+  const adminIconsGrid = document.getElementById('d-admin-icons');
+  adminIconsGrid.innerHTML = ''; 
+
   if (item.name.trim().toLowerCase() === 'золотое яблоко') {
+    noteText.innerText = '⚠️ Покупка только навесом';
+    noteContainer.style.display = 'block';
+  } else if (item.adminIcons && item.adminIcons.length > 0) {
+    noteText.innerText = 'В комплекте с этим окрасом идут предметы:';
+    item.adminIcons.forEach(iconUrl => {
+      const img = document.createElement('img');
+      img.className = 'admin-mini-icon';
+      img.src = iconUrl;
+      adminIconsGrid.appendChild(img);
+    });
     noteContainer.style.display = 'block';
   } else {
     noteContainer.style.display = 'none';
   }
 
+  // Отображение выпадающих списков настройки (только для Окрасов)
+  const optionsContainer = document.getElementById('d-options-container');
+  if (item.category && item.category.toLowerCase() === 'окрасы') {
+    optCrSelect.value = 'none';
+    optFkSelect.value = 'none';
+    optSkillsSelect.value = 'none';
+
+    optCrRow.style.display = item.hasExtraCr ? 'flex' : 'none';
+    optFkRow.style.display = item.hasFk ? 'flex' : 'none';
+    optSkillsRow.style.display = item.hasSkills ? 'flex' : 'none';
+
+    optionsContainer.style.display = (item.hasExtraCr || item.hasFk || item.hasSkills) ? 'block' : 'none';
+  } else {
+    optionsContainer.style.display = 'none';
+  }
+
+  // Форматирование описания под правила ЗЯ / ИЗЯ (выводим сервера в шторку)
+  const descBox = document.getElementById('d-description');
+  const availableServersText = (item.servers && item.servers.length > 0) ? item.servers.join(', ') : 'Нет в наличии';
+  
+  if (item.category && item.category.toLowerCase() === 'окрасы') {
+    const type = (item.colorType || 'ЗЯ').toUpperCase();
+    let metaDescription = `<strong>Категория:</strong> ${type}<br><strong>Автор:</strong> ${item.author || 'Не указан'}<br>`;
+    if (type === 'ИЗЯ') {
+      metaDescription += `<strong>Всего копий масти:</strong> ${item.copies || 0} шт.<br>`;
+    }
+    metaDescription += `<strong>Доступно на серверах:</strong> ${availableServersText}<br><br>`;
+    metaDescription += `<strong>Описание масти:</strong><br>${item.description || 'Нет описания'}`;
+    descBox.innerHTML = metaDescription;
+  } else {
+    descBox.innerText = item.description || 'Нет описания';
+  }
+
   document.getElementById('d-flags').innerText = (item.servers || []).join(' ');
-  document.getElementById('d-description').innerText = item.description || 'Нет описания';
-  document.getElementById('d-get').innerText = item.howto || 'Не указано';
   document.getElementById('d-count').innerText = `${item.count || 0} шт`;
   document.getElementById('d-price').innerText = `${item.price || 0}₽`;
 
@@ -769,7 +683,6 @@ function openProductDrawer(item) {
   productDrawer.classList.add('active');
 }
 
-// Добавление через инфо-шторку
 drawerAddCartBtn.addEventListener('click', () => {
   if (!activeItemForDrawer || !activeItemForDrawer.count || activeItemForDrawer.count === 0) return;
   addToCart(activeItemForDrawer);
@@ -785,70 +698,55 @@ function closeAllDrawers() {
   overlay.classList.remove('active');
   productDrawer.classList.remove('active');
   cartDrawer.classList.remove('active');
-  appleModal.classList.remove('active'); // Закрываем центральное окно навеса
+  appleModal.classList.remove('active');
 }
 
-// ОБРАБОТКА ЦЕНТРАЛЬНОЙ ПЛАШКИ НАВЕСА
 modalCloseBtn.addEventListener('click', () => {
   appleModal.classList.remove('active');
   overlay.classList.remove('active');
 });
 
 modalGoCatalogBtn.addEventListener('click', () => {
-  // Закрываем плашку
   appleModal.classList.remove('active');
-  
-  // Имитируем нажатие на кнопку категории «Окрасы»
   filterBtns.forEach(b => b.classList.remove('active'));
   const colorsBtn = Array.from(filterBtns).find(b => b.getAttribute('data-category') === 'Окрасы');
   if (colorsBtn) {
     colorsBtn.classList.add('active');
     currentCategory = 'Окрасы';
-    subFiltersContainer.style.display = 'flex'; // открываем блок ЗЯ / ИЗЯ подстраниц
+    subFiltersContainer.style.display = 'flex';
   }
-  
-  // Сбрасываем подстраницу на «Все окрасы»
   subFilterBtns.forEach(sb => sb.classList.remove('active'));
   subFilterBtns[0].classList.add('active');
   currentSubCategory = 'all';
-
   renderItems();
 });
 
-// Клик по кнопке корзины в шапке
 openCartBtn.addEventListener('click', openCartDrawer);
-
-// События закрытия на крестики и оверлей
 closeDrawerBtn.addEventListener('click', closeAllDrawers);
 closeCartDrawerBtn.addEventListener('click', closeAllDrawers);
 overlay.addEventListener('click', closeAllDrawers);
 
-// Слушатели поиска и фильтрации
 searchInput.addEventListener('input', renderItems);
 serverSelect.addEventListener('change', renderItems);
 stockSelect.addEventListener('change', renderItems);
 tagSelect.addEventListener('change', renderItems);
 
-// Обработка главных категорий
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     currentCategory = btn.getAttribute('data-category');
     
-    // Показываем подстраницы ЗЯ/ИЗЯ только если выбрана категория «Окрасы»
     if (currentCategory.toLowerCase() === 'окрасы') {
       subFiltersContainer.style.display = 'flex';
     } else {
       subFiltersContainer.style.display = 'none';
-      currentSubCategory = 'all'; // сбрасываем при уходе из Окрасов
+      currentSubCategory = 'all';
     }
-    
     renderItems();
   });
 });
 
-// Обработка подстраниц ЗЯ и ИЗЯ
 subFilterBtns.forEach(sBtn => {
   sBtn.addEventListener('click', () => {
     subFilterBtns.forEach(b => b.classList.remove('active'));

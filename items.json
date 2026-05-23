@@ -50,7 +50,15 @@
     "category": "Окрасы",
     "colorType": "ЗЯ",
     "author": "Kaneri Mio",
-    "servers": ["🇷🇺", "🇺🇦"]
+    "servers": ["🇷🇺", "🇺🇦"],
+    "hasExtraCr": true,
+    "hasFk": true,
+    "hasSkills": false,
+    "adminIcons": [
+       "https://i.ibb.co/qYc95xyS/bras-morphee.png",
+       "https://i.ibb.co/v4yr59Zn/caresse-philotes.png",
+       "https://i.ibb.co/tT9K1WzF/eau-jouvence.png"
+]
   },
   {
     "id": "5",
@@ -65,6 +73,12 @@
     "servers": ["🇷🇺"],
     "isRare": true,
     "isHot": true,
-    "isNew": false
+    "isNew": false,
+    "hasExtraCr": false,
+    "hasFk": false,
+    "hasSkills": true,
+    "adminIcons": [
+      "https://i.ibb.co/k2vNDdKr/couverture-hypnos.png"
+    ]
   }
 ]
