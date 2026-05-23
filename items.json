@@ -4,23 +4,28 @@
     "name": "Рог Изобилия",
     "description": "Открывает множество сокровищ: экю, пропуски, снаряжение и божественных лошадей",
     "count": 5,
-    "image": "https://ibb.co/fdhXrv52",
+    "price": 8,
+    "image": "https://i.ibb.co/F4Sh8VMK/corne-abondance.png",
     "category": "Черный рынок"
+    "servers": ["🇺🇦", "🇷🇺"]
   },
   {
     "id": "2",
     "name": "Золотое Яблоко",
     "description": "Позволяет выбрать для вашей лошади новую уникальную масть, созданную другими игроками",
     "count": 2,
-    "image": "https://ibb.co/C36zFhXB",
-    "category": "Черный рынок"
+    "price": 8,
+    "image": "https://i.ibb.co/dwtryG3B/pomme-or.png",
+    "category": "Черный рынок""servers": ["🇺🇦", "🇷🇺"]
   },
   {
     "id": "3",
     "name": "Кусочек Облака",
     "description": "Омолаживает вашу лошадь на 4 месяца и дает 2 очка роста",
     "count": 12,
-    "image": "https://ibb.co/6hTG8cB",
+    "price": 8,
+    "image": "https://i.ibb.co/qGchCL5/fragment-nuage.png",
     "category": "Черный рынок"
+    "servers": ["🇺🇦", "🇷🇺"]
   }
 ]

@@ -15,20 +15,19 @@
       --card-bg: #ffffff;
       --tag-black-market: #a3704c;
       --tag-zm: #cfa846;
+      --section-bg: #fdfaf7;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
       background-color: var(--bg-color);
       color: var(--text-main);
+      overflow-x: hidden;
     }
 
-    /* Шапка сайта */
     header {
       background-color: var(--header-bg);
       color: #fff;
@@ -40,23 +39,13 @@
       font-size: 18px;
     }
 
-    header img {
-      height: 24px;
-      margin-right: 10px;
-    }
-
-    /* Главный контейнер */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 30px 15px;
     }
 
-    /* Поиск */
-    .search-container {
-      margin-bottom: 20px;
-    }
-
+    .search-container { margin-bottom: 20px; }
     .search-input {
       width: 100%;
       padding: 14px 20px;
@@ -64,20 +53,13 @@
       border-radius: 6px;
       font-size: 14px;
       outline: none;
-      color: #555;
     }
 
-    .search-input::placeholder {
-      color: #bbb;
-    }
-
-    /* Фильтры/Вкладки */
     .filters {
       display: flex;
       gap: 10px;
       margin-bottom: 30px;
       overflow-x: auto;
-      padding-bottom: 5px;
     }
 
     .filter-btn {
@@ -89,27 +71,19 @@
       cursor: pointer;
       font-weight: bold;
       font-size: 14px;
-      white-space: nowrap;
-      transition: background 0.2s;
-    }
-
-    .filter-btn:hover {
-      opacity: 0.9;
     }
 
     .filter-btn.active {
       background-color: var(--btn-active);
       color: #fff;
     }
-
-    /* Сетка товаров */
+    /* Сетка и карточки */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
     }
 
-    /* Карточка товара */
     .card {
       background-color: var(--card-bg);
       border-radius: 12px;
@@ -117,6 +91,12 @@
       display: flex;
       flex-direction: column;
       box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
     }
 
     .image-wrapper {
@@ -125,7 +105,6 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background-color: #fff;
     }
 
     .card img {
@@ -142,7 +121,6 @@
       border-top: 1px solid #f0f0f0;
     }
 
-    /* Теги категорий */
     .tag {
       align-self: flex-start;
       font-size: 10px;
@@ -153,25 +131,21 @@
       color: #fff;
       margin-bottom: 12px;
     }
-
     .tag.черный-рынок { background-color: var(--tag-black-market); }
     .tag.зя { background-color: var(--tag-zm); }
-    .tag.изя { background-color: #5bc0be; }
-    .tag.иные-масти { background-color: #6c757d; }
 
     .card-title {
       font-size: 18px;
       font-weight: bold;
       margin: 0 0 12px 0;
-      color: #222;
     }
 
-    .card-description {
-      font-size: 13px;
-      color: #666;
-      line-height: 1.5;
-      margin: 0 0 20px 0;
-      flex-grow: 1;
+    /* Флаги на карточке */
+    .card-flags {
+      display: flex;
+      gap: 6px;
+      font-size: 16px;
+      margin-bottom: 12px;
     }
 
     .card-footer {
@@ -179,58 +153,207 @@
       padding-top: 12px;
       font-size: 12px;
       color: #999;
+      margin-top: auto;
     }
 
-    .card-footer strong {
-      color: #333;
+    /* БОКОВАЯ ШТОРКА (ДРОЭР) */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: -450px;
+      width: 100%;
+      max-width: 450px;
+      height: 100%;
+      background: #fff;
+      z-index: 1001;
+      box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+      transition: right 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .drawer.active { right: 0; }
+
+    .drawer-close {
+      align-self: flex-end;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .drawer-image-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .drawer-image-wrapper img {
+      max-height: 150px;
+      object-fit: contain;
+    }
+
+    .drawer-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 0 8px 0;
+      color: #3b2314;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: bold;
+      color: #a38570;
+      text-transform: uppercase;
+      margin: 20px 0 8px 0;
+      letter-spacing: 0.5px;
+    }
+
+    .info-box {
+      background-color: var(--section-bg);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #4a4a4a;
+      border-left: 4px solid #ebdcd0;
+    }
+
+    /* Строка серверов во вкладке */
+    .server-flags-list {
+      display: flex;
+      gap: 8px;
+      font-size: 20px;
+      background: var(--section-bg);
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    /* Нижние блоки: Наличие и Цена */
+    .drawer-row {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .drawer-col { flex: 1; }
+
+    .status-box {
+      background: var(--section-bg);
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 15px;
+      color: #614635;
+      text-align: center;
+    }
+
+    .price-box {
+      background: #e8f5e9;
+      border: 1px solid #c8e6c9;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #2e7d32;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <!-- Замените на иконку вашего логотипа, если она есть -->
   <span>🐴 Lowadi | Kaneri Mio Company</span>
 </header>
 
 <div class="container">
-  <!-- Строка поиска -->
   <div class="search-container">
     <input type="text" id="search" class="search-input" placeholder="Поиск по названию...">
   </div>
 
-  <!-- Кнопки фильтрации -->
   <div class="filters">
     <button class="filter-btn active" data-category="all">Все предметы</button>
     <button class="filter-btn" data-category="черный рынок">Черный рынок</button>
     <button class="filter-btn" data-category="зя">ЗЯ</button>
-    <button class="filter-btn" data-category="изя">ИЗЯ</button>
-    <button class="filter-btn" data-category="иные масти">Иные масти</button>
   </div>
 
-  <!-- Контейнер для карточек -->
   <div class="grid" id="products"></div>
 </div>
 
+<!-- Элементы боковой шторки -->
+<div class="drawer-overlay" id="overlay"></div>
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="closeDrawer">&times;</button>
+  
+  <div class="drawer-image-wrapper">
+    <img id="d-image" src="" alt="">
+  </div>
+  
+  <h2 class="drawer-title" id="d-name">Название</h2>
+  <div class="tag" id="d-tag">Категория</div>
+
+  <div class="section-label">Доступные сервера</div>
+  <div class="server-flags-list" id="d-flags"></div>
+
+  <div class="section-label">Описание</div>
+  <div class="info-box" id="d-description">Описание предмета</div>
+
+  <div class="section-label">Как получить</div>
+  <div class="info-box" id="d-get">Способы получения</div>
+
+  <div class="drawer-row">
+    <div class="drawer-col">
+      <div class="section-label">В наличии</div>
+      <div class="status-box" id="d-count">0 шт</div>
+    </div>
+    <div class="drawer-col">
+      <div class="section-label">Цена</div>
+      <div class="price-box" id="d-price">0 ₽</div>
+    </div>
+  </div>
+</div>
 <script>
 let itemsData = [];
 const container = document.getElementById('products');
 const searchInput = document.getElementById('search');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
+// Элементы шторки
+const overlay = document.getElementById('overlay');
+const drawer = document.getElementById('drawer');
+const closeDrawerBtn = document.getElementById('closeDrawer');
+
 let currentCategory = 'all';
 let searchQuery = '';
 
-// Загрузка данных
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
     itemsData = data;
     renderItems();
-  })
-  .catch(err => console.error('Ошибка загрузки данных:', err));
+  });
 
-// Функция отрисовки элементов
 function renderItems() {
   container.innerHTML = '';
   
@@ -244,8 +367,8 @@ function renderItems() {
     const card = document.createElement('div');
     card.className = 'card';
 
-    // Форматируем класс для тега (заменяем пробелы на дефисы)
     const tagClass = item.category.toLowerCase().replace(/\s+/g, '-');
+    const flagsHtml = (item.servers || []).join(' ');
 
     card.innerHTML = `
       <div class="image-wrapper">
@@ -254,23 +377,49 @@ function renderItems() {
       <div class="card-body">
         <div class="tag ${tagClass}">${item.category}</div>
         <h3 class="card-title">${item.name}</h3>
-        <p class="card-description">${item.description || ''}</p>
+        <div class="card-flags">${flagsHtml}</div>
         <div class="card-footer">
           В наличии: <strong>${item.count} шт.</strong>
         </div>
       </div>
     `;
+
+    card.addEventListener('click', () => openDrawer(item));
     container.appendChild(card);
   });
 }
 
-// Обработка поиска
+function openDrawer(item) {
+  document.getElementById('d-image').src = item.image;
+  document.getElementById('d-name').innerText = item.name;
+  
+  const tagEl = document.getElementById('d-tag');
+  tagEl.innerText = item.category;
+  tagEl.className = 'tag ' + item.category.toLowerCase().replace(/\s+/g, '-');
+
+  document.getElementById('d-flags').innerText = (item.servers || []).join(' ');
+  document.getElementById('d-description').innerText = item.description || 'Нет описания';
+  document.getElementById('d-get').innerText = item.howto || 'Не указано';
+  document.getElementById('d-count').innerText = `${item.count} шт`;
+  document.getElementById('d-price').innerText = `${item.price}₽`;
+
+  overlay.classList.add('active');
+  drawer.classList.add('active');
+}
+
+function closeDrawer() {
+  overlay.classList.remove('active');
+  drawer.classList.remove('active');
+}
+
+closeDrawerBtn.addEventListener('click', closeDrawer);
+overlay.addEventListener('click', closeDrawer);
+
 searchInput.addEventListener('input', (e) => {
   searchQuery = e.target.value;
   renderItems();
 });
 
-// Обработка фильтров
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
