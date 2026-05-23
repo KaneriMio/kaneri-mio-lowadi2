@@ -345,8 +345,14 @@
     </div>
   </div>
 
+    <!-- Главные Категории -->
   <div class="filters">
-    <button class="filter-btn active" data-category="all">Все предметы</button><button class="filter-btn" data-category="Черный рынок">Черный рынок</button><button class="filter-btn" data-category="Валюта">Валюта</button><button class="filter-btn" data-category="Окрасы">Окрасы</button><button class="filter-btn" data-category="Другое">Другое</button>
+    <button class="filter-btn active" data-category="all">Все предметы</button>
+    <button class="filter-btn" data-category="Черный рынок">Черный рынок</button>
+    <button class="filter-btn" data-category="Валюта">Валюта</button>
+    <button class="filter-btn" data-category="Окрасы">Окрасы</button>
+    <button class="filter-btn" data-category="Услуги">Услуги</button>
+    <button class="filter-btn" data-category="Другое">Другое</button>
   </div>
 
   <div class="sub-filters" id="subFiltersContainer">
@@ -479,9 +485,10 @@
   <button class="toast-close" id="closeToastBtn">&times;</button>
 </div>
 <script>
+// Автоматическое восстановление корзины и избранного из памяти браузера при перезагрузке
 let itemsData = [];
-let cart = []; 
-let favorites = []; 
+let cart = JSON.parse(localStorage.getItem('lowadi_cart')) || []; 
+let favorites = JSON.parse(localStorage.getItem('lowadi_favorites')) || []; 
 let isFavoritesPage = false; 
 let activeItemForDrawer = null;
 let currentAppleType = ''; 
@@ -527,16 +534,19 @@ let currentCategory = 'all';
 let currentSubCategory = 'all'; 
 let toastTimeout;
 
-// Первоначальная загрузка каталога предметов
+// Первоначальная загрузка и обновление счётчиков из памяти
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
     itemsData = data;
     buildNavesDropdown(); 
+    
+    // Обновляем счётчики в шапке при старте
+    favBadge.innerText = favorites.length;
+    updateCartUI(); 
     renderItems();
   })
   .catch(err => console.error('Ошибка загрузки каталога:', err));
-
 function buildNavesDropdown() {
   optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
   itemsData.forEach(item => {
@@ -703,12 +713,15 @@ function toggleFavorite(id) {
     showToast('Товар добавлен в Избранное ❤️');
   }
   favBadge.innerText = favorites.length;
+  
+  // Сохраняем массив избранного в память браузера
+  localStorage.setItem('lowadi_favorites', JSON.stringify(favorites));
   renderItems();
 }
+
 function addToCart(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
 
-  // Проверка блокировки и вызов окна для обычного Золотого Яблока
   if (itemNameNormalized === 'золотое яблоко') {
     currentAppleType = 'зя';
     closeAllDrawers();
@@ -718,7 +731,6 @@ function addToCart(item) {
     return;
   }
 
-  // Проверка блокировки и вызов окна для Исчезнувшего золотого яблока
   if (itemNameNormalized === 'исчезнувшее золотое яблоко') {
     currentAppleType = 'ися'; 
     closeAllDrawers();
@@ -767,6 +779,8 @@ function addToCart(item) {
     });
   }
   
+  // Сохраняем обновленную корзину в память браузера
+  localStorage.setItem('lowadi_cart', JSON.stringify(cart));
   updateCartUI();
   renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
@@ -818,7 +832,6 @@ function updateCartUI() {
   cartTotalPrice.innerText = `${total} ₽`;
   cartBadge.innerText = totalItemsCount;
 }
-
 window.changeQtyByKey = function(key, change) {
   const item = cart.find(i => i.cartKey === key);
   if (!item) return;
@@ -836,6 +849,7 @@ window.changeQtyByKey = function(key, change) {
   }
 
   item.quantity = newQty;
+  localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
   updateCartUI();
   renderItems();
 };
@@ -849,6 +863,7 @@ window.changeQty = function(id, change) {
 
 window.removeFromCartByKey = function(key) {
   cart = cart.filter(i => i.cartKey !== key);
+  localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
   updateCartUI();
   renderItems();
   showToast('Товар удален из корзины.');
@@ -857,6 +872,7 @@ window.removeFromCartByKey = function(key) {
 clearCartBtn.addEventListener('click', () => {
   if (cart.length === 0) return;
   cart = [];
+  localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
   updateCartUI();
   renderItems();
   showToast('Корзина полностью очищена.');
@@ -869,10 +885,12 @@ checkoutBtn.addEventListener('click', () => {
   }
   alert('Заказ успешно оформлен! Спасибо за покупку.');
   cart = [];
+  localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
   updateCartUI();
   renderItems();
   closeAllDrawers();
 });
+
 function showToast(msg) {
   clearTimeout(toastTimeout);
   toastMessage.innerText = msg;
@@ -971,7 +989,6 @@ function openProductDrawer(item) {
   productDrawer.classList.add('active');
   recalcDrawerPrice(); 
 }
-
 function openCartDrawer() {
   productDrawer.classList.remove('active'); 
   overlay.classList.add('active');
@@ -1069,6 +1086,11 @@ subFilterBtns.forEach(sBtn => {
   });
 });
 </script>
+
+<style>
+  /* Яркий фиолетовый цвет для ярлыка новой категории Услуг */
+  .tag.услуги { background-color: #8338ec; }
+</style>
 
 </body>
 </html>
