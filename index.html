@@ -29,22 +29,29 @@
       overflow-x: hidden;
     }
 
+    /* Исправленная шапка: текст по центру, корзина со свободным отступом */
     header {
       background-color: var(--header-bg);
       color: #fff;
-      padding: 15px 20px;
+      padding: 15px 30px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      position: relative;
       font-weight: bold;
       font-size: 18px;
     }
 
+    header span {
+      text-align: center;
+    }
+
     .header-cart-btn {
+      position: absolute;
+      right: 30px; /* Отодвинули от самого края */
       background: none;
       border: none;
       cursor: pointer;
-      position: relative;
       display: flex;
       align-items: center;
     }
@@ -159,34 +166,57 @@
     .out-of-stock { color: #d32f2f !important; }
     .out-of-stock strong { color: #d32f2f !important; }
 
+    /* Изменено: Корзина в виде зеленого мягкого квадрата */
     .cart-btn {
-      background: #ffffff;
-      border: 1px solid #ddd;
-      border-radius: 50%;
-      width: 34px;
-      height: 34px;
+      background: #2e7d32;
+      border: none;
+      border-radius: 8px; /* Форма мягкого квадрата */
+      width: 36px;
+      height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: background 0.2s;
     }
-    .cart-btn:hover { background: #f0f0f0; }
-    .cart-btn svg { width: 18px; height: 18px; fill: none; stroke: #333; stroke-width: 2; }
+    .cart-btn:hover { background: #215d25; }
+    .cart-btn svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; }
 
-    /* ШТОРКИ */
-    .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s; }
+    /* ОВЕРЛЕЙ И ИСПРАВЛЕННЫЕ ШТОРКИ */
+    .drawer-overlay { 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: rgba(0, 0, 0, 0.4); 
+      z-index: 1000; 
+      opacity: 0; 
+      visibility: hidden; 
+      transition: opacity 0.3s, visibility 0.3s; 
+    }
     .drawer-overlay.active { opacity: 1; visibility: visible; }
 
-    .drawer { position: fixed; top: 0; width: 100%; max-width: 450px; height: 100%; background: #fff; z-index: 1001; box-shadow: 0 0 25px rgba(0,0,0,0.15); transition: all 0.3s ease-in-out; display: flex; flex-direction: column; padding: 24px; }
+    /* Базовый класс шторки с прокруткой, чтобы текст не обрезался */
+    .drawer { 
+      position: fixed; 
+      top: 0; 
+      right: -460px; /* Спрятана за экраном */
+      width: 100%; 
+      max-width: 450px; 
+      height: 100%; 
+      background: #fff; 
+      z-index: 1001; 
+      box-shadow: -5px 0 25px rgba(0,0,0,0.15); 
+      transition: right 0.3s ease-in-out; 
+      display: flex; 
+      flex-direction: column; 
+      padding: 24px; 
+      overflow-y: auto; /* Внутренняя прокрутка */
+    }
     
-    /* Шторка товара (Справа) */
-    #drawer { right: -450px; }
-    #drawer.active { right: 0; }
-
-    /* Шторка корзины (Тоже Справа) */
-    #cartDrawer { right: -450px; }
-    #cartDrawer.active { right: 0; }
+    /* Класс активации для выплывания справа */
+    .drawer.active { right: 0 !important; }
 
     .drawer-close { align-self: flex-end; background: none; border: none; font-size: 24px; cursor: pointer; color: #999; }
     .drawer-image-wrapper { display: flex; justify-content: center; margin-bottom: 20px; }
@@ -202,7 +232,7 @@
     .status-box { background: var(--section-bg); padding: 14px; border-radius: 8px; font-weight: bold; font-size: 15px; color: #614635; text-align: center; }
     .price-box { background: #e8f5e9; border: 1px solid #c8e6c9; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; color: #2e7d32; text-align: center; }
 
-    /* ЭЛЕМЕНТЫ ВНУТРИ КОРЗИНЫ */
+    /* КОРЗИНА */
     .cart-items-list { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
     .cart-item { display: flex; gap: 12px; background: var(--section-bg); padding: 12px; border-radius: 8px; position: relative; border: 1px solid #eee; }
     .cart-item img { width: 60px; height: 60px; object-fit: contain; }
@@ -231,6 +261,7 @@
 
 <header>
   <span>🐴 Lowadi | Kaneri Mio Company</span>
+  <!-- Исправленная кнопка корзины в шапке сайта -->
   <button class="header-cart-btn" id="openCartBtn" title="Открыть корзину">
     <svg viewBox="0 0 24 24">
       <path d="M2 3h3l2.6 11.6c.2.8.9 1.4 1.7 1.4h9.1c.8 0 1.5-.6 1.7-1.4L22 6H6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -242,6 +273,7 @@
 </header>
 
 <div class="container">
+  <!-- Панель поиска и фильтров -->
   <div class="search-panel">
     <input type="text" id="search" class="search-input" placeholder="Поиск по названию...">
     <div class="search-filters">
@@ -265,6 +297,7 @@
     </div>
   </div>
 
+  <!-- Категории под поиском -->
   <div class="filters">
     <button class="filter-btn active" data-category="all">Все предметы</button>
     <button class="filter-btn" data-category="Черный рынок">Черный рынок</button>
@@ -273,12 +306,14 @@
     <button class="filter-btn" data-category="Другое">Другое</button>
   </div>
 
+  <!-- Сетка карточек -->
   <div class="grid" id="products"></div>
 </div>
 
+<!-- Общий полупрозрачный фон для кликов закрытия шторок -->
 <div class="drawer-overlay" id="overlay"></div>
 
-<!-- ШТОРКА ТОВАРА -->
+<!-- 1. ШТОРКА ИНФОРМАЦИИ О ТОВАРЕ (СПРАВА) -->
 <div class="drawer" id="drawer">
   <button class="drawer-close" id="closeDrawer">&times;</button>
   <div class="drawer-image-wrapper">
@@ -308,7 +343,7 @@
   </div>
 </div>
 
-<!-- ШТОРКА КОРЗИНЫ -->
+<!-- 2. ШТОРКА КОРЗИНЫ (ТОЖЕ СПРАВА) -->
 <div class="drawer" id="cartDrawer">
   <button class="drawer-close" id="closeCartDrawer">&times;</button>
   <h2 class="drawer-title">Ваша корзина</h2>
@@ -316,6 +351,24 @@
   <div class="cart-items-list" id="cartItemsContainer"></div>
   
   <div class="section-label" style="margin-top: 15px;">Итого к оплате</div>
+  <div class="price-box" id="cartTotalPrice" style="font-size: 20px; padding: 15px; margin-bottom: 20px;">0 ₽</div>
+
+  <div class="cart-footer-actions">
+    <button class="buy-btn" id="checkoutBtn">Приобрести</button>
+    <button class="clear-cart-btn" id="clearCartBtn" title="Очистить корзину">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- КАСТОМНОЕ УВЕДОМЛЕНИЕ -->
+<div class="toast" id="cartToast">
+  <span id="toastMessage">Товар добавлен в корзину!</span>
+  <button class="toast-close" id="closeToastBtn">&times;</button>
+</div>
+
 <script>
 let itemsData = [];
 let cart = []; 
@@ -346,16 +399,14 @@ const closeToastBtn = document.getElementById('closeToastBtn');
 let currentCategory = 'all';
 let toastTimeout;
 
-// Загрузка товаров из JSON файла
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
     itemsData = data;
     renderItems();
   })
-  .catch(err => console.error('Ошибка загрузки каталога:', err));
+  .catch(err => console.error('Ошибка загрузки данных:', err));
 
-// Отрисовка витрины товаров
 function renderItems() {
   container.innerHTML = '';
   const query = searchInput.value.toLowerCase();
@@ -401,7 +452,7 @@ function renderItems() {
         <div class="card-footer ${isOutOfStock ? 'out-of-stock' : ''}">
           <span>В наличии: <strong>${item.count || 0} шт.</strong></span>
           <button class="cart-btn" title="Добавить в корзину">
-            <svg viewBox="0 0 24 24"><path d="M2 3h3l2.6 11.6c.2.8.9 1.4 1.7 1.4h9.1c.8 0 1.5-.6 1.7-1.4L22 6H6" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="19.5" r="1.5"/><circle cx="17.5" cy="19.5" r="1.5"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M2 3h3l2.6 11.6c.2.8.9 1.4 1.7 1.4h9.1c.8 0 1.5-.6 1.7-1.4L22 6H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="19.5" r="1.5"/><circle cx="17.5" cy="19.5" r="1.5"/></svg>
           </button>
         </div>
       </div>
@@ -422,7 +473,6 @@ function renderItems() {
   });
 }
 
-// Логика добавления в массив корзины
 function addToCart(item) {
   const existingProduct = cart.find(cartItem => cartItem.id === item.id);
   
@@ -439,7 +489,7 @@ function addToCart(item) {
   updateCartUI();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
-// Функция обновления интерфейса самой корзины
+// Обновление отображения корзины в шторке
 function updateCartUI() {
   cartItemsContainer.innerHTML = '';
   let total = 0;
@@ -452,7 +502,7 @@ function updateCartUI() {
     const cartItemEl = document.createElement('div');
     cartItemEl.className = 'cart-item';
 
-    // Специфический контент для категории Окрасы (ЗЯ/ИЗЯ)
+    // Контент для категории Окрасы (ЗЯ/ИЗЯ)
     let colorMetaHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
       const type = item.colorType ? item.colorType.toUpperCase() : 'ЗЯ';
@@ -486,7 +536,7 @@ function updateCartUI() {
   cartBadge.innerText = totalItemsCount;
 }
 
-// Изменение количества кнопками + и -
+// Изменение количества внутри шторки
 window.changeQty = function(id, change) {
   const item = cart.find(i => i.id === id);
   if (!item) return;
@@ -507,14 +557,14 @@ window.changeQty = function(id, change) {
   updateCartUI();
 };
 
-// Удаление отдельной позиции крестиком
+// Удаление отдельной позиции
 window.removeFromCart = function(id) {
   cart = cart.filter(i => i.id !== id);
   updateCartUI();
   showToast('Товар удален из корзины.');
 };
 
-// Полная очистка корзины кнопкой-мусоркой
+// Очистка всей корзины
 clearCartBtn.addEventListener('click', () => {
   if (cart.length === 0) return;
   cart = [];
@@ -522,7 +572,7 @@ clearCartBtn.addEventListener('click', () => {
   showToast('Корзина полностью очищена.');
 });
 
-// Кнопка оформления покупки
+// Кнопка оформления
 checkoutBtn.addEventListener('click', () => {
   if (cart.length === 0) {
     showToast('Ваша корзина пуста!');
@@ -534,7 +584,7 @@ checkoutBtn.addEventListener('click', () => {
   closeAllDrawers();
 });
 
-// Управление всплывающими уведомлениями (скрытие через 1.5 сек)
+// Работа уведомлений
 function showToast(msg) {
   clearTimeout(toastTimeout);
   toastMessage.innerText = msg;
@@ -547,9 +597,9 @@ function hideToast() {
 }
 closeToastBtn.addEventListener('click', hideToast);
 
-// Поведение и переключение шторок
+// Исправленное управление шторками (классы добавляются и убираются корректно)
 function openProductDrawer(item) {
-  cartDrawer.classList.remove('active'); // Закрываем корзину
+  cartDrawer.classList.remove('active'); // закрываем корзину, чтобы не накладывались
   
   document.getElementById('d-image').src = item.image;
   document.getElementById('d-name').innerText = item.name;
@@ -569,7 +619,7 @@ function openProductDrawer(item) {
 }
 
 function openCartDrawer() {
-  productDrawer.classList.remove('active'); // Закрываем описание товара
+  productDrawer.classList.remove('active'); // закрываем информацию о предмете
   overlay.classList.add('active');
   cartDrawer.classList.add('active');
 }
@@ -580,7 +630,7 @@ function closeAllDrawers() {
   cartDrawer.classList.remove('active');
 }
 
-// Привязка обработчиков на кнопки открытия/закрытия шторок
+// Привязка обработчиков закрытия на крестики и оверлей
 openCartBtn.addEventListener('click', openCartDrawer);
 closeDrawerBtn.addEventListener('click', closeAllDrawers);
 closeCartDrawerBtn.addEventListener('click', closeAllDrawers);
