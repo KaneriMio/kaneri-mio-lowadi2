@@ -502,15 +502,18 @@
   </div>
 </div>
 
+<!-- ОБНОВЛЕННОЕ ОКНО ПРЕДУПРЕЖДЕНИЯ НАВЕСА (КНОПКИ ПОМЕНЯНЫ МЕСТАМИ) -->
 <div class="popup-modal" id="appleModal">
   <div class="popup-title">Внимание!</div>
-  <div class="popup-text">Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.</div>
+  <!-- Добавлен id="appleModalText" для динамической смены текста скриптом -->
+  <div class="popup-text" id="appleModalText">Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.</div>
   <div class="popup-actions">
-    <button class="popup-btn popup-btn-catalog" id="modalGoCatalogBtn">В каталог</button>
+    <!-- Кнопка Закрыть теперь первая (слева) -->
     <button class="popup-btn popup-btn-close" id="modalCloseBtn">Закрыть</button>
+    <!-- Зеленая кнопка В каталог теперь вторая (справа) -->
+    <button class="popup-btn popup-btn-catalog" id="modalGoCatalogBtn">В каталог</button>
   </div>
 </div>
-
 <div class="toast" id="cartToast">
   <span id="toastMessage">Товар добавлен в корзину!</span>
   <button class="toast-close" id="closeToastBtn">&times;</button>
@@ -739,14 +742,39 @@ function toggleFavorite(id) {
   renderItems();
 }
 
+// Переменная для отслеживания, какое именно яблоко вызвало плашку предупреждения
+let currentAppleType = ''; 
+
 function addToCart(item) {
-  if (item.name.trim().toLowerCase() === 'золотое яблоко') {
+  const itemNameNormalized = item.name.trim().toLowerCase();
+
+  // Проверка для обычного Золотого Яблока
+  if (itemNameNormalized === 'золотое яблоко') {
+    currentAppleType = 'зя';
     productDrawer.classList.remove('active');
+    
+    // Динамически меняем текст в модальном окне
+    document.getElementById('appleModalText').innerHTML = 'Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
+    
     overlay.classList.add('active');
     appleModal.classList.add('active');
-    return;
+    return; // Блокируем добавление в корзину
   }
 
+  // Проверка для Исчезнувшего золотого яблока (id: 6 или по названию)
+  if (itemNameNormalized === 'исчезнувшее золотое яблоко') {
+    currentAppleType = 'изя';
+    productDrawer.classList.remove('active');
+    
+    // Динамически меняем текст под Каталог ИЗЯ
+    document.getElementById('appleModalText').innerHTML = 'Товар <strong>Исчезнувшее золотое яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
+    
+    overlay.classList.add('active');
+    appleModal.classList.add('active');
+    return; // Блокируем добавление в корзину
+  }
+
+  // Стандартная логика добавления остальных товаров в корзину
   let selectedCr = "none";
   let selectedFk = "none";
   let selectedSkills = "none";
@@ -790,6 +818,7 @@ function addToCart(item) {
   renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
+
 // Функция обновления интерфейса корзины
 function updateCartUI() {
   cartItemsContainer.innerHTML = '';
@@ -903,6 +932,7 @@ function showToast(msg) {
 function hideToast() { cartToast.classList.remove('show'); }
 closeToastBtn.addEventListener('click', hideToast);
 
+// Открытие инфо-шторки с проверкой двух видов яблок
 function openProductDrawer(item) {
   activeItemForDrawer = item;
   cartDrawer.classList.remove('active');
@@ -919,7 +949,10 @@ function openProductDrawer(item) {
   const adminIconsGrid = document.getElementById('d-admin-icons');
   adminIconsGrid.innerHTML = ''; 
 
-  if (item.name.trim().toLowerCase() === 'золотое яблоко') {
+  const itemNameNormalized = item.name.trim().toLowerCase();
+
+  // Добавлено: Блок примечания теперь показывается для обоих яблок
+  if (itemNameNormalized === 'золотое яблоко' || itemNameNormalized === 'исчезнувшее золотое яблоко') {
     noteText.innerText = '⚠️ Покупка только навесом';
     noteContainer.style.display = 'block';
   } else if (item.adminIcons && item.adminIcons.length > 0) {
@@ -935,7 +968,6 @@ function openProductDrawer(item) {
     noteContainer.style.display = 'none';
   }
 
-  // Обновлено: Вывод новых характеристик масти (Порода, Вид, Спутник, Аффикс, ЧК)
   const metaContainer = document.getElementById('d-meta-container');
   if (item.category && item.category.toLowerCase() === 'окрасы') {
     document.getElementById('d-breed').innerText = item.breed || 'Не указана';
@@ -991,24 +1023,7 @@ function openProductDrawer(item) {
   recalcDrawerPrice(); 
 }
 
-drawerAddCartBtn.addEventListener('click', () => {
-  if (!activeItemForDrawer || !activeItemForDrawer.count || activeItemForDrawer.count === 0) return;
-  addToCart(activeItemForDrawer);
-});
-
-function openCartDrawer() {
-  productDrawer.classList.remove('active'); 
-  overlay.classList.add('active');
-  cartDrawer.classList.add('active');
-}
-
-function closeAllDrawers() {
-  overlay.classList.remove('active');
-  productDrawer.classList.remove('active');
-  cartDrawer.classList.remove('active');
-  appleModal.classList.remove('active');
-}
-
+// ОБРАБОТКА КЛИКОВ НА КНОПКИ ЦЕНТРАЛЬНОЙ ПЛАШКИ
 modalCloseBtn.addEventListener('click', () => {
   appleModal.classList.remove('active');
   overlay.classList.remove('active');
@@ -1016,19 +1031,37 @@ modalCloseBtn.addEventListener('click', () => {
 
 modalGoCatalogBtn.addEventListener('click', () => {
   appleModal.classList.remove('active');
+  overlay.classList.remove('active');
+  
+  // Активируем вкладку главной категории Окрасы
   filterBtns.forEach(b => b.classList.remove('active'));
   const colorsBtn = Array.from(filterBtns).find(b => b.getAttribute('data-category') === 'Окрасы');
   if (colorsBtn) {
     colorsBtn.classList.add('active');
     currentCategory = 'Окрасы';
-    subFiltersContainer.style.display = 'flex';
+    subFiltersContainer.style.display = 'flex'; // открываем панель ЗЯ / ИЗЯ
   }
+  
+  // Сбрасываем активные стили кнопок подкатегорий
   subFilterBtns.forEach(sb => sb.classList.remove('active'));
-  subFilterBtns.classList.add('active');
-  currentSubCategory = 'all';
-  renderItems();
+  
+  // Обновлено: Интеллектуальное перенаправление в зависимости от типа яблока
+  if (currentAppleType === 'изя') {
+    // Включаем подстраницу Каталог ИЗЯ
+    const izyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
+    if (izyaBtn) izyaBtn.classList.add('active');
+    currentSubCategory = 'ИЗЯ';
+    showToast('Перенаправление в каталог ИЗЯ...');
+  } else {
+    // По дефолту или для обычного яблока включаем подстраницу Каталог ЗЯ
+    const zyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ЗЯ');
+    if (zyaBtn) zyaBtn.classList.add('active');
+    currentSubCategory = 'ЗЯ';
+    showToast('Перенаправление в каталог ЗЯ...');
+  }
+  
+  renderItems(); // Обновляем витрину
 });
-
 // Клик по сердечку в шапке (Виртуальная страница Избранного)
 openFavBtn.addEventListener('click', () => {
   isFavoritesPage = !isFavoritesPage; 
