@@ -70,14 +70,8 @@
       transition: transform 0.2s;
     }
     
-    .header-icon-btn:hover svg {
-      transform: scale(1.1);
-    }
-
-    .header-icon-btn.fav-page-active svg {
-      fill: #d32f2f;
-      stroke: #d32f2f;
-    }
+    .header-icon-btn:hover svg { transform: scale(1.1); }
+    .header-icon-btn.fav-page-active svg { fill: #d32f2f; stroke: #d32f2f; }
 
     .cart-badge, .fav-badge {
       position: absolute;
@@ -90,10 +84,7 @@
       border-radius: 10px;
       font-weight: bold;
     }
-    
-    .fav-badge {
-      background: #84522b;
-    }
+    .fav-badge { background: #84522b; }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 30px 15px; }
     .search-panel {
@@ -200,7 +191,6 @@
     .image-wrapper { height: 180px; display: flex; align-items: center; justify-content: center; padding: 20px; position: relative; overflow: hidden; }
     .card img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform 0.3s ease; }
     .card:hover img { transform: scale(1.08); }
-
     .card-fav-btn {
       position: absolute;
       top: 12px;
@@ -226,8 +216,8 @@
     .badge.new { background-color: #2e7d32; }
     .badge.hot { background-color: #d32f2f; }
     .badge.limited { background-color: #f57c00; }
+
     .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; border-top: 1px solid #f0f0f0; text-align: left; }
-    
     .tag { align-self: flex-start; font-size: 10px; font-weight: bold; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; color: #fff; margin-bottom: 12px; }
     .tag.черный-рынок { background-color: var(--tag-black-market); }
     .tag.валюта { background-color: var(--tag-currency); }
@@ -235,10 +225,8 @@
     .tag.другое { background-color: var(--tag-other); }
 
     .card-title { font-size: 18px; font-weight: bold; margin: 0 0 6px 0; color: #222; }
-    
     .card-meta-text { font-size: 13px; color: #4a2810; font-weight: 600; margin-bottom: 6px; line-height: 1.3; }
     .card-meta-text span { font-weight: 500; color: #555; }
-
     .card-description { font-size: 13.5px; color: #333; font-weight: 550; line-height: 1.5; margin: 8px 0 20px 0; flex-grow: 1; text-align: justify; }
 
     .card-footer { border-top: 1px solid #f5f5f5; padding-top: 12px; font-size: 12px; color: #8d99ae; margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
@@ -255,7 +243,6 @@
     .card-qty-btn:hover { background: #e0e0e0; }
     .card-qty-value { font-size: 13px; font-weight: bold; min-width: 14px; text-align: center; color: #333; }
 
-    /* ШТОРКИ */
     .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
     .drawer-overlay.active { opacity: 1; visibility: visible; }
 
@@ -269,11 +256,9 @@
 
     .section-label { font-size: 11px; font-weight: bold; color: #a38570; text-transform: uppercase; margin: 20px 0 8px 0; letter-spacing: 0.5px; }
     .info-box { background-color: var(--section-bg); border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.5; color: #4a4a4a; border-left: 4px solid #ebdcd0; }
-    
     .note-box { background-color: #fff3e0; border-left: 4px solid #ffb74d; color: #b78103; font-weight: 500; }
     .admin-icons-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
     .admin-mini-icon { width: 36px; height: 36px; object-fit: contain; background: transparent; padding: 0; border: none; }
-
     .companion-img { width: 42px; height: 42px; object-fit: contain; background: transparent; vertical-align: middle; margin-left: 5px; }
 
     .server-flags-list { display: flex; gap: 8px; font-size: 20px; background: var(--section-bg); padding: 12px; border-radius: 8px; }
@@ -282,7 +267,6 @@
     .option-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px; font-weight: 500; }
     .option-row:last-child { margin-bottom: 0; }
     .option-select { padding: 6px 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; font-size: 12px; outline: none; max-width: 180px; }
-
     .drawer-row { display: flex; gap: 15px; margin-top: 20px; }
     .drawer-col { flex: 1; }
     .status-box { background: var(--section-bg); padding: 14px; border-radius: 8px; font-weight: bold; font-size: 15px; color: #614635; text-align: center; }
@@ -310,6 +294,7 @@
     .clear-cart-btn { background-color: #d32f2f; width: 48px; height: 48px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
     .clear-cart-btn svg { width: 22px; height: 22px; }
 
+    /* Зелёное уведомление сверху справа, с бледно-белой полоской слева */
     .toast { position: fixed; top: 20px; right: 20px; background: #2e7d32; color: #fff; border-left: 5px solid rgba(255, 255, 255, 0.6); padding: 14px 20px; border-radius: 8px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(46,125,50,0.3); z-index: 2000; transform: translateY(-100px); opacity: 0; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     .toast.show { transform: translateY(0); opacity: 1; }
     .toast-close { background: none; border: none; color: rgba(255,255,255,0.8); font-size: 18px; cursor: pointer; padding: 0; margin-left: auto; }
@@ -328,21 +313,16 @@
 
 <header>
   <span>🐴 Lowadi | Kaneri Mio Company</span>
-  <!-- Блок кнопок управления в шапке сайта -->
   <div class="header-controls">
     <button class="header-icon-btn" id="openFavBtn" title="Посмотреть Избранное">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
       <div class="fav-badge" id="favBadge">0</div>
     </button>
-
     <button class="header-icon-btn" id="openCartBtn" title="Открыть корзину">
       <svg viewBox="0 0 24 24">
         <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         <path d="M7 14h12M7 16h12M7 18h12" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-        <circle cx="8" cy="21" r="1.5" fill="#fff"/>
-        <circle cx="18" cy="21" r="1.5" fill="#fff"/>
+        <circle cx="8" cy="21" r="1.5" fill="#fff"/><circle cx="18" cy="21" r="1.5" fill="#fff"/>
       </svg>
       <div class="cart-badge" id="cartBadge">0</div>
     </button>
@@ -350,50 +330,31 @@
 </header>
 
 <div class="container">
-  <!-- Панель поиска и выпадающих списков -->
   <div class="search-panel">
     <input type="text" id="search" class="search-input" placeholder="Поиск по названию или ключевым словам...">
     <div class="search-filters">
       <select id="serverFilter" class="search-select">
-        <option value="all">Все сервера</option>
-        <option value="🇷🇺">🇷🇺 RU</option>
-        <option value="🇺🇦">🇺🇦 UA</option>
-        <option value="🇫🇷">🇫🇷 FR</option>
-        <option value="🇦🇶">🇦🇶 AQ</option>
+        <option value="all">Все сервера</option><option value="🇷🇺">🇷🇺 RU</option><option value="🇺🇦">🇺🇦 UA</option><option value="🇫🇷">🇫🇷 FR</option><option value="🇦🇶">🇦🇶 AQ</option>
       </select>
       <select id="stockFilter" class="search-select">
-        <option value="all">Все (в наличии и нет)</option>
-        <option value="available">Только в наличии</option>
+        <option value="all">Все (в наличии и нет)</option><option value="available">Только в наличии</option>
       </select>
       <select id="tagFilter" class="search-select">
-        <option value="all">Все метки</option>
-        <option value="new">Новинки (NEW)</option>
-        <option value="limited">Редкие (Limited)</option>
-        <option value="hot">Горячие (Hot)</option>
+        <option value="all">Все метки</option><option value="new">Новинки (NEW)</option><option value="limited">Редкие (Limited)</option><option value="hot">Горячие (Hot)</option>
       </select>
     </div>
   </div>
 
-  <!-- Главные Категории -->
   <div class="filters">
-    <button class="filter-btn active" data-category="all">Все предметы</button>
-    <button class="filter-btn" data-category="Черный рынок">Черный рынок</button>
-    <button class="filter-btn" data-category="Валюта">Валюта</button>
-    <button class="filter-btn" data-category="Окрасы">Окрасы</button>
-    <button class="filter-btn" data-category="Другое">Другое</button>
+    <button class="filter-btn active" data-category="all">Все предметы</button><button class="filter-btn" data-category="Черный рынок">Черный рынок</button><button class="filter-btn" data-category="Валюта">Валюта</button><button class="filter-btn" data-category="Окрасы">Окрасы</button><button class="filter-btn" data-category="Другое">Другое</button>
   </div>
 
-  <!-- Дополнительные Подстраницы -->
   <div class="sub-filters" id="subFiltersContainer">
-    <button class="sub-filter-btn active" data-subcategory="all">Все окрасы</button>
-    <button class="sub-filter-btn" data-subcategory="ЗЯ">Каталог ЗЯ</button>
-    <button class="sub-filter-btn" data-subcategory="ИЗЯ">Каталог ИЗЯ</button>
+    <button class="sub-filter-btn active" data-subcategory="all">Все окрасы</button><button class="sub-filter-btn" data-subcategory="ЗЯ">Каталог ЗЯ</button><button class="sub-filter-btn" data-subcategory="ИЗЯ">Каталог ИЗЯ</button>
   </div>
 
-  <!-- Сетка карточек -->
   <div class="grid" id="products"></div>
 </div>
-
 <div class="drawer-overlay" id="overlay"></div>
 
 <!-- 1. ШТОРКА ИНФОРМАЦИИ О ТОВАРЕ -->
@@ -502,18 +463,17 @@
   </div>
 </div>
 
-<!-- ОБНОВЛЕННОЕ ОКНО ПРЕДУПРЕЖДЕНИЯ НАВЕСА (КНОПКИ ПОМЕНЯНЫ МЕСТАМИ) -->
+<!-- ЦЕНТРАЛЬНОЕ ОКНО ПРЕДУПРЕЖДЕНИЯ НАВЕСА -->
 <div class="popup-modal" id="appleModal">
   <div class="popup-title">Внимание!</div>
-  <!-- Добавлен id="appleModalText" для динамической смены текста скриптом -->
   <div class="popup-text" id="appleModalText">Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.</div>
   <div class="popup-actions">
-    <!-- Кнопка Закрыть теперь первая (слева) -->
     <button class="popup-btn popup-btn-close" id="modalCloseBtn">Закрыть</button>
-    <!-- Зеленая кнопка В каталог теперь вторая (справа) -->
     <button class="popup-btn popup-btn-catalog" id="modalGoCatalogBtn">В каталог</button>
   </div>
 </div>
+
+<!-- КАСТОМНОЕ ЗЕЛЁНОЕ УВЕДОМЛЕНИЕ -->
 <div class="toast" id="cartToast">
   <span id="toastMessage">Товар добавлен в корзину!</span>
   <button class="toast-close" id="closeToastBtn">&times;</button>
@@ -567,7 +527,7 @@ let currentCategory = 'all';
 let currentSubCategory = 'all'; 
 let toastTimeout;
 
-// Первоначальная загрузка
+// Первоначальная загрузка каталога предметов
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
@@ -607,7 +567,6 @@ function recalcDrawerPrice() {
 optCrSelect.addEventListener('change', recalcDrawerPrice);
 optFkSelect.addEventListener('change', recalcDrawerPrice);
 optSkillsSelect.addEventListener('change', recalcDrawerPrice);
-// Исправленная функция отрисовки витрины (клики с 1 раза, фильтры работают)
 function renderItems() {
   container.innerHTML = '';
   const query = searchInput.value.toLowerCase().trim();
@@ -618,22 +577,22 @@ function renderItems() {
   const filtered = itemsData.filter(item => {
     if (isFavoritesPage && !favorites.includes(item.id)) return false;
 
-    // Умный поиск по названию или скрытым ключевым словам
+    // Умный поиск по названию или невидимым ключевым словам keywords
     const matchesName = item.name.toLowerCase().includes(query);
     const matchesKeywords = item.keywords && item.keywords.some(keyword => keyword.toLowerCase().includes(query));
     if (!matchesName && !matchesKeywords) return false;
 
-    // Фильтр главных категорий
+    // Сортировка по главной категории витрины
     if (currentCategory !== 'all') {
       if (!item.category || item.category.toLowerCase() !== currentCategory.toLowerCase()) return false;
     }
     
-    // Фильтр подкатегорий ЗЯ / ИЗЯ для Окрасов
+    // Сортировка по подстраницам ЗЯ и ИЗЯ (для Окрасов)
     if (currentCategory.toLowerCase() === 'окрасы' && currentSubCategory !== 'all') {
       if (!item.colorType || item.colorType.toLowerCase() !== currentSubCategory.toLowerCase()) return false;
     }
 
-    // Сервера, Наличие и Метки
+    // Фильтры по серверам, остатку на складе и новинкам
     if (selectedServer !== 'all' && (!item.servers || !item.servers.includes(selectedServer))) return false;
     if (stockValue === 'available' && (!item.count || item.count <= 0)) return false;
     
@@ -719,7 +678,6 @@ function renderItems() {
       </div>
     `;
 
-    // Привязываем событие добавления строго к кнопке, если товара еще нет в корзине
     if (!isOutOfStock && !inCart) {
       const cartBtn = card.querySelector('.font-add-btn');
       if (cartBtn) {
@@ -747,9 +705,6 @@ function toggleFavorite(id) {
   favBadge.innerText = favorites.length;
   renderItems();
 }
-// Переменная для отслеживания, какое именно яблоко вызвало плашку предупреждения
-let currentAppleType = ''; 
-
 function addToCart(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
 
@@ -765,7 +720,7 @@ function addToCart(item) {
 
   // Проверка блокировки и вызов окна для Исчезнувшего золотого яблока
   if (itemNameNormalized === 'исчезнувшее золотое яблоко') {
-    currentAppleType = 'ися'; // Метка для ИЗЯ каталога
+    currentAppleType = 'ися'; 
     closeAllDrawers();
     document.getElementById('appleModalText').innerHTML = 'Товар <strong>Исчезнувшее золотое яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
     overlay.classList.add('active');
@@ -773,7 +728,6 @@ function addToCart(item) {
     return;
   }
 
-  // Сбор выбранных в текущий момент параметров из шторки информации
   let selectedCr = "none";
   let selectedFk = "none";
   let selectedSkills = "none";
@@ -897,7 +851,7 @@ window.removeFromCartByKey = function(key) {
   cart = cart.filter(i => i.cartKey !== key);
   updateCartUI();
   renderItems();
-  showToast('Товар удален из из корзины.');
+  showToast('Товар удален из корзины.');
 };
 
 clearCartBtn.addEventListener('click', () => {
@@ -1016,6 +970,12 @@ function openProductDrawer(item) {
   overlay.classList.add('active');
   productDrawer.classList.add('active');
   recalcDrawerPrice(); 
+}
+
+function openCartDrawer() {
+  productDrawer.classList.remove('active'); 
+  overlay.classList.add('active');
+  cartDrawer.classList.add('active');
 }
 
 function closeAllDrawers() {
