@@ -112,7 +112,8 @@
       cursor: pointer;
     }
 
-    .filters { display: flex; gap: 10px; margin-bottom: 30px; overflow-x: auto; }
+    /* Главные категории */
+    .filters { display: flex; gap: 10px; margin-bottom: 15px; overflow-x: auto; }
     .filter-btn {
       background-color: var(--btn-inactive);
       color: #4a2a16;
@@ -125,9 +126,31 @@
       white-space: nowrap;
     }
     .filter-btn.active { background-color: var(--btn-active); color: #fff; }
+    /* Блок подстраниц для ЗЯ и ИЗЯ (выплывает при выборе Окрасов) */
+    .sub-filters {
+      display: none;
+      gap: 10px;
+      margin-bottom: 30px;
+      padding-left: 10px;
+      border-left: 3px solid var(--btn-active);
+    }
+    .sub-filter-btn {
+      background-color: #ffffff;
+      color: #84522b;
+      border: 1px solid #84522b;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    .sub-filter-btn.active {
+      background-color: #84522b;
+      color: #ffffff;
+    }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
     
-    /* ИНТЕРАКТИВНАЯ КАРТОЧКА: Тень и Блеск */
     .card {
       background-color: var(--card-bg);
       border-radius: 12px;
@@ -140,7 +163,6 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Эффект бегущего глянцевого блика при наведении */
     .card::after {
       content: '';
       position: absolute;
@@ -153,15 +175,11 @@
 
     .card:hover { 
       transform: translateY(-5px); 
-      box-shadow: 0 12px 24px rgba(74, 40, 16, 0.15); /* Фирменная мягкая тень */
+      box-shadow: 0 12px 24px rgba(74, 40, 16, 0.15);
     }
 
-    .card:hover::after {
-      left: 150%;
-      transition: left 0.6s ease-in-out;
-    }
+    .card:hover::after { left: 150%; transition: left 0.6s ease-in-out; }
 
-    /* Плавное увеличение предмета */
     .image-wrapper { height: 180px; display: flex; align-items: center; justify-content: center; padding: 20px; position: relative; overflow: hidden; }
     .card img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform 0.3s ease; }
     .card:hover img { transform: scale(1.08); }
@@ -187,14 +205,12 @@
     .out-of-stock { color: #d32f2f !important; }
     .out-of-stock strong { color: #d32f2f !important; }
 
-    /* Мягкий зеленый квадрат корзины */
     .cart-btn {
       background: #2e7d32; border: none; border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s;
     }
     .cart-btn:hover { background: #215d25; }
     .cart-btn svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; }
 
-    /* Селектор выбора количества прямо на карточке витрины */
     .card-qty-controls {
       display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #ddd; padding: 3px 6px; border-radius: 8px; height: 36px;
     }
@@ -219,7 +235,6 @@
     .section-label { font-size: 11px; font-weight: bold; color: #a38570; text-transform: uppercase; margin: 20px 0 8px 0; letter-spacing: 0.5px; }
     .info-box { background-color: var(--section-bg); border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.5; color: #4a4a4a; border-left: 4px solid #ebdcd0; }
     
-    /* Оранжевое примечание для Золотого Яблока */
     .note-box { background-color: #fff3e0; border-left: 4px solid #ffb74d; color: #b78103; font-weight: 500; }
     
     .server-flags-list { display: flex; gap: 8px; font-size: 20px; background: var(--section-bg); padding: 12px; border-radius: 8px; }
@@ -229,7 +244,6 @@
     .status-box { background: var(--section-bg); padding: 14px; border-radius: 8px; font-weight: bold; font-size: 15px; color: #614635; text-align: center; }
     .price-box { background: #e8f5e9; border: 1px solid #c8e6c9; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; color: #2e7d32; text-align: center; }
 
-    /* Зеленая кнопка добавления внизу инфо-шторки */
     .drawer-buy-btn { background-color: #2e7d32; color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 16px; font-weight: bold; width: 100%; margin-top: 25px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.2s; }
     .drawer-buy-btn:hover { background-color: #215d25; }
     .drawer-buy-btn svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; }
@@ -251,19 +265,40 @@
     .cart-footer-actions { border-top: 1px solid #eee; padding-top: 15px; display: flex; gap: 10px; align-items: center; }
     .buy-btn { flex-grow: 1; background-color: #2e7d32; color: white; border: none; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; }
     .clear-cart-btn { background-color: #d32f2f; width: 48px; height: 48px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .clear-cart-btn svg { width: 20px; height: 20px; fill: white; }
+    .clear-cart-btn svg { width: 22px; height: 22px; }
 
-    /* УВЕДОМЛЕНИЕ */
-    .toast { position: fixed; bottom: 20px; right: 20px; background: #323232; color: #fff; padding: 12px 18px; border-radius: 8px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 2000; transform: translateY(100px); opacity: 0; transition: transform 0.3s, opacity 0.3s; }
+    /* Брендовое кофейно-коричневое уведомление (Toast) */
+    .toast { 
+      position: fixed; bottom: 20px; right: 20px; 
+      background: var(--header-bg); 
+      color: #f7ede2; border-left: 5px solid var(--tag-colors);
+      padding: 14px 20px; border-radius: 8px; display: flex; 
+      align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(74,40,16,0.25); 
+      z-index: 2000; transform: translateY(100px); opacity: 0; transition: all 0.3s; 
+    }
     .toast.show { transform: translateY(0); opacity: 1; }
-    .toast-close { background: none; border: none; color: #aaa; font-size: 18px; cursor: pointer; padding: 0; margin-left: auto; }
+    .toast-close { background: none; border: none; color: var(--btn-inactive); font-size: 18px; cursor: pointer; padding: 0; margin-left: auto; }
+
+    /* Всплывающее окно предупреждения Навеса (По центру) */
+    .popup-modal {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9);
+      background: #fff; width: 90%; max-width: 400px; padding: 25px;
+      border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 3000; text-align: center; display: none; transition: transform 0.2s;
+    }
+    .popup-modal.active { display: block; transform: translate(-50%, -50%) scale(1); }
+    .popup-title { font-size: 20px; font-weight: bold; margin-bottom: 12px; color: #4a2810; }
+    .popup-text { font-size: 14px; color: #555; line-height: 1.5; margin-bottom: 20px; }
+    .popup-actions { display: flex; gap: 12px; justify-content: center; }
+    .popup-btn { padding: 10px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; }
+    .popup-btn-catalog { background-color: #2e7d32; color: #fff; }
+    .popup-btn-close { background-color: #eee; color: #333; }
   </style>
 </head>
 <body>
 
 <header>
   <span>🐴 Lowadi | Kaneri Mio Company</span>
-  <!-- Детализированная иконка корзины с сеточкой в шапке -->
   <button class="header-cart-btn" id="openCartBtn" title="Открыть корзину">
     <svg viewBox="0 0 24 24">
       <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -300,13 +335,20 @@
     </div>
   </div>
 
-  <!-- Категории -->
+  <!-- Главные Категории -->
   <div class="filters">
     <button class="filter-btn active" data-category="all">Все предметы</button>
     <button class="filter-btn" data-category="Черный рынок">Черный рынок</button>
     <button class="filter-btn" data-category="Валюта">Валюта</button>
     <button class="filter-btn" data-category="Окрасы">Окрасы</button>
     <button class="filter-btn" data-category="Другое">Другое</button>
+  </div>
+
+  <!-- Дополнительные Подстраницы (для ЗЯ и ИЗЯ) -->
+  <div class="sub-filters" id="subFiltersContainer">
+    <button class="sub-filter-btn active" data-subcategory="all">Все окрасы</button>
+    <button class="sub-filter-btn" data-subcategory="ЗЯ">Каталог ЗЯ</button>
+    <button class="sub-filter-btn" data-subcategory="ИЗЯ">Каталог ИЗЯ</button>
   </div>
 
   <!-- Сетка карточек -->
@@ -324,7 +366,7 @@
   <h2 class="drawer-title" id="d-name">Название</h2>
   <div class="tag" id="d-tag">Категория</div>
 
-  <!-- Блок примечания (появится только для Золотого Яблока) -->
+  <!-- Блок примечания -->
   <div id="d-note-container" style="display: none;">
     <div class="section-label">Примечание</div>
     <div class="info-box note-box">⚠️ Покупка только навесом</div>
@@ -350,7 +392,6 @@
     </div>
   </div>
 
-  <!-- Большая кнопка добавления в корзину -->
   <button class="drawer-buy-btn" id="drawerAddCartBtn">
     <svg viewBox="0 0 24 24">
       <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -373,11 +414,24 @@
 
   <div class="cart-footer-actions">
     <button class="buy-btn" id="checkoutBtn">Приобрести</button>
+    <!-- Исправлено: Качественный SVG-контур мусорного бака с полосками -->
     <button class="clear-cart-btn" id="clearCartBtn" title="Очистить корзину">
-      <svg viewBox="0 0 24 24">
-        <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+        <line x1="10" y1="11" x2="10" y2="17"/>
+        <line x1="14" y1="11" x2="14" y2="17"/>
       </svg>
     </button>
+  </div>
+</div>
+
+<!-- ВСПЛЫВАЮЩЕЕ ОКНО ПРЕДУПРЕЖДЕНИЯ НАВЕСА -->
+<div class="popup-modal" id="appleModal">
+  <div class="popup-title">Внимание!</div>
+  <div class="popup-text">Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.</div>
+  <div class="popup-actions">
+    <button class="popup-btn popup-btn-catalog" id="modalGoCatalogBtn">В каталог</button>
+    <button class="popup-btn popup-btn-close" id="modalCloseBtn">Закрыть</button>
   </div>
 </div>
 
@@ -389,7 +443,7 @@
 <script>
 let itemsData = [];
 let cart = []; 
-let activeItemForDrawer = null; // Храним товар, открытый в инфо-шторке
+let activeItemForDrawer = null;
 
 const container = document.getElementById('products');
 const searchInput = document.getElementById('search');
@@ -398,13 +452,23 @@ const stockSelect = document.getElementById('stockFilter');
 const tagSelect = document.getElementById('tagFilter');
 const filterBtns = document.querySelectorAll('.filter-btn');
 
+// Элементы подстраниц
+const subFiltersContainer = document.getElementById('subFiltersContainer');
+const subFilterBtns = document.querySelectorAll('.sub-filter-btn');
+
+// Элементы окон и оверлея
 const overlay = document.getElementById('overlay');
 const productDrawer = document.getElementById('drawer');
 const cartDrawer = document.getElementById('cartDrawer');
+const appleModal = document.getElementById('appleModal');
 const closeDrawerBtn = document.getElementById('closeDrawer');
 const openCartBtn = document.getElementById('openCartBtn');
 const closeCartDrawerBtn = document.getElementById('closeCartDrawer');
 const drawerAddCartBtn = document.getElementById('drawerAddCartBtn');
+
+// Элементы кнопок центральной плашки
+const modalGoCatalogBtn = document.getElementById('modalGoCatalogBtn');
+const modalCloseBtn = document.getElementById('modalCloseBtn');
 
 const cartItemsContainer = document.getElementById('cartItemsContainer');
 const cartTotalPrice = document.getElementById('cartTotalPrice');
@@ -416,18 +480,19 @@ const toastMessage = document.getElementById('toastMessage');
 const closeToastBtn = document.getElementById('closeToastBtn');
 
 let currentCategory = 'all';
+let currentSubCategory = 'all'; // Хранит состояние 'all', 'ЗЯ', 'ИЗЯ'
 let toastTimeout;
 
-// Загрузка каталога
+// Загрузка каталога предметов
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
     itemsData = data;
     renderItems();
   })
-  .catch(err => console.error('Ошибка загрузки данных:', err));
+  .catch(err => console.error('Ошибка загрузки каталога:', err));
 
-// Отрисовка витрины
+// Отрисовка каталога с учетом категорий и подстраниц
 function renderItems() {
   container.innerHTML = '';
   const query = searchInput.value.toLowerCase();
@@ -438,6 +503,13 @@ function renderItems() {
   const filtered = itemsData.filter(item => {
     const matchesSearch = item.name.toLowerCase().includes(query);
     const matchesCategory = currentCategory === 'all' || (item.category && item.category.toLowerCase() === currentCategory.toLowerCase());
+    
+    // Фильтрация по подстраницам ЗЯ / ИЗЯ (работает только в категории Окрасы)
+    let matchesSubCategory = true;
+    if (currentCategory.toLowerCase() === 'окрасы' && currentSubCategory !== 'all') {
+      matchesSubCategory = item.colorType && item.colorType.toLowerCase() === currentSubCategory.toLowerCase();
+    }
+
     const matchesServer = selectedServer === 'all' || (item.servers && item.servers.includes(selectedServer));
     const matchesStock = stockValue === 'all' || (item.count && item.count > 0);
     
@@ -446,7 +518,7 @@ function renderItems() {
     if (tagValue === 'limited') matchesTag = item.isRare === true;
     if (tagValue === 'hot') matchesTag = item.isHot === true;
 
-    return matchesSearch && matchesCategory && matchesServer && matchesStock && matchesTag;
+    return matchesSearch && matchesCategory && matchesSubCategory && matchesServer && matchesStock && matchesTag;
   });
 
   filtered.forEach(item => {
@@ -460,10 +532,8 @@ function renderItems() {
     else if (item.isHot) badgeHtml = '<span class="badge hot">Hot</span>';
     else if (item.isRare) badgeHtml = '<span class="badge limited">Limited</span>';
 
-    // Проверяем, есть ли уже этот товар в корзине
     const inCart = cart.find(c => c.id === item.id);
 
-    // Генерируем правый угол подвала карточки: кнопка корзины или выбор количества
     let actionHtml = '';
     if (isOutOfStock) {
       actionHtml = `<button class="cart-btn" style="background:#ccc; cursor:not-allowed;" disabled><svg viewBox="0 0 24 24"><path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" fill="none"/></svg></button>`;
@@ -505,7 +575,6 @@ function renderItems() {
       </div>
     `;
 
-    // Если на карточке отображается обычная кнопка корзины, вешаем клик добавления
     if (!isOutOfStock && !inCart) {
       const cartBtn = card.querySelector('.cart-btn');
       cartBtn.addEventListener('click', (e) => {
@@ -519,9 +588,17 @@ function renderItems() {
   });
 }
 
+// Попытка добавления в корзину с проверкой на Золотое Яблоко
 function addToCart(item) {
+  if (item.name.trim().toLowerCase() === 'золотое яблоко') {
+    // Закрываем инфо-шторку, если она открыта, и выводим центральную плашку
+    productDrawer.classList.remove('active');
+    overlay.classList.add('active');
+    appleModal.classList.add('active');
+    return; // Прерываем добавление в корзину
+  }
+
   const existingProduct = cart.find(cartItem => cartItem.id === item.id);
-  
   if (existingProduct) {
     if (existingProduct.quantity >= item.count) {
       showToast(`В наличии всего ${item.count} шт.`);
@@ -533,7 +610,7 @@ function addToCart(item) {
   }
   
   updateCartUI();
-  renderItems(); // Перерисовываем витрину для отображения кнопок [-] и [+]
+  renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
 // Функция обновления интерфейса корзины и цен
@@ -583,7 +660,7 @@ function updateCartUI() {
   cartBadge.innerText = totalItemsCount;
 }
 
-// Изменение количества товара (вызывается и из корзины, и с карточек витрины)
+// Изменение количества товара
 window.changeQty = function(id, change) {
   const item = cart.find(i => i.id === id);
   if (!item) return;
@@ -602,18 +679,18 @@ window.changeQty = function(id, change) {
 
   item.quantity = newQty;
   updateCartUI();
-  renderItems(); // Мгновенно синхронизируем цифру на карточке товара
+  renderItems();
 };
 
 // Удаление отдельного предмета
 window.removeFromCart = function(id) {
   cart = cart.filter(i => i.id !== id);
   updateCartUI();
-  renderItems(); // Возвращаем обычную кнопку корзины на витрину
+  renderItems();
   showToast('Товар удален из корзины.');
 };
 
-// Полная очистка
+// Полная очистка корзины
 clearCartBtn.addEventListener('click', () => {
   if (cart.length === 0) return;
   cart = [];
@@ -635,12 +712,12 @@ checkoutBtn.addEventListener('click', () => {
   closeAllDrawers();
 });
 
-// Уведомления
+// Кофейно-коричневые уведомления (Toast)
 function showToast(msg) {
   clearTimeout(toastTimeout);
   toastMessage.innerText = msg;
   cartToast.classList.add('show');
-  toastTimeout = setTimeout(hideToast, 1500);
+  toastTimeout = setTimeout(hideToast, 1500); // 1.5 секунды
 }
 
 function hideToast() {
@@ -648,9 +725,9 @@ function hideToast() {
 }
 closeToastBtn.addEventListener('click', hideToast);
 
-// Открытие инфо-шторки с проверкой условий для Золотого Яблока
+// Открытие инфо-шторки
 function openProductDrawer(item) {
-  activeItemForDrawer = item; // Запоминаем текущий открытый предмет
+  activeItemForDrawer = item;
   cartDrawer.classList.remove('active');
   
   document.getElementById('d-image').src = item.image;
@@ -660,7 +737,6 @@ function openProductDrawer(item) {
   tagEl.innerText = item.category || 'Другое';
   tagEl.className = 'tag ' + (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
 
-  // Автоматическая проверка примечания для Золотого Яблока
   const noteContainer = document.getElementById('d-note-container');
   if (item.name.trim().toLowerCase() === 'золотое яблоко') {
     noteContainer.style.display = 'block';
@@ -674,7 +750,6 @@ function openProductDrawer(item) {
   document.getElementById('d-count').innerText = `${item.count || 0} шт`;
   document.getElementById('d-price').innerText = `${item.price || 0}₽`;
 
-  // Делаем кнопку недоступной в шторке, если товара нет на складе
   if (!item.count || item.count === 0) {
     drawerAddCartBtn.style.background = '#ccc';
     drawerAddCartBtn.style.cursor = 'not-allowed';
@@ -694,7 +769,7 @@ function openProductDrawer(item) {
   productDrawer.classList.add('active');
 }
 
-// Клик по большой кнопке добавления внутри инфо-шторки
+// Добавление через инфо-шторку
 drawerAddCartBtn.addEventListener('click', () => {
   if (!activeItemForDrawer || !activeItemForDrawer.count || activeItemForDrawer.count === 0) return;
   addToCart(activeItemForDrawer);
@@ -710,23 +785,75 @@ function closeAllDrawers() {
   overlay.classList.remove('active');
   productDrawer.classList.remove('active');
   cartDrawer.classList.remove('active');
+  appleModal.classList.remove('active'); // Закрываем центральное окно навеса
 }
 
+// ОБРАБОТКА ЦЕНТРАЛЬНОЙ ПЛАШКИ НАВЕСА
+modalCloseBtn.addEventListener('click', () => {
+  appleModal.classList.remove('active');
+  overlay.classList.remove('active');
+});
+
+modalGoCatalogBtn.addEventListener('click', () => {
+  // Закрываем плашку
+  appleModal.classList.remove('active');
+  
+  // Имитируем нажатие на кнопку категории «Окрасы»
+  filterBtns.forEach(b => b.classList.remove('active'));
+  const colorsBtn = Array.from(filterBtns).find(b => b.getAttribute('data-category') === 'Окрасы');
+  if (colorsBtn) {
+    colorsBtn.classList.add('active');
+    currentCategory = 'Окрасы';
+    subFiltersContainer.style.display = 'flex'; // открываем блок ЗЯ / ИЗЯ подстраниц
+  }
+  
+  // Сбрасываем подстраницу на «Все окрасы»
+  subFilterBtns.forEach(sb => sb.classList.remove('active'));
+  subFilterBtns[0].classList.add('active');
+  currentSubCategory = 'all';
+
+  renderItems();
+});
+
+// Клик по кнопке корзины в шапке
 openCartBtn.addEventListener('click', openCartDrawer);
+
+// События закрытия на крестики и оверлей
 closeDrawerBtn.addEventListener('click', closeAllDrawers);
 closeCartDrawerBtn.addEventListener('click', closeAllDrawers);
 overlay.addEventListener('click', closeAllDrawers);
 
+// Слушатели поиска и фильтрации
 searchInput.addEventListener('input', renderItems);
 serverSelect.addEventListener('change', renderItems);
 stockSelect.addEventListener('change', renderItems);
 tagSelect.addEventListener('change', renderItems);
 
+// Обработка главных категорий
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     currentCategory = btn.getAttribute('data-category');
+    
+    // Показываем подстраницы ЗЯ/ИЗЯ только если выбрана категория «Окрасы»
+    if (currentCategory.toLowerCase() === 'окрасы') {
+      subFiltersContainer.style.display = 'flex';
+    } else {
+      subFiltersContainer.style.display = 'none';
+      currentSubCategory = 'all'; // сбрасываем при уходе из Окрасов
+    }
+    
+    renderItems();
+  });
+});
+
+// Обработка подстраниц ЗЯ и ИЗЯ
+subFilterBtns.forEach(sBtn => {
+  sBtn.addEventListener('click', () => {
+    subFilterBtns.forEach(b => b.classList.remove('active'));
+    sBtn.classList.add('active');
+    currentSubCategory = sBtn.getAttribute('data-subcategory');
     renderItems();
   });
 });

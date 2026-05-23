@@ -40,5 +40,31 @@
     "isRare": true,
     "isHot": false,
     "isNew": true
+  },
+{
+    "id": "4",
+    "name": "Масть: Звёздный Волк",
+    "count": 4,
+    "price": 45,
+    "image": "https://i.ibb.co/yFF0Sgzp/100105561-normal.png",
+    "category": "Окрасы",
+    "colorType": "ЗЯ",
+    "author": "Kaneri Mio",
+    "servers": ["🇷🇺", "🇺🇦"]
+  },
+  {
+    "id": "5",
+    "name": "Масть: Неоновый Пегас",
+    "count": 1,
+    "price": 120,
+    "image": "https://i.ibb.co/Cf4D7HS/100427583-normal.png",
+    "category": "Окрасы",
+    "colorType": "ИЗЯ",
+    "author": "Mio Company",
+    "copies": 20,
+    "servers": ["🇷🇺"],
+    "isRare": true,
+    "isHot": true,
+    "isNew": false
   }
 ]
