@@ -10,3 +10,19 @@
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
+{
+  "headers": [
+    {
+      "source": "/admin/config.yml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/yaml"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/admin/(.*)", "destination": "/admin/index.html" }
+  ]
+}
