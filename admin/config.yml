@@ -19,7 +19,7 @@ collections:
           - { label: "ID", name: "id", widget: "string" }
           - { label: "Название", name: "name", widget: "string" }
 
-  - name: "coats"
+  - name: "database"
     label: "Окрасы"
     files:
       - label: "База окрасов"
