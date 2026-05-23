@@ -524,6 +524,7 @@ let cart = [];
 let favorites = []; 
 let isFavoritesPage = false; 
 let activeItemForDrawer = null;
+let currentAppleType = ''; 
 
 const container = document.getElementById('products');
 const searchInput = document.getElementById('search');
@@ -566,7 +567,7 @@ let currentCategory = 'all';
 let currentSubCategory = 'all'; 
 let toastTimeout;
 
-// Загрузка каталога предметов
+// Первоначальная загрузка
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
@@ -606,39 +607,41 @@ function recalcDrawerPrice() {
 optCrSelect.addEventListener('change', recalcDrawerPrice);
 optFkSelect.addEventListener('change', recalcDrawerPrice);
 optSkillsSelect.addEventListener('change', recalcDrawerPrice);
-// Отрисовка с умной фильтрацией по ключевым словам и Избранному
+// Исправленная функция отрисовки витрины (клики с 1 раза, фильтры работают)
 function renderItems() {
   container.innerHTML = '';
-  const query = searchInput.value.toLowerCase();
+  const query = searchInput.value.toLowerCase().trim();
   const selectedServer = serverSelect.value;
   const stockValue = stockSelect.value;
   const tagValue = tagSelect.value;
 
   const filtered = itemsData.filter(item => {
-    // Режим виртуальной страницы избранного
     if (isFavoritesPage && !favorites.includes(item.id)) return false;
 
-    // Умный поиск: совпадение по названию ИЛИ скрытым ключевым словам в коде JSON
+    // Умный поиск по названию или скрытым ключевым словам
     const matchesName = item.name.toLowerCase().includes(query);
     const matchesKeywords = item.keywords && item.keywords.some(keyword => keyword.toLowerCase().includes(query));
-    const matchesSearch = matchesName || matchesKeywords;
+    if (!matchesName && !matchesKeywords) return false;
 
-    const matchesCategory = currentCategory === 'all' || (item.category && item.category.toLowerCase() === currentCategory.toLowerCase());
+    // Фильтр главных категорий
+    if (currentCategory !== 'all') {
+      if (!item.category || item.category.toLowerCase() !== currentCategory.toLowerCase()) return false;
+    }
     
-    let matchesSubCategory = true;
+    // Фильтр подкатегорий ЗЯ / ИЗЯ для Окрасов
     if (currentCategory.toLowerCase() === 'окрасы' && currentSubCategory !== 'all') {
-      matchesSubCategory = item.colorType && item.colorType.toLowerCase() === currentSubCategory.toLowerCase();
+      if (!item.colorType || item.colorType.toLowerCase() !== currentSubCategory.toLowerCase()) return false;
     }
 
-    const matchesServer = selectedServer === 'all' || (item.servers && item.servers.includes(selectedServer));
-    const matchesStock = stockValue === 'all' || (item.count && item.count > 0);
+    // Сервера, Наличие и Метки
+    if (selectedServer !== 'all' && (!item.servers || !item.servers.includes(selectedServer))) return false;
+    if (stockValue === 'available' && (!item.count || item.count <= 0)) return false;
     
-    let matchesTag = true;
-    if (tagValue === 'new') matchesTag = item.isNew === true;
-    if (tagValue === 'limited') matchesTag = item.isRare === true;
-    if (tagValue === 'hot') matchesTag = item.isHot === true;
+    if (tagValue === 'new' && item.isNew !== true) return false;
+    if (tagValue === 'limited' && item.isRare !== true) return false;
+    if (tagValue === 'hot' && item.isHot !== true) return false;
 
-    return matchesSearch && matchesCategory && matchesSubCategory && matchesServer && matchesStock && matchesTag;
+    return true;
   });
 
   if (isFavoritesPage && filtered.length === 0) {
@@ -682,7 +685,7 @@ function renderItems() {
       `;
     } else {
       actionHtml = `
-        <button class="cart-btn" title="Добавить в корзину">
+        <button class="cart-btn font-add-btn" title="Добавить в корзину">
           <svg viewBox="0 0 24 24">
             <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             <path d="M7 14h12M7 16h12M7 18h12" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
@@ -716,12 +719,15 @@ function renderItems() {
       </div>
     `;
 
+    // Привязываем событие добавления строго к кнопке, если товара еще нет в корзине
     if (!isOutOfStock && !inCart) {
-      const cartBtn = card.querySelector('.cart-btn');
-      cartBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        addToCart(item);
-      });
+      const cartBtn = card.querySelector('.font-add-btn');
+      if (cartBtn) {
+        cartBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          addToCart(item);
+        });
+      }
     }
 
     card.addEventListener('click', () => openProductDrawer(item));
@@ -741,40 +747,33 @@ function toggleFavorite(id) {
   favBadge.innerText = favorites.length;
   renderItems();
 }
-
 // Переменная для отслеживания, какое именно яблоко вызвало плашку предупреждения
 let currentAppleType = ''; 
 
 function addToCart(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
 
-  // Проверка для обычного Золотого Яблока
+  // Проверка блокировки и вызов окна для обычного Золотого Яблока
   if (itemNameNormalized === 'золотое яблоко') {
     currentAppleType = 'зя';
-    productDrawer.classList.remove('active');
-    
-    // Динамически меняем текст в модальном окне
+    closeAllDrawers();
     document.getElementById('appleModalText').innerHTML = 'Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
-    
     overlay.classList.add('active');
     appleModal.classList.add('active');
-    return; // Блокируем добавление в корзину
+    return;
   }
 
-  // Проверка для Исчезнувшего золотого яблока (id: 6 или по названию)
+  // Проверка блокировки и вызов окна для Исчезнувшего золотого яблока
   if (itemNameNormalized === 'исчезнувшее золотое яблоко') {
-    currentAppleType = 'изя';
-    productDrawer.classList.remove('active');
-    
-    // Динамически меняем текст под Каталог ИЗЯ
+    currentAppleType = 'ися'; // Метка для ИЗЯ каталога
+    closeAllDrawers();
     document.getElementById('appleModalText').innerHTML = 'Товар <strong>Исчезнувшее золотое яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
-    
     overlay.classList.add('active');
     appleModal.classList.add('active');
-    return; // Блокируем добавление в корзину
+    return;
   }
 
-  // Стандартная логика добавления остальных товаров в корзину
+  // Сбор выбранных в текущий момент параметров из шторки информации
   let selectedCr = "none";
   let selectedFk = "none";
   let selectedSkills = "none";
@@ -819,7 +818,6 @@ function addToCart(item) {
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
 
-// Функция обновления интерфейса корзины
 function updateCartUI() {
   cartItemsContainer.innerHTML = '';
   let total = 0;
@@ -899,7 +897,7 @@ window.removeFromCartByKey = function(key) {
   cart = cart.filter(i => i.cartKey !== key);
   updateCartUI();
   renderItems();
-  showToast('Товар удален из корзины.');
+  showToast('Товар удален из из корзины.');
 };
 
 clearCartBtn.addEventListener('click', () => {
@@ -921,7 +919,6 @@ checkoutBtn.addEventListener('click', () => {
   renderItems();
   closeAllDrawers();
 });
-
 function showToast(msg) {
   clearTimeout(toastTimeout);
   toastMessage.innerText = msg;
@@ -932,7 +929,6 @@ function showToast(msg) {
 function hideToast() { cartToast.classList.remove('show'); }
 closeToastBtn.addEventListener('click', hideToast);
 
-// Открытие инфо-шторки с проверкой двух видов яблок
 function openProductDrawer(item) {
   activeItemForDrawer = item;
   cartDrawer.classList.remove('active');
@@ -951,7 +947,6 @@ function openProductDrawer(item) {
 
   const itemNameNormalized = item.name.trim().toLowerCase();
 
-  // Добавлено: Блок примечания теперь показывается для обоих яблок
   if (itemNameNormalized === 'золотое яблоко' || itemNameNormalized === 'исчезнувшее золотое яблоко') {
     noteText.innerText = '⚠️ Покупка только навесом';
     noteContainer.style.display = 'block';
@@ -1023,101 +1018,41 @@ function openProductDrawer(item) {
   recalcDrawerPrice(); 
 }
 
-// ОБРАБОТКА КЛИКОВ НА КНОПКИ ЦЕНТРАЛЬНОЙ ПЛАШКИ
-modalCloseBtn.addEventListener('click', () => {
-  appleModal.classList.remove('active');
-  overlay.classList.remove('active');
-});
-
-modalGoCatalogBtn.addEventListener('click', () => {
-  appleModal.classList.remove('active');
-  overlay.classList.remove('active');
-  
-  // Активируем вкладку главной категории Окрасы
-  filterBtns.forEach(b => b.classList.remove('active'));
-  const colorsBtn = Array.from(filterBtns).find(b => b.getAttribute('data-category') === 'Окрасы');
-  if (colorsBtn) {
-    colorsBtn.classList.add('active');
-    currentCategory = 'Окрасы';
-    subFiltersContainer.style.display = 'flex'; // открываем панель ЗЯ / ИЗЯ
-  }
-  
-  // Сбрасываем активные стили кнопок подкатегорий
-  subFilterBtns.forEach(sb => sb.classList.remove('active'));
-  
-  // Обновлено: Интеллектуальное перенаправление в зависимости от типа яблока
-  if (currentAppleType === 'изя') {
-    // Включаем подстраницу Каталог ИЗЯ
-    const izyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
-    if (izyaBtn) izyaBtn.classList.add('active');
-    currentSubCategory = 'ИЗЯ';
-    showToast('Перенаправление в каталог ИЗЯ...');
-  } else {
-    // По дефолту или для обычного яблока включаем подстраницу Каталог ЗЯ
-    const zyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ЗЯ');
-    if (zyaBtn) zyaBtn.classList.add('active');
-    currentSubCategory = 'ЗЯ';
-    showToast('Перенаправление в каталог ЗЯ...');
-  }
-  
-  renderItems(); // Обновляем витрину
-});
-// Клик по сердечку в шапке (Виртуальная страница Избранного)
-openFavBtn.addEventListener('click', () => {
-  isFavoritesPage = !isFavoritesPage; 
-  
-  if (isFavoritesPage) {
-    openFavBtn.classList.add('fav-page-active'); 
-    showToast('Переход на страницу Избранного ❤️');
-  } else {
-    openFavBtn.classList.remove('fav-page-active');
-    showToast('Возврат в общий каталог товаров');
-  }
-  renderItems(); 
-});
-
-// Функция гарантированного закрытия абсолютно всех окон, шторок и оверлея
 function closeAllDrawers() {
   overlay.classList.remove('active');
   productDrawer.classList.remove('active');
   cartDrawer.classList.remove('active');
   appleModal.classList.remove('active');
+  activeItemForDrawer = null; 
 }
 
-// Привязка обработчиков закрытия на крестики и затемненный фон (оверлей)
 closeDrawerBtn.addEventListener('click', closeAllDrawers);
 closeCartDrawerBtn.addEventListener('click', closeAllDrawers);
 modalCloseBtn.addEventListener('click', closeAllDrawers);
-overlay.addEventListener('click', closeAllDrawers); // Клик по любому месту вне шторки
+overlay.addEventListener('click', closeAllDrawers);
 
-// Клик по кнопке корзины в шапке
 openCartBtn.addEventListener('click', openCartDrawer);
 
-// Клик по большой зеленой кнопке внутри шторки товара
 drawerAddCartBtn.addEventListener('click', () => {
-  if (!activeItemForDrawer || !activeItemForDrawer.count || activeItemForDrawer.count === 0) return;
-  addToCart(activeItemForDrawer);
+  if (activeItemForDrawer) {
+    addToCart(activeItemForDrawer);
+  }
 });
 
-// Клик по кнопке «В каталог» на центральной плашке яблок
 modalGoCatalogBtn.addEventListener('click', () => {
-  // Сначала полностью закрываем плашку и оверлей
   closeAllDrawers();
   
-  // Активируем вкладку главной категории Окрасы
   filterBtns.forEach(b => b.classList.remove('active'));
   const colorsBtn = Array.from(filterBtns).find(b => b.getAttribute('data-category') === 'Окрасы');
   if (colorsBtn) {
     colorsBtn.classList.add('active');
     currentCategory = 'Окрасы';
-    subFiltersContainer.style.display = 'flex'; // открываем панель ЗЯ / ИЗЯ
+    subFiltersContainer.style.display = 'flex';
   }
   
-  // Сбрасываем активные стили кнопок подкатегорий
   subFilterBtns.forEach(sb => sb.classList.remove('active'));
   
-  // Интеллектуальное перенаправление в зависимости от типа яблока
-  if (currentAppleType === 'изя') {
+  if (currentAppleType === 'ися') {
     const izyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
     if (izyaBtn) izyaBtn.classList.add('active');
     currentSubCategory = 'ИЗЯ';
@@ -1129,13 +1064,11 @@ modalGoCatalogBtn.addEventListener('click', () => {
     showToast('Перенаправление в каталог ЗЯ...');
   }
   
-  renderItems(); // Обновляем витрину
+  renderItems();
 });
 
-// Клик по сердечку в шапке (Виртуальная страница Избранного)
 openFavBtn.addEventListener('click', () => {
   isFavoritesPage = !isFavoritesPage; 
-  
   if (isFavoritesPage) {
     openFavBtn.classList.add('fav-page-active'); 
     showToast('Переход на страницу Избранного ❤️');
@@ -1146,13 +1079,11 @@ openFavBtn.addEventListener('click', () => {
   renderItems(); 
 });
 
-// Слушатели ввода поиска и выпадающих селекторов
 searchInput.addEventListener('input', renderItems);
 serverSelect.addEventListener('change', renderItems);
 stockSelect.addEventListener('change', renderItems);
 tagSelect.addEventListener('change', renderItems);
 
-// Обработка кликов по главным категориям
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
@@ -1169,7 +1100,6 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Обработка кликов по подкатегориям ЗЯ / ИЗЯ
 subFilterBtns.forEach(sBtn => {
   sBtn.addEventListener('click', () => {
     subFilterBtns.forEach(b => b.classList.remove('active'));
