@@ -1,16 +1,26 @@
 [
   {
     "id": "1",
-    "name": "Редкое седло",
-    "price": 1200,
-    "image": "https://via.placeholder.com/300",
-    "category": "аксессуары"
+    "name": "Рог Изобилия",
+    "description": "Открывает множество сокровищ: экю, пропуски, снаряжение и божественных лошадей",
+    "count": 5,
+    "image": "https://ibb.co/fdhXrv52",
+    "category": "Черный рынок"
   },
   {
     "id": "2",
-    "name": "Окраска Звёздная ночь",
-    "price": 3000,
-    "image": "https://via.placeholder.com/300",
-    "category": "окрасы"
+    "name": "Золотое Яблоко",
+    "description": "Позволяет выбрать для вашей лошади новую уникальную масть, созданную другими игроками",
+    "count": 2,
+    "image": "https://ibb.co/C36zFhXB",
+    "category": "Черный рынок"
+  },
+  {
+    "id": "3",
+    "name": "Кусочек Облака",
+    "description": "Омолаживает вашу лошадь на 4 месяца и дает 2 очка роста",
+    "count": 12,
+    "image": "https://ibb.co/6hTG8cB",
+    "category": "Черный рынок"
   }
-][]
+]
