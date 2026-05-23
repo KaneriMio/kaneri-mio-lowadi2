@@ -43,18 +43,59 @@
 
     header span { text-align: center; }
 
-    .header-cart-btn {
+    /* Блок кнопок управления в шапке сайта */
+    .header-controls {
       position: absolute;
       right: 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-icon-btn {
       background: none;
       border: none;
       cursor: pointer;
+      position: relative;
       display: flex;
       align-items: center;
+      padding: 0;
     }
 
-    .header-cart-btn svg { width: 28px; height: 28px; fill: none; stroke: #fff; stroke-width: 2; }
-    .cart-badge { position: absolute; top: -5px; right: -8px; background: #d32f2f; color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 10px; }
+    .header-icon-btn svg {
+      width: 26px;
+      height: 26px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2;
+      transition: transform 0.2s;
+    }
+    
+    .header-icon-btn:hover svg {
+      transform: scale(1.1);
+    }
+
+    /* Подсветка активной кнопки Избранного в шапке */
+    .header-icon-btn.fav-page-active svg {
+      fill: #d32f2f;
+      stroke: #d32f2f;
+    }
+
+    .cart-badge, .fav-badge {
+      position: absolute;
+      top: -5px;
+      right: -8px;
+      background: #d32f2f;
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+    
+    .fav-badge {
+      background: #84522b;
+    }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 30px 15px; }
     .search-panel {
@@ -105,7 +146,6 @@
     }
     .filter-btn.active { background-color: var(--btn-active); color: #fff; }
 
-    /* Блок подстраниц для ЗЯ и ИЗЯ */
     .sub-filters {
       display: none;
       gap: 10px;
@@ -163,11 +203,33 @@
     .card img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform 0.3s ease; }
     .card:hover img { transform: scale(1.08); }
 
+    /* Кнопка-сердечко для Избранного на картинке товара */
+    .card-fav-btn {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 3;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .card-fav-btn:hover { transform: scale(1.1); background: #fff; }
+    .card-fav-btn svg { width: 16px; height: 16px; fill: none; stroke: #8d99ae; stroke-width: 2; transition: fill 0.2s, stroke 0.2s; }
+    .card-fav-btn.active svg { fill: #d32f2f; stroke: #d32f2f; }
+
     .badge { position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 20px; color: #fff; text-transform: uppercase; z-index: 2; }
     .badge.new { background-color: #2e7d32; }
     .badge.hot { background-color: #d32f2f; }
     .badge.limited { background-color: #f57c00; }
-    .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; border-top: 1px solid #f0f0f0; }
+    .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; border-top: 1px solid #f0f0f0; text-align: left; }
     
     .tag { align-self: flex-start; font-size: 10px; font-weight: bold; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; color: #fff; margin-bottom: 12px; }
     .tag.черный-рынок { background-color: var(--tag-black-market); }
@@ -175,15 +237,17 @@
     .tag.окрасы { background-color: var(--tag-colors); }
     .tag.другое { background-color: var(--tag-other); }
 
-    .card-title { font-size: 18px; font-weight: bold; margin: 0 0 6px 0; color: #222; }
+    .card-title { font-size: 18px; font-weight: bold; margin: 0 0 8px 0; color: #222; }
     
-    .card-meta-text { font-size: 13px; color: #614635; font-weight: 500; margin-bottom: 4px; }
-    .card-meta-text span { font-weight: normal; color: #777; }
+    /* Исправлено: Сделали шрифт метаданных автора и копий более плотным и красивым */
+    .card-meta-text { font-size: 13px; color: #4a2810; font-weight: 600; margin-bottom: 6px; line-height: 1.3; }
+    .card-meta-text span { font-weight: 500; color: #555; }
 
-    .card-description { font-size: 13px; color: #444; font-weight: 500; line-height: 1.5; margin: 8px 0 20px 0; flex-grow: 1; }
+    /* Исправлено: Сделали описание плотным, ровным и убрали любые перекосы */
+    .card-description { font-size: 13.5px; color: #333; font-weight: 550; line-height: 1.5; margin: 8px 0 20px 0; flex-grow: 1; text-align: justify; }
 
-    .card-footer { border-top: 1px solid #f5f5f5; padding-top: 12px; font-size: 12px; color: #999; margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
-    .card-footer strong { color: #333; }
+    .card-footer { border-top: 1px solid #f5f5f5; padding-top: 12px; font-size: 12px; color: #8d99ae; margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+    .card-footer strong { color: #333; font-weight: bold; }
     .out-of-stock { color: #d32f2f !important; }
     .out-of-stock strong { color: #d32f2f !important; }
 
@@ -215,7 +279,6 @@
     .admin-icons-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
     .admin-mini-icon { width: 36px; height: 36px; object-fit: contain; background: transparent; padding: 0; border: none; }
 
-    /* Новые стили для вывода картинки спутника на прозрачном фоне */
     .companion-img { width: 42px; height: 42px; object-fit: contain; background: transparent; vertical-align: middle; margin-left: 5px; }
 
     .server-flags-list { display: flex; gap: 8px; font-size: 20px; background: var(--section-bg); padding: 12px; border-radius: 8px; }
@@ -270,21 +333,33 @@
 
 <header>
   <span>🐴 Lowadi | Kaneri Mio Company</span>
-  <button class="header-cart-btn" id="openCartBtn" title="Открыть корзину">
-    <svg viewBox="0 0 24 24">
-      <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <path d="M7 14h12M7 16h12M7 18h12" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-      <circle cx="8" cy="21" r="1.5" fill="#fff"/>
-      <circle cx="18" cy="21" r="1.5" fill="#fff"/>
-    </svg>
-    <div class="cart-badge" id="cartBadge">0</div>
-  </button>
+  <!-- Блок кнопок управления в шапке сайта (Корзина и Избранное) -->
+  <div class="header-controls">
+    <!-- Кнопка-страница Избранного -->
+    <button class="header-icon-btn" id="openFavBtn" title="Посмотреть Избранное">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+      <div class="fav-badge" id="favBadge">0</div>
+    </button>
+
+    <!-- Кнопка вызова корзины -->
+    <button class="header-icon-btn" id="openCartBtn" title="Открыть корзину">
+      <svg viewBox="0 0 24 24">
+        <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M7 14h12M7 16h12M7 18h12" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <circle cx="8" cy="21" r="1.5" fill="#fff"/>
+        <circle cx="18" cy="21" r="1.5" fill="#fff"/>
+      </svg>
+      <div class="cart-badge" id="cartBadge">0</div>
+    </button>
+  </div>
 </header>
 
 <div class="container">
   <!-- Панель поиска и выпадающих списков -->
   <div class="search-panel">
-    <input type="text" id="search" class="search-input" placeholder="Поиск по названию...">
+    <input type="text" id="search" class="search-input" placeholder="Поиск по названию или ключевым словам...">
     <div class="search-filters">
       <select id="serverFilter" class="search-select">
         <option value="all">Все сервера</option>
@@ -337,7 +412,6 @@
   <h2 class="drawer-title" id="d-name">Название</h2>
   <div class="tag" id="d-tag">Категория</div>
 
-  <!-- Блок примечания -->
   <div id="d-note-container" style="display: none;">
     <div class="section-label">Примечание</div>
     <div class="info-box note-box">
@@ -346,7 +420,6 @@
     </div>
   </div>
 
-  <!-- Новые характеристики окраса (Порода, Вид, Спутник) -->
   <div id="d-meta-container" style="display: none;">
     <div class="section-label">Характеристики масти</div>
     <div class="info-box" style="padding: 12px 16px;">
@@ -356,7 +429,6 @@
     </div>
   </div>
 
-  <!-- Блок выбора опций окраса -->
   <div id="d-options-container" style="display: none;">
     <div class="section-label">Настройка окраса</div>
     <div class="option-select-block">
@@ -417,12 +489,9 @@
 <div class="drawer" id="cartDrawer">
   <button class="drawer-close" id="closeCartDrawer">&times;</button>
   <h2 class="drawer-title">Ваша корзина</h2>
-  
   <div class="cart-items-list" id="cartItemsContainer"></div>
-  
   <div class="section-label" style="margin-top: 15px;">Итого к оплате</div>
   <div class="price-box" id="cartTotalPrice" style="font-size: 20px; padding: 15px; margin-bottom: 20px;">0 ₽</div>
-
   <div class="cart-footer-actions">
     <button class="buy-btn" id="checkoutBtn">Приобрести</button>
     <button class="clear-cart-btn" id="clearCartBtn" title="Очистить корзину">
@@ -435,7 +504,6 @@
   </div>
 </div>
 
-<!-- ВСПЛЫВАЮЩЕЕ ОКНО ПРЕДУПРЕЖДЕНИЯ НАВЕСА -->
 <div class="popup-modal" id="appleModal">
   <div class="popup-title">Внимание!</div>
   <div class="popup-text">Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.</div>
@@ -445,7 +513,6 @@
   </div>
 </div>
 
-<!-- КАСТОМНОЕ УВЕДОМЛЕНИЕ -->
 <div class="toast" id="cartToast">
   <span id="toastMessage">Товар добавлен в корзину!</span>
   <button class="toast-close" id="closeToastBtn">&times;</button>
@@ -453,6 +520,8 @@
 <script>
 let itemsData = [];
 let cart = []; 
+let favorites = []; // Хранилище ID лайкнутых товаров
+let isFavoritesPage = false; // Состояние: находимся ли мы на странице Избранного
 let activeItemForDrawer = null;
 
 const container = document.getElementById('products');
@@ -471,6 +540,7 @@ const cartDrawer = document.getElementById('cartDrawer');
 const appleModal = document.getElementById('appleModal');
 const closeDrawerBtn = document.getElementById('closeDrawer');
 const openCartBtn = document.getElementById('openCartBtn');
+const openFavBtn = document.getElementById('openFavBtn');
 const closeCartDrawerBtn = document.getElementById('closeCartDrawer');
 const drawerAddCartBtn = document.getElementById('drawerAddCartBtn');
 
@@ -484,6 +554,7 @@ const modalCloseBtn = document.getElementById('modalCloseBtn');
 const cartItemsContainer = document.getElementById('cartItemsContainer');
 const cartTotalPrice = document.getElementById('cartTotalPrice');
 const cartBadge = document.getElementById('cartBadge');
+const favBadge = document.getElementById('favBadge');
 const clearCartBtn = document.getElementById('clearCartBtn');
 const checkoutBtn = document.getElementById('checkoutBtn');
 const cartToast = document.getElementById('cartToast');
@@ -494,7 +565,7 @@ let currentCategory = 'all';
 let currentSubCategory = 'all'; 
 let toastTimeout;
 
-// Загрузка
+// Загрузка каталога
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
@@ -502,7 +573,7 @@ fetch('./items.json')
     buildNavesDropdown(); 
     renderItems();
   })
-  .catch(err => console.error('Ошибка:', err));
+  .catch(err => console.error('Ошибка загрузки каталога:', err));
 
 function buildNavesDropdown() {
   optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
@@ -534,7 +605,7 @@ function recalcDrawerPrice() {
 optCrSelect.addEventListener('change', recalcDrawerPrice);
 optFkSelect.addEventListener('change', recalcDrawerPrice);
 optSkillsSelect.addEventListener('change', recalcDrawerPrice);
-
+// Отрисовка с умной фильтрацией по ключевым словам и Избранному
 function renderItems() {
   container.innerHTML = '';
   const query = searchInput.value.toLowerCase();
@@ -543,7 +614,14 @@ function renderItems() {
   const tagValue = tagSelect.value;
 
   const filtered = itemsData.filter(item => {
-    const matchesSearch = item.name.toLowerCase().includes(query);
+    // Если включен режим Избранного, скрываем нелайкнутые товары
+    if (isFavoritesPage && !favorites.includes(item.id)) return false;
+
+    // Умный поиск: по названию ИЛИ скрытым ключевым словам в коде JSON
+    const matchesName = item.name.toLowerCase().includes(query);
+    const matchesKeywords = item.keywords && item.keywords.some(keyword => keyword.toLowerCase().includes(query));
+    const matchesSearch = matchesName || matchesKeywords;
+
     const matchesCategory = currentCategory === 'all' || (item.category && item.category.toLowerCase() === currentCategory.toLowerCase());
     
     let matchesSubCategory = true;
@@ -562,6 +640,12 @@ function renderItems() {
     return matchesSearch && matchesCategory && matchesSubCategory && matchesServer && matchesStock && matchesTag;
   });
 
+  // Если список Избранного пуст, выводим красивую плашку
+  if (isFavoritesPage && filtered.length === 0) {
+    container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: #4a2810; font-weight: bold; margin-top: 40px; font-size: 16px;">Список избранных товаров пуст ❤️</div>`;
+    return;
+  }
+
   filtered.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card';
@@ -576,15 +660,14 @@ function renderItems() {
     let cardMetaHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
       const type = (item.colorType || 'ЗЯ').toUpperCase();
-      if (type === 'ЗЯ' || type === 'ИЗЯ') {
-        cardMetaHtml = `<div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>`;
-        if (type === 'ИЗЯ') {
-          cardMetaHtml += `<div class="card-meta-text">Копий: <span>${item.copies || 0} шт.</span></div>`;
-        }
+      cardMetaHtml = `<div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>`;
+      if (type === 'ИЗЯ') {
+        cardMetaHtml += `<div class="card-meta-text">Копий: <span>${item.copies || 0} шт.</span></div>`;
       }
     }
 
     const inCart = cart.find(c => c.id === item.id);
+    const isLiked = favorites.includes(item.id);
 
     let actionHtml = '';
     if (isOutOfStock) {
@@ -612,6 +695,12 @@ function renderItems() {
 
     card.innerHTML = `
       <div class="image-wrapper">
+        <!-- Кнопка-сердечко добавления в Избранное -->
+        <button class="card-fav-btn ${isLiked ? 'active' : ''}" title="Добавить в избранное" onclick="event.stopPropagation(); toggleFavorite('${item.id}')">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </button>
         ${badgeHtml}
         <img src="${item.image}" alt="${item.name}">
       </div>
@@ -639,6 +728,20 @@ function renderItems() {
     card.addEventListener('click', () => openProductDrawer(item));
     container.appendChild(card);
   });
+}
+
+// Функция добавления / удаления лайков
+function toggleFavorite(id) {
+  const index = favorites.indexOf(id);
+  if (index > -1) {
+    favorites.splice(index, 1);
+    showToast('Товар удален из Избранного');
+  } else {
+    favorites.push(id);
+    showToast('Товар добавлен в Избранное ❤️');
+  }
+  favBadge.innerText = favorites.length;
+  renderItems();
 }
 
 function addToCart(item) {
@@ -692,6 +795,7 @@ function addToCart(item) {
   renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
+// Функция обновления интерфейса корзины
 function updateCartUI() {
   cartItemsContainer.innerHTML = '';
   let total = 0;
@@ -815,7 +919,6 @@ function openProductDrawer(item) {
   tagEl.innerText = item.category || 'Другое';
   tagEl.className = 'tag ' + (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
 
-  // Очистка и наполнение админских мини-иконок в Примечании
   const noteContainer = document.getElementById('d-note-container');
   const noteText = document.getElementById('d-note-text');
   const adminIconsGrid = document.getElementById('d-admin-icons');
@@ -837,15 +940,13 @@ function openProductDrawer(item) {
     noteContainer.style.display = 'none';
   }
 
-  // Изменено: Наполнение блока Характеристик масти (Порода, Вид, Спутник)
   const metaContainer = document.getElementById('d-meta-container');
   if (item.category && item.category.toLowerCase() === 'окрасы') {
     document.getElementById('d-breed').innerText = item.breed || 'Не указана';
-    document.getElementById('d-type').innerText = item.type || 'Обычный';
+    document.getElementById('d-type').innerText = item.type || 'Ообычный';
     
     const companionSpan = document.getElementById('d-companion');
     if (item.companionImage && item.companionImage.trim() !== "") {
-      // Если админ добавил ссылку на иконку спутника в JSON
       companionSpan.innerHTML = `<img class="companion-img" src="${item.companionImage}" alt="Спутник">`;
     } else {
       companionSpan.innerText = 'Нет';
@@ -855,7 +956,6 @@ function openProductDrawer(item) {
     metaContainer.style.display = 'none';
   }
 
-  // Поведение выпадающих списков настроек окраса
   const optionsContainer = document.getElementById('d-options-container');
   if (item.category && item.category.toLowerCase() === 'окрасы') {
     optCrSelect.value = 'none';
@@ -866,7 +966,6 @@ function openProductDrawer(item) {
     optionsContainer.style.display = 'none';
   }
 
-  // Скрытие описания и блока «Как получить» только у окрасов
   const descLabel = document.getElementById('d-desc-label');
   const descBox = document.getElementById('d-description');
   const getLabel = document.getElementById('d-get-label');
@@ -927,9 +1026,23 @@ modalGoCatalogBtn.addEventListener('click', () => {
     subFiltersContainer.style.display = 'flex';
   }
   subFilterBtns.forEach(sb => sb.classList.remove('active'));
-  subFilterBtns.classList.add('active');
+  subFilterBtns[0].classList.add('active');
   currentSubCategory = 'all';
   renderItems();
+});
+
+// Клик по сердечку в шапке (Виртуальная страница Избранного)
+openFavBtn.addEventListener('click', () => {
+  isFavoritesPage = !isFavoritesPage; // Переключаем режим
+  
+  if (isFavoritesPage) {
+    openFavBtn.classList.add('fav-page-active'); // Подсвечиваем красным
+    showToast('Переход на страницу Избранного ❤️');
+  } else {
+    openFavBtn.classList.remove('fav-page-active');
+    showToast('Возврат в общий каталог товаров');
+  }
+  renderItems(); // Перерисовываем витрину
 });
 
 openCartBtn.addEventListener('click', openCartDrawer);

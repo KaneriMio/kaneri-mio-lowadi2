@@ -55,6 +55,7 @@
     "hasExtraCr": true,
     "hasFk": true,
     "hasSkills": false,
+    "keywords": ["волк", "небо", "крылья", "синий", "мистика"],
     "adminIcons": [
        "https://i.ibb.co/qYc95xyS/bras-morphee.png",
        "https://i.ibb.co/v4yr59Zn/caresse-philotes.png",
@@ -80,6 +81,7 @@
     "hasSkills": true,
     "breed": "Шагия",
     "type": "Пегас",
+    "keywords": ["гордый", "реалистичный", "крылья", "коричневый", "красивый"]
     "companionImage": "https://i.ibb.co/spnY40bB/compagnon-shika.png",
     "adminIcons": [
       "https://i.ibb.co/k2vNDdKr/couverture-hypnos.png"
