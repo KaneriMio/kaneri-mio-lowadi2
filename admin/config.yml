@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: KaneriMio/kaneri-mio-lowadi2
+  branch: main
+  auth_type: implicit
+  client_id: Ov23lidAKbylTfwCz5AT
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "items"
+    label: "Предметы"
+    files:
+      - label: "База предметов"
+        name: "items"
+        file: "items.json"
+        fields:
+          - { label: "ID", name: "id", widget: "string" }
+          - { label: "Название", name: "name", widget: "string" }
+
+  - name: "coats"
+    label: "Окрасы"
+    files:
+      - label: "База окрасов"
+        name: "database"
+        file: "database.json"
+        fields:
+          - { label: "ID", name: "id", widget: "string" }
+          - { label: "Название", name: "name", widget: "string" }
+          - { label: "Автор", name: "author", widget: "string" }
