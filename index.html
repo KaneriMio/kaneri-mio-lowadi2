@@ -43,7 +43,6 @@
 
     header span { text-align: center; }
 
-    /* Блок кнопок управления в шапке сайта */
     .header-controls {
       position: absolute;
       right: 30px;
@@ -75,7 +74,6 @@
       transform: scale(1.1);
     }
 
-    /* Подсветка активной кнопки Избранного в шапке */
     .header-icon-btn.fav-page-active svg {
       fill: #d32f2f;
       stroke: #d32f2f;
@@ -203,7 +201,6 @@
     .card img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform 0.3s ease; }
     .card:hover img { transform: scale(1.08); }
 
-    /* Кнопка-сердечко для Избранного на картинке товара */
     .card-fav-btn {
       position: absolute;
       top: 12px;
@@ -237,13 +234,11 @@
     .tag.окрасы { background-color: var(--tag-colors); }
     .tag.другое { background-color: var(--tag-other); }
 
-    .card-title { font-size: 18px; font-weight: bold; margin: 0 0 8px 0; color: #222; }
+    .card-title { font-size: 18px; font-weight: bold; margin: 0 0 6px 0; color: #222; }
     
-    /* Исправлено: Сделали шрифт метаданных автора и копий более плотным и красивым */
     .card-meta-text { font-size: 13px; color: #4a2810; font-weight: 600; margin-bottom: 6px; line-height: 1.3; }
     .card-meta-text span { font-weight: 500; color: #555; }
 
-    /* Исправлено: Сделали описание плотным, ровным и убрали любые перекосы */
     .card-description { font-size: 13.5px; color: #333; font-weight: 550; line-height: 1.5; margin: 8px 0 20px 0; flex-grow: 1; text-align: justify; }
 
     .card-footer { border-top: 1px solid #f5f5f5; padding-top: 12px; font-size: 12px; color: #8d99ae; margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
@@ -333,9 +328,8 @@
 
 <header>
   <span>🐴 Lowadi | Kaneri Mio Company</span>
-  <!-- Блок кнопок управления в шапке сайта (Корзина и Избранное) -->
+  <!-- Блок кнопок управления в шапке сайта -->
   <div class="header-controls">
-    <!-- Кнопка-страница Избранного -->
     <button class="header-icon-btn" id="openFavBtn" title="Посмотреть Избранное">
       <svg viewBox="0 0 24 24">
         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -343,7 +337,6 @@
       <div class="fav-badge" id="favBadge">0</div>
     </button>
 
-    <!-- Кнопка вызова корзины -->
     <button class="header-icon-btn" id="openCartBtn" title="Открыть корзину">
       <svg viewBox="0 0 24 24">
         <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -412,6 +405,7 @@
   <h2 class="drawer-title" id="d-name">Название</h2>
   <div class="tag" id="d-tag">Категория</div>
 
+  <!-- Блок примечания -->
   <div id="d-note-container" style="display: none;">
     <div class="section-label">Примечание</div>
     <div class="info-box note-box">
@@ -420,15 +414,19 @@
     </div>
   </div>
 
+  <!-- Характеристики масти (Порода, Вид, Спутник, Аффикс, ЧК) -->
   <div id="d-meta-container" style="display: none;">
     <div class="section-label">Характеристики масти</div>
     <div class="info-box" style="padding: 12px 16px;">
       <div style="margin-bottom: 6px;"><strong>Порода:</strong> <span id="d-breed">-</span></div>
       <div style="margin-bottom: 6px;"><strong>Вид:</strong> <span id="d-type">-</span></div>
-      <div style="display: flex; align-items: center;"><strong>Спутник:</strong> <span id="d-companion" style="margin-left: 5px;">Нет</span></div>
+      <div style="margin-bottom: 6px; display: flex; align-items: center;"><strong>Спутник:</strong> <span id="d-companion" style="margin-left: 5px;">Нет</span></div>
+      <div style="margin-bottom: 6px;"><strong>Аффикс:</strong> <span id="d-affix">Нет</span></div>
+      <div><strong>ЧК:</strong> <span id="d-chk">Нет</span></div>
     </div>
   </div>
 
+  <!-- Блок выбора опций окраса -->
   <div id="d-options-container" style="display: none;">
     <div class="section-label">Настройка окраса</div>
     <div class="option-select-block">
@@ -520,8 +518,8 @@
 <script>
 let itemsData = [];
 let cart = []; 
-let favorites = []; // Хранилище ID лайкнутых товаров
-let isFavoritesPage = false; // Состояние: находимся ли мы на странице Избранного
+let favorites = []; 
+let isFavoritesPage = false; 
 let activeItemForDrawer = null;
 
 const container = document.getElementById('products');
@@ -565,7 +563,7 @@ let currentCategory = 'all';
 let currentSubCategory = 'all'; 
 let toastTimeout;
 
-// Загрузка каталога
+// Загрузка каталога предметов
 fetch('./items.json')
   .then(res => res.json())
   .then(data => {
@@ -614,10 +612,10 @@ function renderItems() {
   const tagValue = tagSelect.value;
 
   const filtered = itemsData.filter(item => {
-    // Если включен режим Избранного, скрываем нелайкнутые товары
+    // Режим виртуальной страницы избранного
     if (isFavoritesPage && !favorites.includes(item.id)) return false;
 
-    // Умный поиск: по названию ИЛИ скрытым ключевым словам в коде JSON
+    // Умный поиск: совпадение по названию ИЛИ скрытым ключевым словам в коде JSON
     const matchesName = item.name.toLowerCase().includes(query);
     const matchesKeywords = item.keywords && item.keywords.some(keyword => keyword.toLowerCase().includes(query));
     const matchesSearch = matchesName || matchesKeywords;
@@ -640,7 +638,6 @@ function renderItems() {
     return matchesSearch && matchesCategory && matchesSubCategory && matchesServer && matchesStock && matchesTag;
   });
 
-  // Если список Избранного пуст, выводим красивую плашку
   if (isFavoritesPage && filtered.length === 0) {
     container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: #4a2810; font-weight: bold; margin-top: 40px; font-size: 16px;">Список избранных товаров пуст ❤️</div>`;
     return;
@@ -695,7 +692,6 @@ function renderItems() {
 
     card.innerHTML = `
       <div class="image-wrapper">
-        <!-- Кнопка-сердечко добавления в Избранное -->
         <button class="card-fav-btn ${isLiked ? 'active' : ''}" title="Добавить в избранное" onclick="event.stopPropagation(); toggleFavorite('${item.id}')">
           <svg viewBox="0 0 24 24">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -730,7 +726,6 @@ function renderItems() {
   });
 }
 
-// Функция добавления / удаления лайков
 function toggleFavorite(id) {
   const index = favorites.indexOf(id);
   if (index > -1) {
@@ -940,10 +935,13 @@ function openProductDrawer(item) {
     noteContainer.style.display = 'none';
   }
 
+  // Обновлено: Вывод новых характеристик масти (Порода, Вид, Спутник, Аффикс, ЧК)
   const metaContainer = document.getElementById('d-meta-container');
   if (item.category && item.category.toLowerCase() === 'окрасы') {
     document.getElementById('d-breed').innerText = item.breed || 'Не указана';
-    document.getElementById('d-type').innerText = item.type || 'Ообычный';
+    document.getElementById('d-type').innerText = item.type || 'Обычный';
+    document.getElementById('d-affix').innerText = item.affix ? 'Да' : 'Нет';
+    document.getElementById('d-chk').innerText = item.chk ? 'Да' : 'Нет';
     
     const companionSpan = document.getElementById('d-companion');
     if (item.companionImage && item.companionImage.trim() !== "") {
@@ -1026,23 +1024,23 @@ modalGoCatalogBtn.addEventListener('click', () => {
     subFiltersContainer.style.display = 'flex';
   }
   subFilterBtns.forEach(sb => sb.classList.remove('active'));
-  subFilterBtns[0].classList.add('active');
+  subFilterBtns.classList.add('active');
   currentSubCategory = 'all';
   renderItems();
 });
 
 // Клик по сердечку в шапке (Виртуальная страница Избранного)
 openFavBtn.addEventListener('click', () => {
-  isFavoritesPage = !isFavoritesPage; // Переключаем режим
+  isFavoritesPage = !isFavoritesPage; 
   
   if (isFavoritesPage) {
-    openFavBtn.classList.add('fav-page-active'); // Подсвечиваем красным
+    openFavBtn.classList.add('fav-page-active'); 
     showToast('Переход на страницу Избранного ❤️');
   } else {
     openFavBtn.classList.remove('fav-page-active');
     showToast('Возврат в общий каталог товаров');
   }
-  renderItems(); // Перерисовываем витрину
+  renderItems(); 
 });
 
 openCartBtn.addEventListener('click', openCartDrawer);
