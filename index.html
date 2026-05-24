@@ -541,17 +541,17 @@
 </div>
 <div class="toast" id="cartToast"><span id="toastMessage">Товар добавлен в корзину!</span><button class="toast-close" id="closeToastBtn">&times;</button></div>
 <script>
-// Глобальный кэш каталогов
+// Глобальный кэш каталогов и сессии
+let itemsData = [];
 let cachedCatalogs = {
   "all": [], "черный рынок": [], "валюта": [], "окрасы": [], 
   "спутники": [], "трофеи": [], "объявления": [], "услуги": [], "другое": []
 };
 
-// Хранилища данных сессии
 let currentServer = localStorage.getItem('lowadi_server') || ''; 
 let cart = JSON.parse(localStorage.getItem('lowadi_cart')) || []; 
 
-// ЖЕСТКОЕ ИСПРАВЛЕНИЕ БАГА: Фильтруем избранное от пустых элементов при загрузке
+// Принудительно очищаем Избранное от пустых элементов и багов счета
 let rawFavorites = JSON.parse(localStorage.getItem('lowadi_favorites')) || [];
 let favorites = rawFavorites.filter(id => id && String(id).trim() !== "");
 
@@ -561,9 +561,12 @@ let currentAppleType = '';
 
 // Строгая пагинация по 30 штук
 let currentPage = 1;
-const itemsPerPage = 20;
+const itemsPerPage = 30;
+let toastTimeout;
+let currentCategory = 'all';
+let currentSubCategory = 'all'; 
 
-// Защитный метод безопасного поиска элементов
+// Безопасный метод поиска элементов
 const getEl = (id) => document.getElementById(id);
 
 const container = getEl('products');
@@ -580,20 +583,11 @@ const overlay = getEl('overlay');
 const productDrawer = getEl('drawer');
 const cartDrawer = getEl('cartDrawer');
 const appleModal = getEl('appleModal');
-const confirmClearCartModal = getEl('confirmClearCartModal'); // Новое окно подтверждения
+const confirmClearCartModal = getEl('confirmClearCartModal');
 const serverWelcomeModal = getEl('serverWelcomeModal');
 const welcomeServerSelect = getEl('welcomeServerSelect');
 const submitServerBtn = getEl('submitServerBtn');
 const currentServerBtn = getEl('currentServerBtn');
-const currencyOrderModal = getEl('currencyOrderModal'); // Новое универсальное окно
-const currencyInputCount = getEl('currencyInputCount'); // Инпут ввода количества
-const currencyUrgencyBlock = getEl('currencyUrgencyBlock'); // Блок радио-кнопок срочности
-const currencyNickBlock = getEl('currencyNickBlock'); // Блок ввода никнейма
-const playerGameNickInput = getEl('playerGameNick'); // Само поле ввода никнейма
-const cancelCurrencyBtn = getEl('cancelCurrencyBtn'); // Кнопка отмены
-const confirmCurrencyBtn = getEl('confirmCurrencyBtn'); // Кнопка подтверждения
-const currencyModalTitle = getEl('currencyModalTitle'); // Заголовок окна
-const currencyCountLabel = getEl('currencyCountLabel'); // Подпись количества
 
 const closeDrawerBtn = getEl('closeDrawer');
 const openCartBtn = getEl('openCartBtn');
@@ -610,6 +604,17 @@ const modalCloseBtn = getEl('modalCloseBtn');
 const cancelClearCartBtn = getEl('cancelClearCartBtn');
 const confirmClearCartBtnEl = getEl('confirmClearCartBtn');
 
+// Элементы нового универсального окна валюты
+const currencyOrderModal = getEl('currencyOrderModal');
+const currencyInputCount = getEl('currencyInputCount');
+const currencyUrgencyBlock = getEl('currencyUrgencyBlock');
+const currencyNickBlock = getEl('currencyNickBlock');
+const playerGameNickInput = getEl('playerGameNick');
+const cancelCurrencyBtn = getEl('cancelCurrencyBtn');
+const confirmCurrencyBtn = getEl('confirmCurrencyBtn');
+const currencyModalTitle = getEl('currencyModalTitle');
+const currencyCountLabel = getEl('currencyCountLabel');
+
 const cartItemsContainer = getEl('cartItemsContainer');
 const cartTotalPrice = getEl('cartTotalPrice');
 const cartBadge = getEl('cartBadge');
@@ -619,10 +624,6 @@ const checkoutBtn = getEl('checkoutBtn');
 const cartToast = getEl('cartToast');
 const toastMessage = getEl('toastMessage');
 const closeToastBtn = getEl('closeToastBtn');
-
-let currentCategory = 'all';
-let currentSubCategory = 'all'; 
-let toastTimeout;
 
 const catalogFiles = {
   "черный рынок": "./blackmarket.json",
@@ -636,7 +637,6 @@ const catalogFiles = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Гарантируем точный и честный счётчик без пустышек
   if (favBadge) favBadge.innerText = favorites.length;
   updateCartUI();
 
@@ -648,13 +648,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (serverWelcomeModal) serverWelcomeModal.classList.add('active');
   }
 });
-
 if (submitServerBtn) {
   submitServerBtn.addEventListener('click', () => {
     if (welcomeServerSelect) changeGlobalServer(welcomeServerSelect.value);
     closeAllDrawers();
   });
 }
+
 window.changeGlobalServer = function(flag) {
   currentServer = flag;
   localStorage.setItem('lowadi_server', flag);
@@ -664,11 +664,9 @@ window.changeGlobalServer = function(flag) {
     const welcomeTitle = getEl('serverModalTitle');
     const welcomeText = getEl('serverModalText');
     const welcomeSelectWrap = getEl('serverSelectWrapper');
-    
     if (welcomeTitle) welcomeTitle.innerText = "Внимание!";
     if (welcomeText) welcomeText.innerHTML = "Упс! Товары для этих регионов ещё не были добавлены. Попробуйте выбрать другой регион.";
     if (welcomeSelectWrap) welcomeSelectWrap.style.display = "block";
-    
     if (overlay) overlay.classList.add('active');
     if (serverWelcomeModal) serverWelcomeModal.classList.add('active');
   } else {
@@ -681,19 +679,13 @@ window.changeGlobalServer = function(flag) {
 };
 
 function safeFetch(url) {
-  return fetch(url)
-    .then(res => res.ok ? res.json() : [])
-    .catch(() => []);
+  return fetch(url).then(res => res.ok ? res.json() : []).catch(() => []);
 }
 
 function loadAndRenderCategory() {
   const cat = currentCategory.toLowerCase();
-
   if (cat === 'all') {
-    if (cachedCatalogs["all"].length > 0) {
-      renderItems();
-      return;
-    }
+    if (cachedCatalogs["all"].length > 0) { renderItems(); return; }
     const promises = Object.values(catalogFiles).map(file => safeFetch(file));
     Promise.all(promises).then(results => {
       cachedCatalogs["all"] = results.flat();
@@ -702,20 +694,17 @@ function loadAndRenderCategory() {
     });
     return;
   }
-
   if (cachedCatalogs[cat] && cachedCatalogs[cat].length > 0) {
     buildNavesDropdown(cachedCatalogs[cat]);
     renderItems();
     return;
   }
-
   const fileUrl = catalogFiles[cat];
   if (!fileUrl) {
     if (container) container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; font-weight: bold; margin-top: 40px; color: #4a2810;">Раздел находится в разработке 🐴</div>`;
     if (paginationContainer) paginationContainer.innerHTML = '';
     return;
   }
-
   safeFetch(fileUrl).then(data => {
     cachedCatalogs[cat] = data;
     buildNavesDropdown(data);
@@ -728,7 +717,6 @@ function buildNavesDropdown(dataList) {
   optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
   let searchSource = currentCategory.toLowerCase() === 'all' ? dataList : (cachedCatalogs["черный рынок"] || []);
   if (currentCategory.toLowerCase() === 'черный рынок') searchSource = dataList;
-
   searchSource.forEach(item => {
     if (item.isNaves === true) {
       const opt = document.createElement('option');
@@ -752,7 +740,6 @@ function recalcDrawerPrice() {
   const priceBox = document.getElementById('d-price');
   if (priceBox) priceBox.innerText = `${currentPrice} ₽`;
 }
-
 if (optCrSelect) optCrSelect.addEventListener('change', recalcDrawerPrice);
 if (optFkSelect) optFkSelect.addEventListener('change', recalcDrawerPrice);
 if (optSkillsSelect) optSkillsSelect.addEventListener('change', recalcDrawerPrice);
@@ -786,7 +773,6 @@ function renderItems() {
     return true;
   });
 
-  // Если мы на странице избранного, добавляем сверху кнопку "Очистить всё"
   if (isFavoritesPage && filtered.length > 0) {
     const clearFavDiv = document.createElement('div');
     clearFavDiv.className = 'clear-fav-container';
@@ -823,10 +809,8 @@ function renderItems() {
     else if (item.isHot) badgeHtml = '<span class="badge hot">Hot</span>';
     else if (item.isRare) badgeHtml = '<span class="badge limited">Limited</span>';
 
-    // РЕНДЕР ОПИСАНИЯ КАРТОЧКИ: "В наличии" перенесено внутрь тела описания для ВСЕХ товаров
     let cardContentHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
-      const type = (item.colorType || 'ЗЯ').toUpperCase();
       cardContentHtml = `
         <div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>
         <div class="card-meta-text">Вид: <span>${item.type || 'Обычный'}</span></div>
@@ -838,7 +822,6 @@ function renderItems() {
     const inCart = cart.find(c => c.id === item.id);
     const isLiked = favorites.includes(item.id);
 
-    // Кнопка корзины на витрине
     let actionHtml = '';
     if (isOutOfStock) {
       actionHtml = `<button class="cart-btn" style="background:#ccc; cursor:not-allowed;" disabled><svg viewBox="0 0 24 24"><path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" fill="none"/></svg></button>`;
@@ -863,7 +846,6 @@ function renderItems() {
       `;
     }
 
-    // Итоговая разметка карточки: Цена перенесена в самый низ (в футер) на место наличия
     card.innerHTML = `
       <div class="image-wrapper">
         <button class="card-fav-btn ${isLiked ? 'active' : ''}" title="Добавить в избранное" onclick="event.stopPropagation(); toggleFavorite('${item.id}')">
@@ -889,16 +871,12 @@ function renderItems() {
       if (cartBtn) {
         cartBtn.addEventListener('click', (e) => {
           e.stopPropagation();
-          
-          // Проверяем, является ли товар валютой
           const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
           if (isCurrency) {
-            window.pendingCurrencyItem = item; // сохраняем ссылку
+            window.pendingCurrencyItem = item;
             closeAllDrawers();
-
             if (currencyInputCount) currencyInputCount.value = "1";
             if (playerGameNickInput) playerGameNickInput.value = "";
-
             const itemNameNormalized = item.name.toLowerCase();
             if (itemNameNormalized.includes('пропуск')) {
               if (currencyModalTitle) currencyModalTitle.innerText = "Покупка Пропусков пакетами";
@@ -909,32 +887,20 @@ function renderItems() {
               if (currencyCountLabel) currencyCountLabel.innerText = "Сколько пакетов вам нужно? (1 пак = 1.000.000 шт.)";
               if (currencyUrgencyBlock) currencyUrgencyBlock.style.display = "none";
             }
-
             if (currencyNickBlock) currencyNickBlock.style.display = "none";
             if (overlay) overlay.classList.add('active');
             if (currencyOrderModal) currencyOrderModal.classList.add('active');
           } else {
-            // Для всех остальных обычных предметов и мастей
             executeAddToCartFinal(item);
           }
         });
       }
     }
 
-
     card.addEventListener('click', () => openProductDrawer(item));
     container.appendChild(card);
   });
 }
-// Функция полной очистки Избранного по клику на новую кнопку
-window.clearAllFavorites = function(e) {
-  if (e) e.stopPropagation();
-  favorites = [];
-  localStorage.setItem('lowadi_favorites', JSON.stringify(favorites));
-  if (favBadge) favBadge.innerText = 0;
-  showToast('Список Избранного полностью очищен ❤️');
-  renderItems();
-};
 
 function renderPaginationControls(totalPages) {
   if (!paginationContainer) return;
@@ -973,75 +939,25 @@ function toggleFavorite(id) {
     favorites.push(id);
     showToast('Товар добавлен в Избранное ❤️');
   }
-  // Перепроверка массива на пустоту, чтобы исключить баги счётчика
   favorites = favorites.filter(item => item && String(item).trim() !== "");
   if (favBadge) favBadge.innerText = favorites.length;
   localStorage.setItem('lowadi_favorites', JSON.stringify(favorites));
   renderItems();
 }
-function addToCart(item) {
-  const itemNameNormalized = item.name.trim().toLowerCase();
 
-  // 1. Проверка блокировки для Золотого Яблока
-  if (itemNameNormalized === 'золотое яблоко') {
-    currentAppleType = 'зя';
-    closeAllDrawers();
-    const modalText = document.getElementById('appleModalText');
-    if (modalText) modalText.innerHTML = 'Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
-    if (overlay) overlay.classList.add('active');
-    if (appleModal) appleModal.classList.add('active');
-    return;
-  }
-
-  // 2. Проверка блокировки для Исчезнувшего золотого яблока
-  if (itemNameNormalized === 'исчезнувшее золотое яблоко') {
-    currentAppleType = 'ися'; 
-    closeAllDrawers();
-    const modalText = document.getElementById('appleModalText');
-    if (modalText) modalText.innerHTML = 'Товар <strong>Исчезнувшее золотое яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
-    if (overlay) overlay.classList.add('active');
-    if (appleModal) appleModal.classList.add('active');
-    return;
-  }
-
-  // 3. ПЕРЕХВАТ ДЛЯ ВАЛЮТЫ: Вместо прямой покупки открываем кастомный калькулятор
-  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-  if (isCurrency) {
-    window.pendingCurrencyItem = item; // Сохраняем ссылку на выбранный товар
-    closeAllDrawers();
-
-    if (currencyInputCount) currencyInputCount.value = "1";
-    if (playerGameNickInput) playerGameNickInput.value = "";
-
-    if (itemNameNormalized.includes('пропуск')) {
-      if (currencyModalTitle) currencyModalTitle.innerText = "Покупка Пропусков пакетами";
-      if (currencyCountLabel) currencyCountLabel.innerText = "Сколько пакетов вам нужно? (1 пак = 1.000 шт.)";
-      if (currencyUrgencyBlock) currencyUrgencyBlock.style.display = "block";
-    } else {
-      if (currencyModalTitle) currencyModalTitle.innerText = "Покупка Экю пакетами";
-      if (currencyCountLabel) currencyCountLabel.innerText = "Сколько пакетов вам нужно? (1 пак = 1.000.000 шт.)";
-      if (currencyUrgencyBlock) currencyUrgencyBlock.style.display = "none";
-    }
-
-    if (currencyNickBlock) currencyNickBlock.style.display = "none";
-
-    if (overlay) overlay.classList.add('active');
-    if (currencyOrderModal) currencyOrderModal.classList.add('active');
-    return;
-  }
-
-  // Добавление для остальных обычных предметов и окрасов
-  executeAddToCartFinal(item);
-}
-// Живое отслеживание ввода количества пакетов для динамического показа поля Ника
+window.clearAllFavorites = function(e) {
+  if (e) e.stopPropagation();
+  favorites = [];
+  localStorage.setItem('lowadi_favorites', JSON.stringify(favorites));
+  if (favBadge) favBadge.innerText = 0;
+  showToast('Список Избранного полностью очищен ❤️');
+  renderItems();
+};
 if (currencyInputCount) {
   currencyInputCount.addEventListener('input', () => {
     if (!window.pendingCurrencyItem) return;
-    
     const itemNameNormalized = window.pendingCurrencyItem.name.trim().toLowerCase();
     const countValue = parseInt(currencyInputCount.value) || 0;
-
-    // Поле ника требуется ТОЛЬКО для Пропусков и строго при объеме БОЛЬШЕ 10 пакетов
     if (itemNameNormalized.includes('пропуск') && countValue > 10) {
       if (currencyNickBlock) currencyNickBlock.style.display = "block";
     } else {
@@ -1049,64 +965,54 @@ if (currencyInputCount) {
     }
   });
 }
-// Обработчик кнопки подтверждения в окне калькулятора валюты
+
 if (confirmCurrencyBtn) {
   confirmCurrencyBtn.addEventListener('click', () => {
     if (!window.pendingCurrencyItem) return;
-
     const item = window.pendingCurrencyItem;
     const itemNameNormalized = item.name.trim().toLowerCase();
     const countValue = parseInt(currencyInputCount.value) || 0;
 
     if (countValue <= 0) {
-      alert("Пожалуйста, укажите корректное количество пакетов (от 1 и более).");
+      alert("Пожалуйста, укажите корректное количество пакетов.");
       return;
     }
 
     let selectedUrgency = null;
-    let basePricePerPack = item.price || 0; // Для Экю цена берется фиксированная из файла
+    let basePricePerPack = item.price || 0;
 
-    // Логика расчета динамической цены пропусков от срочности
     if (itemNameNormalized.includes('пропуск')) {
       const urgencyRadio = document.querySelector('input[name="modalUrgencyRadio"]:checked');
       selectedUrgency = urgencyRadio ? urgencyRadio.value : 'urgent';
-      
-      // Меняем цену пакета: 150₽ если срочно, 75₽ если не срочно
       basePricePerPack = (selectedUrgency === 'urgent') ? 150 : 75;
 
-      // Если пропусков больше 10, принудительно требуем ник для команды
       if (countValue > 10) {
         const nickValue = playerGameNickInput ? playerGameNickInput.value.trim() : "";
         if (nickValue === "") {
-          alert("Для заказов от 11 пакетов пропусков необходимо указать игровой ник для команды!");
+          alert("Для заказов от 11 пакетов пропусков необходимо указать игровой ник!");
           return;
         }
         item.playerNick = nickValue;
       } else {
-        item.playerNick = null; // Если передумал и уменьшил до розницы
+        item.playerNick = null;
       }
     }
 
-    // Формируем уникальный ключ, чтобы пакеты с разной срочностью или ником не склеивались в кашу
     let urgencyKeySuffix = selectedUrgency ? `_urg_${selectedUrgency}` : '';
     let nickKeySuffix = item.playerNick ? `_nick_${item.playerNick}` : '';
     const uniqueCartKey = `${item.id}${urgencyKeySuffix}${nickKeySuffix}`;
 
-    // Ищем, есть ли уже в корзине точно такой же пакет с такими же условиями
     const existingIndex = cart.findIndex(c => c.cartKey === uniqueCartKey);
-
     if (existingIndex > -1) {
-      // Если есть, просто суммируем количество пакетов
       cart[existingIndex].quantity += countValue;
     } else {
-      // Если нет, создаем новую запись в корзине
       cart.push({
         ...item,
         cartKey: uniqueCartKey,
-        price: basePricePerPack, // Записываем вычисленную цену за пакет
+        price: basePricePerPack,
         quantity: countValue,
         playerNick: item.playerNick || null,
-        urgency: selectedUrgency // 'urgent' или 'normal'
+        urgency: selectedUrgency
       });
     }
 
@@ -1114,18 +1020,9 @@ if (confirmCurrencyBtn) {
     window.pendingCurrencyItem = null;
     if (currencyOrderModal) currencyOrderModal.classList.remove('active');
     closeAllDrawers();
-    
     updateCartUI();
     renderItems();
     showToast(`Валюта успешно добавлена в корзину!`);
-  });
-}
-
-if (cancelCurrencyBtn) {
-  cancelCurrencyBtn.addEventListener('click', () => {
-    window.pendingCurrencyItem = null;
-    if (currencyOrderModal) currencyOrderModal.classList.remove('active');
-    closeAllDrawers();
   });
 }
 
@@ -1175,7 +1072,6 @@ function executeAddToCartFinal(item) {
   renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
-
 function updateCartUI() {
   if (!cartItemsContainer) return;
   cartItemsContainer.innerHTML = '';
@@ -1197,11 +1093,8 @@ function updateCartUI() {
 
     if (isCurrency) {
       if (itemNameLower.includes('пропуск')) {
-        // Форматируем название: количество пакетов .000 пропусков
         displayTitle = `${item.quantity}.000 пропусков`;
-        
         if (item.quantity > 10) {
-          // Опт для пропусков (>10 пакетов) — выводится отметка команды и никнейм
           const urgencyBadge = item.urgency === 'urgent' ? '<span style="color:#d32f2f; font-weight:bold; display:block; margin-bottom:4px;">🔥 Срочно</span>' : '';
           currencyCalcHtml = `
             <div class="cart-currency-calc">
@@ -1211,7 +1104,6 @@ function updateCartUI() {
             </div>
           `;
         } else {
-          // Розница для пропусков (<=10 пакетов) — расчёт комиссии за ОДНУ лошадь
           const urgencyBadge = item.urgency === 'urgent' ? '<span style="color:#d32f2f; font-weight:bold; display:block; margin-bottom:4px;">🔥 Срочно</span>' : '';
           const cleanPassesTotal = item.quantity * 1000;
           currencyCalcHtml = `
@@ -1219,21 +1111,18 @@ function updateCartUI() {
               ${urgencyBadge}
               🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
               Поставить коня на продажу за: <strong>1.112 пропусков</strong> (за 1 шт.)<br>
-              <span style="font-size:11px; opacity:0.85;">(Итого чистыми вы получите: ${cleanPassesTotal.toLocaleString('ru-RU')})</span>
+              <span style="font-size:11px; opacity:0.85;">(Итого чистыми: ${cleanPassesTotal.toLocaleString('ru-RU')})</span>
             </div>
           `;
         }
       } else if (itemNameLower.includes('экю')) {
-        // Форматируем название: количество пакетов .000.000 экю
         displayTitle = `${item.quantity}.000.000 экю`;
-        
-        // Для экю расчёт комиссии за ОДНУ лошадь всегда
         const cleanEcuTotal = item.quantity * 1000000;
         currencyCalcHtml = `
           <div class="cart-currency-calc">
             🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
             Поставить коня на продажу за: <strong>1.111.112 экю</strong> (за 1 шт.)<br>
-            <span style="font-size:11px; opacity:0.85;">(Итого чистыми вы получите: ${cleanEcuTotal.toLocaleString('ru-RU')})</span>
+            <span style="font-size:11px; opacity:0.85;">(Итого чистыми: ${cleanEcuTotal.toLocaleString('ru-RU')})</span>
           </div>
         `;
       }
@@ -1251,7 +1140,6 @@ function updateCartUI() {
       optionsMetaHtml = `<div class="cart-item-meta" style="color:#b17a53; font-weight:bold; margin-top:4px;">Категория: ${type}</div>${extraInfo}${addonsText}`;
     }
 
-    // Для пакетов валюты скрываем кнопки управления количеством, так как объем вводится при покупке
     let quantityControlsHtml = `
       <div class="quantity-controls">
         <button class="qty-btn" onclick="changeQtyByKey('${item.cartKey}', -1)">-</button>
@@ -1280,15 +1168,19 @@ function updateCartUI() {
   if (cartTotalPrice) cartTotalPrice.innerText = `${total} ₽`;
   if (cartBadge) cartBadge.innerText = totalItemsCount;
 }
+
 window.changeQtyByKey = function(key, change) {
   const item = cart.find(i => i.cartKey === key);
   if (!item) return;
   
-  const catKey = currentCategory.toLowerCase();
-  const searchPool = cachedCatalogs[catKey] || [];
-  const originalItem = searchPool.find(i => i.id === item.id);
+  let originalItem = null;
+  Object.keys(cachedCatalogs).forEach(cat => {
+    const found = cachedCatalogs[cat].find(i => i.id === item.id);
+    if (found) originalItem = found;
+  });
   
-  const maxStock = originalItem ? ((originalItem.stocks && originalItem.stocks[currentServer]) || 0) : 999;
+  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
+  const maxStock = isCurrency ? 999999 : (originalItem ? ((originalItem.stocks && originalItem.stocks[currentServer]) || 0) : 999);
   const newQty = item.quantity + change;
 
   if (newQty <= 0) {
@@ -1308,9 +1200,7 @@ window.changeQtyByKey = function(key, change) {
 
 window.changeQty = function(id, change) {
   const item = cart.find(i => i.id === id);
-  if (item) {
-    changeQtyByKey(item.cartKey, change);
-  }
+  if (item) changeQtyByKey(item.cartKey, change);
 };
 
 window.removeFromCartByKey = function(key) {
@@ -1320,8 +1210,6 @@ window.removeFromCartByKey = function(key) {
   renderItems();
   showToast('Товар удален из корзины.');
 };
-
-// ОБНОВЛЕНО: Вызов стилизованного окна подтверждения вместо системного confirm
 if (clearCartBtn) {
   clearCartBtn.addEventListener('click', () => {
     if (cart.length === 0) return;
@@ -1332,7 +1220,6 @@ if (clearCartBtn) {
   });
 }
 
-// Клик по кнопке "Да, очистить" на стилизованной плашке
 if (confirmClearCartBtnEl) {
   confirmClearCartBtnEl.addEventListener('click', () => {
     cart = [];
@@ -1344,11 +1231,10 @@ if (confirmClearCartBtnEl) {
   });
 }
 
-// Клик по кнопке "Отмена" на стилизованной плашке
 if (cancelClearCartBtn) {
   cancelClearCartBtn.addEventListener('click', () => {
     if (confirmClearCartModal) confirmClearCartModal.classList.remove('active');
-    if (cartDrawer) cartDrawer.classList.add('active'); // возвращаем фокус на корзину
+    if (cartDrawer) cartDrawer.classList.add('active');
     if (overlay && !productDrawer.classList.contains('active')) overlay.classList.add('active');
   });
 }
@@ -1375,10 +1261,8 @@ function showToast(msg) {
   cartToast.classList.add('show');
   toastTimeout = setTimeout(hideToast, 1500);
 }
-
 function hideToast() { if (cartToast) cartToast.classList.remove('show'); }
 if (closeToastBtn) closeToastBtn.addEventListener('click', hideToast);
-
 function openProductDrawer(item) {
   activeItemForDrawer = item;
   if (cartDrawer) cartDrawer.classList.remove('active');
@@ -1398,6 +1282,7 @@ function openProductDrawer(item) {
   if (adminIconsGrid) adminIconsGrid.innerHTML = ''; 
 
   const itemNameNormalized = item.name.trim().toLowerCase();
+  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
 
   if (itemNameNormalized === 'золотое яблоко' || itemNameNormalized === 'исчезнувшее золотое яблоко') {
     if (noteText) noteText.innerText = '⚠️ Покупка только навесом';
@@ -1407,8 +1292,7 @@ function openProductDrawer(item) {
     if (adminIconsGrid) {
       item.adminIcons.forEach(iconUrl => {
         const img = document.createElement('img');
-        img.className = 'admin-mini-icon';
-        img.src = iconUrl;
+        img.className = 'admin-mini-icon'; img.src = iconUrl;
         adminIconsGrid.appendChild(img);
       });
     }
@@ -1423,7 +1307,6 @@ function openProductDrawer(item) {
     const dType = getEl('d-type'); if (dType) dType.innerText = item.type || 'Обычный';
     const dAffix = getEl('d-affix'); if (dAffix) dAffix.innerText = item.affix ? 'Да' : 'Нет';
     const dChk = getEl('d-chk'); if (dChk) dChk.innerText = item.chk ? 'Да' : 'Нет';
-    
     const companionSpan = getEl('d-companion');
     if (companionSpan) {
       if (item.companionImage && item.companionImage.trim() !== "") {
@@ -1474,55 +1357,13 @@ function openProductDrawer(item) {
   if (dFlags) dFlags.innerText = availableFlags.length > 0 ? availableFlags.join(' ') : 'Нет в наличии';
   
   const serverStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
-  const dCount = getEl('d-count'); if (dCount) dCount.innerText = `${serverStock} шт`;
+  const dCount = getEl('d-count'); if (dCount) dCount.innerText = isCurrency ? 'Бесконечно' : `${serverStock} шт`;
   const dPrice = getEl('d-price'); if (dPrice) dPrice.innerText = `${item.price || 0} ₽`;
   
   if (overlay) overlay.classList.add('active');
   if (productDrawer) productDrawer.classList.add('active');
   recalcDrawerPrice(); 
 }
-// Слушатель кнопки подтверждения командного оптового заказа валюты
-if (confirmTeamOrderBtn) {
-  confirmTeamOrderBtn.addEventListener('click', () => {
-    if (!playerGameNickInput) return;
-    const nickValue = playerGameNickInput.value.trim();
-
-    if (nickValue === "") {
-      alert("Пожалуйста, введите ваш игровой ник для приглашения в команду!");
-      return;
-    }
-
-    // Если ник успешно введен, достаем сохраненный временный товар
-    if (window.pendingCurrencyItem) {
-      const updatedItem = { ...window.pendingCurrencyItem, playerNick: nickValue };
-      window.pendingCurrencyItem = null;
-      
-      // Закрываем модалку опта
-      if (currencyTeamModal) currencyTeamModal.classList.remove('active');
-      
-      // Вызываем базовую функцию добавления уже с ником внутри
-      addToCart(updatedItem);
-    }
-  });
-}
-
-// Слушатель кнопки отмены командного оптового заказа
-if (cancelTeamOrderBtn) {
-  cancelTeamOrderBtn.addEventListener('click', () => {
-    window.pendingCurrencyItem = null;
-    if (currencyTeamModal) currencyTeamModal.classList.remove('active');
-    closeAllDrawers();
-    showToast('Добавление оптового заказа отменено.');
-  });
-}
-
-// Расширяем общую функцию закрытия всех окон для нового окна валюты
-const originalCloseAllDrawers = window.closeAllDrawers;
-window.closeAllDrawers = function() {
-  if (originalCloseAllDrawers) originalCloseAllDrawers();
-  if (currencyTeamModal) currencyTeamModal.classList.remove('active');
-  window.pendingCurrencyItem = null;
-};
 function closeAllDrawers() {
   if (overlay) overlay.classList.remove('active');
   if (productDrawer) productDrawer.classList.remove('active');
@@ -1530,13 +1371,11 @@ function closeAllDrawers() {
   if (appleModal) appleModal.classList.remove('active');
   if (confirmClearCartModal) confirmClearCartModal.classList.remove('active');
   if (serverWelcomeModal) serverWelcomeModal.classList.remove('active');
-  
-  // Добавлено: Закрытие универсального окна валюты
   if (currencyOrderModal) currencyOrderModal.classList.remove('active');
-  
   activeItemForDrawer = null; 
-  window.pendingCurrencyItem = null; // Очищаем временную ссылку на товар валюты
+  window.pendingCurrencyItem = null;
 }
+
 if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeAllDrawers);
 if (closeCartDrawerBtn) closeCartDrawerBtn.addEventListener('click', closeAllDrawers);
 if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeAllDrawers);
@@ -1553,17 +1392,13 @@ if (openCartBtn) {
 if (drawerAddCartBtn) {
   drawerAddCartBtn.addEventListener('click', () => {
     if (!activeItemForDrawer) return;
-
     const item = activeItemForDrawer;
     const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-
     if (isCurrency) {
-      window.pendingCurrencyItem = item; // сохраняем ссылку для калькулятора
+      window.pendingCurrencyItem = item;
       closeAllDrawers();
-
       if (currencyInputCount) currencyInputCount.value = "1";
       if (playerGameNickInput) playerGameNickInput.value = "";
-
       const itemNameNormalized = item.name.toLowerCase();
       if (itemNameNormalized.includes('пропуск')) {
         if (currencyModalTitle) currencyModalTitle.innerText = "Покупка Пропусков пакетами";
@@ -1574,12 +1409,10 @@ if (drawerAddCartBtn) {
         if (currencyCountLabel) currencyCountLabel.innerText = "Сколько пакетов вам нужно? (1 пак = 1.000.000 шт.)";
         if (currencyUrgencyBlock) currencyUrgencyBlock.style.display = "none";
       }
-
       if (currencyNickBlock) currencyNickBlock.style.display = "none";
       if (overlay) overlay.classList.add('active');
       if (currencyOrderModal) currencyOrderModal.classList.add('active');
     } else {
-      // Для всех обычных предметов и окрасов мастей
       executeAddToCartFinal(item);
     }
   });
@@ -1595,9 +1428,7 @@ if (modalGoCatalogBtn) {
       currentCategory = 'Окрасы';
       if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
     }
-    
     subFilterBtns.forEach(sb => sb.classList.remove('active'));
-    
     if (currentAppleType === 'ися') {
       const izyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
       if (izyaBtn) izyaBtn.classList.add('active');
@@ -1636,7 +1467,6 @@ filterBtns.forEach(btn => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     currentCategory = btn.getAttribute('data-category');
-    
     if (currentCategory.toLowerCase() === 'окрасы') {
       if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
     } else {
@@ -1647,7 +1477,17 @@ filterBtns.forEach(btn => {
     loadAndRenderCategory();
   });
 });
-// Обработчики кнопок закрытия и отмены для нового окна валюты
+
+subFilterBtns.forEach(sBtn => {
+  sBtn.addEventListener('click', () => {
+    subFilterBtns.forEach(b => b.classList.remove('active'));
+    sBtn.classList.add('active');
+    currentSubCategory = sBtn.getAttribute('data-subcategory');
+    currentPage = 1;
+    renderItems();
+  });
+});
+
 if (cancelCurrencyBtn) {
   cancelCurrencyBtn.addEventListener('click', () => {
     window.pendingCurrencyItem = null;
@@ -1655,41 +1495,12 @@ if (cancelCurrencyBtn) {
     closeAllDrawers();
   });
 }
-
-// Защита: очищаем временные ссылки при клике на крестики или оверлей
-const extendedCloseAllDrawers = window.closeAllDrawers;
-window.closeAllDrawers = function() {
-  if (extendedCloseAllDrawers) extendedCloseAllDrawers();
-  if (currencyOrderModal) currencyOrderModal.classList.remove('active');
-  window.pendingCurrencyItem = null;
-};
-
-// Фиксация работы фильтров категорий при кликах
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentCategory = btn.getAttribute('data-category');
-    
-    if (currentCategory.toLowerCase() === 'окрасы') {
-      if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
-    } else {
-      if (subFiltersContainer) subFiltersContainer.style.display = 'none';
-      currentSubCategory = 'all';
-    }
-    currentPage = 1;
-    loadAndRenderCategory();
-  });
-});
 </script>
-
 <style>
-  /* Яркие подцветки тегов новых категорий для витрины */
-  .tag.услуги { background-color: #8338ec; }
-  .tag.спутники { background-color: #ff007f; }
-  .tag.трофеи { background-color: #ffb703; }
-  .tag.объявления { background-color: #02c39a; }
+  .tag.услуги{background-color:#8338ec;}
+  .tag.спутники{background-color:#ff007f;}
+  .tag.трофеи{background-color:#ffb703;}
+  .tag.объявления{background-color:#02c39a;}
 </style>
-
 </body>
 </html>
