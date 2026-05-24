@@ -969,9 +969,10 @@ if (currencyInputCount) {
 if (confirmCurrencyBtn) {
   confirmCurrencyBtn.addEventListener('click', () => {
     if (!window.pendingCurrencyItem) return;
+
     const item = window.pendingCurrencyItem;
     const itemNameNormalized = item.name.trim().toLowerCase();
-    const countValue = parseInt(currencyInputCount.value) || 0;
+    const countValue = parseInt(currencyInputCount ? currencyInputCount.value : 0) || 0;
 
     if (countValue <= 0) {
       alert("Пожалуйста, укажите корректное количество пакетов.");
@@ -996,6 +997,8 @@ if (confirmCurrencyBtn) {
       } else {
         item.playerNick = null;
       }
+    } else {
+      selectedUrgency = null;
     }
 
     let urgencyKeySuffix = selectedUrgency ? `_urg_${selectedUrgency}` : '';
@@ -1025,7 +1028,6 @@ if (confirmCurrencyBtn) {
     showToast(`Валюта успешно добавлена в корзину!`);
   });
 }
-
 function executeAddToCartFinal(item) {
   let selectedCr = "none";
   let selectedFk = "none";
