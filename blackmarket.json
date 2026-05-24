@@ -84,5 +84,189 @@
       "🇷🇺": 47,
       "🇺🇳": 24
     }
-  }
+  },
+{
+  "id": "bm_1779646868144",
+  "name": "Корона Тюхе",
+  "count": 0,
+  "price": 50,
+  "image": "https://i.ibb.co/0p7cxbFw/tyche-crown.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Открывает одно сокровище: экю, снаряжение, божественных лошадей и прочие предметы",
+  "howto": "Купить на Черном рынке за 170 пропусков, выиграть в акциях",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779647030614",
+  "name": "Золотое руно",
+  "count": 31,
+  "price": 50,
+  "image": "https://i.ibb.co/s9j1fp5x/toison-or.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": true,
+  "isRare": false,
+  "description": "Может скрывать экю, снаряжение и другие предметы из магазина, а также от 1 до 3 звезд. Затем выберите предмет с Черного рынка в зависимости от количества имеющихся у вас звезд. Звезды нельзя комбинировать со звездами из другого Золотого руна.",
+  "howto": "Купить на Черном рынке за 200 пропусков, выиграть в акциях",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 31,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779647321430",
+  "name": "Длани Морфея",
+  "count": 69,
+  "price": 15,
+  "image": "https://i.ibb.co/qYc95xyS/bras-morphee.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Управляйте старением своей лошади. Вам не придется ждать следующего дня или тратить очки роста. Эффект применим к лошадям до 30 лет.",
+  "howto": "Купить на Черном рынке за 295 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 59,
+    "🇺🇳": 3,
+    "🇪🇦": 7,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779647457908",
+  "name": "Живая вода",
+  "count": 28,
+  "price": 12,
+  "image": "https://i.ibb.co/tT9K1WzF/eau-jouvence.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Вместо старения на 2 месяца каждый раз при выращивании коня, лошадь будет стареть на 1 месяц. Можно применить с 2 лет",
+  "howto": "Купить на Черном рынке за 100 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 21,
+    "🇺🇳": 6,
+    "🇪🇦": 1,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779647523597",
+  "name": "Одеяло Гипноса",
+  "count": 51,
+  "price": 4,
+  "image": "https://i.ibb.co/k2vNDdKr/couverture-hypnos.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Отправьте лошадь спать без размещения в конноспортивном комплексе",
+  "howto": "Купить на Черном рынке за 20 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 51,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779647594044",
+  "name": "Ласка Филотес",
+  "count": 26,
+  "price": 6,
+  "image": "https://i.ibb.co/v4yr59Zn/caresse-philotes.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Даёт возможность гладить лошадь 2 раза в день.",
+  "howto": "Купить на Черном рынке за 60 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 26,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779647782964",
+  "name": "Медальон Афины",
+  "count": 0,
+  "price": 15,
+  "image": "https://i.ibb.co/dJ4vFVdn/athena-medal.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Доберитесь до НЛНП 100 без побед в соревнованиях",
+  "howto": "Выиграть в акциях",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779647900739",
+  "name": "Ящик Пандоры",
+  "count": 37,
+  "price": 9,
+  "image": "https://i.ibb.co/5hfTBty0/boite-pandore.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Ваша лошадь вернется к жизни в свою лучшую форму со всеми предметами и навыками. Можно применить до 25 лет.",
+  "howto": "Купить на Черном рынке за 95 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 37,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+}
 ]
