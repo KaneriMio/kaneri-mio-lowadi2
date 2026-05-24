@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Каталог Предметов Лошадей | Lowadi</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lowadi | Kaneri Mio Company</title>
   <style>
     :root {
       --bg-color: #f7ede2;
@@ -12,7 +12,15 @@
       --btn-inactive: #eee4dc;
       --text-main: #2b2d42;
       --card-bg: #ffffff;
-      --border-color: #ddd;
+      --tag-black-market: #a3704c;
+      --tag-currency: #5bc0be;
+      --tag-colors: #cfa846;
+      --tag-services: #8338ec;
+      --tag-companions: #ff007f;
+      --tag-trophies: #ffb703;
+      --tag-announcements: #02c39a;
+      --tag-other: #6c757d;
+      --section-bg: #fdfaf7;
     }
 
     * { box-sizing: border-box; }
@@ -25,358 +33,250 @@
       overflow-x: hidden;
     }
 
-    /* Исправление 3: Сжали шапку по высоте до компактных 48px */
     header {
       background-color: var(--header-bg);
-      color: white;
-      padding: 8px 20px;
+      color: #fff;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-      height: 48px;
-    }
-
-    .brand-title {
-      font-size: 16px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .header-controls {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .header-icon-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
       position: relative;
-      padding: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .header-icon-btn svg {
-      width: 22px;
-      height: 22px;
-      fill: #fff;
-      transition: fill 0.2s, transform 0.2s;
-    }
-
-    .header-icon-btn:hover svg {
-      fill: #f7ede2;
-      transform: scale(1.1);
-    }
-    .cart-badge, .fav-badge {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      background-color: #e63946;
-      color: white;
-      border-radius: 50%;
-      width: 15px;
-      height: 15px;
-      font-size: 9px;
       font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 18px;
     }
-
-    .fav-page-active svg { fill: #ff4d6d !important; }
 
     .header-server-selector { position: relative; display: inline-block; }
-    .server-current-btn {
-      background-color: var(--btn-active);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 4px 10px;
-      font-size: 12px;
-      font-weight: bold;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .server-dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 90px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      border-radius: 4px;
-      z-index: 10;
-      top: 100%;
-      left: 0;
-    }
-    .server-dropdown-content a {
-      color: var(--text-main);
-      padding: 6px 12px;
-      text-decoration: none;
-      display: block;
-      font-size: 12px;
-      font-weight: bold;
-    }
+    .server-current-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+    .server-dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: #fff; min-width: 130px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-radius: 6px; z-index: 100; margin-top: 5px; overflow: hidden; }
+    .server-dropdown-content a { color: #333; padding: 10px 12px; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 14px; }
     .server-dropdown-content a:hover { background-color: #f1f1f1; }
     .header-server-selector:hover .server-dropdown-content { display: block; }
 
+    header .brand-title { position: absolute; left: 50%; transform: translateX(-50%); }
+    .header-controls { display: flex; align-items: center; gap: 20px; }
+
     .wiki-dropdown { position: relative; display: inline-block; }
-    .wiki-btn-text { color: white; font-weight: bold; cursor: pointer; font-size: 13px; padding: 4px 8px; }
-    .wiki-dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 180px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
-      border-radius: 4px;
-      z-index: 10;
-      right: 0;
-      top: 100%;
-    }
-    .wiki-dropdown-content a {
-      color: var(--text-main);
-      padding: 8px 12px;
-      text-decoration: none;
-      display: block;
-      font-size: 12.5px;
-    }
-    .wiki-dropdown-content a:hover { background-color: #f5e6d3; }
+    .wiki-btn-text { color: #fff; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; gap: 4px; padding: 5px 0; }
+    .wiki-dropdown-content { display: none; position: absolute; top: 100%; right: 0; background-color: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); border-radius: 6px; z-index: 100; margin-top: 5px; overflow: hidden; }
+    .wiki-dropdown-content a { color: #333; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; font-weight: 500; border-bottom: 1px solid #f5f5f5; }
+    .wiki-dropdown-content a:last-child { border-bottom: none; }
+    .wiki-dropdown-content a:hover { background-color: var(--btn-inactive); color: var(--header-bg); }
     .wiki-dropdown:hover .wiki-dropdown-content { display: block; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 15px; }
+
+    .header-icon-btn { background: none; border: none; cursor: pointer; position: relative; display: flex; align-items: center; padding: 0; }
+    .header-icon-btn svg { width: 26px; height: 26px; fill: none; stroke: #fff; stroke-width: 2; transition: transform 0.2s; }
+    .header-icon-btn:hover svg { transform: scale(1.1); }
+    .header-icon-btn.fav-page-active svg { fill: #d32f2f; stroke: #d32f2f; }
+
+    .cart-badge, .fav-badge { position: absolute; top: -5px; right: -8px; background: #d32f2f; color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 10px; font-weight: bold; }
+    .fav-badge { background: #84522b; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 30px 15px; }
+
+    .pagination-container { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 30px; margin-bottom: 10px; }
+    .page-btn { background-color: #fff; color: #4a2810; border: 1px solid #ddd; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: all 0.2s; }
+    .page-btn.active { background-color: var(--btn-active); color: #fff; border-color: var(--btn-active); }
+    .page-btn:disabled { background-color: #eee; color: #aaa; cursor: not-allowed; border-color: #ddd; }
+
+    .search-panel { background: #fff; padding: 12px 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 20px; }
+    .search-input { flex: 1; min-width: 200px; padding: 10px; border: 1px solid #eee; border-radius: 6px; font-size: 14px; outline: none; }
+    .search-filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .search-select { padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff; font-size: 13px; outline: none; color: #4a2a16; cursor: pointer; }
+
+    .filters { display: flex; gap: 8px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; }
+    .filter-btn { background-color: var(--btn-inactive); color: #4a2416; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px; white-space: nowrap; }
+    .filter-btn.active { background-color: var(--btn-active); color: #fff; }
+
+    .sub-filters { display: none; gap: 10px; margin-bottom: 30px; padding-left: 10px; border-left: 3px solid var(--btn-active); }
+    .sub-filter-btn { background-color: #ffffff; color: #84522b; border: 1px solid #84522b; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12px; }
+    .sub-filter-btn.active { background-color: #84522b; color: #ffffff; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .card { background-color: var(--card-bg); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 6px rgba(0,0,0,0.02); cursor: pointer; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card::after { content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%); transform: skewX(-25deg); transition: none; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(74, 40, 16, 0.15); }
+    .card:hover::after { left: 150%; transition: left 0.6s ease-in-out; }
+
+    .image-wrapper { height: 180px; display: flex; align-items: center; justify-content: center; padding: 20px; position: relative; overflow: hidden; }
+    .card img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform 0.3s ease; }
+    .card:hover img { transform: scale(1.08); }
+
+    .card-fav-btn { position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.9); border: none; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 3; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform 0.2s, background 0.2s; }
+    .card-fav-btn:hover { transform: scale(1.1); background: #fff; }
+    .card-fav-btn svg { width: 16px; height: 16px; fill: none; stroke: #8d99ae; stroke-width: 2; transition: fill 0.2s, stroke 0.2s; }
+    .card-fav-btn.active svg { fill: #d32f2f; stroke: #d32f2f; }
+
+    .badge { position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 20px; color: #fff; text-transform: uppercase; z-index: 2; }
+    .badge.new { background-color: #2e7d32; }
+    .badge.hot { background-color: #d32f2f; }
+    .badge.limited { background-color: #f57c00; }
+
+    .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; border-top: 1px solid #f0f0f0; text-align: left; }
+    .tag { align-self: flex-start; font-size: 10px; font-weight: bold; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; color: #fff; margin-bottom: 12px; }
     
-    /* Исправление 3: Выровняли строку поиска и фильтры в один красивый блок */
-    .search-panel {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
+    .tag.черный-рынок { background-color: var(--tag-black-market); }
+    .tag.валюта { background-color: var(--tag-currency); }
+    .tag.окрасы { background-color: var(--tag-colors); }
+    .tag.услуги { background-color: var(--tag-services); }
+    .tag.спутники { background-color: var(--tag-companions); }
+    .tag.трофеи { background-color: var(--tag-trophies); }
+    .tag.объявления { background-color: var(--tag-announcements); }
+    .tag.другое { background-color: var(--tag-other); }
+    .card-title { font-size: 18px; font-weight: bold; margin: 0 0 6px 0; color: #222; }
+    .card-meta-text { font-size: 13px; color: #4a2810; font-weight: 600; margin-bottom: 6px; line-height: 1.3; }
+    .card-meta-text span { font-weight: 500; color: #555; }
+    .card-description { font-size: 13.5px; color: #333; font-weight: 550; line-height: 1.5; margin: 8px 0 20px 0; flex-grow: 1; text-align: justify; }
+
+    .card-footer { border-top: 1px solid #f5f5f5; padding-top: 12px; font-size: 12px; color: #8d99ae; margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+    .card-footer strong { color: #333; font-weight: bold; }
+    .out-of-stock { color: #d32f2f !important; }
+    .out-of-stock strong { color: #d32f2f !important; }
+
+    .cart-btn { background: #2e7d32; border: none; border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
+    .cart-btn:hover { background: #215d25; }
+    .cart-btn svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; }
+
+    .card-qty-controls { display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #ddd; padding: 3px 6px; border-radius: 8px; height: 36px; }
+    .card-qty-btn { background: #f5f5f5; border: 1px solid #e0e0e0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 14px; color: #333; }
+    .card-qty-btn:hover { background: #e0e0e0; }
+    .card-qty-value { font-size: 13px; font-weight: bold; min-width: 14px; text-align: center; color: #333; }
+
+    .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer { position: fixed; top: 0; right: -460px; width: 100%; max-width: 450px; height: 100%; background: #fff; z-index: 1001; box-shadow: -5px 0 25px rgba(0,0,0,0.15); transition: right 0.3s ease-in-out; display: flex; flex-direction: column; padding: 24px; overflow-y: auto; }
+    .drawer.active { right: 0 !important; }
+    .drawer-close { align-self: flex-end; background: none; border: none; font-size: 24px; cursor: pointer; color: #999; }
+    .drawer-image-wrapper { display: flex; justify-content: center; margin-bottom: 20px; }
+    .drawer-image-wrapper img { max-height: 150px; object-fit: contain; }
+    .drawer-title { font-size: 24px; font-weight: bold; margin: 0 0 12px 0; color: #3b2314; }
+
+    .section-label { font-size: 11px; font-weight: bold; color: #a38570; text-transform: uppercase; margin: 20px 0 8px 0; letter-spacing: 0.5px; }
+    .info-box { background-color: var(--section-bg); border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.5; color: #4a4a4a; border-left: 4px solid #ebdcd0; }
+    .note-box { background-color: #fff3e0; border-left: 4px solid #ffb74d; color: #b78103; font-weight: 500; }
+    .admin-icons-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
+    .admin-mini-icon { width: 36px; height: 36px; object-fit: contain; background: transparent; padding: 0; border: none; }
+    .companion-img { width: 42px; height: 42px; object-fit: contain; background: transparent; vertical-align: middle; margin-left: 5px; }
+
+    .server-flags-list { display: flex; gap: 8px; font-size: 20px; background: var(--section-bg); padding: 12px; border-radius: 8px; }
+
+    .option-select-block { background: var(--section-bg); padding: 12px; border-radius: 8px; border: 1px dashed #ddd; margin-bottom: 10px; }
+    .option-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px; font-weight: 500; }
+    .option-row:last-child { margin-bottom: 0; }
+    .option-select { padding: 6px 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; font-size: 12px; outline: none; max-width: 180px; }
+
+    .drawer-row { display: flex; gap: 15px; margin-top: 20px; }
+    .drawer-col { flex: 1; }
+    .status-box { background: var(--section-bg); padding: 14px; border-radius: 8px; font-weight: bold; font-size: 15px; color: #614635; text-align: center; }
+    .price-box { background: #e8f5e9; border: 1px solid #c8e6c9; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; color: #2e7d32; text-align: center; }
+    .drawer-buy-btn { background-color: #2e7d32; color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 16px; font-weight: bold; width: 100%; margin-top: 25px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.2s; }
+    .drawer-buy-btn:hover { background-color: #215d25; }
+    .drawer-buy-btn svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; }
+
+    .cart-items-list { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
+    .cart-item { display: flex; gap: 12px; background: var(--section-bg); padding: 12px; border-radius: 8px; position: relative; border: 1px solid #eee; }
+    .cart-item img { width: 60px; height: 60px; object-fit: contain; }
+    .cart-item-details { flex-grow: 1; display: flex; flex-direction: column; gap: 4px; }
+    .cart-item-name { font-weight: bold; font-size: 14px; }
+    .cart-item-meta { font-size: 12px; color: #666; line-height: 1.4; }
+    .cart-item-price { font-weight: bold; color: #2e7d32; font-size: 13px; }
+    
+    .quantity-controls { display: flex; align-items: center; gap: 8px; margin-top: 5px; }
+    .qty-btn { background: #fff; border: 1px solid #ddd; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; font-size: 14px; }
+    .remove-item-btn { position: absolute; top: 12px; right: 12px; background: none; border: none; color: #d32f2f; font-size: 16px; cursor: pointer; }
+
+    .cart-footer-actions { border-top: 1px solid #eee; padding-top: 15px; display: flex; gap: 10px; align-items: center; }
+    .buy-btn { flex-grow: 1; background-color: #2e7d32; color: white; border: none; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; }
+    .clear-cart-btn { background-color: #d32f2f; width: 48px; height: 48px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .clear-cart-btn svg { width: 22px; height: 22px; }
+
+    .toast { position: fixed; top: 20px; right: 20px; background: #2e7d32; color: #fff; border-left: 5px solid rgba(255, 255, 255, 0.6); padding: 14px 20px; border-radius: 8px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(46,125,50,0.3); z-index: 2000; transform: translateY(-100px); opacity: 0; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast-close { background: none; border: none; color: rgba(255,255,255,0.8); font-size: 18px; cursor: pointer; padding: 0; margin-left: auto; }
+
+    .popup-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); background: #fff; width: 90%; max-width: 420px; padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 3000; text-align: center; display: none; transition: transform 0.2s; }
+    .popup-modal.active { display: block; transform: translate(-50%, -50%) scale(1); }
+    .popup-title { font-size: 20px; font-weight: bold; margin-bottom: 12px; color: #4a2810; }
+    .popup-text { font-size: 14px; color: #555; line-height: 1.5; margin-bottom: 20px; }
+    .popup-actions { display: flex; gap: 12px; justify-content: center; }
+    .popup-btn { padding: 10px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; }
+    .popup-btn-catalog { background-color: #2e7d32; color: #fff; }
+    .popup-btn-close { background-color: #eee; color: #333; }
+    
+    .server-modal-select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-weight: bold; font-size: 15px; outline: none; margin-bottom: 20px; }
+        /* Новая компактная сетка в 2 столбца для блока характеристик масти */
+    .meta-two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 15px;
     }
-    .search-input {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      font-size: 14px;
-      outline: none;
-    }
-    .search-filters { display: flex; gap: 10px; }
-    .search-select {
-      padding: 6px 12px;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      background: white;
-      font-size: 13px;
-      outline: none;
+    .meta-item-full {
+      grid-column: 1 / -1;
     }
 
-    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
-    .filter-btn {
-      background-color: var(--btn-inactive);
-      color: var(--text-main);
+    /* Стили для кнопки очистки Избранного в режиме виртуальной страницы */
+    .clear-fav-container {
+      grid-column: 1 / -1;
+      text-align: right;
+      margin-bottom: 15px;
+    }
+    .clear-fav-btn {
+      background-color: #d32f2f;
+      color: white;
       border: none;
       padding: 8px 16px;
-      border-radius: 20px;
+      border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
       font-size: 13px;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s;
     }
-    .filter-btn.active, .filter-btn:hover { background-color: var(--btn-active); color: white; }
-    
-    .sub-filters {
-      display: none; gap: 8px; margin-bottom: 15px;
-      background: rgba(132, 82, 43, 0.05); padding: 6px 10px; border-radius: 6px;
-    }
-    .sub-filter-btn {
-      background: none; border: none; color: var(--text-main);
-      font-weight: 600; font-size: 12.5px; cursor: pointer; padding: 4px 8px; border-radius: 4px;
-    }
-    .sub-filter-btn.active, .sub-filter-btn:hover { background-color: var(--btn-active); color: white; }
-    /* Исправление 7: Увеличили карточки, чтобы в строке помещалось ровно 3 штуки */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(280px, 1fr));
-      gap: 25px;
-      margin-bottom: 25px;
+    .clear-fav-btn:hover {
+      background-color: #b71c1c;
     }
 
-    /* Исправление 1 и 2: Реальное бронебойное свечение и масштабирование картинок */
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(74, 40, 16, 0.05);
-      border: 1px solid rgba(74, 40, 16, 0.08);
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    /* Корректировка отображения цены и кнопок в футере карточки */
+    .card-footer-price {
+      font-size: 17px;
+      font-weight: bold;
+      color: #2e7d32;
     }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(132, 82, 43, 0.35) !important;
+    .card-meta-stock-line {
+      font-size: 13px;
+      color: #555;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
-    .image-wrapper {
+    /* Стили для формы ввода Ника внутри модального окна опта */
+    .nick-input-field {
       width: 100%;
-      height: 170px;
-      background-color: #fdfaf7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+      padding: 12px;
+      border: 2px solid var(--btn-active);
+      border-radius: 6px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 15px;
+      outline: none;
+      font-weight: bold;
+      text-align: center;
     }
-    .image-wrapper img {
-      max-width: 85%;
-      max-height: 85%;
-      object-fit: contain;
-      transition: transform 0.25s ease;
+    .nick-input-field:focus {
+      box-shadow: 0 0 8px rgba(132, 82, 43, 0.4);
     }
-    .card:hover .image-wrapper img {
-      transform: scale(1.08);
+    /* Стилизация строк калькулятора сделки в корзине */
+    .cart-currency-calc {
+      background-color: #fff3e0;
+      border-left: 3px solid #ffb74d;
+      padding: 8px 10px;
+      border-radius: 4px;
+      margin-top: 6px;
+      font-size: 12px;
+      color: #b78103;
+      line-height: 1.4;
     }
-
-    .card-fav-btn {
-      position: absolute; top: 10px; right: 10px; background: white;
-      border: none; border-radius: 50%; width: 32px; height: 32px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.08); z-index: 2;
+    .cart-currency-calc strong {
+      color: #4a2810;
     }
-    .card-fav-btn svg { width: 16px; height: 16px; fill: none; stroke: #777; stroke-width: 2; }
-    .card-fav-btn.active svg { fill: #e63946; stroke: #e63946; }
-
-    .badge {
-      position: absolute; top: 10px; left: 10px; padding: 3px 8px;
-      font-size: 9.5px; font-weight: bold; border-radius: 4px; color: white; z-index: 2;
-    }
-    .badge.new { background-color: #2e7d32; }
-    .badge.hot { background-color: #e63946; }
-    .badge.limited { background-color: #ff9100; }
-
-    .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
-    .tag {
-      align-self: flex-start; padding: 2px 8px; font-size: 10px;
-      font-weight: bold; color: white; border-radius: 4px; margin-bottom: 8px;
-    }
-    .tag.черный-рынок { background-color: #b76e79; }
-    .tag.валюта { background-color: #2a9d8f; }
-    .tag.окрасы { background-color: #e9c46a; color: #4a2810; }
-    
-    .card-title { font-size: 15px; font-weight: bold; margin: 0 0 6px 0; color: var(--header-bg); }
-    .card-meta-text { font-size: 12px; color: #666; margin-bottom: 3px; }
-    .card-meta-text span { color: #333; font-weight: 600; }
-    .card-meta-stock-line { font-size: 12px; color: #555; font-weight: 600; margin-bottom: 5px; }
-    .card-description { font-size: 12.5px; color: #555; margin: 4px 0 12px 0; line-height: 1.4; flex-grow: 1; }
-
-    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid rgba(74, 40, 16, 0.05); }
-    .card-footer-price { font-size: 16px; font-weight: bold; color: #2e7d32; }
-    
-    /* Исправление 8: Сделали круглую иконку корзины на карточке ЗЕЛЁНОЙ */
-    .cart-btn {
-      background-color: #2e7d32 !important; border: none; border-radius: 50%;
-      width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer;
-    }
-    .cart-btn:hover { background-color: #1b5e20 !important; }
-    .cart-btn svg { width: 16px; height: 16px; }
-
-    .card-qty-controls { display: flex; align-items: center; background: #f5e6d3; border-radius: 6px; padding: 2px; }
-    .card-qty-btn { background: white; border: none; width: 24px; height: 24px; font-weight: bold; cursor: pointer; border-radius: 4px; }
-    .card-qty-value { font-size: 12.5px; font-weight: bold; padding: 0 8px; min-width: 22px; text-align: center; }
-    /* Шторка информации о товаре */
-    .drawer {
-      position: fixed; top: 0; right: -420px; width: 100%; max-width: 400px; height: 100%;
-      background-color: white; z-index: 200; box-shadow: -5px 0 25px rgba(0,0,0,0.15);
-      transition: right 0.3s ease; display: flex; flex-direction: column; padding: 20px; overflow-y: auto;
-    }
-    .drawer.active { right: 0; }
-    .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); z-index: 150; display: none; }
-    .drawer-overlay.active { display: block; }
-    .drawer-close { position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 24px; cursor: pointer; color: #777; }
-    .drawer-image-wrapper { width: 100%; height: 160px; background: #fdfaf7; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 12px; border: 1px solid rgba(74, 40, 16, 0.05); }
-    .drawer-image-wrapper img { max-width: 85%; max-height: 85%; object-fit: contain; }
-    .drawer-title { font-size: 18px; color: var(--header-bg); margin: 0 0 4px 0; }
-    
-    .section-label { font-size: 10.5px; font-weight: bold; text-transform: uppercase; color: #888; margin-top: 12px; margin-bottom: 4px; }
-    .info-box { background-color: #fdfaf7; border: 1px solid #ebd9c8; border-radius: 8px; padding: 10px; font-size: 13px; line-height: 1.4; }
-    .note-box { background-color: #fff8e1; border-color: #ffe082; color: #b78103; font-weight: 600; }
-    .meta-two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; }
-    .meta-item-full { grid-column: 1 / -1; }
-    .companion-img { width: 22px; height: 22px; object-fit: contain; vertical-align: middle; }
-
-    /* Исправление 5: Сделали иконки комплектов маленькими и строго НА ПРОЗРАЧНОМ фоне */
-    .admin-icons-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-    .admin-mini-icon { width: 32px; height: 32px; object-fit: contain; background: transparent !important; border: none !important; padding: 0 !important; }
-
-    .option-select-block { display: flex; flex-direction: column; gap: 6px; }
-    .option-row { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; }
-    .option-select { padding: 5px; border-radius: 4px; border: 1px solid var(--border-color); outline: none; font-size: 12px; }
-    .drawer-row { display: flex; gap: 12px; margin-top: 12px; }
-    .drawer-col { flex: 1; }
-    .status-box, .price-box { background-color: #f4ece4; border-radius: 6px; padding: 8px; font-size: 14px; font-weight: bold; text-align: center; color: var(--header-bg); }
-    .price-box { background-color: #e8f5e9; color: #2e7d32; }
-
-    /* Исправление 8: Сделали кнопку покупки во внутренней шторке ЗЕЛЁНОЙ */
-    .drawer-buy-btn { width: 100%; background-color: #2e7d32 !important; color: white; border: none; border-radius: 8px; padding: 10px; font-size: 14px; font-weight: bold; margin-top: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
-    .drawer-buy-btn:hover { background-color: #1b5e20 !important; }
-    .drawer-buy-btn svg { width: 18px; height: 18px; }
-
-    /* Шторка корзины и списки элементов */
-    .cart-items-list { display: flex; flex-direction: column; gap: 12px; flex-grow: 1; overflow-y: auto; margin-top: 12px; }
-    .cart-item { display: flex; gap: 10px; border-bottom: 1px solid #eee; padding-bottom: 10px; position: relative; }
-    .cart-item img { width: 45px; height: 45px; object-fit: contain; background: #fafafa; border-radius: 6px; }
-    .cart-item-details { flex-grow: 1; }
-    .cart-item-name { font-size: 13px; font-weight: bold; color: var(--header-bg); }
-    
-    /* Исправление 6: Фиксация размера и начертания текста мета-описания в корзине без разного масштаба */
-    .cart-item-meta, .cart-item-meta div, .cart-item-meta span { font-size: 12px !important; color: #555 !important; font-weight: 500 !important; line-height: 1.4 !important; margin-top: 2px !important; text-transform: none !important; }
-    
-    .cart-item-price { font-size: 13px; font-weight: bold; color: #2e7d32; }
-    .remove-item-btn { position: absolute; top: 0; right: 0; background: none; border: none; font-size: 16px; color: #cc0000; cursor: pointer; }
-    
-    /* Исправление 6: Выровняли пропорции кнопок "Приобрести" и "Очистить" внизу корзины */
-    .cart-footer-actions { display: flex; gap: 10px; margin-top: auto; align-items: center; width: 100%; }
-    .buy-btn { flex-grow: 1; background-color: #2e7d32; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; height: 40px; font-size: 14px; display: flex; align-items: center; justify-content: center; }
-    .buy-btn:hover { background-color: #1b5e20; }
-    .clear-cart-btn { background-color: #cc0000; border: none; width: 40px; height: 40px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .clear-cart-btn:hover { background-color: #a00000; }
-    .clear-cart-btn svg { width: 18px; height: 18px; }
-    /* Всплывающие модальные окна */
-    .popup-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 90%; max-width: 400px; background: white; border-radius: 12px; padding: 20px; z-index: 300; box-shadow: 0 10px 30px rgba(0,0,0,0.25); display: none; opacity: 0; transition: transform 0.2s ease, opacity 0.2s ease; text-align: center; }
-    .popup-modal.active { display: block; opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    .popup-title { font-size: 17px; font-weight: bold; color: var(--header-bg); margin-bottom: 10px; }
-    .popup-text { font-size: 13px; color: #555; line-height: 1.4; margin-bottom: 15px; }
-    .popup-actions { display: flex; gap: 10px; justify-content: flex-end; }
-    .popup-btn { padding: 8px 16px; border-radius: 6px; font-weight: bold; font-size: 13px; cursor: pointer; border: none; }
-    .popup-btn-close { background-color: #eee; color: #333; }
-    .popup-btn-catalog { background-color: var(--btn-active); color: white; }
-    .server-modal-select { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid var(--border-color); margin-bottom: 15px; font-size: 13px; font-weight: bold; outline: none; }
-
-    .nick-input-field { width: 100%; padding: 8px; border: 2px solid var(--btn-active); border-radius: 6px; margin-top: 4px; margin-bottom: 12px; font-size: 13.5px; outline: none; font-weight: bold; text-align: center; }
-    .checkbox-label { display: flex; align-items: center; gap: 6px; cursor: pointer; font-weight: 600; }
-    .cart-currency-calc { background-color: #fff3e0; border-left: 3px solid #ffb74d; padding: 6px 8px; border-radius: 4px; margin-top: 5px; font-size: 11.5px; color: #b78103; line-height: 1.35; }
-    .cart-currency-calc strong { color: #4a2810; }
-    
-    .clear-fav-container { grid-column: 1 / -1; text-align: right; margin-bottom: 12px; }
-    .clear-fav-btn { background-color: #cc0000; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12.5px; }
-
-    .toast { position: fixed; bottom: -60px; left: 50%; transform: translateX(-50%); background-color: #2e7d32; color: white; padding: 10px 20px; border-radius: 30px; font-size: 13px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 400; display: flex; align-items: center; gap: 12px; transition: bottom 0.3s ease; }
-    .toast.show { bottom: 25px; }
-    .toast-close { background: none; border: none; color: white; font-size: 16px; cursor: pointer; padding: 0; }
-    .page-btn { padding: 6px 12px; border: 1px solid var(--border-color); background: white; cursor: pointer; border-radius: 4px; font-weight: bold; font-size: 12.5px; }
-    .page-btn.active { background-color: var(--btn-active); color: white; border-color: var(--btn-active); }
-    .pagination-container { display: flex; justify-content: center; gap: 4px; margin-top: 15px; }
   </style>
 </head>
 <body>
@@ -407,26 +307,23 @@
       </div>
     </div>
 
-    <!-- Кнопка Избранного -->
     <button class="header-icon-btn" id="openFavBtn" title="Посмотреть Избранное">
       <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
       <div class="fav-badge" id="favBadge">0</div>
     </button>
 
-    <!-- Кнопка Корзины -->
     <button class="header-icon-btn" id="openCartBtn" title="Открыть корзину">
       <svg viewBox="0 0 24 24">
         <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         <path d="M7 14h12M7 16h12M7 18h12" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-        <circle cx="8" cy="21" r="1.5" fill="#fff"/>
-        <circle cx="18" cy="21" r="1.5" fill="#fff"/>
+        <circle cx="8" cy="21" r="1.5" fill="#fff"/><circle cx="18" cy="21" r="1.5" fill="#fff"/>
       </svg>
       <div class="cart-badge" id="cartBadge">0</div>
     </button>
   </div>
 </header>
 <div class="container">
-  <!-- Панель поиска и фильтров -->
+  <!-- Панель поиска и скрытых фильтров -->
   <div class="search-panel">
     <input type="text" id="search" class="search-input" placeholder="Поиск по названию или ключевым словам...">
     <div class="search-filters">
@@ -443,7 +340,7 @@
     </div>
   </div>
 
-  <!-- Главные Категории витрины -->
+  <!-- Главные Категории (Обновлено под новые разделы) -->
   <div class="filters">
     <button class="filter-btn active" data-category="all">Все предметы</button>
     <button class="filter-btn" data-category="Черный рынок">Черный рынок</button>
@@ -458,17 +355,18 @@
 
   <!-- Дополнительные Подстраницы Окрасов -->
   <div class="sub-filters" id="subFiltersContainer">
-    <button class="sub-filter-btn active" id="subcat-all" data-subcategory="all">Все окрасы</button>
-    <button class="sub-filter-btn" id="subcat-zya" data-subcategory="ЗЯ">Каталог ЗЯ</button>
-    <button class="sub-filter-btn" id="subcat-izya" data-subcategory="ИЗЯ">Каталог ИЗЯ</button>
+    <button class="sub-filter-btn active" data-subcategory="all">Все окрасы</button>
+    <button class="sub-filter-btn" data-subcategory="ЗЯ">Каталог ЗЯ</button>
+    <button class="sub-filter-btn" data-subcategory="ИЗЯ">Каталог ИЗЯ</button>
   </div>
+
   <!-- Сетка карточек и блок постраничной навигации -->
   <div class="grid" id="products"></div>
   <div class="pagination-container" id="pagination"></div>
 </div>
-
 <div class="drawer-overlay" id="overlay"></div>
-<!-- СТАРТОВОЕ ОКНО ВЫБОРА СЕРВЕРА ПРИ ВХОДЕ НА САЙТ -->
+
+<!-- СТИЛИЗОВАННОЕ ОКНО ПРЕДУПРЕЖДЕНИЯ И ВЫБОРА РЕГИОНА (ЗАМЕНА ALERT) -->
 <div class="popup-modal" id="serverWelcomeModal">
   <div class="popup-title" id="serverModalTitle">Добро пожаловать!</div>
   <div class="popup-text" id="serverModalText">Пожалуйста, выберите игровой сервер. Сайт автоматически отфильтрует каталог и покажет актуальное наличие предметов для вашего региона.</div>
@@ -487,49 +385,6 @@
   </div>
 </div>
 
-<!-- УНИВЕРСАЛЬНОЕ ОКНО ОФОРМЛЕНИЯ ВАЛЮТЫ С ВВОДОМ КОЛИЧЕСТВА -->
-<div class="popup-modal" id="currencyOrderModal" style="max-width: 460px;">
-  <div class="popup-title" id="currencyModalTitle">Покупка Валюты</div>
-  <div class="popup-text">Укажите параметры вашего заказа:</div>
-  
-  <div class="form-group">
-    <label for="currencyInputCount" id="currencyCountLabel" style="font-weight: 700; display: block; margin-bottom: 5px; font-size: 13.5px;">Сколько пакетов вам нужно?</label>
-    <input type="number" id="currencyInputCount" value="1" min="1" max="999" class="nick-input-field" style="margin-bottom: 12px; font-size: 18px;">
-  </div>
-
-  <div id="currencyUrgencyBlock" style="display: none; margin-bottom: 15px; text-align: left;">
-    <label style="font-weight: 700; margin-bottom: 6px; display: block; font-size: 13.5px;">Срочность начисления пропусков:</label>
-    <div style="display: flex; flex-direction: column; gap: 8px;">
-      <label class="checkbox-label" style="background: #f1f8e9; padding: 10px; border-radius: 6px; border: 1px solid #c8e6c9; width: 100%;">
-        <input type="radio" name="modalUrgencyRadio" value="urgent" checked style="accent-color: #2e7d32;">
-        <div>
-          <strong style="color: #2e7d32; font-size: 13px;">🔥 Срочно (150 ₽ / 1.000 шт.)</strong>
-          <div style="font-size: 11px; color: #555; font-weight: 500;">Мгновенно после оплаты</div>
-        </div>
-      </label>
-      <label class="checkbox-label" style="background: #fff3e0; padding: 10px; border-radius: 6px; border: 1px solid #ffe0b2; width: 100%;">
-        <input type="radio" name="modalUrgencyRadio" value="normal" style="accent-color: #84522b;">
-        <div>
-          <strong style="color: #84522b; font-size: 13px;">🕒 Не срочно (75 ₽ / 1.000 шт.)</strong>
-          <div style="font-size: 11px; color: #555; font-weight: 500;">Начисление после 21:00 по МСК</div>
-        </div>
-      </label>
-    </div>
-  </div>
-
-  <div id="currencyNickBlock" style="display: none; text-align: left;">
-    <label for="playerGameNick" style="font-weight: 700; color: #d32f2f; display: block; margin-bottom: 5px; font-size: 13.5px;">🐴 Командный заказ (от 11 шт.):</label>
-    <div style="font-size: 12px; color: #666; margin-bottom: 6px; font-weight: 500;">Для заказов более 10 пакетов пропусков введите ваш точный игровой ник для приглашения в команду:</div>
-    <input type="text" id="playerGameNick" class="nick-input-field" placeholder="Введите ваш ник в игре...">
-  </div>
-  
-  <div class="popup-actions" style="margin-top: 15px;">
-    <button class="popup-btn popup-btn-close" id="cancelCurrencyBtn">Отмена</button>
-    <button class="popup-btn popup-btn-catalog" id="confirmCurrencyBtn">Добавить в корзину</button>
-  </div>
-</div>
-
-<div class="toast" id="cartToast"><span id="toastMessage">Товар добавлен в корзину!</span><button class="toast-close" id="closeToastBtn">&times;</button></div>
 <!-- 1. ШТОРКА ИНФОРМАЦИИ О ТОВАРЕ -->
 <div class="drawer" id="drawer">
   <button class="drawer-close" id="closeDrawer">&times;</button>
@@ -547,6 +402,7 @@
     </div>
   </div>
 
+    <!-- Характеристики масти (Перестроено в 2 компактных столбца) -->
   <div id="d-meta-container" style="display: none;">
     <div class="section-label">Характеристики масти</div>
     <div class="info-box" style="padding: 14px 16px;">
@@ -561,6 +417,7 @@
       </div>
     </div>
   </div>
+
 
   <div id="d-options-container" style="display: none;">
     <div class="section-label">Настройка окраса</div>
@@ -620,26 +477,49 @@
   </div>
 </div>
 
-<!-- ЦЕНТРАЛЬНОЕ ОКНО ПРЕДУПРЕЖДЕНИЯ НАВЕСА -->
+<!-- ЦЕНТРАЛЬНОЕ ОКНО ПРЕДУПРЕЖДЕНИЯ НАВЕСА ЯБЛОК -->
 <div class="popup-modal" id="appleModal">
   <div class="popup-title">Внимание!</div>
   <div class="popup-text" id="appleModalText">Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.</div>
   <div class="popup-actions"><button class="popup-btn popup-btn-close" id="modalCloseBtn">Закрыть</button><button class="popup-btn popup-btn-catalog" id="modalGoCatalogBtn">В каталог</button></div>
 </div>
+<!-- КАСТОМНОЕ МОДАЛЬНОЕ ОКНО ПОДТВЕРЖДЕНИЯ ОЧИСТКИ КОРЗИНЫ -->
+<div class="popup-modal" id="confirmClearCartModal">
+  <div class="popup-title">Очистить корзину?</div>
+  <div class="popup-text">Вы точно хотите полностью удалить все выбранные предметы и окрасы из вашей корзины? Это действие нельзя будет отменить.</div>
+  <div class="popup-actions">
+    <!-- Кнопка отмены слева -->
+    <button class="popup-btn popup-btn-close" id="cancelClearCartBtn">Отмена</button>
+    <!-- Кнопка подтверждения справа -->
+    <button class="popup-btn" id="confirmClearCartBtn" style="background-color: #d32f2f; color: #fff;">Да, очистить</button>
+  </div>
+</div>
+<!-- КАСТОМНОЕ ОКНО ПРЕДУПРЕЖДЕНИЯ ДЛЯ ОПТА ПРОПУСКОВ -->
+<div class="popup-modal" id="currencyTeamModal">
+  <div class="popup-title" style="color: #d32f2f;">Внимание! Командный заказ</div>
+  <div class="popup-text">Заказы объемом <strong>более 10 штук (от 10 000 пропусков)</strong> продаются только через команду. Пожалуйста, укажите ваш точный игровой ник для отправки приглашения:</div>
+  
+  <input type="text" id="playerGameNick" class="nick-input-field" placeholder="Введите ваш ник в игре...">
+  
+  <div class="popup-actions">
+    <button class="popup-btn popup-btn-close" id="cancelTeamOrderBtn">Отмена</button>
+    <button class="popup-btn" id="confirmTeamOrderBtn" style="background-color: #2e7d32; color: #fff;">Продолжить</button>
+  </div>
+</div>
 
+<div class="toast" id="cartToast"><span id="toastMessage">Товар добавлен в корзину!</span><button class="toast-close" id="closeToastBtn">&times;</button></div>
 <script>
-// Глобальный пул всех загруженных данных и локальный кэш разделов
-let itemsData = [];
+// Глобальный кэш каталогов
 let cachedCatalogs = {
   "all": [], "черный рынок": [], "валюта": [], "окрасы": [], 
   "спутники": [], "трофеи": [], "объявления": [], "услуги": [], "другое": []
 };
 
-// Сессионные хранилища настроек пользователя
+// Хранилища данных сессии
 let currentServer = localStorage.getItem('lowadi_server') || ''; 
 let cart = JSON.parse(localStorage.getItem('lowadi_cart')) || []; 
 
-// Защитная фильтрация Избранного от накопления пустых элементов
+// ЖЕСТКОЕ ИСПРАВЛЕНИЕ БАГА: Фильтруем избранное от пустых элементов при загрузке
 let rawFavorites = JSON.parse(localStorage.getItem('lowadi_favorites')) || [];
 let favorites = rawFavorites.filter(id => id && String(id).trim() !== "");
 
@@ -647,14 +527,11 @@ let isFavoritesPage = false;
 let activeItemForDrawer = null;
 let currentAppleType = ''; 
 
-// Параметры постраничной навигации
+// Строгая пагинация по 30 штук
 let currentPage = 1;
-const itemsPerPage = 30;
-let toastTimeout;
-let currentCategory = 'all';
-let currentSubCategory = 'all'; 
+const itemsPerPage = 20;
 
-// Безопасный метод захвата DOM-элементов
+// Защитный метод безопасного поиска элементов
 const getEl = (id) => document.getElementById(id);
 
 const container = getEl('products');
@@ -671,11 +548,16 @@ const overlay = getEl('overlay');
 const productDrawer = getEl('drawer');
 const cartDrawer = getEl('cartDrawer');
 const appleModal = getEl('appleModal');
-const confirmClearCartModal = getEl('confirmClearCartModal');
+const confirmClearCartModal = getEl('confirmClearCartModal'); // Новое окно подтверждения
 const serverWelcomeModal = getEl('serverWelcomeModal');
 const welcomeServerSelect = getEl('welcomeServerSelect');
 const submitServerBtn = getEl('submitServerBtn');
 const currentServerBtn = getEl('currentServerBtn');
+const currencyTeamModal = getEl('currencyTeamModal'); // Новое окно ввода ника
+const playerGameNickInput = getEl('playerGameNick'); // Поле ввода ника
+const cancelTeamOrderBtn = getEl('cancelTeamOrderBtn'); // Кнопка отмены опта
+const confirmTeamOrderBtn = getEl('confirmTeamOrderBtn'); // Кнопка подтверждения опта
+
 
 const closeDrawerBtn = getEl('closeDrawer');
 const openCartBtn = getEl('openCartBtn');
@@ -692,17 +574,6 @@ const modalCloseBtn = getEl('modalCloseBtn');
 const cancelClearCartBtn = getEl('cancelClearCartBtn');
 const confirmClearCartBtnEl = getEl('confirmClearCartBtn');
 
-// Специфичные элементы универсального калькулятора валюты
-const currencyOrderModal = getEl('currencyOrderModal');
-const currencyInputCount = getEl('currencyInputCount');
-const currencyUrgencyBlock = getEl('currencyUrgencyBlock');
-const currencyNickBlock = getEl('currencyNickBlock');
-const playerGameNickInput = getEl('playerGameNick');
-const cancelCurrencyBtn = getEl('cancelCurrencyBtn');
-const confirmCurrencyBtn = getEl('confirmCurrencyBtn');
-const currencyModalTitle = getEl('currencyModalTitle');
-const currencyCountLabel = getEl('currencyCountLabel');
-
 const cartItemsContainer = getEl('cartItemsContainer');
 const cartTotalPrice = getEl('cartTotalPrice');
 const cartBadge = getEl('cartBadge');
@@ -712,6 +583,11 @@ const checkoutBtn = getEl('checkoutBtn');
 const cartToast = getEl('cartToast');
 const toastMessage = getEl('toastMessage');
 const closeToastBtn = getEl('closeToastBtn');
+
+let currentCategory = 'all';
+let currentSubCategory = 'all'; 
+let toastTimeout;
+
 const catalogFiles = {
   "черный рынок": "./blackmarket.json",
   "валюта": "./currency.json",
@@ -724,6 +600,7 @@ const catalogFiles = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Гарантируем точный и честный счётчик без пустышек
   if (favBadge) favBadge.innerText = favorites.length;
   updateCartUI();
 
@@ -742,7 +619,6 @@ if (submitServerBtn) {
     closeAllDrawers();
   });
 }
-
 window.changeGlobalServer = function(flag) {
   currentServer = flag;
   localStorage.setItem('lowadi_server', flag);
@@ -752,9 +628,11 @@ window.changeGlobalServer = function(flag) {
     const welcomeTitle = getEl('serverModalTitle');
     const welcomeText = getEl('serverModalText');
     const welcomeSelectWrap = getEl('serverSelectWrapper');
+    
     if (welcomeTitle) welcomeTitle.innerText = "Внимание!";
-    if (welcomeText) welcomeText.innerHTML = "Упс! Товары для этого региона ещё не были добавлены. Попробуйте выбрать другой регион";
+    if (welcomeText) welcomeText.innerHTML = "Упс! Товары для этих регионов ещё не были добавлены. Попробуйте выбрать другой регион.";
     if (welcomeSelectWrap) welcomeSelectWrap.style.display = "block";
+    
     if (overlay) overlay.classList.add('active');
     if (serverWelcomeModal) serverWelcomeModal.classList.add('active');
   } else {
@@ -765,14 +643,21 @@ window.changeGlobalServer = function(flag) {
   currentPage = 1; 
   loadAndRenderCategory();
 };
+
 function safeFetch(url) {
-  return fetch(url).then(res => res.ok ? res.json() : []).catch(() => []);
+  return fetch(url)
+    .then(res => res.ok ? res.json() : [])
+    .catch(() => []);
 }
 
 function loadAndRenderCategory() {
   const cat = currentCategory.toLowerCase();
+
   if (cat === 'all') {
-    if (cachedCatalogs["all"].length > 0) { renderItems(); return; }
+    if (cachedCatalogs["all"].length > 0) {
+      renderItems();
+      return;
+    }
     const promises = Object.values(catalogFiles).map(file => safeFetch(file));
     Promise.all(promises).then(results => {
       cachedCatalogs["all"] = results.flat();
@@ -781,17 +666,20 @@ function loadAndRenderCategory() {
     });
     return;
   }
+
   if (cachedCatalogs[cat] && cachedCatalogs[cat].length > 0) {
     buildNavesDropdown(cachedCatalogs[cat]);
     renderItems();
     return;
   }
+
   const fileUrl = catalogFiles[cat];
   if (!fileUrl) {
     if (container) container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; font-weight: bold; margin-top: 40px; color: #4a2810;">Раздел находится в разработке 🐴</div>`;
     if (paginationContainer) paginationContainer.innerHTML = '';
     return;
   }
+
   safeFetch(fileUrl).then(data => {
     cachedCatalogs[cat] = data;
     buildNavesDropdown(data);
@@ -804,6 +692,7 @@ function buildNavesDropdown(dataList) {
   optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
   let searchSource = currentCategory.toLowerCase() === 'all' ? dataList : (cachedCatalogs["черный рынок"] || []);
   if (currentCategory.toLowerCase() === 'черный рынок') searchSource = dataList;
+
   searchSource.forEach(item => {
     if (item.isNaves === true) {
       const opt = document.createElement('option');
@@ -827,6 +716,7 @@ function recalcDrawerPrice() {
   const priceBox = document.getElementById('d-price');
   if (priceBox) priceBox.innerText = `${currentPrice} ₽`;
 }
+
 if (optCrSelect) optCrSelect.addEventListener('change', recalcDrawerPrice);
 if (optFkSelect) optFkSelect.addEventListener('change', recalcDrawerPrice);
 if (optSkillsSelect) optSkillsSelect.addEventListener('change', recalcDrawerPrice);
@@ -860,6 +750,7 @@ function renderItems() {
     return true;
   });
 
+  // Если мы на странице избранного, добавляем сверху кнопку "Очистить всё"
   if (isFavoritesPage && filtered.length > 0) {
     const clearFavDiv = document.createElement('div');
     clearFavDiv.className = 'clear-fav-container';
@@ -882,6 +773,7 @@ function renderItems() {
   const pageItems = filtered.slice(startIndex, endIndex);
 
   renderPaginationControls(totalPages);
+
   pageItems.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card';
@@ -895,25 +787,26 @@ function renderItems() {
     else if (item.isHot) badgeHtml = '<span class="badge hot">Hot</span>';
     else if (item.isRare) badgeHtml = '<span class="badge limited">Limited</span>';
 
+    // РЕНДЕР ОПИСАНИЯ КАРТОЧКИ: "В наличии" перенесено внутрь тела описания для ВСЕХ товаров
     let cardContentHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
+      const type = (item.colorType || 'ЗЯ').toUpperCase();
       cardContentHtml = `
         <div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>
         <div class="card-meta-text">Вид: <span>${item.type || 'Обычный'}</span></div>
         <div class="card-meta-text">Копии: <span>${item.copies || 'Не ограничены'}</span></div>
       `;
     }
-    const isCurrencyItem = item.category && item.category.toLowerCase() === 'валюта';
-    const displayStockText = isCurrencyItem ? 'Бесконечно' : `${currentStock} шт.`;
-    cardContentHtml += `<div class="card-meta-stock-line">В наличии: <span style="color:${(isOutOfStock && !isCurrencyItem) ? '#d32f2f':'#2e7d32'}">${displayStockText}</span></div>`;
+    cardContentHtml += `<div class="card-meta-stock-line">В наличии: <span style="color:${isOutOfStock ? '#d32f2f':'#2e7d32'}">${currentStock} шт.</span></div>`;
 
     const inCart = cart.find(c => c.id === item.id);
     const isLiked = favorites.includes(item.id);
 
+    // Кнопка корзины на витрине
     let actionHtml = '';
-    if (isOutOfStock && !isCurrencyItem) {
+    if (isOutOfStock) {
       actionHtml = `<button class="cart-btn" style="background:#ccc; cursor:not-allowed;" disabled><svg viewBox="0 0 24 24"><path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" fill="none"/></svg></button>`;
-    } else if (inCart && !isCurrencyItem) {
+    } else if (inCart) {
       actionHtml = `
         <div class="card-qty-controls" onclick="event.stopPropagation();">
           <button class="card-qty-btn" onclick="changeQty('${item.id}', -1)">-</button>
@@ -934,6 +827,7 @@ function renderItems() {
       `;
     }
 
+    // Итоговая разметка карточки: Цена перенесена в самый низ (в футер) на место наличия
     card.innerHTML = `
       <div class="image-wrapper">
         <button class="card-fav-btn ${isLiked ? 'active' : ''}" title="Добавить в избранное" onclick="event.stopPropagation(); toggleFavorite('${item.id}')">
@@ -947,14 +841,14 @@ function renderItems() {
         <h3 class="card-title">${item.name}</h3>
         ${cardContentHtml}
         <p class="card-description">${item.description || ''}</p>
-        <div class="card-footer ${(isOutOfStock && !isCurrencyItem) ? 'out-of-stock' : ''}">
+        <div class="card-footer ${isOutOfStock ? 'out-of-stock' : ''}">
           <span class="card-footer-price">${item.price || 0} ₽</span>
           ${actionHtml}
         </div>
       </div>
     `;
 
-    if (isCurrencyItem || (!isOutOfStock && !inCart)) {
+    if (!isOutOfStock && !inCart) {
       const cartBtn = card.querySelector('.font-add-btn');
       if (cartBtn) {
         cartBtn.addEventListener('click', (e) => {
@@ -968,6 +862,16 @@ function renderItems() {
     container.appendChild(card);
   });
 }
+// Функция полной очистки Избранного по клику на новую кнопку
+window.clearAllFavorites = function(e) {
+  if (e) e.stopPropagation();
+  favorites = [];
+  localStorage.setItem('lowadi_favorites', JSON.stringify(favorites));
+  if (favBadge) favBadge.innerText = 0;
+  showToast('Список Избранного полностью очищен ❤️');
+  renderItems();
+};
+
 function renderPaginationControls(totalPages) {
   if (!paginationContainer) return;
   paginationContainer.innerHTML = '';
@@ -1005,25 +909,16 @@ function toggleFavorite(id) {
     favorites.push(id);
     showToast('Товар добавлен в Избранное ❤️');
   }
+  // Перепроверка массива на пустоту, чтобы исключить баги счётчика
   favorites = favorites.filter(item => item && String(item).trim() !== "");
   if (favBadge) favBadge.innerText = favorites.length;
   localStorage.setItem('lowadi_favorites', JSON.stringify(favorites));
   renderItems();
 }
-
-window.clearAllFavorites = function(e) {
-  if (e) e.stopPropagation();
-  favorites = [];
-  localStorage.setItem('lowadi_favorites', JSON.stringify(favorites));
-  if (favBadge) favBadge.innerText = 0;
-  showToast('Список Избранного полностью очищен ❤️');
-  renderItems();
-};
-
 function addToCart(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
 
-  // 1. Блокировка обычного Золотого Яблока
+  // 1. Проверка блокировки для Золотого Яблока
   if (itemNameNormalized === 'золотое яблоко') {
     currentAppleType = 'зя';
     closeAllDrawers();
@@ -1034,9 +929,9 @@ function addToCart(item) {
     return;
   }
 
-  // 2. Блокировка Исчезнувшего Золотого Яблока
-  if (itemNameNormalized === 'исчезнувшее золотое яблоко' || itemNameNormalized.includes('исчезнувшее зя')) {
-    currentAppleType = 'изыя'; 
+  // 2. Проверка блокировки для Исчезнувшего золотого яблока
+  if (itemNameNormalized === 'исчезнувшее золотое яблоко') {
+    currentAppleType = 'ися'; 
     closeAllDrawers();
     const modalText = document.getElementById('appleModalText');
     if (modalText) modalText.innerHTML = 'Товар <strong>Исчезнувшее золотое яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
@@ -1045,115 +940,25 @@ function addToCart(item) {
     return;
   }
 
-  // 3. Перехват для Валюты
-  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-  if (isCurrency) {
-    window.pendingCurrencyItem = item;
-    closeAllDrawers();
+  // Находим, сколько штук ЭТОГО ТОВАРА УЖЕ лежит в корзине (чтобы правильно посчитать общий объем)
+  let existingQtyInCart = 0;
+  cart.forEach(c => { if (c.id === item.id) existingQtyInCart += c.quantity; });
 
-    if (currencyInputCount) currencyInputCount.value = "1";
-    if (playerGameNickInput) playerGameNickInput.value = "";
-
-    if (itemNameNormalized.indexOf('пропуск') !== -1) {
-      if (currencyModalTitle) currencyModalTitle.innerText = "Покупка Пропусков пакетами";
-      if (currencyCountLabel) currencyCountLabel.innerText = "Сколько пакетов вам нужно? (1 пак = 1.000 шт.)";
-      if (currencyUrgencyBlock) currencyUrgencyBlock.style.display = "block";
-    } else {
-      if (currencyModalTitle) currencyModalTitle.innerText = "Покупка Экю пакетами";
-      if (currencyCountLabel) currencyCountLabel.innerText = "Сколько пакетов вам нужно? (1 пак = 1.000.000 шт.)";
-      if (currencyUrgencyBlock) currencyUrgencyBlock.style.display = "none";
-    }
-
-    if (currencyNickBlock) currencyNickBlock.style.display = "none";
-    if (overlay) overlay.classList.add('active');
-    if (currencyOrderModal) currencyOrderModal.classList.add('active');
-    return;
-  }
-
-  executeAddToCartFinal(item);
-}
-if (currencyInputCount) {
-  currencyInputCount.addEventListener('input', () => {
-    if (!window.pendingCurrencyItem) return;
-    const itemNameNormalized = window.pendingCurrencyItem.name.trim().toLowerCase();
-    const countValue = parseInt(currencyInputCount.value) || 0;
-    if (itemNameNormalized.indexOf('пропуск') !== -1 && countValue > 10) {
-      if (currencyNickBlock) currencyNickBlock.style.display = "block";
-    } else {
-      if (currencyNickBlock) currencyNickBlock.style.display = "none";
-    }
-  });
-}
-
-if (confirmCurrencyBtn) {
-  confirmCurrencyBtn.addEventListener('click', () => {
-    if (!window.pendingCurrencyItem) return;
-    const item = window.pendingCurrencyItem;
-    const itemNameNormalized = item.name.trim().toLowerCase();
-    
-    // ИСПРАВЛЕНИЕ 4: Прямой поиск инпута количества в HTML, чтобы убрать ошибку зависания кнопок
-    const inputEl = document.getElementById('currencyInputCount');
-    const countValue = inputEl ? (parseInt(inputEl.value) || 0) : 0;
-
-    if (countValue <= 0) {
-      alert("Пожалуйста, укажите корректное количество пакетов (от 1 и более).");
+  // 3. ПРОВЕРКА ОПТА ДЛЯ ВАЛЮТЫ "ПРОПУСКИ" (> 10 штук суммарно)
+  if (itemNameNormalized.includes('пропуск') && item.category && item.category.toLowerCase() === 'валюта') {
+    // Если добавляется товар, который поднимет общее кол-во выше 10 штук, а ник еще не сохранен
+    if ((existingQtyInCart + 1) > 10 && !item.playerNick) {
+      // Сохраняем временную ссылку на товар, который пользователь хотел положить
+      window.pendingCurrencyItem = item;
+      closeAllDrawers();
+      if (playerGameNickInput) playerGameNickInput.value = '';
+      if (overlay) overlay.classList.add('active');
+      if (currencyTeamModal) currencyTeamModal.classList.add('active');
       return;
     }
+  }
 
-    let selectedUrgency = null;
-    let basePricePerPack = item.price || 0;
-
-    if (itemNameNormalized.indexOf('пропуск') !== -1) {
-      const urgencyRadio = document.querySelector('input[name="modalUrgencyRadio"]:checked');
-      selectedUrgency = urgencyRadio ? urgencyRadio.value : 'urgent';
-      basePricePerPack = (selectedUrgency === 'urgent') ? 150 : 75;
-
-      if (countValue > 10) {
-        const nickInput = document.getElementById('playerGameNick');
-        const nickValue = nickInput ? nickInput.value.trim() : "";
-        if (nickValue === "") {
-          alert("Для заказов от 11 пакетов пропусков необходимо указать игровой ник!");
-          return;
-        }
-        item.playerNick = nickValue;
-      } else {
-        item.playerNick = null;
-      }
-    } else {
-      selectedUrgency = null;
-    }
-
-    let urgencyKeySuffix = selectedUrgency ? `_urg_${selectedUrgency}` : '';
-    let nickKeySuffix = item.playerNick ? `_nick_${item.playerNick}` : '';
-    const uniqueCartKey = `${item.id}${urgencyKeySuffix}${nickKeySuffix}`;
-
-    const existingIndex = cart.findIndex(c => c.cartKey === uniqueCartKey);
-    if (existingIndex > -1) {
-      cart[existingIndex].quantity += countValue;
-    } else {
-      cart.push({
-        ...item,
-        cartKey: uniqueCartKey,
-        price: basePricePerPack,
-        quantity: countValue,
-        playerNick: item.playerNick || null,
-        urgency: selectedUrgency
-      });
-    }
-
-    localStorage.setItem('lowadi_cart', JSON.stringify(cart));
-    window.pendingCurrencyItem = null;
-    
-    const orderModal = document.getElementById('currencyOrderModal');
-    if (orderModal) orderModal.classList.remove('active');
-    
-    closeAllDrawers();
-    updateCartUI();
-    renderItems();
-    showToast(`Валюта успешно добавлена в корзину!`);
-  });
-}
-function executeAddToCartFinal(item) {
+  // Расчет дополнительных опций окрасов
   let selectedCr = "none";
   let selectedFk = "none";
   let selectedSkills = "none";
@@ -1166,18 +971,26 @@ function executeAddToCartFinal(item) {
 
     if (optCrSelect) {
       const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
-      if (chosenCrOpt) extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
+      if (chosenCrOpt) {
+        extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
+      }
     }
     if (selectedFk !== 'none') extraCost += 30;
     if (selectedSkills !== 'none') extraCost += 20;
   }
 
-  const uniqueCartKey = `${item.id}_${selectedCr}_${selectedFk}_${selectedSkills}`;
-  const existingProduct = cart.find(cartItem => cartItem.cartKey === uniqueCartKey);
-  const maxStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
+  const cartItemId = `${item.id}_${selectedCr}_${selectedFk}_${selectedSkills}`;
+  
+  // Для валюты с разным статусом ника создаем независимые ключи, чтобы они корректно разделялись
+  const finalCartKey = item.playerNick ? `${cartItemId}_nick_${item.playerNick}` : cartItemId;
+  const existingProduct = cart.find(cartItem => cartItem.cartKey === finalCartKey);
+  
+  // Проверяем остаток строго под текущий регион (у Валюты остатки игнорируем, считая их бесконечными)
+  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
+  const maxStock = isCurrency ? 999999 : ((item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0);
 
   if (existingProduct) {
-    if (existingProduct.quantity >= maxStock) {
+    if (!isCurrency && existingProduct.quantity >= maxStock) {
       showToast(`На сервере ${currentServer} доступно всего ${maxStock} шт.`);
       return;
     }
@@ -1185,12 +998,13 @@ function executeAddToCartFinal(item) {
   } else {
     cart.push({ 
       ...item, 
-      cartKey: uniqueCartKey,
+      cartKey: finalCartKey,
       price: item.price + extraCost, 
       chosenCr: selectedCr,
       chosenFk: selectedFk,
       chosenSkills: selectedSkills,
-      quantity: 1 
+      quantity: 1,
+      playerNick: item.playerNick || null // привязываем ник игрока к объекту корзины
     });
   }
   
@@ -1199,7 +1013,6 @@ function executeAddToCartFinal(item) {
   renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
-
 function updateCartUI() {
   if (!cartItemsContainer) return;
   cartItemsContainer.innerHTML = '';
@@ -1216,58 +1029,68 @@ function updateCartUI() {
     const itemNameLower = item.name.toLowerCase();
     const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
     
+    // Переменные для калькулятора Lowadi
     let displayTitle = item.name;
     let currencyCalcHtml = '';
 
     if (isCurrency) {
-      if (itemNameLower.indexOf('пропуск') !== -1) {
+      if (itemNameLower.includes('пропуск')) {
+        // Форматируем заголовок как "1.000 пропусков" умноженное на количество штук
         displayTitle = `${item.quantity}.000 пропусков`;
+        
         if (item.quantity > 10) {
-          const urgencyBadge = item.urgency === 'urgent' ? '<span style="color:#d32f2f; font-weight:bold; display:block; margin-bottom:4px;">🔥 Срочно</span>' : '';
+          // Опт для пропусков (> 10 штук) — выводим только ник для приглашения в команду
           currencyCalcHtml = `
             <div class="cart-currency-calc">
               <strong>👑 Командный заказ</strong><br>
-              ${urgencyBadge}
-              Ник для приглашения: <strong>${item.playerNick || 'Не указан'}</strong>
+              Приглашение будет отправлено на ник: <strong>${item.playerNick || 'Не указан'}</strong>
             </div>
           `;
         } else {
-          const urgencyBadge = item.urgency === 'urgent' ? '<span style="color:#d32f2f; font-weight:bold; display:block; margin-bottom:4px;">🔥 Срочно</span>' : '';
-          const cleanPassesTotal = item.quantity * 1000;
+          // Розница для пропусков (<= 10 штук) — считаем коней и 10% комиссию (прибавляем её)
+          const cleanPasses = item.quantity * 1000;
+          const totalWithCommission = item.quantity * 1112; // 1112 пропусков за каждого коня
           currencyCalcHtml = `
             <div class="cart-currency-calc">
-              ${urgencyBadge}
               🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
-              Поставить коня на продажу за: <strong>1.112 пропусков</strong> (за 1 шт.)<br>
-              <span style="font-size:11px; opacity:0.85;">(Итого чистыми: ${cleanPassesTotal.toLocaleString('ru-RU')})</span>
+              Сумма на продажу с комиссией: <strong>${totalWithCommission.toLocaleString('ru-RU')} пропусков</strong><br>
+              <span style="font-size:11px; opacity:0.8;">(Вы получите чистыми: ${cleanPasses.toLocaleString('ru-RU')})</span>
             </div>
           `;
         }
-      } else if (itemNameLower.indexOf('экю') !== -1) {
+      } else if (itemNameLower.includes('экю')) {
+        // Форматируем заголовок как "1.000.000 экю" умноженное на количество штук
         displayTitle = `${item.quantity}.000.000 экю`;
-        const cleanEcuTotal = item.quantity * 1000000;
+        
+        // Для Экю комиссия считается всегда при любом количестве предметов
+        const cleanEcu = item.quantity * 1000000;
+        const totalWithCommission = item.quantity * 1111112; // 1.111.112 экю за каждого коня
         currencyCalcHtml = `
           <div class="cart-currency-calc">
             🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
-            Поставить коня на продажу за: <strong>1.111.112 экю</strong> (за 1 шт.)<br>
-            <span style="font-size:11px; opacity:0.85;">(Итого чистыми: ${cleanEcuTotal.toLocaleString('ru-RU')})</span>
+            Сумма на продажу с комиссией: <strong>${totalWithCommission.toLocaleString('ru-RU')} экю</strong><br>
+            <span style="font-size:11px; opacity:0.8;">(Вы получите чистыми: ${cleanEcu.toLocaleString('ru-RU')})</span>
           </div>
         `;
       }
     }
 
+    // Рендер мета-опций для окрасов
     let optionsMetaHtml = '';
     if (item.category && item.category.toLowerCase() === 'окрасы') {
       const type = (item.colorType || 'ЗЯ').toUpperCase();
       let extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
+      
       let addons = [];
       if (item.chosenCr !== 'none') addons.push(`Доп ЧР: ${item.chosenCr} х1`);
       if (item.chosenFk !== 'none') addons.push(`ФК: Да`);
       if (item.chosenSkills !== 'none') addons.push(`Навыки: Да`);
+      
       let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">${addons.join('<br>')}</div>` : '';
       optionsMetaHtml = `<div class="cart-item-meta" style="color:#b17a53; font-weight:bold; margin-top:4px;">Категория: ${type}</div>${extraInfo}${addonsText}`;
     }
 
+    // Для валюты скрываем кнопки "+" и "-", так как её количество регулируется основным каталогом
     let quantityControlsHtml = `
       <div class="quantity-controls">
         <button class="qty-btn" onclick="changeQtyByKey('${item.cartKey}', -1)">-</button>
@@ -1276,7 +1099,7 @@ function updateCartUI() {
       </div>
     `;
     if (isCurrency) {
-      quantityControlsHtml = `<div style="font-size: 12px; color: #666; margin-top: 6px; font-weight: bold;">Объем заказа: х${item.quantity}</div>`;
+      quantityControlsHtml = `<div style="font-size: 12px; color: #777; margin-top: 6px; font-weight: 600;">Пакет валюты х${item.quantity}</div>`;
     }
 
     cartItemEl.innerHTML = `
@@ -1296,19 +1119,15 @@ function updateCartUI() {
   if (cartTotalPrice) cartTotalPrice.innerText = `${total} ₽`;
   if (cartBadge) cartBadge.innerText = totalItemsCount;
 }
-
 window.changeQtyByKey = function(key, change) {
   const item = cart.find(i => i.cartKey === key);
   if (!item) return;
   
-  let originalItem = null;
-  Object.keys(cachedCatalogs).forEach(cat => {
-    const found = cachedCatalogs[cat].find(i => i.id === item.id);
-    if (found) originalItem = found;
-  });
+  const catKey = currentCategory.toLowerCase();
+  const searchPool = cachedCatalogs[catKey] || [];
+  const originalItem = searchPool.find(i => i.id === item.id);
   
-  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-  const maxStock = isCurrency ? 999999 : (originalItem ? ((originalItem.stocks && originalItem.stocks[currentServer]) || 0) : 999);
+  const maxStock = originalItem ? ((originalItem.stocks && originalItem.stocks[currentServer]) || 0) : 999;
   const newQty = item.quantity + change;
 
   if (newQty <= 0) {
@@ -1328,7 +1147,9 @@ window.changeQtyByKey = function(key, change) {
 
 window.changeQty = function(id, change) {
   const item = cart.find(i => i.id === id);
-  if (item) changeQtyByKey(item.cartKey, change);
+  if (item) {
+    changeQtyByKey(item.cartKey, change);
+  }
 };
 
 window.removeFromCartByKey = function(key) {
@@ -1338,6 +1159,8 @@ window.removeFromCartByKey = function(key) {
   renderItems();
   showToast('Товар удален из корзины.');
 };
+
+// ОБНОВЛЕНО: Вызов стилизованного окна подтверждения вместо системного confirm
 if (clearCartBtn) {
   clearCartBtn.addEventListener('click', () => {
     if (cart.length === 0) return;
@@ -1348,6 +1171,7 @@ if (clearCartBtn) {
   });
 }
 
+// Клик по кнопке "Да, очистить" на стилизованной плашке
 if (confirmClearCartBtnEl) {
   confirmClearCartBtnEl.addEventListener('click', () => {
     cart = [];
@@ -1359,10 +1183,11 @@ if (confirmClearCartBtnEl) {
   });
 }
 
+// Клик по кнопке "Отмена" на стилизованной плашке
 if (cancelClearCartBtn) {
   cancelClearCartBtn.addEventListener('click', () => {
     if (confirmClearCartModal) confirmClearCartModal.classList.remove('active');
-    if (cartDrawer) cartDrawer.classList.add('active');
+    if (cartDrawer) cartDrawer.classList.add('active'); // возвращаем фокус на корзину
     if (overlay && !productDrawer.classList.contains('active')) overlay.classList.add('active');
   });
 }
@@ -1389,8 +1214,10 @@ function showToast(msg) {
   cartToast.classList.add('show');
   toastTimeout = setTimeout(hideToast, 1500);
 }
+
 function hideToast() { if (cartToast) cartToast.classList.remove('show'); }
 if (closeToastBtn) closeToastBtn.addEventListener('click', hideToast);
+
 function openProductDrawer(item) {
   activeItemForDrawer = item;
   if (cartDrawer) cartDrawer.classList.remove('active');
@@ -1410,9 +1237,8 @@ function openProductDrawer(item) {
   if (adminIconsGrid) adminIconsGrid.innerHTML = ''; 
 
   const itemNameNormalized = item.name.trim().toLowerCase();
-  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
 
-  if (itemNameNormalized.includes('золотое яблоко') || itemNameNormalized.includes('исчезнувшее золотое яблоко')) {
+  if (itemNameNormalized === 'золотое яблоко' || itemNameNormalized === 'исчезнувшее золотое яблоко') {
     if (noteText) noteText.innerText = '⚠️ Покупка только навесом';
     if (noteContainer) noteContainer.style.display = 'block';
   } else if (item.adminIcons && item.adminIcons.length > 0) {
@@ -1420,7 +1246,8 @@ function openProductDrawer(item) {
     if (adminIconsGrid) {
       item.adminIcons.forEach(iconUrl => {
         const img = document.createElement('img');
-        img.className = 'admin-mini-icon'; img.src = iconUrl;
+        img.className = 'admin-mini-icon';
+        img.src = iconUrl;
         adminIconsGrid.appendChild(img);
       });
     }
@@ -1435,6 +1262,7 @@ function openProductDrawer(item) {
     const dType = getEl('d-type'); if (dType) dType.innerText = item.type || 'Обычный';
     const dAffix = getEl('d-affix'); if (dAffix) dAffix.innerText = item.affix ? 'Да' : 'Нет';
     const dChk = getEl('d-chk'); if (dChk) dChk.innerText = item.chk ? 'Да' : 'Нет';
+    
     const companionSpan = getEl('d-companion');
     if (companionSpan) {
       if (item.companionImage && item.companionImage.trim() !== "") {
@@ -1485,13 +1313,55 @@ function openProductDrawer(item) {
   if (dFlags) dFlags.innerText = availableFlags.length > 0 ? availableFlags.join(' ') : 'Нет в наличии';
   
   const serverStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
-  const dCount = getEl('d-count'); if (dCount) dCount.innerText = isCurrency ? 'Бесконечно' : `${serverStock} шт`;
+  const dCount = getEl('d-count'); if (dCount) dCount.innerText = `${serverStock} шт`;
   const dPrice = getEl('d-price'); if (dPrice) dPrice.innerText = `${item.price || 0} ₽`;
   
   if (overlay) overlay.classList.add('active');
   if (productDrawer) productDrawer.classList.add('active');
   recalcDrawerPrice(); 
 }
+// Слушатель кнопки подтверждения командного оптового заказа валюты
+if (confirmTeamOrderBtn) {
+  confirmTeamOrderBtn.addEventListener('click', () => {
+    if (!playerGameNickInput) return;
+    const nickValue = playerGameNickInput.value.trim();
+
+    if (nickValue === "") {
+      alert("Пожалуйста, введите ваш игровой ник для приглашения в команду!");
+      return;
+    }
+
+    // Если ник успешно введен, достаем сохраненный временный товар
+    if (window.pendingCurrencyItem) {
+      const updatedItem = { ...window.pendingCurrencyItem, playerNick: nickValue };
+      window.pendingCurrencyItem = null;
+      
+      // Закрываем модалку опта
+      if (currencyTeamModal) currencyTeamModal.classList.remove('active');
+      
+      // Вызываем базовую функцию добавления уже с ником внутри
+      addToCart(updatedItem);
+    }
+  });
+}
+
+// Слушатель кнопки отмены командного оптового заказа
+if (cancelTeamOrderBtn) {
+  cancelTeamOrderBtn.addEventListener('click', () => {
+    window.pendingCurrencyItem = null;
+    if (currencyTeamModal) currencyTeamModal.classList.remove('active');
+    closeAllDrawers();
+    showToast('Добавление оптового заказа отменено.');
+  });
+}
+
+// Расширяем общую функцию закрытия всех окон для нового окна валюты
+const originalCloseAllDrawers = window.closeAllDrawers;
+window.closeAllDrawers = function() {
+  if (originalCloseAllDrawers) originalCloseAllDrawers();
+  if (currencyTeamModal) currencyTeamModal.classList.remove('active');
+  window.pendingCurrencyItem = null;
+};
 function closeAllDrawers() {
   if (overlay) overlay.classList.remove('active');
   if (productDrawer) productDrawer.classList.remove('active');
@@ -1499,9 +1369,7 @@ function closeAllDrawers() {
   if (appleModal) appleModal.classList.remove('active');
   if (confirmClearCartModal) confirmClearCartModal.classList.remove('active');
   if (serverWelcomeModal) serverWelcomeModal.classList.remove('active');
-  if (currencyOrderModal) currencyOrderModal.classList.remove('active');
   activeItemForDrawer = null; 
-  window.pendingCurrencyItem = null;
 }
 
 if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeAllDrawers);
@@ -1519,9 +1387,34 @@ if (openCartBtn) {
 
 if (drawerAddCartBtn) {
   drawerAddCartBtn.addEventListener('click', () => {
-    if (!activeItemForDrawer) return;
-    const item = activeItemForDrawer;
-    addToCart(item);
+    if (activeItemForDrawer) addToCart(activeItemForDrawer);
+  });
+}
+
+if (modalGoCatalogBtn) {
+  modalGoCatalogBtn.addEventListener('click', () => {
+    closeAllDrawers();
+    filterBtns.forEach(b => b.classList.remove('active'));
+    const colorsBtn = Array.from(filterBtns).find(b => b.getAttribute('data-category') === 'Окрасы');
+    if (colorsBtn) {
+      colorsBtn.classList.add('active');
+      currentCategory = 'Окрасы';
+      if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
+    }
+    
+    subFilterBtns.forEach(sb => sb.classList.remove('active'));
+    
+    if (currentAppleType === 'ися') {
+      const izyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
+      if (izyaBtn) izyaBtn.classList.add('active');
+      currentSubCategory = 'ИЗЯ';
+    } else {
+      const zyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ЗЯ');
+      if (zyaBtn) zyaBtn.classList.add('active');
+      currentSubCategory = 'ЗЯ';
+    }
+    currentPage = 1;
+    loadAndRenderCategory();
   });
 }
 
@@ -1544,17 +1437,16 @@ if (searchInput) searchInput.addEventListener('input', () => { currentPage = 1; 
 if (stockFilter) stockFilter.addEventListener('change', () => { currentPage = 1; renderItems(); });
 if (tagFilter) tagFilter.addEventListener('change', () => { currentPage = 1; renderItems(); });
 
-const mainFilterButtons = document.querySelectorAll('.filter-btn');
-mainFilterButtons.forEach(btn => {
+filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    mainFilterButtons.forEach(b => b.classList.remove('active'));
+    filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     currentCategory = btn.getAttribute('data-category');
-    const subMenuEl = document.getElementById('subFiltersContainer');
+    
     if (currentCategory.toLowerCase() === 'окрасы') {
-      if (subMenuEl) subMenuEl.style.display = 'flex';
+      if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
     } else {
-      if (subMenuEl) subMenuEl.style.display = 'none';
+      if (subFiltersContainer) subFiltersContainer.style.display = 'none';
       currentSubCategory = 'all';
     }
     currentPage = 1;
@@ -1562,32 +1454,21 @@ mainFilterButtons.forEach(btn => {
   });
 });
 
-const subFilterButtons = document.querySelectorAll('.sub-filter-btn');
-subFilterButtons.forEach(sBtn => {
+subFilterBtns.forEach(sBtn => {
   sBtn.addEventListener('click', () => {
-    subFilterButtons.forEach(b => b.classList.remove('active'));
+    subFilterBtns.forEach(b => b.classList.remove('active'));
     sBtn.classList.add('active');
     currentSubCategory = sBtn.getAttribute('data-subcategory');
     currentPage = 1;
     renderItems();
   });
 });
-
-const closeCurrencyBtnEl = document.getElementById('cancelCurrencyBtn');
-if (closeCurrencyBtnEl) {
-  closeCurrencyBtnEl.addEventListener('click', () => {
-    window.pendingCurrencyItem = null;
-    const orderModal = document.getElementById('currencyOrderModal');
-    if (orderModal) orderModal.classList.remove('active');
-    closeAllDrawers();
-  });
-}
 </script>
 <style>
-  .tag.услуги { background-color: #8338ec; }
-  .tag.спутники { background-color: #ff007f; }
-  .tag.трофеи { background-color: #ffb703; }
-  .tag.объявления { background-color: #02c39a; }
+  .tag.услуги{background-color:#8338ec;}
+  .tag.спутники{background-color:#ff007f;}
+  .tag.трофеи{background-color:#ffb703;}
+  .tag.объявления{background-color:#02c39a;}
 </style>
 </body>
 </html>
