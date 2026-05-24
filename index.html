@@ -203,33 +203,34 @@
       font-weight: 600; font-size: 12.5px; cursor: pointer; padding: 4px 8px; border-radius: 4px;
     }
     .sub-filter-btn.active, .sub-filter-btn:hover { background-color: var(--btn-active); color: white; }
-
+    /* Исправление 7: Увеличили карточки, чтобы в строке помещалось ровно 3 штуки */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(280px, 1fr));
+      gap: 25px;
       margin-bottom: 25px;
     }
-    /* Исправление 1 и 2: Возвращена анимация свечения карточки и увеличения товара при наведении */
+
+    /* Исправление 1 и 2: Реальное бронебойное свечение и масштабирование картинок */
     .card {
       background-color: var(--card-bg);
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(74, 40, 16, 0.04);
-      border: 1px solid rgba(74, 40, 16, 0.07);
+      box-shadow: 0 4px 12px rgba(74, 40, 16, 0.05);
+      border: 1px solid rgba(74, 40, 16, 0.08);
       display: flex;
       flex-direction: column;
       cursor: pointer;
       position: relative;
-      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(132, 82, 43, 0.25);
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(132, 82, 43, 0.35) !important;
     }
     .image-wrapper {
       width: 100%;
-      height: 150px;
+      height: 170px;
       background-color: #fdfaf7;
       display: flex;
       align-items: center;
@@ -241,15 +242,15 @@
       max-width: 85%;
       max-height: 85%;
       object-fit: contain;
-      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.25s ease;
     }
     .card:hover .image-wrapper img {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
     .card-fav-btn {
-      position: absolute; top: 8px; right: 8px; background: white;
-      border: none; border-radius: 50%; width: 30px; height: 30px;
+      position: absolute; top: 10px; right: 10px; background: white;
+      border: none; border-radius: 50%; width: 32px; height: 32px;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.08); z-index: 2;
     }
@@ -257,40 +258,43 @@
     .card-fav-btn.active svg { fill: #e63946; stroke: #e63946; }
 
     .badge {
-      position: absolute; top: 8px; left: 8px; padding: 3px 6px;
-      font-size: 9px; font-weight: bold; border-radius: 4px; color: white; z-index: 2;
+      position: absolute; top: 10px; left: 10px; padding: 3px 8px;
+      font-size: 9.5px; font-weight: bold; border-radius: 4px; color: white; z-index: 2;
     }
     .badge.new { background-color: #2e7d32; }
     .badge.hot { background-color: #e63946; }
     .badge.limited { background-color: #ff9100; }
-    .card-body { padding: 12px; display: flex; flex-direction: column; flex-grow: 1; }
+
+    .card-body { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
     .tag {
-      align-self: flex-start; padding: 2px 6px; font-size: 10px;
-      font-weight: bold; color: white; border-radius: 4px; margin-bottom: 6px;
+      align-self: flex-start; padding: 2px 8px; font-size: 10px;
+      font-weight: bold; color: white; border-radius: 4px; margin-bottom: 8px;
     }
     .tag.черный-рынок { background-color: #b76e79; }
     .tag.валюта { background-color: #2a9d8f; }
     .tag.окрасы { background-color: #e9c46a; color: #4a2810; }
     
-    .card-title { font-size: 14px; font-weight: bold; margin: 0 0 6px 0; color: var(--header-bg); }
-    .card-meta-text { font-size: 11.5px; color: #666; margin-bottom: 2px; }
+    .card-title { font-size: 15px; font-weight: bold; margin: 0 0 6px 0; color: var(--header-bg); }
+    .card-meta-text { font-size: 12px; color: #666; margin-bottom: 3px; }
     .card-meta-text span { color: #333; font-weight: 600; }
-    .card-meta-stock-line { font-size: 11.5px; color: #555; font-weight: 600; margin-bottom: 4px; }
-    .card-description { font-size: 12px; color: #555; margin: 4px 0 10px 0; line-height: 1.35; flex-grow: 1; }
+    .card-meta-stock-line { font-size: 12px; color: #555; font-weight: 600; margin-bottom: 5px; }
+    .card-description { font-size: 12.5px; color: #555; margin: 4px 0 12px 0; line-height: 1.4; flex-grow: 1; }
 
-    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid rgba(74, 40, 16, 0.05); }
-    .card-footer-price { font-size: 15px; font-weight: bold; color: #2e7d32; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid rgba(74, 40, 16, 0.05); }
+    .card-footer-price { font-size: 16px; font-weight: bold; color: #2e7d32; }
     
+    /* Исправление 8: Сделали круглую иконку корзины на карточке ЗЕЛЁНОЙ */
     .cart-btn {
-      background-color: var(--btn-active); border: none; border-radius: 6px;
-      width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer;
+      background-color: #2e7d32 !important; border: none; border-radius: 50%;
+      width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer;
     }
+    .cart-btn:hover { background-color: #1b5e20 !important; }
     .cart-btn svg { width: 16px; height: 16px; }
 
     .card-qty-controls { display: flex; align-items: center; background: #f5e6d3; border-radius: 6px; padding: 2px; }
-    .card-qty-btn { background: white; border: none; width: 22px; height: 22px; font-weight: bold; cursor: pointer; border-radius: 4px; }
-    .card-qty-value { font-size: 12px; font-weight: bold; padding: 0 6px; min-width: 20px; text-align: center; }
-
+    .card-qty-btn { background: white; border: none; width: 24px; height: 24px; font-weight: bold; cursor: pointer; border-radius: 4px; }
+    .card-qty-value { font-size: 12.5px; font-weight: bold; padding: 0 8px; min-width: 22px; text-align: center; }
+    /* Шторка информации о товаре */
     .drawer {
       position: fixed; top: 0; right: -420px; width: 100%; max-width: 400px; height: 100%;
       background-color: white; z-index: 200; box-shadow: -5px 0 25px rgba(0,0,0,0.15);
@@ -311,9 +315,9 @@
     .meta-item-full { grid-column: 1 / -1; }
     .companion-img { width: 22px; height: 22px; object-fit: contain; vertical-align: middle; }
 
-    /* Исправление 5: Сделали мини-изображения предметов в комплекте маленькими и аккуратными */
-    .admin-icons-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-    .admin-mini-icon { width: 32px; height: 32px; object-fit: contain; background: #fff; border: 1px solid #ebd9c8; border-radius: 4px; padding: 2px; }
+    /* Исправление 5: Сделали иконки комплектов маленькими и строго НА ПРОЗРАЧНОМ фоне */
+    .admin-icons-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .admin-mini-icon { width: 32px; height: 32px; object-fit: contain; background: transparent !important; border: none !important; padding: 0 !important; }
 
     .option-select-block { display: flex; flex-direction: column; gap: 6px; }
     .option-row { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; }
@@ -322,24 +326,33 @@
     .drawer-col { flex: 1; }
     .status-box, .price-box { background-color: #f4ece4; border-radius: 6px; padding: 8px; font-size: 14px; font-weight: bold; text-align: center; color: var(--header-bg); }
     .price-box { background-color: #e8f5e9; color: #2e7d32; }
-    .drawer-buy-btn { width: 100%; background-color: var(--btn-active); color: white; border: none; border-radius: 8px; padding: 10px; font-size: 14px; font-weight: bold; margin-top: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+
+    /* Исправление 8: Сделали кнопку покупки во внутренней шторке ЗЕЛЁНОЙ */
+    .drawer-buy-btn { width: 100%; background-color: #2e7d32 !important; color: white; border: none; border-radius: 8px; padding: 10px; font-size: 14px; font-weight: bold; margin-top: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .drawer-buy-btn:hover { background-color: #1b5e20 !important; }
     .drawer-buy-btn svg { width: 18px; height: 18px; }
 
+    /* Шторка корзины и списки элементов */
     .cart-items-list { display: flex; flex-direction: column; gap: 12px; flex-grow: 1; overflow-y: auto; margin-top: 12px; }
     .cart-item { display: flex; gap: 10px; border-bottom: 1px solid #eee; padding-bottom: 10px; position: relative; }
     .cart-item img { width: 45px; height: 45px; object-fit: contain; background: #fafafa; border-radius: 6px; }
     .cart-item-details { flex-grow: 1; }
     .cart-item-name { font-size: 13px; font-weight: bold; color: var(--header-bg); }
     
-    /* Исправление 6: Вернули читаемый размер текста для описания окрасов в корзине */
-    .cart-item-meta { font-size: 11.5px; color: #666; line-height: 1.3; margin-top: 2px; }
+    /* Исправление 6: Фиксация размера и начертания текста мета-описания в корзине без разного масштаба */
+    .cart-item-meta, .cart-item-meta div, .cart-item-meta span { font-size: 12px !important; color: #555 !important; font-weight: 500 !important; line-height: 1.4 !important; margin-top: 2px !important; text-transform: none !important; }
+    
     .cart-item-price { font-size: 13px; font-weight: bold; color: #2e7d32; }
     .remove-item-btn { position: absolute; top: 0; right: 0; background: none; border: none; font-size: 16px; color: #cc0000; cursor: pointer; }
-    .cart-footer-actions { display: flex; gap: 8px; margin-top: auto; }
-    .buy-btn { flex-grow: 1; background-color: #2e7d32; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 13.5px; }
-    .clear-cart-btn { background-color: #cc0000; border: none; width: 38px; height: 38px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    
+    /* Исправление 6: Выровняли пропорции кнопок "Приобрести" и "Очистить" внизу корзины */
+    .cart-footer-actions { display: flex; gap: 10px; margin-top: auto; align-items: center; width: 100%; }
+    .buy-btn { flex-grow: 1; background-color: #2e7d32; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; height: 40px; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+    .buy-btn:hover { background-color: #1b5e20; }
+    .clear-cart-btn { background-color: #cc0000; border: none; width: 40px; height: 40px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .clear-cart-btn:hover { background-color: #a00000; }
     .clear-cart-btn svg { width: 18px; height: 18px; }
-
+    /* Всплывающие модальные окна */
     .popup-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 90%; max-width: 400px; background: white; border-radius: 12px; padding: 20px; z-index: 300; box-shadow: 0 10px 30px rgba(0,0,0,0.25); display: none; opacity: 0; transition: transform 0.2s ease, opacity 0.2s ease; text-align: center; }
     .popup-modal.active { display: block; opacity: 1; transform: translate(-50%, -50%) scale(1); }
     .popup-title { font-size: 17px; font-weight: bold; color: var(--header-bg); margin-bottom: 10px; }
@@ -445,11 +458,10 @@
 
   <!-- Дополнительные Подстраницы Окрасов -->
   <div class="sub-filters" id="subFiltersContainer">
-    <button class="sub-filter-btn active" data-subcategory="all">Все окрасы</button>
-    <button class="sub-filter-btn" data-subcategory="ЗЯ">Каталог ЗЯ</button>
-    <button class="sub-filter-btn" data-subcategory="ИЗЯ">Каталог ИЗЯ</button>
+    <button class="sub-filter-btn active" id="subcat-all" data-subcategory="all">Все окрасы</button>
+    <button class="sub-filter-btn" id="subcat-zya" data-subcategory="ЗЯ">Каталог ЗЯ</button>
+    <button class="sub-filter-btn" id="subcat-izya" data-subcategory="ИЗЯ">Каталог ИЗЯ</button>
   </div>
-
   <!-- Сетка карточек и блок постраничной навигации -->
   <div class="grid" id="products"></div>
   <div class="pagination-container" id="pagination"></div>
@@ -472,16 +484,6 @@
 
   <div class="popup-actions" style="justify-content: center;">
     <button class="popup-btn popup-btn-catalog" id="submitServerBtn" style="width: 100%; padding: 12px;">Подтвердить выбор</button>
-  </div>
-</div>
-
-<!-- КАСТОМНОЕ МОДАЛЬНОЕ ОКНО ПОДТВЕРЖДЕНИЯ ОЧИСТКИ КОРЗИНЫ -->
-<div class="popup-modal" id="confirmClearCartModal">
-  <div class="popup-title">Очистить корзину?</div>
-  <div class="popup-text">Вы точно хотите полностью удалить все выбранные предметы и окрасы из вашей корзины? Это действие нельзя будет отменить.</div>
-  <div class="popup-actions">
-    <button class="popup-btn popup-btn-close" id="cancelClearCartBtn">Отмена</button>
-    <button class="popup-btn" id="confirmClearCartBtn" style="background-color: #d32f2f; color: #fff;">Да, очистить</button>
   </div>
 </div>
 
