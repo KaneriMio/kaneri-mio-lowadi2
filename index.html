@@ -924,12 +924,11 @@ window.clearAllFavorites = function(e) {
   showToast('Список Избранного полностью очищен ❤️');
   renderItems();
 };
-
 function addToCart(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
 
-  // 1. Жесткая блокировка Золотого Яблока
-  if (itemNameNormalized.includes('золотое яблоко')) {
+  // 1. Блокировка обычного Золотого Яблока
+  if (itemNameNormalized === 'золотое яблоко') {
     currentAppleType = 'зя';
     closeAllDrawers();
     const modalText = document.getElementById('appleModalText');
@@ -939,9 +938,9 @@ function addToCart(item) {
     return;
   }
 
-  // 2. Жесткая блокировка Исчезнувшего золотого яблока
-  if (itemNameNormalized.includes('исчезнувшее золотое яблоко') || itemNameNormalized.includes('исчезнувшее зя')) {
-    currentAppleType = 'ися'; 
+  // 2. Блокировка Исчезнувшего Золотого Яблока (Исправлен текст и тип на ИЗЯ)
+  if (itemNameNormalized === 'исчезнувшее золотое яблоко' || itemNameNormalized.includes('исчезнувшее зя')) {
+    currentAppleType = 'изыя'; // Меняем на точное совпадение с data-subcategory
     closeAllDrawers();
     const modalText = document.getElementById('appleModalText');
     if (modalText) modalText.innerHTML = 'Товар <strong>Исчезнувшее золотое яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
@@ -950,7 +949,7 @@ function addToCart(item) {
     return;
   }
 
-  // 3. Перехват для Валюты: открываем наше универсальное окно-калькулятор
+  // 3. Перехват для Валюты
   const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
   if (isCurrency) {
     window.pendingCurrencyItem = item;
@@ -975,9 +974,9 @@ function addToCart(item) {
     return;
   }
 
-  // 4. Обычные предметы и масти
   executeAddToCartFinal(item);
 }
+
 if (currencyInputCount) {
   currencyInputCount.addEventListener('input', () => {
     if (!window.pendingCurrencyItem) return;
@@ -990,7 +989,6 @@ if (currencyInputCount) {
     }
   });
 }
-
 if (confirmCurrencyBtn) {
   confirmCurrencyBtn.addEventListener('click', () => {
     if (!window.pendingCurrencyItem) return;
@@ -1007,6 +1005,7 @@ if (confirmCurrencyBtn) {
     let basePricePerPack = item.price || 0;
 
     if (itemNameNormalized.indexOf('пропуск') !== -1) {
+      // ИСПРАВЛЕНИЕ: Ищем по имени "modalUrgencyRadio", как и прописано у вас в HTML-разметке формы
       const urgencyRadio = document.querySelector('input[name="modalUrgencyRadio"]:checked');
       selectedUrgency = urgencyRadio ? urgencyRadio.value : 'urgent';
       basePricePerPack = (selectedUrgency === 'urgent') ? 150 : 75;
@@ -1050,6 +1049,34 @@ if (confirmCurrencyBtn) {
     updateCartUI();
     renderItems();
     showToast(`Валюта успешно добавлена в корзину!`);
+  });
+}
+
+// ИСПРАВЛЕНИЕ: Переписана кнопка переадресации из окна Яблок, чтобы она точно открывала вкладку ИЗЯ
+if (modalGoCatalogBtn) {
+  modalGoCatalogBtn.addEventListener('click', () => {
+    closeAllDrawers();
+    filterBtns.forEach(b => b.classList.remove('active'));
+    const colorsBtn = Array.from(filterBtns).find(b => b.getAttribute('data-category') === 'Окрасы');
+    if (colorsBtn) {
+      colorsBtn.classList.add('active');
+      currentCategory = 'Окрасы';
+      if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
+    }
+    subFilterBtns.forEach(sb => sb.classList.remove('active'));
+    
+    // Если тип "изыя", открываем вкладку ИЗЯ, иначе — ЗЯ
+    if (currentAppleType === 'изыя') {
+      const izyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
+      if (izyaBtn) izyaBtn.classList.add('active');
+      currentSubCategory = 'ИЗЯ';
+    } else {
+      const zyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ЗЯ');
+      if (zyaBtn) zyaBtn.classList.add('active');
+      currentSubCategory = 'ЗЯ';
+    }
+    currentPage = 1;
+    loadAndRenderCategory();
   });
 }
 function executeAddToCartFinal(item) {
