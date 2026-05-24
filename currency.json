@@ -1,3 +1,54 @@
 [
-
+{
+  "id": "currency_1779652323301",
+  "name": "1.000.000 экю",
+  "count": 999999,
+  "price": 15,
+  "image": "https://i.ibb.co/5xffvD1k/equus-pack-5.png",
+  "category": "Валюта",
+  "isNew": false,
+  "isHot": true,
+  "isRare": false,
+  "description": "Пакет игровой валюты: 1.000.000 экю",
+  "howto": "Получение через внутриигровую сделку или команду",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 1,
+    "🇪🇦": 1,
+    "🇫🇷": 1
+  },
+  "keywords": [
+    "1.000.000",
+    "экю"
+  ],
+  "adminIcons": []
+},
+{
+  "id": "currency_1779652642212",
+  "name": "1.000 пропусков",
+  "count": 999999,
+  "price": 75,
+  "image": "https://i.ibb.co/XZsT70LT/pass-pack-5.png",
+  "category": "Валюта",
+  "isNew": false,
+  "isHot": true,
+  "isRare": false,
+  "description": "Пакет игровой валюты: 1.000 пропусков",
+  "howto": "Получение через внутриигровую сделку или команду",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 1,
+    "🇪🇦": 1,
+    "🇫🇷": 1
+  },
+  "keywords": [
+    "1.000",
+    "пропусков"
+  ],
+  "adminIcons": []
+}
 ]
