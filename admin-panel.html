@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Панель Администратора | Лошадиный Каталог</title>
+  <title>Панель Администратора | Lowadi</title>
   <style>
     :root {
       --bg-color: #f7ede2;
@@ -82,7 +82,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 15px;
-      background: var(--section-bg);
+      background: #fdfaf7;
       padding: 15px;
       border-radius: 8px;
       border: 1px dashed var(--border-color);
@@ -244,7 +244,7 @@
       </div>
     </div>
 
-    <!-- ДИНАМИЧЕСКИЙ БЛОК ОПИСАНИЙ ДЛЯ ПРЕДМЕТОВ -->
+    <!-- ДИНАМИЧЕСКИЙ БЛОК ОПИСАНИЙ ДЛЯ ПРЕДМЕТОВ ЧЕРНОГО РЫНКА (И ДРУГИХ) -->
     <div id="itemFieldsBlock">
       <div class="form-group">
         <label for="itemDescription">Описание товара (Показывается в карточке и в шторке)</label>
@@ -259,7 +259,7 @@
     <!-- ЭКОНОМИКА И ОСТАТКИ ПО СЕРВЕРАМ -->
     <div class="form-group">
       <label for="itemPrice">Цена товара (в рублях)</label>
-      <input type="number" id="itemPrice" placeholder="Например: 45" required>
+      <input type="number" id="itemPrice" placeholder="Например: 12" required>
     </div>
 
     <div class="form-group">
@@ -292,6 +292,8 @@
         <label class="checkbox-label"><input type="checkbox" id="checkHot"> Популярное (Hot)</label>
         <label class="checkbox-label"><input type="checkbox" id="checkRare"> Ограниченное (Limited)</label>
         <label class="checkbox-label" id="navesWrap"><input type="checkbox" id="checkNaves"> Продаётся только навесом (isNaves)</label>
+        <!-- Добавлено новое запрашиваемое свойство для фильтрации в каталоге яблок -->
+        <label class="checkbox-label" id="availableNavesWrap"><input type="checkbox" id="checkAvailableNaves"> Доступно для навеса (isAvailableForNaves)</label>
       </div>
     </div>
 
@@ -301,15 +303,15 @@
       <div class="checkbox-group">
         <label class="checkbox-label"><input type="checkbox" id="coatHasExtraCr" checked> Доп. предметы ЧР</label>
         <label class="checkbox-label"><input type="checkbox" id="coatHasFk" checked> Философский камень (ФК)</label>
-        <label class="checkbox-label"><input type="checkbox" id="coatHasSkills" checked> Прокачка навыков</label>
-        <label class="checkbox-label"><input type="checkbox" id="coatAffix"> Аффикс масти</label>
-        <label class="checkbox-label"><input type="checkbox" id="coatChk"> Чёрный Кавалер (ЧК)</label>
+        <label class="checkbox-label"><input type="checkbox" id="coatHasSkills" checked> Навыки</label>
+        <label class="checkbox-label"><input type="checkbox" id="coatAffix"> Аффикс</label>
+        <label class="checkbox-label"><input type="checkbox" id="coatChk"> ЧК</label>
       </div>
     </div>
 
     <div class="form-group">
       <label for="itemKeywords">Ключевые слова для скрытого умного поиска (через запятую)</label>
-      <input type="text" id="itemKeywords" placeholder="Например: волк, синий, крылья, чр, удача">
+      <input type="text" id="itemKeywords" placeholder="Например: рог, сокровища, снаряжение, чр">
     </div>
 
     <div class="form-group">
@@ -344,25 +346,28 @@ function toggleFormFields() {
   const coatAddonsBlock = document.getElementById('coatAddonsBlock');
   const itemCategory = document.getElementById('itemCategory');
   const navesWrap = document.getElementById('navesWrap');
+  const availableNavesWrap = document.getElementById('availableNavesWrap');
 
   if (mainType === 'coat') {
     // Включаем поля мастей
-    coatFieldsBlock.style.display = 'block';
-    coatAddonsBlock.style.display = 'block';
-    itemFieldsBlock.style.display = 'none';
+    if (coatFieldsBlock) coatFieldsBlock.style.display = 'block';
+    if (coatAddonsBlock) coatAddonsBlock.style.display = 'block';
+    if (itemFieldsBlock) itemFieldsBlock.style.display = 'none';
     if (navesWrap) navesWrap.style.display = 'none';
+    if (availableNavesWrap) availableNavesWrap.style.display = 'none';
     
     // Автоматически переводим селектор файла на "Окрасы"
-    itemCategory.value = 'Окрасы';
+    if (itemCategory) itemCategory.value = 'Окрасы';
   } else {
     // Включаем поля обычных предметов
-    coatFieldsBlock.style.display = 'none';
-    coatAddonsBlock.style.display = 'none';
-    itemFieldsBlock.style.display = 'block';
+    if (coatFieldsBlock) coatFieldsBlock.style.display = 'none';
+    if (coatAddonsBlock) coatAddonsBlock.style.display = 'none';
+    if (itemFieldsBlock) itemFieldsBlock.style.display = 'block';
     if (navesWrap) navesWrap.style.display = 'flex';
+    if (availableNavesWrap) availableNavesWrap.style.display = 'flex';
     
     // Если стояли Окрасы, переключаем на Черный рынок
-    if (itemCategory.value === 'Окрасы') {
+    if (itemCategory && itemCategory.value === 'Окрасы') {
       itemCategory.value = 'Черный рынок';
     }
   }
@@ -374,9 +379,9 @@ function checkCategoryType() {
   const itemMainType = document.getElementById('itemMainType');
   
   if (itemCategory === 'Окрасы') {
-    itemMainType.value = 'coat';
+    if (itemMainType) itemMainType.value = 'coat';
   } else {
-    itemMainType.value = 'item';
+    if (itemMainType) itemMainType.value = 'item';
   }
   toggleFormFields();
 }
@@ -451,10 +456,11 @@ function generateJson(event) {
     resultObject.affix = document.getElementById('coatAffix').checked;
     resultObject.chk = document.getElementById('coatChk').checked;
   } else {
-    // Если это обычный предмет — пишем описания и признак навеса
+    // Если это обычный предмет — пишем описания, признак навеса и доступность для навеса
     resultObject.description = document.getElementById('itemDescription').value.trim() || '';
     resultObject.howto = document.getElementById('itemHowto').value.trim() || '';
     resultObject.isNaves = document.getElementById('checkNaves').checked;
+    resultObject.isAvailableForNaves = document.getElementById('checkAvailableNaves').checked;
   }
 
   // Дописываем остатки, поиск и админ-иконки в конец объекта
@@ -480,8 +486,10 @@ function copyJsonText() {
   document.execCommand('copy');
   
   const toast = document.getElementById('copyToast');
-  toast.style.display = 'block';
-  setTimeout(() => { toast.style.display = 'none'; }, 2000);
+  if (toast) {
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 2000);
+  }
 }
 
 // Функция скачивания готового фрагмента текстовым файлом
