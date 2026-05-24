@@ -268,5 +268,148 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+{
+  "id": "bm_1779648193011",
+  "name": "Хронограф Хроноса",
+  "count": 37,
+  "price": 9,
+  "image": "https://i.ibb.co/W76Zxhf/sablier-chronos.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Удваивает скорость обучения вашей лошади",
+  "howto": "Купить на Черном рынке за 195 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 37,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779648316922",
+  "name": "Cолнечные Часы Кайроса",
+  "count": 37,
+  "price": 9,
+  "image": "https://i.ibb.co/S75cpNrK/kairos-watch.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Заботьтесь о своей лошади, не теряя времени. Доступно с 1 года и 6 месяцев",
+  "howto": "Купить на Черном рынке за 60 пропусков, выиграть в акциях",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 37,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779648397713",
+  "name": "Философский камень",
+  "count": 48,
+  "price": 15,
+  "image": "https://i.ibb.co/0pGSWmCj/pierre-philosophale.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Делает вашу лошадь бессмертной",
+  "howto": "Купить на Черном рынке за 300 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 48,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779648497857",
+  "name": "Папирус Плутоса",
+  "count": 62,
+  "price": 4,
+  "image": "https://i.ibb.co/Gq1bBJM/parchemin-ploutos.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Каждый день вместо навоза ваша лошадь будет производить экю. 1 шт навоза = 40 экю",
+  "howto": "Купить на Черном рынке за 25 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 62,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779648591386",
+  "name": "Черная орхидея",
+  "count": 31,
+  "price": 8,
+  "image": "https://i.ibb.co/nNQdRD6L/orchidee-noire.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Восстанавливает вашей лошади 100% значение здоровья, настроения и энергии",
+  "howto": "Купить на Черном рынке за 90 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 31,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+{
+  "id": "bm_1779649137264",
+  "name": "Набор Никты",
+  "count": 27,
+  "price": 35,
+  "image": "https://i.ibb.co/dwpYKfts/pack-nyx.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Экономьте на предметах, купленных по отдельности, и получите эксклюзивный предмет",
+  "howto": "Купить на Черном рынке за 575 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 27,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": [
+    "https://i.ibb.co/0pGSWmCj/pierre-philosophale.png",
+    "https://i.ibb.co/qYc95xyS/bras-morphee.png",
+    "https://i.ibb.co/W76Zxhf/sablier-chronos.png",
+    "https://i.ibb.co/pvNTnrCk/etoile-nyx.png"
+  ]
 }
 ]
