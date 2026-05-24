@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Панель Администратора | Лошадиный Каталог</title>
+  <style>
+    :root {
+      --bg-color: #f7ede2;
+      --header-bg: #4a2810;
+      --btn-active: #84522b;
+      --btn-inactive: #eee4dc;
+      --text-main: #2b2d42;
+      --card-bg: #ffffff;
+      --border-color: #ddd;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      padding: 30px 15px;
+    }
+
+    .admin-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(74, 40, 16, 0.08);
+    }
+
+    h1 {
+      color: var(--header-bg);
+      font-size: 26px;
+      margin-top: 0;
+      margin-bottom: 25px;
+      text-align: center;
+      border-bottom: 2px solid var(--btn-inactive);
+      padding-bottom: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+      font-size: 14px;
+    }
+
+    input[type="text"], input[type="number"], select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+      background-color: #fff;
+      color: var(--text-main);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--btn-active);
+      box-shadow: 0 0 5px rgba(132, 82, 43, 0.2);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    /* Сетка для ввода остатков по серверам */
+    .stocks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      background: var(--section-bg);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px dashed var(--border-color);
+    }
+
+    .stocks-grid .form-group {
+      margin-bottom: 0;
+    }
+
+    /* Стили для флажков (чекбоксов) */
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      background: #fdfaf7;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #eee;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13.5px;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--btn-active);
+      cursor: pointer;
+    }
+
+    /* Кнопки управления панели */
+    .admin-btn {
+      background-color: var(--btn-active);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 15px;
+      transition: background 0.2s;
+    }
+
+    .admin-btn:hover {
+      background-color: #633b1e;
+    }
+
+    /* Оформление окна вывода сгенерированного JSON */
+    .output-area {
+      margin-top: 30px;
+      background: #2b2d42;
+      color: #a2d2ff;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      padding: 15px;
+      border-radius: 8px;
+      width: 100%;
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .copy-toast {
+      display: none;
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 13.5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="admin-container">
+  <h1>Генератор карточек товаров Lowadi</h1>
+  
+  <form id="cardForm" onsubmit="generateJson(event)">
+    
+    <!-- Переключатель типа карточки (Главный триггер формы) -->
+    <div class="form-group">
+      <label for="itemMainType">1. Что вы хотите создать?</label>
+      <select id="itemMainType" onchange="toggleFormFields()" style="border: 2px solid var(--btn-active); font-weight: bold;">
+        <option value="item">Остальные предметы (ЧР, Валюта, Спутники, Трофеи и др.)</option>
+        <option value="coat">Масть лошади (Окрасы ЗЯ / ИЗЯ)</option>
+      </select>
+    </div>
+
+    <!-- Селектор категорий (привязан к маршрутам ваших .json файлов на витрине) -->
+    <div class="form-group">
+      <label for="itemCategory">2. Категория (Определяет, в какой файл запишется товар)</label>
+      <select id="itemCategory" onchange="checkCategoryType()">
+        <option value="Черный рынок">Черный рынок (blackmarket.json)</option>
+        <option value="Валюта">Валюта (currency.json)</option>
+        <option value="Окрасы">Окрасы (coat.json)</option>
+        <option value="Спутники">Спутники (companions.json)</option>
+        <option value="Трофеи">Трофеи (trophies.json)</option>
+        <option value="Объявления">Объявления (announcements.json)</option>
+        <option value="Услуги">Услуги (services.json)</option>
+        <option value="Другое">Другое (other.json)</option>
+      </select>
+    </div>
+
+    <!-- Основные текстовые поля -->
+    <div class="form-group">
+      <label for="itemName">Название товара</label>
+      <input type="text" id="itemName" placeholder="Например: Рог Изобилия или Масть: Звёздный Волк" required>
+    </div>
+
+    <div class="form-group">
+      <label for="itemImage">Ссылка на изображение (URL картинки)</label>
+      <input type="text" id="itemImage" placeholder="https://ibb.co" required>
+    </div>
+    <!-- ДИНАМИЧЕСКИЙ БЛОК ДЛЯ ОКРАСОВ (Скрыт по умолчанию) -->
+    <div id="coatFieldsBlock" style="display: none; background: #faf3ec; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #e0d0c0;">
+      <h3 style="margin-top:0; color: var(--header-bg); font-size:16px;">Специфичные поля для масти лошади</h3>
+      
+      <div class="form-group">
+        <label for="coatColorType">Подкаталог окраса</label>
+        <select id="coatColorType">
+          <option value="ЗЯ">Каталог ЗЯ</option>
+          <option value="ИЗЯ">Каталог ИЗЯ</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="coatAuthor">Автор масти</label>
+        <input type="text" id="coatAuthor" placeholder="Например: Kaneri Mio">
+      </div>
+
+      <div class="form-group">
+        <label for="coatBreed">Порода лошади</label>
+        <input type="text" id="coatBreed" placeholder="Например: Андалузская, Чистокровная">
+      </div>
+
+      <div class="form-group">
+        <label for="coatType">Вид (форма жизни)</label>
+        <input type="text" id="coatType" placeholder="Например: Пегас, Единорог, Обычная">
+      </div>
+
+      <div class="form-group">
+        <label for="coatCopies">Количество копий масти (Только для ИЗЯ)</label>
+        <input type="number" id="coatCopies" placeholder="Например: 20">
+      </div>
+
+      <div class="form-group">
+        <label for="coatCompanionImage">Ссылка на спутника (URL-картинка), если есть</label>
+        <input type="text" id="coatCompanionImage" placeholder="https://ibb.co">
+      </div>
+    </div>
+
+    <!-- ДИНАМИЧЕСКИЙ БЛОК ОПИСАНИЙ ДЛЯ ПРЕДМЕТОВ -->
+    <div id="itemFieldsBlock">
+      <div class="form-group">
+        <label for="itemDescription">Описание товара (Показывается в карточке и в шторке)</label>
+        <textarea id="itemDescription" placeholder="Опишите, какие свойства дает предмет..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="itemHowto">Как получить предмет (Показывается в шторке)</label>
+        <textarea id="itemHowto" placeholder="Например: Покупка на Черном рынке за 100 пропусков..."></textarea>
+      </div>
+    </div>
+    <!-- ЭКОНОМИКА И ОСТАТКИ ПО СЕРВЕРАМ -->
+    <div class="form-group">
+      <label for="itemPrice">Цена товара (в рублях)</label>
+      <input type="number" id="itemPrice" placeholder="Например: 45" required>
+    </div>
+
+    <div class="form-group">
+      <label>Остатки на складах серверов (stocks)</label>
+      <div class="stocks-grid">
+        <div class="form-group">
+          <label for="stockRU">🇷🇺 RU штук</label>
+          <input type="number" id="stockRU" value="0" min="0">
+        </div>
+        <div class="form-group">
+          <label for="stockUN">🇺🇳 UN штук</label>
+          <input type="number" id="stockUN" value="0" min="0">
+        </div>
+        <div class="form-group">
+          <label for="stockES">🇪🇦 ES штук</label>
+          <input type="number" id="stockES" value="0" min="0">
+        </div>
+        <div class="form-group">
+          <label for="stockFR">🇫🇷 FR штук</label>
+          <input type="number" id="stockFR" value="0" min="0">
+        </div>
+      </div>
+    </div>
+
+    <!-- МЕТКИ И ХАРАКТЕРИСТИКИ -->
+    <div class="form-group">
+      <label>Рекламные метки и свойства</label>
+      <div class="checkbox-group">
+        <label class="checkbox-label"><input type="checkbox" id="checkNew"> Новинка (NEW)</label>
+        <label class="checkbox-label"><input type="checkbox" id="checkHot"> Популярное (Hot)</label>
+        <label class="checkbox-label"><input type="checkbox" id="checkRare"> Ограниченное (Limited)</label>
+        <label class="checkbox-label" id="navesWrap"><input type="checkbox" id="checkNaves"> Продаётся только навесом (isNaves)</label>
+      </div>
+    </div>
+
+    <!-- БЛОК ДОПОЛНИТЕЛЬНЫХ ОПЦИЙ ОКРАСОВ (ЧР, ФК, НАВЫКИ) -->
+    <div id="coatAddonsBlock" style="display: none; background: #fdfaf7; padding: 15px; border-radius: 8px; border: 1px solid #eee; margin-bottom: 20px;">
+      <label style="margin-bottom: 10px;">Доступность кастомизации масти в шторке:</label>
+      <div class="checkbox-group">
+        <label class="checkbox-label"><input type="checkbox" id="coatHasExtraCr" checked> Доп. предметы ЧР</label>
+        <label class="checkbox-label"><input type="checkbox" id="coatHasFk" checked> Философский камень (ФК)</label>
+        <label class="checkbox-label"><input type="checkbox" id="coatHasSkills" checked> Прокачка навыков</label>
+        <label class="checkbox-label"><input type="checkbox" id="coatAffix"> Аффикс масти</label>
+        <label class="checkbox-label"><input type="checkbox" id="coatChk"> Чёрный Кавалер (ЧК)</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="itemKeywords">Ключевые слова для скрытого умного поиска (через запятую)</label>
+      <input type="text" id="itemKeywords" placeholder="Например: волк, синий, крылья, чр, удача">
+    </div>
+
+    <div class="form-group">
+      <label for="adminIcons">Мини-иконки админа в шторку (ссылки через запятую), если есть</label>
+      <textarea id="adminIcons" placeholder="https://ibb.co, https://ibb.co"></textarea>
+    </div>
+
+    <!-- КНОПКА ГЕНЕРАЦИИ -->
+    <button type="submit" class="admin-btn">Сгенерировать шаблон карточки ✨</button>
+  </form>
+
+  <!-- ОКНО ВЫВОДА ГОТОВОГО JSON -->
+  <div id="outputBlock" style="display: none; margin-top: 30px;">
+    <label style="color: #2e7d32; font-weight: bold; font-size: 15px;">🎉 Готовый JSON-код карточки товара:</label>
+    <div style="font-size: 12px; color: #555; margin-bottom: 8px; text-align: left;">Скопируйте полученный текст и вставьте его внутрь квадратных скобок вашего файла каталога. ID сформирован автоматически!</div>
+    
+    <textarea id="jsonOutput" class="output-area" readonly></textarea>
+    
+    <div style="display: flex; gap: 10px;">
+      <button class="admin-btn" onclick="copyJsonText()" style="background-color: #4a2810;">Скопировать в буфер 📋</button>
+      <button class="admin-btn" onclick="downloadJsonFile()" style="background-color: #2e7d32;">Скачать .txt файл 💾</button>
+    </div>
+    <div class="copy-toast" id="copyToast">Код успешно скопирован в буфер обмена!</div>
+  </div>
+</div>
+<script>
+// Автоматическое переключение полей в зависимости от того, масть это или предмет
+function toggleFormFields() {
+  const mainType = document.getElementById('itemMainType').value;
+  const coatFieldsBlock = document.getElementById('coatFieldsBlock');
+  const itemFieldsBlock = document.getElementById('itemFieldsBlock');
+  const coatAddonsBlock = document.getElementById('coatAddonsBlock');
+  const itemCategory = document.getElementById('itemCategory');
+  const navesWrap = document.getElementById('navesWrap');
+
+  if (mainType === 'coat') {
+    // Включаем поля мастей
+    coatFieldsBlock.style.display = 'block';
+    coatAddonsBlock.style.display = 'block';
+    itemFieldsBlock.style.display = 'none';
+    if (navesWrap) navesWrap.style.display = 'none';
+    
+    // Автоматически переводим селектор файла на "Окрасы"
+    itemCategory.value = 'Окрасы';
+  } else {
+    // Включаем поля обычных предметов
+    coatFieldsBlock.style.display = 'none';
+    coatAddonsBlock.style.display = 'none';
+    itemFieldsBlock.style.display = 'block';
+    if (navesWrap) navesWrap.style.display = 'flex';
+    
+    // Если стояли Окрасы, переключаем на Черный рынок
+    if (itemCategory.value === 'Окрасы') {
+      itemCategory.value = 'Черный рынок';
+    }
+  }
+}
+
+// Защита: если человек вручную кликает на селектор категорий
+function checkCategoryType() {
+  const itemCategory = document.getElementById('itemCategory').value;
+  const itemMainType = document.getElementById('itemMainType');
+  
+  if (itemCategory === 'Окрасы') {
+    itemMainType.value = 'coat';
+  } else {
+    itemMainType.value = 'item';
+  }
+  toggleFormFields();
+}
+
+// Главная функция генерации JSON
+function generateJson(event) {
+  event.preventDefault();
+
+  const mainType = document.getElementById('itemMainType').value;
+  const category = document.getElementById('itemCategory').value;
+  const name = document.getElementById('itemName').value.trim();
+  const image = document.getElementById('itemImage').value.trim();
+  const price = parseFloat(document.getElementById('itemPrice').value) || 0;
+
+  // Формируем объект остатков (stocks) строго по вашим 4 регионам
+  const stocks = {
+    "🇷🇺": parseInt(document.getElementById('stockRU').value) || 0,
+    "🇺🇳": parseInt(document.getElementById('stockUN').value) || 0,
+    "🇪🇦": parseInt(document.getElementById('stockES').value) || 0,
+    "🇫🇷": parseInt(document.getElementById('stockFR').value) || 0
+  };
+
+  // Считаем общее количество штук на всех складах
+  const totalCount = Object.values(stocks).reduce((a, b) => a + b, 0);
+
+  // Автоматическая генерация уникального ID на основе штампа времени
+  const prefix = mainType === 'coat' ? 'coat_' : 'bm_';
+  const autoGeneratedId = prefix + Date.now();
+
+  // Обработка текстовых массивов (ключевые слова и иконки админа)
+  const keywordsInput = document.getElementById('itemKeywords').value;
+  const keywords = keywordsInput ? keywordsInput.split(',').map(k => k.trim()).filter(k => k !== '') : [];
+
+  const adminIconsInput = document.getElementById('adminIcons').value;
+  const adminIcons = adminIconsInput ? adminIconsInput.split(',').map(url => url.trim()).filter(url => url !== '') : [];
+
+  // Создаем базовый скелет товара
+  let resultObject = {
+    "id": autoGeneratedId,
+    "name": name,
+    "count": totalCount,
+    "price": price,
+    "image": image,
+    "category": category,
+    "isNew": document.getElementById('checkNew').checked,
+    "isHot": document.getElementById('checkHot').checked,
+    "isRare": document.getElementById('checkRare').checked
+  };
+
+  // Если это масть лошади — добавляем специфичные для окрасов поля
+  if (mainType === 'coat') {
+    const colorType = document.getElementById('coatColorType').value;
+    const author = document.getElementById('coatAuthor').value.trim() || 'Не указан';
+    const breed = document.getElementById('coatBreed').value.trim() || 'Не указана';
+    const type = document.getElementById('coatType').value.trim() || 'Обычная';
+    const copies = parseInt(document.getElementById('coatCopies').value) || null;
+    const companionImage = document.getElementById('coatCompanionImage').value.trim() || "";
+
+    resultObject.colorType = colorType;
+    resultObject.author = author;
+    resultObject.breed = breed;
+    resultObject.type = type;
+    
+    if (colorType === 'ИЗЯ' && copies !== null) {
+      resultObject.copies = copies;
+    }
+    
+    resultObject.companionImage = companionImage;
+    resultObject.hasExtraCr = document.getElementById('coatHasExtraCr').checked;
+    resultObject.hasFk = document.getElementById('coatHasFk').checked;
+    resultObject.hasSkills = document.getElementById('coatHasSkills').checked;
+    resultObject.affix = document.getElementById('coatAffix').checked;
+    resultObject.chk = document.getElementById('coatChk').checked;
+  } else {
+    // Если это обычный предмет — пишем описания и признак навеса
+    resultObject.description = document.getElementById('itemDescription').value.trim() || '';
+    resultObject.howto = document.getElementById('itemHowto').value.trim() || '';
+    resultObject.isNaves = document.getElementById('checkNaves').checked;
+  }
+
+  // Дописываем остатки, поиск и админ-иконки в конец объекта
+  resultObject.stocks = stocks;
+  resultObject.keywords = keywords;
+  resultObject.adminIcons = adminIcons;
+
+  // Форматируем код в красивый JSON текст с отступами в 2 пробела
+  const finalJsonText = JSON.stringify(resultObject, null, 2);
+  
+  // Выводим результат на экран
+  document.getElementById('jsonOutput').value = finalJsonText;
+  document.getElementById('outputBlock').style.display = 'block';
+  
+  // Плавно прокручиваем страницу вниз к готовому результату
+  document.getElementById('outputBlock').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Функция быстрого копирования текста в буфер обмена
+function copyJsonText() {
+  const outputTextarea = document.getElementById('jsonOutput');
+  outputTextarea.select();
+  document.execCommand('copy');
+  
+  const toast = document.getElementById('copyToast');
+  toast.style.display = 'block';
+  setTimeout(() => { toast.style.display = 'none'; }, 2000);
+}
+
+// Функция скачивания готового фрагмента текстовым файлом
+function downloadJsonFile() {
+  const jsonText = document.getElementById('jsonOutput').value;
+  const nameInput = document.getElementById('itemName').value.trim() || 'card';
+  const fileName = nameInput.toLowerCase().replace(/[^a-zа-я0-9]/g, '_') + '_template.txt';
+  
+  const blob = new Blob([jsonText], { type: 'text/plain;charset=utf-8' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = fileName;
+  link.click();
+}
+</script>
+
+</body>
+</html>
