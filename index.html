@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lowadi | Kaneri Mio Company</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог Предметов Лошадей | Lowadi</title>
   <style>
     :root {
       --bg-color: #f7ede2;
@@ -12,15 +12,7 @@
       --btn-inactive: #eee4dc;
       --text-main: #2b2d42;
       --card-bg: #ffffff;
-      --tag-black-market: #a3704c;
-      --tag-currency: #5bc0be;
-      --tag-colors: #cfa846;
-      --tag-services: #8338ec;
-      --tag-companions: #ff007f;
-      --tag-trophies: #ffb703;
-      --tag-announcements: #02c39a;
-      --tag-other: #6c757d;
-      --section-bg: #fdfaf7;
+      --border-color: #ddd;
     }
 
     * { box-sizing: border-box; }
@@ -35,235 +27,721 @@
 
     header {
       background-color: var(--header-bg);
-      color: #fff;
-      padding: 15px 30px;
+      color: white;
+      padding: 15px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
-      font-weight: bold;
-      font-size: 18px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     }
 
-    .header-server-selector { position: relative; display: inline-block; }
-    .server-current-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; display: flex; align-items: center; gap: 6px; }
-    .server-dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: #fff; min-width: 130px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-radius: 6px; z-index: 100; margin-top: 5px; overflow: hidden; }
-    .server-dropdown-content a { color: #333; padding: 10px 12px; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 14px; }
-    .server-dropdown-content a:hover { background-color: #f1f1f1; }
-    .header-server-selector:hover .server-dropdown-content { display: block; }
+    .brand-title {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
 
-    header .brand-title { position: absolute; left: 50%; transform: translateX(-50%); }
-    .header-controls { display: flex; align-items: center; gap: 20px; }
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-    .wiki-dropdown { position: relative; display: inline-block; }
-    .wiki-btn-text { color: #fff; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; gap: 4px; padding: 5px 0; }
-    .wiki-dropdown-content { display: none; position: absolute; top: 100%; right: 0; background-color: #fff; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); border-radius: 6px; z-index: 100; margin-top: 5px; overflow: hidden; }
-    .wiki-dropdown-content a { color: #333; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; font-weight: 500; border-bottom: 1px solid #f5f5f5; }
-    .wiki-dropdown-content a:last-child { border-bottom: none; }
-    .wiki-dropdown-content a:hover { background-color: var(--btn-inactive); color: var(--header-bg); }
-    .wiki-dropdown:hover .wiki-dropdown-content { display: block; }
+    .header-icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    .header-icon-btn { background: none; border: none; cursor: pointer; position: relative; display: flex; align-items: center; padding: 0; }
-    .header-icon-btn svg { width: 26px; height: 26px; fill: none; stroke: #fff; stroke-width: 2; transition: transform 0.2s; }
-    .header-icon-btn:hover svg { transform: scale(1.1); }
-    .header-icon-btn.fav-page-active svg { fill: #d32f2f; stroke: #d32f2f; }
+    .header-icon-btn svg {
+      width: 26px;
+      height: 26px;
+      fill: #fff;
+      transition: fill 0.2s, transform 0.2s;
+    }
 
-    .cart-badge, .fav-badge { position: absolute; top: -5px; right: -8px; background: #d32f2f; color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 10px; font-weight: bold; }
-    .fav-badge { background: #84522b; }
+    .header-icon-btn:hover svg {
+      fill: #f7ede2;
+      transform: scale(1.08);
+    }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 30px 15px; }
+    .cart-badge, .fav-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background-color: #e63946;
+      color: white;
+      border-radius: 50%;
+      width: 17px;
+      height: 17px;
+      font-size: 10px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    .pagination-container { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 30px; margin-bottom: 10px; }
-    .page-btn { background-color: #fff; color: #4a2810; border: 1px solid #ddd; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: all 0.2s; }
-    .page-btn.active { background-color: var(--btn-active); color: #fff; border-color: var(--btn-active); }
-    .page-btn:disabled { background-color: #eee; color: #aaa; cursor: not-allowed; border-color: #ddd; }
+    .fav-page-active svg {
+      fill: #ff4d6d !important;
+    }
+    /* Селектор серверов в шапке */
+    .header-server-selector {
+      position: relative;
+      display: inline-block;
+    }
+    .server-current-btn {
+      background-color: var(--btn-active);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .server-dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 90px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 4px;
+      z-index: 10;
+      top: 100%;
+      left: 0;
+    }
+    .server-dropdown-content a {
+      color: var(--text-main);
+      padding: 8px 12px;
+      text-decoration: none;
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .server-dropdown-content a:hover {
+      background-color: #f1f1f1;
+      border-radius: 4px;
+    }
+    .header-server-selector:hover .server-dropdown-content {
+      display: block;
+    }
 
-    .search-panel { background: #fff; padding: 12px 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 20px; }
-    .search-input { flex: 1; min-width: 200px; padding: 10px; border: 1px solid #eee; border-radius: 6px; font-size: 14px; outline: none; }
-    .search-filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-    .search-select { padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff; font-size: 13px; outline: none; color: #4a2a16; cursor: pointer; }
+    /* Выпадающее меню Вики */
+    .wiki-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .wiki-btn-text {
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 5px 10px;
+    }
+    .wiki-dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 180px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+      border-radius: 4px;
+      z-index: 10;
+      right: 0;
+      top: 100%;
+    }
+    .wiki-dropdown-content a {
+      color: var(--text-main);
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .wiki-dropdown-content a:hover {
+      background-color: #f5e6d3;
+    }
+    .wiki-dropdown:hover .wiki-dropdown-content {
+      display: block;
+    }
 
-    .filters { display: flex; gap: 8px; margin-bottom: 15px; overflow-x: auto; padding-bottom: 5px; }
-    .filter-btn { background-color: var(--btn-inactive); color: #4a2416; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px; white-space: nowrap; }
-    .filter-btn.active { background-color: var(--btn-active); color: #fff; }
+    /* Главный контейнер и панель поиска */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .search-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+    }
+    .search-filters {
+      display: flex;
+      gap: 10px;
+    }
+    .search-select {
+      padding: 8px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background: white;
+      font-size: 13.5px;
+      outline: none;
+    }
+    /* Категории и Подкатегории */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .filter-btn {
+      background-color: var(--btn-inactive);
+      color: var(--text-main);
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 13.5px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background-color: var(--btn-active);
+      color: white;
+    }
+    .sub-filters {
+      display: none;
+      gap: 10px;
+      margin-bottom: 20px;
+      background: rgba(132, 82, 43, 0.05);
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    .sub-filter-btn {
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .sub-filter-btn.active, .sub-filter-btn:hover {
+      background-color: var(--btn-active);
+      color: white;
+    }
 
-    .sub-filters { display: none; gap: 10px; margin-bottom: 30px; padding-left: 10px; border-left: 3px solid var(--btn-active); }
-    .sub-filter-btn { background-color: #ffffff; color: #84522b; border: 1px solid #84522b; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12px; }
-    .sub-filter-btn.active { background-color: #84522b; color: #ffffff; }
-
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    .card { background-color: var(--card-bg); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 6px rgba(0,0,0,0.02); cursor: pointer; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .card::after { content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%); transform: skewX(-25deg); transition: none; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(74, 40, 16, 0.15); }
-    .card:hover::after { left: 150%; transition: left 0.6s ease-in-out; }
-
-    .image-wrapper { height: 180px; display: flex; align-items: center; justify-content: center; padding: 20px; position: relative; overflow: hidden; }
-    .card img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform 0.3s ease; }
-    .card:hover img { transform: scale(1.08); }
-
-    .card-fav-btn { position: absolute; top: 12px; left: 12px; background: rgba(255, 255, 255, 0.9); border: none; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 3; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform 0.2s, background 0.2s; }
-    .card-fav-btn:hover { transform: scale(1.1); background: #fff; }
-    .card-fav-btn svg { width: 16px; height: 16px; fill: none; stroke: #8d99ae; stroke-width: 2; transition: fill 0.2s, stroke 0.2s; }
-    .card-fav-btn.active svg { fill: #d32f2f; stroke: #d32f2f; }
-
-    .badge { position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: bold; padding: 4px 8px; border-radius: 20px; color: #fff; text-transform: uppercase; z-index: 2; }
+    /* Адаптивная Сетка Карточек */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+    /* Стилизация Карточек товаров */
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(74, 40, 16, 0.05);
+      border: 1px solid rgba(74, 40, 16, 0.08);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 15px rgba(74, 40, 16, 0.12);
+    }
+    .image-wrapper {
+      width: 100%;
+      height: 160px;
+      background-color: #fdfaf7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 10px;
+      border-bottom: 1px solid rgba(74, 40, 16, 0.05);
+    }
+    .image-wrapper img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .card-fav-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+    .card-fav-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: #777;
+      stroke-width: 2;
+    }
+    .card-fav-btn.active svg {
+      fill: #e63946;
+      stroke: #e63946;
+    }
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 4px 8px;
+      font-size: 10px;
+      font-weight: bold;
+      border-radius: 4px;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
     .badge.new { background-color: #2e7d32; }
-    .badge.hot { background-color: #d32f2f; }
-    .badge.limited { background-color: #f57c00; }
-
-    .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; border-top: 1px solid #f0f0f0; text-align: left; }
-    .tag { align-self: flex-start; font-size: 10px; font-weight: bold; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; color: #fff; margin-bottom: 12px; }
+    .badge.hot { background-color: #e63946; }
+    .badge.limited { background-color: #ff9100; }
+    /* Внутренний контент карточки */
+    .card-body {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .tag {
+      align-self: flex-start;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: bold;
+      color: white;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      background-color: #7f5539;
+    }
+    .tag.черный-рынок { background-color: #b76e79; }
+    .tag.валюта { background-color: #2a9d8f; }
+    .tag.окрасы { background-color: #e9c46a; color: #4a2810; }
     
-    .tag.черный-рынок { background-color: var(--tag-black-market); }
-    .tag.валюта { background-color: var(--tag-currency); }
-    .tag.окрасы { background-color: var(--tag-colors); }
-    .tag.услуги { background-color: var(--tag-services); }
-    .tag.спутники { background-color: var(--tag-companions); }
-    .tag.трофеи { background-color: var(--tag-trophies); }
-    .tag.объявления { background-color: var(--tag-announcements); }
-    .tag.другое { background-color: var(--tag-other); }
-    .card-title { font-size: 18px; font-weight: bold; margin: 0 0 6px 0; color: #222; }
-    .card-meta-text { font-size: 13px; color: #4a2810; font-weight: 600; margin-bottom: 6px; line-height: 1.3; }
-    .card-meta-text span { font-weight: 500; color: #555; }
-    .card-description { font-size: 13.5px; color: #333; font-weight: 550; line-height: 1.5; margin: 8px 0 20px 0; flex-grow: 1; text-align: justify; }
+    .card-title {
+      font-size: 15px;
+      font-weight: bold;
+      margin: 0 0 8px 0;
+      color: var(--header-bg);
+      line-height: 1.3;
+    }
+    .card-meta-text {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 3px;
+      font-weight: 500;
+    }
+    .card-meta-text span {
+      color: #333;
+      font-weight: 600;
+    }
+    .card-description {
+      font-size: 12.5px;
+      color: #555;
+      margin: 5px 0 15px 0;
+      line-height: 1.4;
+      flex-grow: 1;
+    }
 
-    .card-footer { border-top: 1px solid #f5f5f5; padding-top: 12px; font-size: 12px; color: #8d99ae; margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
-    .card-footer strong { color: #333; font-weight: bold; }
-    .out-of-stock { color: #d32f2f !important; }
-    .out-of-stock strong { color: #d32f2f !important; }
+    /* Футер карточки с ценой и кнопкой добавления */
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid rgba(74, 40, 16, 0.05);
+    }
+    .cart-btn {
+      background-color: var(--btn-active);
+      border: none;
+      border-radius: 6px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cart-btn:hover { background-color: #633b1e; }
+    .cart-btn svg { width: 18px; height: 18px; }
 
-    .cart-btn { background: #2e7d32; border: none; border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
-    .cart-btn:hover { background: #215d25; }
-    .cart-btn svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; }
+    /* Кнопки количества на витрине */
+    .card-qty-controls {
+      display: flex;
+      align-items: center;
+      background: #f5e6d3;
+      border-radius: 6px;
+      padding: 2px;
+    }
+    .card-qty-btn {
+      background: white;
+      border: none;
+      width: 26px;
+      height: 26px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .card-qty-value {
+      font-size: 13px;
+      font-weight: bold;
+      padding: 0 10px;
+      min-width: 25px;
+      text-align: center;
+    }
 
-    .card-qty-controls { display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #ddd; padding: 3px 6px; border-radius: 8px; height: 36px; }
-    .card-qty-btn { background: #f5f5f5; border: 1px solid #e0e0e0; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 14px; color: #333; }
-    .card-qty-btn:hover { background: #e0e0e0; }
-    .card-qty-value { font-size: 13px; font-weight: bold; min-width: 14px; text-align: center; color: #333; }
-
-    .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
-    .drawer-overlay.active { opacity: 1; visibility: visible; }
-
-    .drawer { position: fixed; top: 0; right: -460px; width: 100%; max-width: 450px; height: 100%; background: #fff; z-index: 1001; box-shadow: -5px 0 25px rgba(0,0,0,0.15); transition: right 0.3s ease-in-out; display: flex; flex-direction: column; padding: 24px; overflow-y: auto; }
-    .drawer.active { right: 0 !important; }
-    .drawer-close { align-self: flex-end; background: none; border: none; font-size: 24px; cursor: pointer; color: #999; }
-    .drawer-image-wrapper { display: flex; justify-content: center; margin-bottom: 20px; }
-    .drawer-image-wrapper img { max-height: 150px; object-fit: contain; }
-    .drawer-title { font-size: 24px; font-weight: bold; margin: 0 0 12px 0; color: #3b2314; }
-
-    .section-label { font-size: 11px; font-weight: bold; color: #a38570; text-transform: uppercase; margin: 20px 0 8px 0; letter-spacing: 0.5px; }
-    .info-box { background-color: var(--section-bg); border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.5; color: #4a4a4a; border-left: 4px solid #ebdcd0; }
-    .note-box { background-color: #fff3e0; border-left: 4px solid #ffb74d; color: #b78103; font-weight: 500; }
-    .admin-icons-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
-    .admin-mini-icon { width: 36px; height: 36px; object-fit: contain; background: transparent; padding: 0; border: none; }
-    .companion-img { width: 42px; height: 42px; object-fit: contain; background: transparent; vertical-align: middle; margin-left: 5px; }
-
-    .server-flags-list { display: flex; gap: 8px; font-size: 20px; background: var(--section-bg); padding: 12px; border-radius: 8px; }
-
-    .option-select-block { background: var(--section-bg); padding: 12px; border-radius: 8px; border: 1px dashed #ddd; margin-bottom: 10px; }
-    .option-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px; font-weight: 500; }
-    .option-row:last-child { margin-bottom: 0; }
-    .option-select { padding: 6px 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; font-size: 12px; outline: none; max-width: 180px; }
-
-    .drawer-row { display: flex; gap: 15px; margin-top: 20px; }
-    .drawer-col { flex: 1; }
-    .status-box { background: var(--section-bg); padding: 14px; border-radius: 8px; font-weight: bold; font-size: 15px; color: #614635; text-align: center; }
-    .price-box { background: #e8f5e9; border: 1px solid #c8e6c9; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; color: #2e7d32; text-align: center; }
-    .drawer-buy-btn { background-color: #2e7d32; color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 16px; font-weight: bold; width: 100%; margin-top: 25px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background 0.2s; }
-    .drawer-buy-btn:hover { background-color: #215d25; }
-    .drawer-buy-btn svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 2; }
-
-    .cart-items-list { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
-    .cart-item { display: flex; gap: 12px; background: var(--section-bg); padding: 12px; border-radius: 8px; position: relative; border: 1px solid #eee; }
-    .cart-item img { width: 60px; height: 60px; object-fit: contain; }
-    .cart-item-details { flex-grow: 1; display: flex; flex-direction: column; gap: 4px; }
-    .cart-item-name { font-weight: bold; font-size: 14px; }
-    .cart-item-meta { font-size: 12px; color: #666; line-height: 1.4; }
-    .cart-item-price { font-weight: bold; color: #2e7d32; font-size: 13px; }
-    
-    .quantity-controls { display: flex; align-items: center; gap: 8px; margin-top: 5px; }
-    .qty-btn { background: #fff; border: 1px solid #ddd; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; font-size: 14px; }
-    .remove-item-btn { position: absolute; top: 12px; right: 12px; background: none; border: none; color: #d32f2f; font-size: 16px; cursor: pointer; }
-
-    .cart-footer-actions { border-top: 1px solid #eee; padding-top: 15px; display: flex; gap: 10px; align-items: center; }
-    .buy-btn { flex-grow: 1; background-color: #2e7d32; color: white; border: none; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; }
-    .clear-cart-btn { background-color: #d32f2f; width: 48px; height: 48px; border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .clear-cart-btn svg { width: 22px; height: 22px; }
-
-    .toast { position: fixed; top: 20px; right: 20px; background: #2e7d32; color: #fff; border-left: 5px solid rgba(255, 255, 255, 0.6); padding: 14px 20px; border-radius: 8px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 15px rgba(46,125,50,0.3); z-index: 2000; transform: translateY(-100px); opacity: 0; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-    .toast.show { transform: translateY(0); opacity: 1; }
-    .toast-close { background: none; border: none; color: rgba(255,255,255,0.8); font-size: 18px; cursor: pointer; padding: 0; margin-left: auto; }
-
-    .popup-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); background: #fff; width: 90%; max-width: 420px; padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 3000; text-align: center; display: none; transition: transform 0.2s; }
-    .popup-modal.active { display: block; transform: translate(-50%, -50%) scale(1); }
-    .popup-title { font-size: 20px; font-weight: bold; margin-bottom: 12px; color: #4a2810; }
-    .popup-text { font-size: 14px; color: #555; line-height: 1.5; margin-bottom: 20px; }
-    .popup-actions { display: flex; gap: 12px; justify-content: center; }
-    .popup-btn { padding: 10px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; }
-    .popup-btn-catalog { background-color: #2e7d32; color: #fff; }
-    .popup-btn-close { background-color: #eee; color: #333; }
-    
-    .server-modal-select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-weight: bold; font-size: 15px; outline: none; margin-bottom: 20px; }
-        /* Новая компактная сетка в 2 столбца для блока характеристик масти */
+    /* Выезжающие боковые шторки (Drawers) */
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      background-color: white;
+      z-index: 200;
+      box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      padding: 25px;
+      overflow-y: auto;
+    }
+    .drawer.active { right: 0; }
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      z-index: 150;
+      display: none;
+    }
+    .drawer-overlay.active { display: block; }
+    /* Элементы внутри выезжающих шторок */
+    .drawer-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #777;
+    }
+    .drawer-image-wrapper {
+      width: 100%;
+      height: 180px;
+      background: #fdfaf7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(74, 40, 16, 0.05);
+    }
+    .drawer-image-wrapper img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+    .drawer-title {
+      font-size: 20px;
+      color: var(--header-bg);
+      margin: 0 0 5px 0;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #888;
+      margin-top: 15px;
+      margin-bottom: 6px;
+    }
+    .info-box {
+      background-color: #fdfaf7;
+      border: 1px solid #ebd9c8;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+    .note-box {
+      background-color: #fff8e1;
+      border-color: #ffe082;
+      color: #b78103;
+      font-weight: 600;
+    }
     .meta-two-columns {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px 15px;
     }
-    .meta-item-full {
-      grid-column: 1 / -1;
+    .meta-item-full { grid-column: 1 / -1; }
+    
+    .companion-img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      vertical-align: middle;
     }
-
-    /* Стили для кнопки очистки Избранного в режиме виртуальной страницы */
-    .clear-fav-container {
-      grid-column: 1 / -1;
-      text-align: right;
-      margin-bottom: 15px;
+    .option-select-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
-    .clear-fav-btn {
-      background-color: #d32f2f;
+    .option-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .option-select {
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      outline: none;
+      font-size: 12.5px;
+    }
+    .drawer-row {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .drawer-col { flex: 1; }
+    .status-box, .price-box {
+      background-color: #f4ece4;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      text-align: center;
+      color: var(--header-bg);
+    }
+    .price-box {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+    }
+    .drawer-buy-btn {
+      width: 100%;
+      background-color: var(--btn-active);
       color: white;
       border: none;
-      padding: 8px 16px;
-      border-radius: 6px;
-      cursor: pointer;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 15px;
       font-weight: bold;
-      font-size: 13px;
-      transition: background 0.2s;
+      margin-top: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-    .clear-fav-btn:hover {
-      background-color: #b71c1c;
-    }
+    .drawer-buy-btn svg { width: 20px; height: 20px; }
 
-    /* Корректировка отображения цены и кнопок в футере карточки */
-    .card-footer-price {
-      font-size: 17px;
+    /* Стили элементов Корзины */
+    .cart-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-top: 15px;
+    }
+    .cart-item {
+      display: flex;
+      gap: 12px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 12px;
+      position: relative;
+    }
+    .cart-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      background: #fafafa;
+      border-radius: 6px;
+    }
+    .cart-item-details { flex-grow: 1; }
+    .cart-item-name {
+      font-size: 13.5px;
+      font-weight: bold;
+      color: var(--header-bg);
+    }
+    .cart-item-meta { font-size: 11px; }
+    .cart-item-price {
+      font-size: 13.5px;
       font-weight: bold;
       color: #2e7d32;
     }
-    .card-meta-stock-line {
-      font-size: 13px;
-      color: #555;
-      font-weight: 600;
-      margin-bottom: 8px;
+    .remove-item-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: #cc0000;
+      cursor: pointer;
     }
-    /* Стили для формы ввода Ника внутри модального окна опта */
+    .cart-footer-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+    .buy-btn {
+      flex-grow: 1;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .clear-cart-btn {
+      background-color: #cc0000;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .clear-cart-btn svg { width: 20px; height: 20px; }
+
+    /* Центральные всплывающие окна (Modals) */
+    .popup-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      width: 90%;
+      max-width: 420px;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      z-index: 300;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      display: none;
+      opacity: 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      text-align: center;
+    }
+    .popup-modal.active {
+      display: block;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .popup-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--header-bg);
+      margin-bottom: 12px;
+    }
+    .popup-text {
+      font-size: 13.5px;
+      color: #555;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+    .popup-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+    .popup-btn {
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 13.5px;
+      cursor: pointer;
+      border: none;
+    }
+    .popup-btn-close {
+      background-color: #eee;
+      color: #333;
+    }
+    .popup-btn-catalog {
+      background-color: var(--btn-active);
+      color: white;
+    }
+    .server-modal-select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      outline: none;
+    }
+
+    /* Кастомная разметка окон и калькулятора валюты */
     .nick-input-field {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       border: 2px solid var(--btn-active);
       border-radius: 6px;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      font-size: 15px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      font-size: 14px;
       outline: none;
       font-weight: bold;
       text-align: center;
     }
-    .nick-input-field:focus {
-      box-shadow: 0 0 8px rgba(132, 82, 43, 0.4);
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-weight: 600;
     }
-    /* Стилизация строк калькулятора сделки в корзине */
     .cart-currency-calc {
       background-color: #fff3e0;
       border-left: 3px solid #ffb74d;
@@ -274,8 +752,81 @@
       color: #b78103;
       line-height: 1.4;
     }
-    .cart-currency-calc strong {
-      color: #4a2810;
+    .cart-currency-calc strong { color: #4a2810; }
+    
+    .clear-fav-container {
+      grid-column: 1 / -1;
+      text-align: right;
+      margin-bottom: 15px;
+    }
+    .clear-fav-btn {
+      background-color: #cc0000;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 13px;
+    }
+    .card-footer-price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+    .card-meta-stock-line {
+      font-size: 12px;
+      color: #555;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    /* Уведомления (Toasts) */
+    .toast {
+      position: fixed;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #2e7d32;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: bottom 0.3s ease;
+    }
+    .toast.show { bottom: 30px; }
+    .toast-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0;
+    }
+    .page-btn {
+      padding: 8px 14px;
+      border: 1px solid var(--border-color);
+      background: white;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .page-btn.active {
+      background-color: var(--btn-active);
+      color: white;
+      border-color: var(--btn-active);
+    }
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -307,16 +858,19 @@
       </div>
     </div>
 
+    <!-- Кнопка Избранного -->
     <button class="header-icon-btn" id="openFavBtn" title="Посмотреть Избранное">
       <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
       <div class="fav-badge" id="favBadge">0</div>
     </button>
 
+    <!-- Кнопка Корзины -->
     <button class="header-icon-btn" id="openCartBtn" title="Открыть корзину">
       <svg viewBox="0 0 24 24">
         <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         <path d="M7 14h12M7 16h12M7 18h12" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-        <circle cx="8" cy="21" r="1.5" fill="#fff"/><circle cx="18" cy="21" r="1.5" fill="#fff"/>
+        <circle cx="8" cy="21" r="1.5" fill="#fff"/>
+        <circle cx="18" cy="21" r="1.5" fill="#fff"/>
       </svg>
       <div class="cart-badge" id="cartBadge">0</div>
     </button>
@@ -364,8 +918,8 @@
   <div class="grid" id="products"></div>
   <div class="pagination-container" id="pagination"></div>
 </div>
-<div class="drawer-overlay" id="overlay"></div>
 
+<div class="drawer-overlay" id="overlay"></div>
 <!-- СТАРТОВОЕ ОКНО ВЫБОРА СЕРВЕРА ПРИ ВХОДЕ НА САЙТ -->
 <div class="popup-modal" id="serverWelcomeModal">
   <div class="popup-title" id="serverModalTitle">Добро пожаловать!</div>
@@ -394,18 +948,19 @@
     <button class="popup-btn" id="confirmClearCartBtn" style="background-color: #d32f2f; color: #fff;">Да, очистить</button>
   </div>
 </div>
+
 <!-- УНИВЕРСАЛЬНОЕ ОКНО ОФОРМЛЕНИЯ ВАЛЮТЫ С ВВОДОМ КОЛИЧЕСТВА -->
 <div class="popup-modal" id="currencyOrderModal" style="max-width: 460px;">
   <div class="popup-title" id="currencyModalTitle">Покупка Валюты</div>
   <div class="popup-text">Укажите параметры вашего заказа:</div>
   
   <div class="form-group">
-    <label for="currencyInputCount" id="currencyCountLabel" style="font-weight: 700;">Сколько пакетов вам нужно?</label>
+    <label for="currencyInputCount" id="currencyCountLabel" style="font-weight: 700; display: block; margin-bottom: 5px; font-size: 13.5px;">Сколько пакетов вам нужно?</label>
     <input type="number" id="currencyInputCount" value="1" min="1" max="999" class="nick-input-field" style="margin-bottom: 12px; font-size: 18px;">
   </div>
 
   <div id="currencyUrgencyBlock" style="display: none; margin-bottom: 15px; text-align: left;">
-    <label style="font-weight: 700; margin-bottom: 6px; display: block;">Срочность начисления пропусков:</label>
+    <label style="font-weight: 700; margin-bottom: 6px; display: block; font-size: 13.5px;">Срочность начисления пропусков:</label>
     <div style="display: flex; flex-direction: column; gap: 8px;">
       <label class="checkbox-label" style="background: #f1f8e9; padding: 10px; border-radius: 6px; border: 1px solid #c8e6c9; width: 100%;">
         <input type="radio" name="modalUrgencyRadio" value="urgent" checked style="accent-color: #2e7d32;">
@@ -425,7 +980,7 @@
   </div>
 
   <div id="currencyNickBlock" style="display: none; text-align: left;">
-    <label for="playerGameNick" style="font-weight: 700; color: #d32f2f;">🐴 Командный заказ (от 11 шт.):</label>
+    <label for="playerGameNick" style="font-weight: 700; color: #d32f2f; display: block; margin-bottom: 5px; font-size: 13.5px;">🐴 Командный заказ (от 11 шт.):</label>
     <div style="font-size: 12px; color: #666; margin-bottom: 6px; font-weight: 500;">Для заказов более 10 пакетов пропусков введите ваш точный игровой ник для приглашения в команду:</div>
     <input type="text" id="playerGameNick" class="nick-input-field" placeholder="Введите ваш ник в игре...">
   </div>
@@ -534,17 +1089,18 @@
   <div class="popup-actions"><button class="popup-btn popup-btn-close" id="modalCloseBtn">Закрыть</button><button class="popup-btn popup-btn-catalog" id="modalGoCatalogBtn">В каталог</button></div>
 </div>
 <script>
-// Глобальный кэш каталогов и сессии
+// Глобальный пул всех загруженных данных и локальный кэш
 let itemsData = [];
 let cachedCatalogs = {
   "all": [], "черный рынок": [], "валюта": [], "окрасы": [], 
   "спутники": [], "трофеи": [], "объявления": [], "услуги": [], "другое": []
 };
 
+// Хранилища данных сессии
 let currentServer = localStorage.getItem('lowadi_server') || ''; 
 let cart = JSON.parse(localStorage.getItem('lowadi_cart')) || []; 
 
-// Жёсткая очистка списка Избранного от пустых строк и багов счёта при запуске
+// Жёсткая фильтрация массива Избранного от пустых строк и багов счёта при старте
 let rawFavorites = JSON.parse(localStorage.getItem('lowadi_favorites')) || [];
 let favorites = rawFavorites.filter(id => id && String(id).trim() !== "");
 
@@ -552,14 +1108,14 @@ let isFavoritesPage = false;
 let activeItemForDrawer = null;
 let currentAppleType = ''; 
 
-// Строгая пагинация по 30 штук
+// Строгая постраничная пагинация витрины
 let currentPage = 1;
 const itemsPerPage = 30;
 let toastTimeout;
 let currentCategory = 'all';
 let currentSubCategory = 'all'; 
 
-// Безопасный метод поиска элементов
+// Безопасный метод поиска элементов по ID
 const getEl = (id) => document.getElementById(id);
 
 const container = getEl('products');
@@ -596,7 +1152,8 @@ const modalGoCatalogBtn = getEl('modalGoCatalogBtn');
 const modalCloseBtn = getEl('modalCloseBtn');
 const cancelClearCartBtn = getEl('cancelClearCartBtn');
 const confirmClearCartBtnEl = getEl('confirmClearCartBtn');
-// Элементы нового универсального окна валюты
+
+// Специфичные элементы универсального калькулятора валюты
 const currencyOrderModal = getEl('currencyOrderModal');
 const currencyInputCount = getEl('currencyInputCount');
 const currencyUrgencyBlock = getEl('currencyUrgencyBlock');
@@ -616,7 +1173,6 @@ const checkoutBtn = getEl('checkoutBtn');
 const cartToast = getEl('cartToast');
 const toastMessage = getEl('toastMessage');
 const closeToastBtn = getEl('closeToastBtn');
-
 const catalogFiles = {
   "черный рынок": "./blackmarket.json",
   "валюта": "./currency.json",
@@ -670,6 +1226,7 @@ window.changeGlobalServer = function(flag) {
   currentPage = 1; 
   loadAndRenderCategory();
 };
+
 function safeFetch(url) {
   return fetch(url).then(res => res.ok ? res.json() : []).catch(() => []);
 }
@@ -787,6 +1344,7 @@ function renderItems() {
   const pageItems = filtered.slice(startIndex, endIndex);
 
   renderPaginationControls(totalPages);
+
   pageItems.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card';
@@ -924,6 +1482,7 @@ window.clearAllFavorites = function(e) {
   showToast('Список Избранного полностью очищен ❤️');
   renderItems();
 };
+
 function addToCart(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
 
@@ -938,9 +1497,9 @@ function addToCart(item) {
     return;
   }
 
-  // 2. Блокировка Исчезнувшего Золотого Яблока (Исправлен текст и тип на ИЗЯ)
+  // 2. Блокировка Исчезнувшего Золотого Яблока
   if (itemNameNormalized === 'исчезнувшее золотое яблоко' || itemNameNormalized.includes('исчезнувшее зя')) {
-    currentAppleType = 'изыя'; // Меняем на точное совпадение с data-subcategory
+    currentAppleType = 'изыя'; 
     closeAllDrawers();
     const modalText = document.getElementById('appleModalText');
     if (modalText) modalText.innerHTML = 'Товар <strong>Исчезнувшее золотое яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
@@ -976,7 +1535,6 @@ function addToCart(item) {
 
   executeAddToCartFinal(item);
 }
-
 if (currencyInputCount) {
   currencyInputCount.addEventListener('input', () => {
     if (!window.pendingCurrencyItem) return;
@@ -989,19 +1547,18 @@ if (currencyInputCount) {
     }
   });
 }
+
 if (confirmCurrencyBtn) {
   confirmCurrencyBtn.addEventListener('click', () => {
     if (!window.pendingCurrencyItem) return;
-
     const item = window.pendingCurrencyItem;
     const itemNameNormalized = item.name.trim().toLowerCase();
     
-    // Прямой поиск инпута количества в обход глобальных переменных
     const inputEl = document.getElementById('currencyInputCount');
     const countValue = inputEl ? (parseInt(inputEl.value) || 0) : 0;
 
     if (countValue <= 0) {
-      alert("Пожалуйста, укажите корректное количество пакетов (от 1 и более).");
+      alert("Пожалуйста, укажите корректное количество пакетов.");
       return;
     }
 
@@ -1048,24 +1605,390 @@ if (confirmCurrencyBtn) {
 
     localStorage.setItem('lowadi_cart', JSON.stringify(cart));
     window.pendingCurrencyItem = null;
-    
-    const orderModal = document.getElementById('currencyOrderModal');
-    if (orderModal) orderModal.classList.remove('active');
-    
+    if (currencyOrderModal) currencyOrderModal.classList.remove('active');
     closeAllDrawers();
     updateCartUI();
     renderItems();
     showToast(`Валюта успешно добавлена в корзину!`);
   });
 }
-// ИСПРАВЛЕНИЕ: Переписана кнопка переадресации из окна Яблок, чтобы она точно открывала вкладку ИЗЯ
-// НАДЕЖНАЯ ПЕРЕАДРЕСАЦИЯ ИЗ ОКНА ЯБЛОК В КАТАЛОГ ИЗЯ / ЗЯ
+function executeAddToCartFinal(item) {
+  let selectedCr = "none";
+  let selectedFk = "none";
+  let selectedSkills = "none";
+  let extraCost = 0;
+
+  if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
+    selectedCr = optCrSelect ? optCrSelect.value : "none";
+    selectedFk = optFkSelect ? optFkSelect.value : "none";
+    selectedSkills = optSkillsSelect ? optSkillsSelect.value : "none";
+
+    if (optCrSelect) {
+      const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
+      if (chosenCrOpt) extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
+    }
+    if (selectedFk !== 'none') extraCost += 30;
+    if (selectedSkills !== 'none') extraCost += 20;
+  }
+
+  const uniqueCartKey = `${item.id}_${selectedCr}_${selectedFk}_${selectedSkills}`;
+  const existingProduct = cart.find(cartItem => cartItem.cartKey === uniqueCartKey);
+  const maxStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
+
+  if (existingProduct) {
+    if (existingProduct.quantity >= maxStock) {
+      showToast(`На сервере ${currentServer} доступно всего ${maxStock} шт.`);
+      return;
+    }
+    existingProduct.quantity++;
+  } else {
+    cart.push({ 
+      ...item, 
+      cartKey: uniqueCartKey,
+      price: item.price + extraCost, 
+      chosenCr: selectedCr,
+      chosenFk: selectedFk,
+      chosenSkills: selectedSkills,
+      quantity: 1 
+    });
+  }
+  
+  localStorage.setItem('lowadi_cart', JSON.stringify(cart));
+  updateCartUI();
+  renderItems();
+  showToast(`Товар "${item.name}" добавлен в корзину!`);
+}
+function updateCartUI() {
+  if (!cartItemsContainer) return;
+  cartItemsContainer.innerHTML = '';
+  let total = 0;
+  let totalItemsCount = 0;
+
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+    totalItemsCount += item.quantity;
+
+    const cartItemEl = document.createElement('div');
+    cartItemEl.className = 'cart-item';
+
+    const itemNameLower = item.name.toLowerCase();
+    const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
+    
+    let displayTitle = item.name;
+    let currencyCalcHtml = '';
+
+    if (isCurrency) {
+      if (itemNameLower.indexOf('пропуск') !== -1) {
+        displayTitle = `${item.quantity}.000 пропусков`;
+        if (item.quantity > 10) {
+          const urgencyBadge = item.urgency === 'urgent' ? '<span style="color:#d32f2f; font-weight:bold; display:block; margin-bottom:4px;">🔥 Срочно</span>' : '';
+          currencyCalcHtml = `
+            <div class="cart-currency-calc">
+              <strong>👑 Командный заказ</strong><br>
+              ${urgencyBadge}
+              Ник для приглашения: <strong>${item.playerNick || 'Не указан'}</strong>
+            </div>
+          `;
+        } else {
+          const urgencyBadge = item.urgency === 'urgent' ? '<span style="color:#d32f2f; font-weight:bold; display:block; margin-bottom:4px;">🔥 Срочно</span>' : '';
+          const cleanPassesTotal = item.quantity * 1000;
+          currencyCalcHtml = `
+            <div class="cart-currency-calc">
+              ${urgencyBadge}
+              🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
+              Поставить коня на продажу за: <strong>1.112 пропусков</strong> (за 1 шт.)<br>
+              <span style="font-size:11px; opacity:0.85;">(Итого чистыми: ${cleanPassesTotal.toLocaleString('ru-RU')})</span>
+            </div>
+          `;
+        }
+      } else if (itemNameLower.indexOf('экю') !== -1) {
+        displayTitle = `${item.quantity}.000.000 экю`;
+        const cleanEcuTotal = item.quantity * 1000000;
+        currencyCalcHtml = `
+          <div class="cart-currency-calc">
+            🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
+            Поставить коня на продажу за: <strong>1.111.112 экю</strong> (за 1 шт.)<br>
+            <span style="font-size:11px; opacity:0.85;">(Итого чистыми: ${cleanEcuTotal.toLocaleString('ru-RU')})</span>
+          </div>
+        `;
+      }
+    }
+
+    let optionsMetaHtml = '';
+    if (item.category && item.category.toLowerCase() === 'окрасы') {
+      const type = (item.colorType || 'ЗЯ').toUpperCase();
+      let extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
+      let addons = [];
+      if (item.chosenCr !== 'none') addons.push(`Доп ЧР: ${item.chosenCr} х1`);
+      if (item.chosenFk !== 'none') addons.push(`ФК: Да`);
+      if (item.chosenSkills !== 'none') addons.push(`Навыки: Да`);
+      let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">${addons.join('<br>')}</div>` : '';
+      optionsMetaHtml = `<div class="cart-item-meta" style="color:#b17a53; font-weight:bold; margin-top:4px;">Категория: ${type}</div>${extraInfo}${addonsText}`;
+    }
+
+    let quantityControlsHtml = `
+      <div class="quantity-controls">
+        <button class="qty-btn" onclick="changeQtyByKey('${item.cartKey}', -1)">-</button>
+        <span style="font-size: 13px; font-weight: bold; min-width: 15px; text-align: center;">${item.quantity}</span>
+        <button class="qty-btn" onclick="changeQtyByKey('${item.cartKey}', 1)">+</button>
+      </div>
+    `;
+    if (isCurrency) {
+      quantityControlsHtml = `<div style="font-size: 12px; color: #666; margin-top: 6px; font-weight: bold;">Объем заказа: х${item.quantity}</div>`;
+    }
+
+    cartItemEl.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <div class="cart-item-details">
+        <div class="cart-item-name">${displayTitle}</div>
+        ${optionsMetaHtml}
+        ${currencyCalcHtml}
+        <div class="cart-item-price" style="margin-top:6px;">${item.price * item.quantity} ₽</div>
+        ${quantityControlsHtml}
+      </div>
+      <button class="remove-item-btn" onclick="removeFromCartByKey('${item.cartKey}')">&times;</button>
+    `;
+    cartItemsContainer.appendChild(cartItemEl);
+  });
+
+  if (cartTotalPrice) cartTotalPrice.innerText = `${total} ₽`;
+  if (cartBadge) cartBadge.innerText = totalItemsCount;
+}
+window.changeQtyByKey = function(key, change) {
+  const item = cart.find(i => i.cartKey === key);
+  if (!item) return;
+  
+  let originalItem = null;
+  Object.keys(cachedCatalogs).forEach(cat => {
+    const found = cachedCatalogs[cat].find(i => i.id === item.id);
+    if (found) originalItem = found;
+  });
+  
+  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
+  const maxStock = isCurrency ? 999999 : (originalItem ? ((originalItem.stocks && originalItem.stocks[currentServer]) || 0) : 999);
+  const newQty = item.quantity + change;
+
+  if (newQty <= 0) {
+    removeFromCartByKey(key);
+    return;
+  }
+  if (newQty > maxStock) {
+    showToast(`Доступный лимит на этом сервере: ${maxStock} шт.`);
+    return;
+  }
+
+  item.quantity = newQty;
+  localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
+  updateCartUI();
+  renderItems();
+};
+
+window.changeQty = function(id, change) {
+  const item = cart.find(i => i.id === id);
+  if (item) changeQtyByKey(item.cartKey, change);
+};
+
+window.removeFromCartByKey = function(key) {
+  cart = cart.filter(i => i.cartKey !== key);
+  localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
+  updateCartUI();
+  renderItems();
+  showToast('Товар удален из корзины.');
+};
+if (clearCartBtn) {
+  clearCartBtn.addEventListener('click', () => {
+    if (cart.length === 0) return;
+    if (confirmClearCartModal) {
+      if (overlay) overlay.classList.add('active');
+      confirmClearCartModal.classList.add('active');
+    }
+  });
+}
+
+if (confirmClearCartBtnEl) {
+  confirmClearCartBtnEl.addEventListener('click', () => {
+    cart = [];
+    localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
+    updateCartUI();
+    renderItems();
+    closeAllDrawers();
+    showToast('Корзина полностью очищена.');
+  });
+}
+
+if (cancelClearCartBtn) {
+  cancelClearCartBtn.addEventListener('click', () => {
+    if (confirmClearCartModal) confirmClearCartModal.classList.remove('active');
+    if (cartDrawer) cartDrawer.classList.add('active');
+    if (overlay && !productDrawer.classList.contains('active')) overlay.classList.add('active');
+  });
+}
+
+if (checkoutBtn) {
+  checkoutBtn.addEventListener('click', () => {
+    if (cart.length === 0) {
+      showToast('Ваша корзина пуста!');
+      return;
+    }
+    alert('Заказ успешно оформлен! Спасибо за покупку.');
+    cart = [];
+    localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
+    updateCartUI();
+    renderItems();
+    closeAllDrawers();
+  });
+}
+
+function showToast(msg) {
+  if (!cartToast || !toastMessage) return;
+  clearTimeout(toastTimeout);
+  toastMessage.innerText = msg;
+  cartToast.classList.add('show');
+  toastTimeout = setTimeout(hideToast, 1500);
+}
+function hideToast() { if (cartToast) cartToast.classList.remove('show'); }
+if (closeToastBtn) closeToastBtn.addEventListener('click', hideToast);
+function openProductDrawer(item) {
+  activeItemForDrawer = item;
+  if (cartDrawer) cartDrawer.classList.remove('active');
+  
+  const dImg = getEl('d-image'); if (dImg) dImg.src = item.image;
+  const dName = getEl('d-name'); if (dName) dName.innerText = item.name;
+  
+  const tagEl = getEl('d-tag');
+  if (tagEl) {
+    tagEl.innerText = item.category || 'Другое';
+    tagEl.className = 'tag ' + (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
+  }
+
+  const noteContainer = getEl('d-note-container');
+  const noteText = getEl('d-note-text');
+  const adminIconsGrid = getEl('d-admin-icons');
+  if (adminIconsGrid) adminIconsGrid.innerHTML = ''; 
+
+  const itemNameNormalized = item.name.trim().toLowerCase();
+  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
+
+  if (itemNameNormalized.includes('золотое яблоко') || itemNameNormalized.includes('исчезнувшее золотое яблоко')) {
+    if (noteText) noteText.innerText = '⚠️ Покупка только навесом';
+    if (noteContainer) noteContainer.style.display = 'block';
+  } else if (item.adminIcons && item.adminIcons.length > 0) {
+    if (noteText) noteText.innerText = 'В комплекте с этим окрасом идут предметы:';
+    if (adminIconsGrid) {
+      item.adminIcons.forEach(iconUrl => {
+        const img = document.createElement('img');
+        img.className = 'admin-mini-icon'; img.src = iconUrl;
+        adminIconsGrid.appendChild(img);
+      });
+    }
+    if (noteContainer) noteContainer.style.display = 'block';
+  } else {
+    if (noteContainer) noteContainer.style.display = 'none';
+  }
+
+  const metaContainer = getEl('d-meta-container');
+  if (item.category && item.category.toLowerCase() === 'окрасы') {
+    const dBreed = getEl('d-breed'); if (dBreed) dBreed.innerText = item.breed || 'Не указана';
+    const dType = getEl('d-type'); if (dType) dType.innerText = item.type || 'Обычный';
+    const dAffix = getEl('d-affix'); if (dAffix) dAffix.innerText = item.affix ? 'Да' : 'Нет';
+    const dChk = getEl('d-chk'); if (dChk) dChk.innerText = item.chk ? 'Да' : 'Нет';
+    const companionSpan = getEl('d-companion');
+    if (companionSpan) {
+      if (item.companionImage && item.companionImage.trim() !== "") {
+        companionSpan.innerHTML = `<img class="companion-img" src="${item.companionImage}" alt="Спутник">`;
+      } else {
+        companionSpan.innerText = 'Нет';
+      }
+    }
+    if (metaContainer) metaContainer.style.display = 'block';
+  } else {
+    if (metaContainer) metaContainer.style.display = 'none';
+  }
+
+  const optionsContainer = getEl('d-options-container');
+  if (item.category && item.category.toLowerCase() === 'окрасы') {
+    if (optCrSelect) optCrSelect.value = 'none';
+    if (optFkSelect) optFkSelect.value = 'none';
+    if (optSkillsSelect) optSkillsSelect.value = 'none';
+    if (optionsContainer) optionsContainer.style.display = 'block';
+  } else {
+    if (optionsContainer) optionsContainer.style.display = 'none';
+  }
+
+  const descLabel = getEl('d-desc-label');
+  const descBox = getEl('d-description');
+  const getLabel = getEl('d-get-label');
+  const getBox = getEl('d-get');
+
+  if (item.category && item.category.toLowerCase() === 'окрасы') {
+    if (descLabel) descLabel.style.display = 'none';
+    if (descBox) descBox.style.display = 'none';
+    if (getLabel) getLabel.style.display = 'none';
+    if (getBox) getBox.style.display = 'none';
+  } else {
+    if (descLabel) descLabel.style.display = 'block';
+    if (descBox) { descBox.style.display = 'block'; descBox.innerText = item.description || 'Нет описания'; }
+    if (getLabel) getLabel.style.display = 'block';
+    if (getBox) { getBox.style.display = 'block'; getBox.innerText = item.howto || 'Не указано'; }
+  }
+
+  let availableFlags = [];
+  if (item.stocks) {
+    Object.keys(item.stocks).forEach(flag => {
+      if (item.stocks[flag] > 0) availableFlags.push(flag);
+    });
+  }
+  const dFlags = getEl('d-flags');
+  if (dFlags) dFlags.innerText = availableFlags.length > 0 ? availableFlags.join(' ') : 'Нет в наличии';
+  
+  const serverStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
+  const dCount = getEl('d-count'); if (dCount) dCount.innerText = isCurrency ? 'Бесконечно' : `${serverStock} шт`;
+  const dPrice = getEl('d-price'); if (dPrice) dPrice.innerText = `${item.price || 0} ₽`;
+  
+  if (overlay) overlay.classList.add('active');
+  if (productDrawer) productDrawer.classList.add('active');
+  recalcDrawerPrice(); 
+}
+function closeAllDrawers() {
+  if (overlay) overlay.classList.remove('active');
+  if (productDrawer) productDrawer.classList.remove('active');
+  if (cartDrawer) cartDrawer.classList.remove('active');
+  if (appleModal) appleModal.classList.remove('active');
+  if (confirmClearCartModal) confirmClearCartModal.classList.remove('active');
+  if (serverWelcomeModal) serverWelcomeModal.classList.remove('active');
+  if (currencyOrderModal) currencyOrderModal.classList.remove('active');
+  activeItemForDrawer = null; 
+  window.pendingCurrencyItem = null;
+}
+
+if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeAllDrawers);
+if (closeCartDrawerBtn) closeCartDrawerBtn.addEventListener('click', closeAllDrawers);
+if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeAllDrawers);
+if (overlay) overlay.addEventListener('click', closeAllDrawers);
+
+if (openCartBtn) {
+  openCartBtn.addEventListener('click', () => {
+    if (productDrawer) productDrawer.classList.remove('active'); 
+    if (overlay) overlay.classList.add('active');
+    if (cartDrawer) cartDrawer.classList.add('active');
+  });
+}
+
+if (drawerAddCartBtn) {
+  drawerAddCartBtn.addEventListener('click', () => {
+    if (!activeItemForDrawer) return;
+    const item = activeItemForDrawer;
+    addToCart(item);
+  });
+}
+
+// НАДЁЖНАЯ И НЕЗАВИСИМАЯ ПЕРЕАДРЕСАЦИЯ ДЛЯ ЯБЛОК В КАТАЛОГ ЗЯ / ИЗЯ
 const goCatalogBtnEl = document.getElementById('modalGoCatalogBtn');
 if (goCatalogBtnEl) {
   goCatalogBtnEl.addEventListener('click', () => {
     closeAllDrawers();
     
-    // 1. Активируем кнопку "Окрасы" в верхнем меню
+    // Активируем кнопку "Окрасы" в главном меню категорий
     const allFilterButtons = document.querySelectorAll('.filter-btn');
     allFilterButtons.forEach(b => b.classList.remove('active'));
     
@@ -1074,16 +1997,16 @@ if (goCatalogBtnEl) {
       targetCategoryBtn.classList.add('active');
       currentCategory = 'Окрасы';
       
-      // Показываем подменю (ЗЯ / ИЗЯ)
+      // Раскрываем подменю ЗЯ / ИЗЯ
       const subMenuContainer = document.getElementById('subFiltersContainer');
       if (subMenuContainer) subMenuContainer.style.display = 'flex';
     }
     
-    // 2. Сбрасываем подкатегории
+    // Сбрасываем старые активные подкатегории окрасов
     const allSubFilterButtons = document.querySelectorAll('.sub-filter-btn');
     allSubFilterButtons.forEach(sb => sb.classList.remove('active'));
     
-    // 3. Прямая жесткая проверка: если кликнули по Исчезнувшему яблоку — включаем ИЗЯ
+    // Проверяем: если кликнули по Исчезнувшему яблоку — строго включаем вкладку ИЗЯ
     if (currentAppleType === 'изыя') {
       const izyaBtn = Array.from(allSubFilterButtons).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
       if (izyaBtn) izyaBtn.classList.add('active');
@@ -1099,8 +2022,7 @@ if (goCatalogBtnEl) {
     loadAndRenderCategory();
   });
 }
-
-// Переключение Избранного
+// Переключение страницы Избранного
 const favPageBtnEl = document.getElementById('openFavBtn');
 if (favPageBtnEl) {
   favPageBtnEl.addEventListener('click', () => {
@@ -1116,6 +2038,7 @@ if (favPageBtnEl) {
     renderItems(); 
   });
 }
+
 // Живой поиск по строке ввода и фильтрам наличия/меток
 if (searchInput) searchInput.addEventListener('input', () => { currentPage = 1; renderItems(); });
 if (stockFilter) stockFilter.addEventListener('change', () => { currentPage = 1; renderItems(); });
