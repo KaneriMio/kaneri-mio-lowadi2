@@ -176,8 +176,9 @@
     <div class="form-group">
       <label for="itemMainType">1. Что вы хотите создать?</label>
       <select id="itemMainType" onchange="toggleFormFields()" style="border: 2px solid var(--btn-active); font-weight: bold;">
-        <option value="item">Остальные предметы (ЧР, Валюта, Спутники, Трофеи и др.)</option>
+        <option value="item">Остальные предметы (ЧР, Спутники, Трофеи и др.)</option>
         <option value="coat">Масть лошади (Окрасы ЗЯ / ИЗЯ)</option>
+        <option value="currency">Валюта (Пропуски / Экю)</option>
       </select>
     </div>
 
@@ -246,6 +247,22 @@
 
     <!-- ДИНАМИЧЕСКИЙ БЛОК ОПИСАНИЙ ДЛЯ ПРЕДМЕТОВ ЧЕРНОГО РЫНКА (И ДРУГИХ) -->
     <div id="itemFieldsBlock">
+    <!-- ДИНАМИЧЕСКИЙ БЛОК ДЛЯ ВАЛЮТЫ (Скрыт по умолчанию) -->
+    <div id="currencyFieldsBlock" style="display: none; background: #e8f5e9; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #c8e6c9;">
+      <h3 style="margin-top:0; color: #2e7d32; font-size:16px;">Компактная форма для Валюты</h3>
+      <p style="font-size: 12.5px; color: #555; margin-top: -8px; margin-bottom: 15px;">Для валюты остатки на складах не считаются (они бесконечны). Просто укажите галочками, для каких серверов доступна эта услуга.</p>
+      
+      <div class="form-group">
+        <label>Доступные сервера для продажи валюты:</label>
+        <div class="checkbox-group" style="background: #fff;">
+          <label class="checkbox-label"><input type="checkbox" id="currencyRU" checked> 🇷🇺 RU Сервер</label>
+          <label class="checkbox-label"><input type="checkbox" id="currencyUN" checked> 🇺🇳 UN Сервер</label>
+          <label class="checkbox-label"><input type="checkbox" id="currencyES" checked> 🇪🇦 ES Сервер</label>
+          <label class="checkbox-label"><input type="checkbox" id="currencyFR" checked> 🇫🇷 FR Сервер</label>
+        </div>
+      </div>
+    </div>
+
       <div class="form-group">
         <label for="itemDescription">Описание товара (Показывается в карточке и в шторке)</label>
         <textarea id="itemDescription" placeholder="Опишите, какие свойства дает предмет..."></textarea>
@@ -341,38 +358,69 @@
 // Автоматическое переключение полей в зависимости от того, масть это или предмет
 function toggleFormFields() {
   const mainType = document.getElementById('itemMainType').value;
+  
+  // Получаем ссылки на все блоки формы
   const coatFieldsBlock = document.getElementById('coatFieldsBlock');
   const itemFieldsBlock = document.getElementById('itemFieldsBlock');
   const coatAddonsBlock = document.getElementById('coatAddonsBlock');
+  const currencyFieldsBlock = document.getElementById('currencyFieldsBlock');
+  
   const itemCategory = document.getElementById('itemCategory');
   const navesWrap = document.getElementById('navesWrap');
   const availableNavesWrap = document.getElementById('availableNavesWrap');
 
+  // Находим стандартные контейнеры остатков и ключевых слов для скрытия при валюте
+  const stocksGroup = document.querySelector('.stocks-grid') ? document.querySelector('.stocks-grid').parentElement : null;
+  const adminIconsGroup = document.getElementById('adminIcons') ? document.getElementById('adminIcons').parentElement : null;
+  const itemKeywordsGroup = document.getElementById('itemKeywords') ? document.getElementById('itemKeywords').parentElement : null;
+
   if (mainType === 'coat') {
-    // Включаем поля мастей
+    // Режим Окрасов мастей
     if (coatFieldsBlock) coatFieldsBlock.style.display = 'block';
     if (coatAddonsBlock) coatAddonsBlock.style.display = 'block';
     if (itemFieldsBlock) itemFieldsBlock.style.display = 'none';
+    if (currencyFieldsBlock) currencyFieldsBlock.style.display = 'none';
     if (navesWrap) navesWrap.style.display = 'none';
     if (availableNavesWrap) availableNavesWrap.style.display = 'none';
     
-    // Автоматически переводим селектор файла на "Окрасы"
+    if (stocksGroup) stocksGroup.style.display = 'block';
+    if (adminIconsGroup) adminIconsGroup.style.display = 'block';
+    if (itemKeywordsGroup) itemKeywordsGroup.style.display = 'block';
+    
     if (itemCategory) itemCategory.value = 'Окрасы';
+  } else if (mainType === 'currency') {
+    // Новый изолированный режим Валюты
+    if (coatFieldsBlock) coatFieldsBlock.style.display = 'none';
+    if (coatAddonsBlock) coatAddonsBlock.style.display = 'none';
+    if (itemFieldsBlock) itemFieldsBlock.style.display = 'none';
+    if (currencyFieldsBlock) currencyFieldsBlock.style.display = 'block';
+    if (navesWrap) navesWrap.style.display = 'none';
+    if (availableNavesWrap) availableNavesWrap.style.display = 'none';
+    
+    // Прячем склады и лишнее текстовое описание, так как для Валюты они не нужны
+    if (stocksGroup) stocksGroup.style.display = 'none';
+    if (adminIconsGroup) adminIconsGroup.style.display = 'none';
+    if (itemKeywordsGroup) itemKeywordsGroup.style.display = 'none';
+    
+    if (itemCategory) itemCategory.value = 'Валюта';
   } else {
-    // Включаем поля обычных предметов
+    // Режим остальных предметов
     if (coatFieldsBlock) coatFieldsBlock.style.display = 'none';
     if (coatAddonsBlock) coatAddonsBlock.style.display = 'none';
     if (itemFieldsBlock) itemFieldsBlock.style.display = 'block';
+    if (currencyFieldsBlock) currencyFieldsBlock.style.display = 'none';
     if (navesWrap) navesWrap.style.display = 'flex';
     if (availableNavesWrap) availableNavesWrap.style.display = 'flex';
     
-    // Если стояли Окрасы, переключаем на Черный рынок
-    if (itemCategory && itemCategory.value === 'Окрасы') {
+    if (stocksGroup) stocksGroup.style.display = 'block';
+    if (adminIconsGroup) adminIconsGroup.style.display = 'block';
+    if (itemKeywordsGroup) itemKeywordsGroup.style.display = 'block';
+    
+    if (itemCategory && itemCategory.value === 'Окрасы' || itemCategory.value === 'Валюта') {
       itemCategory.value = 'Черный рынок';
     }
   }
 }
-
 // Защита: если человек вручную кликает на селектор категорий
 function checkCategoryType() {
   const itemCategory = document.getElementById('itemCategory').value;
@@ -380,12 +428,13 @@ function checkCategoryType() {
   
   if (itemCategory === 'Окрасы') {
     if (itemMainType) itemMainType.value = 'coat';
+  } else if (itemCategory === 'Валюта') {
+    if (itemMainType) itemMainType.value = 'currency';
   } else {
     if (itemMainType) itemMainType.value = 'item';
   }
   toggleFormFields();
 }
-
 // Главная функция генерации JSON
 function generateJson(event) {
   event.preventDefault();
@@ -396,27 +445,42 @@ function generateJson(event) {
   const image = document.getElementById('itemImage').value.trim();
   const price = parseFloat(document.getElementById('itemPrice').value) || 0;
 
-  // Формируем объект остатков (stocks) строго по вашим 4 регионам
-  const stocks = {
-    "🇷🇺": parseInt(document.getElementById('stockRU').value) || 0,
-    "🇺🇳": parseInt(document.getElementById('stockUN').value) || 0,
-    "🇪🇦": parseInt(document.getElementById('stockES').value) || 0,
-    "🇫🇷": parseInt(document.getElementById('stockFR').value) || 0
-  };
-
-  // Считаем общее количество штук на всех складах
-  const totalCount = Object.values(stocks).reduce((a, b) => a + b, 0);
-
   // Автоматическая генерация уникального ID на основе штампа времени
-  const prefix = mainType === 'coat' ? 'coat_' : 'bm_';
+  let prefix = 'bm_';
+  if (mainType === 'coat') prefix = 'coat_';
+  if (mainType === 'currency') prefix = 'currency_';
   const autoGeneratedId = prefix + Date.now();
 
-  // Обработка текстовых массивов (ключевые слова и иконки админа)
-  const keywordsInput = document.getElementById('itemKeywords').value;
-  const keywords = keywordsInput ? keywordsInput.split(',').map(k => k.trim()).filter(k => k !== '') : [];
+  let stocks = {};
+  let totalCount = 0;
 
-  const adminIconsInput = document.getElementById('adminIcons').value;
-  const adminIcons = adminIconsInput ? adminIconsInput.split(',').map(url => url.trim()).filter(url => url !== '') : [];
+  // ОБРАБОТКА ДАННЫХ ДЛЯ НОВОГО ТИПА "ВАЛЮТА"
+  if (mainType === 'currency') {
+    stocks = {
+      "🇷🇺": document.getElementById('currencyRU').checked ? 1 : 0,
+      "🇺🇳": document.getElementById('currencyUN').checked ? 1 : 0,
+      "🇪🇦": document.getElementById('currencyES').checked ? 1 : 0,
+      "🇫🇷": document.getElementById('currencyFR').checked ? 1 : 0
+    };
+    // Для витрины ставим признак бесконечности, чтобы кнопка купить всегда была активна
+    totalCount = 999999;
+  } else {
+    // Для окрасов и обычных предметов собираем остатки из числовой сетки
+    stocks = {
+      "🇷🇺": parseInt(document.getElementById('stockRU').value) || 0,
+      "🇺🇳": parseInt(document.getElementById('stockUN').value) || 0,
+      "🇪🇦": parseInt(document.getElementById('stockES').value) || 0,
+      "🇫🇷": parseInt(document.getElementById('stockFR').value) || 0
+    };
+    totalCount = Object.values(stocks).reduce((a, b) => a + b, 0);
+  }
+
+  // Обработка текстовых массивов
+  const keywordsInput = document.getElementById('itemKeywords') ? document.getElementById('itemKeywords').value : '';
+  let keywords = keywordsInput ? keywordsInput.split(',').map(k => k.trim()).filter(k => k !== '') : [];
+
+  const adminIconsInput = document.getElementById('adminIcons') ? document.getElementById('adminIcons').value : '';
+  let adminIcons = adminIconsInput ? adminIconsInput.split(',').map(url => url.trim()).filter(url => url !== '') : [];
 
   // Создаем базовый скелет товара
   let resultObject = {
@@ -431,7 +495,7 @@ function generateJson(event) {
     "isRare": document.getElementById('checkRare').checked
   };
 
-  // Если это масть лошади — добавляем специфичные для окрасов поля
+  // Наполнение специфичных блоков в зависимости от типа
   if (mainType === 'coat') {
     const colorType = document.getElementById('coatColorType').value;
     const author = document.getElementById('coatAuthor').value.trim() || 'Не указан';
@@ -455,8 +519,16 @@ function generateJson(event) {
     resultObject.hasSkills = document.getElementById('coatHasSkills').checked;
     resultObject.affix = document.getElementById('coatAffix').checked;
     resultObject.chk = document.getElementById('coatChk').checked;
+  } else if (mainType === 'currency') {
+    // Для валюты прописываем дефолтные пустые описания, ключевые слова для поиска
+    resultObject.description = `Пакет игровой валюты: ${name}`;
+    resultObject.howto = "Получение через внутриигровую сделку или команду";
+    resultObject.isNaves = false;
+    resultObject.isAvailableForNaves = false;
+    if (keywords.length === 0) {
+      keywords = name.toLowerCase().split(' ');
+    }
   } else {
-    // Если это обычный предмет — пишем описания, признак навеса и доступность для навеса
     resultObject.description = document.getElementById('itemDescription').value.trim() || '';
     resultObject.howto = document.getElementById('itemHowto').value.trim() || '';
     resultObject.isNaves = document.getElementById('checkNaves').checked;
@@ -468,20 +540,24 @@ function generateJson(event) {
   resultObject.keywords = keywords;
   resultObject.adminIcons = adminIcons;
 
-  // Форматируем код в красивый JSON текст с отступами в 2 пробела
+  // Форматируем код в красивый JSON текст с отступами
   const finalJsonText = JSON.stringify(resultObject, null, 2);
   
-  // Выводим результат на экран
-  document.getElementById('jsonOutput').value = finalJsonText;
-  document.getElementById('outputBlock').style.display = 'block';
+  // Выводим результат в текстовое поле
+  const jsonOutput = document.getElementById('jsonOutput');
+  if (jsonOutput) jsonOutput.value = finalJsonText;
   
-  // Плавно прокручиваем страницу вниз к готовому результату
-  document.getElementById('outputBlock').scrollIntoView({ behavior: 'smooth' });
+  const outputBlock = document.getElementById('outputBlock');
+  if (outputBlock) {
+    outputBlock.style.display = 'block';
+    outputBlock.scrollIntoView({ behavior: 'smooth' });
+  }
 }
-
 // Функция быстрого копирования текста в буфер обмена
 function copyJsonText() {
   const outputTextarea = document.getElementById('jsonOutput');
+  if (!outputTextarea) return;
+  
   outputTextarea.select();
   document.execCommand('copy');
   
@@ -494,8 +570,11 @@ function copyJsonText() {
 
 // Функция скачивания готового фрагмента текстовым файлом
 function downloadJsonFile() {
-  const jsonText = document.getElementById('jsonOutput').value;
-  const nameInput = document.getElementById('itemName').value.trim() || 'card';
+  const jsonOutput = document.getElementById('jsonOutput');
+  if (!jsonOutput) return;
+  
+  const jsonText = jsonOutput.value;
+  const nameInput = document.getElementById('itemName') ? document.getElementById('itemName').value.trim() : 'card';
   const fileName = nameInput.toLowerCase().replace(/[^a-zа-я0-9]/g, '_') + '_template.txt';
   
   const blob = new Blob([jsonText], { type: 'text/plain;charset=utf-8' });
