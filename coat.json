@@ -35,7 +35,6 @@
     "colorType": "ИЗЯ",
     "author": "Mio Company",
     "copies": 20,
-    "servers": ["🇷🇺"],
     "isRare": true,
     "isHot": true,
     "isNew": false,
@@ -46,6 +45,12 @@
     "type": "Пегас",
     "affix": false,
     "chk": true,
+    "stocks": {
+      "🇷🇺": 2,
+      "🇺🇳": 0,
+      "🇫🇷": 1,
+      "🇦🇶": 0
+    },
     "keywords": ["гордый", "реалистичный", "крылья", "коричневый", "красивый"],
     "companionImage": "https://i.ibb.co/spnY40bB/compagnon-shika.png",
     "adminIcons": [

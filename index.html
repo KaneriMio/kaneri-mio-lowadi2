@@ -540,7 +540,7 @@
 </div>
 
 <script>
-// Глобальный кэш каталогов для предотвращения избыточных сетевых запросов
+// Глобальный кэш каталогов
 let cachedCatalogs = {
   "all": [], "черный рынок": [], "валюта": [], "окрасы": [], 
   "спутники": [], "трофеи": [], "объявления": [], "услуги": [], "другое": []
@@ -555,7 +555,7 @@ let isFavoritesPage = false;
 let activeItemForDrawer = null;
 let currentAppleType = ''; 
 
-// Настройки пагинации (Строго 30 товаров на страницу)
+// Строгая пагинация
 let currentPage = 1;
 const itemsPerPage = 30;
 
@@ -605,7 +605,7 @@ let currentCategory = 'all';
 let currentSubCategory = 'all'; 
 let toastTimeout;
 
-// Карта маршрутизации категорий к соответствующим файлам баз данных
+// Маршрутизация к базам данных
 const catalogFiles = {
   "черный рынок": "./blackmarket.json",
   "валюта": "./currency.json",
@@ -616,54 +616,60 @@ const catalogFiles = {
   "объявления": "./announcements.json",
   "другое": "./other.json"
 };
-// Инициализация при загрузке страницы
+
 document.addEventListener('DOMContentLoaded', () => {
   favBadge.innerText = favorites.length;
   updateCartUI();
 
-  // Если сервер уже сохранён, обновляем кнопку и загружаем каталог
   if (currentServer) {
     currentServerBtn.innerText = currentServer + " " + currentServer.replace(/[^A-Z]/g, '');
     loadAndRenderCategory();
   } else {
-    // Если сервера нет в памяти — принудительно выводим стартовое окно посередине
     overlay.classList.add('active');
     serverWelcomeModal.classList.add('active');
   }
 });
 
-// Сохранение выбранного региона на плашке приветствия
 submitServerBtn.addEventListener('click', () => {
-  const selected = welcomeServerSelect.value;
-  changeGlobalServer(selected);
+  changeGlobalServer(welcomeServerSelect.value);
   closeAllDrawers();
 });
 
-// Смена сервера вверху слева
+// Исправлено: Проверка на пустые регионы и обновление витрины
 window.changeGlobalServer = function(flag) {
   currentServer = flag;
   localStorage.setItem('lowadi_server', flag);
   currentServerBtn.innerText = flag + " " + flag.replace(/[^A-Z]/g, '');
   
-  showToast(`Сервер переключен на ${flag}`);
+  // Если выбран регион, для которого нет товаров (не 🇷🇺 и не 🇺🇳), выводим alert-уведомление
+  if (flag !== '🇷🇺' && flag !== '🇺🇳') {
+    alert("Упс! Товары для этих регионов ещё не были добавлены. Попробуйте выбрать другой регион");
+  } else {
+    showToast(`Сервер переключен на ${flag}`);
+  }
   
-  // При смене региона обязательно очищаем кэш и перерисовываем витрину под новые остатки
+  // Полностью сбрасываем кэш для корректной перезагрузки
   cachedCatalogs = { "all": [], "черный рынок": [], "валюта": [], "окрасы": [], "спутники": [], "трофеи": [], "объявления": [], "услуги": [], "другое": [] };
   currentPage = 1; 
   loadAndRenderCategory();
 };
 
-// Функция динамической подгрузки JSON под выбранную категорию
+// Безопасный асинхронный загрузчик: если файла нет, он не ломает сайт, а возвращает пустой массив
+function safeFetch(url) {
+  return fetch(url)
+    .then(res => res.ok ? res.json() : [])
+    .catch(() => []);
+}
+
 function loadAndRenderCategory() {
   const cat = currentCategory.toLowerCase();
 
-  // Если открыта вкладка "Все предметы", асинхронно скачиваем все базы по очереди
   if (cat === 'all') {
     if (cachedCatalogs["all"].length > 0) {
       renderItems();
       return;
     }
-    const promises = Object.values(catalogFiles).map(file => fetch(file).then(res => res.json()).catch(() => []));
+    const promises = Object.values(catalogFiles).map(file => safeFetch(file));
     Promise.all(promises).then(results => {
       cachedCatalogs["all"] = results.flat();
       buildNavesDropdown(cachedCatalogs["all"]);
@@ -672,43 +678,30 @@ function loadAndRenderCategory() {
     return;
   }
 
-  // Если категория уже есть в памяти — рендерим без запроса к сети
   if (cachedCatalogs[cat] && cachedCatalogs[cat].length > 0) {
     buildNavesDropdown(cachedCatalogs[cat]);
     renderItems();
     return;
   }
 
-  // Если данных нет, делаем точечный запрос к нужному файлу
   const fileUrl = catalogFiles[cat];
   if (!fileUrl) {
-    container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; font-weight: bold; margin-top: 40px;">Раздел находится в разработке 🐴</div>`;
+    container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; font-weight: bold; margin-top: 40px; color: #4a2810;">Раздел находится в разработке 🐴</div>`;
     paginationContainer.innerHTML = '';
     return;
   }
 
-  fetch(fileUrl)
-    .then(res => res.json())
-    .then(data => {
-      cachedCatalogs[cat] = data;
-      buildNavesDropdown(data);
-      renderItems();
-    })
-    .catch(err => {
-      console.error('Ошибка загрузки базы:', err);
-      container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: #d32f2f; font-weight: bold; margin-top: 40px;">Ошибка подгрузки каталога</div>`;
-    });
+  safeFetch(fileUrl).then(data => {
+    cachedCatalogs[cat] = data;
+    buildNavesDropdown(data);
+    renderItems();
+  });
 }
 
-// Наполнение выпадающего списка ЧР предметами с меткой isNaves
 function buildNavesDropdown(dataList) {
   optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
-  
-  // Ищем предметы с пометкой навеса либо в текущем массиве, либо в кэше ЧР
-  let searchSource = dataList;
-  if (currentCategory.toLowerCase() !== 'all' && cachedCatalogs["черный рынок"].length > 0) {
-    searchSource = cachedCatalogs["черный рынок"];
-  }
+  let searchSource = currentCategory.toLowerCase() === 'all' ? dataList : (cachedCatalogs["черный рынок"] || []);
+  if (currentCategory.toLowerCase() === 'черный рынок') searchSource = dataList;
 
   searchSource.forEach(item => {
     if (item.isNaves === true) {
@@ -724,43 +717,42 @@ function buildNavesDropdown(dataList) {
 function recalcDrawerPrice() {
   if (!activeItemForDrawer) return;
   let currentPrice = activeItemForDrawer.price || 0;
-  
   const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
-  if (chosenCrOpt) {
-    currentPrice += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
-  }
+  if (chosenCrOpt) currentPrice += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
   if (optFkSelect.value !== 'none') currentPrice += 30;
   if (optSkillsSelect.value !== 'none') currentPrice += 20;
-  
   document.getElementById('d-price').innerText = `${currentPrice} ₽`;
 }
+
+optCrSelect.addEventListener('change', recalcDrawerPrice);
+optFkSelect.addEventListener('change', recalcDrawerPrice);
+optSkillsSelect.addEventListener('change', recalcDrawerPrice);
+
 function renderItems() {
   container.innerHTML = '';
   const query = searchInput.value.toLowerCase().trim();
   const stockValue = stockFilter.value;
   const tagValue = tagFilter.value;
 
-  // Извлекаем нужный массив данных из нашего локального кэша категорий
   const catData = cachedCatalogs[currentCategory.toLowerCase()] || [];
 
   const filtered = catData.filter(item => {
     if (isFavoritesPage && !favorites.includes(item.id)) return false;
 
-    // Умный скрытый поиск по названию или невидимому массиву keywords из JSON
+    // Умный поиск по названию или скрытым ключевым словам keywords
     const matchesName = item.name.toLowerCase().includes(query);
     const matchesKeywords = item.keywords && item.keywords.some(k => k.toLowerCase().includes(query));
     if (!matchesName && !matchesKeywords) return false;
 
-    // Фильтр виртуальных подстраниц ЗЯ / ИЗЯ для Окрасов
+    // Сортировка по подстраницам ЗЯ / ИЗЯ
     if (currentCategory.toLowerCase() === 'окрасы' && currentSubCategory !== 'all') {
       if (!item.colorType || item.colorType.toLowerCase() !== currentSubCategory.toLowerCase()) return false;
     }
 
-    // Считываем остаток товара конкретно под выбранный пользователем флаг сервера
+    // Расчет остатка под выбранный пользователем флаг сервера
     const serverStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
     if (stockValue === 'available' && serverStock <= 0) return false;
     
-    // Метки-ярлыки новинок
     if (tagValue === 'new' && item.isNew !== true) return false;
     if (tagValue === 'limited' && item.isRare !== true) return false;
     if (tagValue === 'hot' && item.isHot !== true) return false;
@@ -774,18 +766,15 @@ function renderItems() {
     return;
   }
 
-  // --- ЛОГИКА СТРОГОЙ ПАГИНАЦИИ (30 товаров на страницу) ---
+  // Логика строгой пагинации
   const totalItems = filtered.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
-  
-  // Корректируем текущую страницу при изменении фильтров, чтобы не улететь в пустоту
   if (currentPage > totalPages) currentPage = totalPages;
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const pageItems = filtered.slice(startIndex, endIndex);
 
-  // Вывод кнопок пагинации без сброса фильтрации
   renderPaginationControls(totalPages);
 
   pageItems.forEach(item => {
@@ -793,7 +782,6 @@ function renderItems() {
     card.className = 'card';
     const tagClass = (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
     
-    // Берем остаток конкретного сервера для отображения на плитке витрины
     const currentStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
     const isOutOfStock = currentStock <= 0;
 
@@ -874,12 +862,10 @@ function renderItems() {
   });
 }
 
-// Отрисовка элементов управления пагинацией страниц сайта
 function renderPaginationControls(totalPages) {
   paginationContainer.innerHTML = '';
-  if (totalPages <= 1) return; // Зачем выводить кнопки страниц, если товаров меньше 30 штук
+  if (totalPages <= 1) return;
 
-  // Кнопка назад
   const prevBtn = document.createElement('button');
   prevBtn.className = 'page-btn';
   prevBtn.innerText = '◀';
@@ -887,7 +873,6 @@ function renderPaginationControls(totalPages) {
   prevBtn.addEventListener('click', () => { currentPage--; renderItems(); window.scrollTo({top: 0, behavior: 'smooth'}); });
   paginationContainer.appendChild(prevBtn);
 
-  // Сами страницы каталога
   for (let i = 1; i <= totalPages; i++) {
     const pageBtn = document.createElement('button');
     pageBtn.className = `page-btn ${currentPage === i ? 'active' : ''}`;
@@ -896,7 +881,6 @@ function renderPaginationControls(totalPages) {
     paginationContainer.appendChild(pageBtn);
   }
 
-  // Кнопка вперед
   const nextBtn = document.createElement('button');
   nextBtn.className = 'page-btn';
   nextBtn.innerText = '▶';
@@ -921,6 +905,7 @@ function toggleFavorite(id) {
 function addToCart(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
 
+  // Проверка блокировки для Золотого Яблока
   if (itemNameNormalized === 'золотое яблоко') {
     currentAppleType = 'зя';
     closeAllDrawers();
@@ -930,6 +915,7 @@ function addToCart(item) {
     return;
   }
 
+  // Проверка блокировки для Исчезнувшего золотого яблока
   if (itemNameNormalized === 'исчезнувшее золотое яблоко') {
     currentAppleType = 'ися'; 
     closeAllDrawers();
@@ -960,6 +946,7 @@ function addToCart(item) {
   const cartItemId = `${item.id}_${selectedCr}_${selectedFk}_${selectedSkills}`;
   const existingProduct = cart.find(cartItem => cartItem.cartKey === cartItemId);
   
+  // Проверяем остаток строго под текущий регион
   const maxStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
 
   if (existingProduct) {
@@ -1037,7 +1024,10 @@ window.changeQtyByKey = function(key, change) {
   const item = cart.find(i => i.cartKey === key);
   if (!item) return;
   
-  const originalItem = itemsData.find(i => i.id === item.id);
+  const catKey = currentCategory.toLowerCase();
+  const searchPool = cachedCatalogs[catKey] || [];
+  const originalItem = searchPool.find(i => i.id === item.id);
+  
   const maxStock = originalItem ? ((originalItem.stocks && originalItem.stocks[currentServer]) || 0) : 999;
   const newQty = item.quantity + change;
 
@@ -1057,7 +1047,7 @@ window.changeQtyByKey = function(key, change) {
 };
 
 window.changeQty = function(id, change) {
-  const item = cart.find(i => i.id === id);
+  const item = cart.find(i => id === id);
   if (item) {
     changeQtyByKey(item.cartKey, change);
   }
