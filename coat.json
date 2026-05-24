@@ -1,0 +1,55 @@
+{
+    "id": "coat_1",
+    "name": "Масть: Звёздный Волк",
+    "count": 4,
+    "price": 45,
+    "image": "https://i.ibb.co/yFF0Sgzp/100105561-normal.png",
+    "category": "Окрасы",
+    "colorType": "ЗЯ",
+    "author": "Kaneri Mio",
+    "hasExtraCr": true,
+    "hasFk": true,
+    "hasSkills": false,
+    "affix": true,
+    "chk": false,
+    "stocks": {
+      "🇷🇺": 2,
+      "🇺🇳": 0,
+      "🇫🇷": 1,
+      "🇦🇶": 0
+    },
+    "keywords": ["волк", "небо", "крылья", "синий", "мистика"],
+    "adminIcons": [
+       "https://i.ibb.co/qYc95xyS/bras-morphee.png",
+       "https://i.ibb.co/v4yr59Zn/caresse-philotes.png",
+       "https://i.ibb.co/tT9K1WzF/eau-jouvence.png"
+]
+  },
+  {
+    "id": "coat_2",
+    "name": "Масть: Неоновый Пегас",
+    "count": 1,
+    "price": 120,
+    "image": "https://i.ibb.co/Cf4D7HS/100427583-normal.png",
+    "category": "Окрасы",
+    "colorType": "ИЗЯ",
+    "author": "Mio Company",
+    "copies": 20,
+    "servers": ["🇷🇺"],
+    "isRare": true,
+    "isHot": true,
+    "isNew": false,
+    "hasExtraCr": false,
+    "hasFk": false,
+    "hasSkills": true,
+    "breed": "Шагия",
+    "type": "Пегас",
+    "affix": false,
+    "chk": true,
+    "keywords": ["гордый", "реалистичный", "крылья", "коричневый", "красивый"],
+    "companionImage": "https://i.ibb.co/spnY40bB/compagnon-shika.png",
+    "adminIcons": [
+      "https://i.ibb.co/k2vNDdKr/couverture-hypnos.png"
+    ]
+  }
+]
