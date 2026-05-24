@@ -1,4 +1,5 @@
-{
+[
+  {
     "id": "coat_1",
     "name": "Масть: Звёздный Волк",
     "count": 4,
@@ -15,15 +16,15 @@
     "stocks": {
       "🇷🇺": 2,
       "🇺🇳": 0,
-      "🇫🇷": 1,
-      "🇦🇶": 0
+      "🇪🇦": 0,
+      "🇫🇷": 1
     },
     "keywords": ["волк", "небо", "крылья", "синий", "мистика"],
     "adminIcons": [
        "https://i.ibb.co/qYc95xyS/bras-morphee.png",
        "https://i.ibb.co/v4yr59Zn/caresse-philotes.png",
        "https://i.ibb.co/tT9K1WzF/eau-jouvence.png"
-]
+    ]
   },
   {
     "id": "coat_2",
@@ -48,8 +49,8 @@
     "stocks": {
       "🇷🇺": 2,
       "🇺🇳": 0,
-      "🇫🇷": 1,
-      "🇦🇶": 0
+      "🇪🇦": 0,
+      "🇫🇷": 1
     },
     "keywords": ["гордый", "реалистичный", "крылья", "коричневый", "красивый"],
     "companionImage": "https://i.ibb.co/spnY40bB/compagnon-shika.png",
