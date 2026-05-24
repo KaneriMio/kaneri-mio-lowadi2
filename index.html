@@ -992,12 +992,16 @@ if (currencyInputCount) {
 if (confirmCurrencyBtn) {
   confirmCurrencyBtn.addEventListener('click', () => {
     if (!window.pendingCurrencyItem) return;
+
     const item = window.pendingCurrencyItem;
     const itemNameNormalized = item.name.trim().toLowerCase();
-    const countValue = parseInt(currencyInputCount ? currencyInputCount.value : 0) || 0;
+    
+    // Прямой поиск инпута количества в обход глобальных переменных
+    const inputEl = document.getElementById('currencyInputCount');
+    const countValue = inputEl ? (parseInt(inputEl.value) || 0) : 0;
 
     if (countValue <= 0) {
-      alert("Пожалуйста, укажите корректное количество пакетов.");
+      alert("Пожалуйста, укажите корректное количество пакетов (от 1 и более).");
       return;
     }
 
@@ -1005,13 +1009,13 @@ if (confirmCurrencyBtn) {
     let basePricePerPack = item.price || 0;
 
     if (itemNameNormalized.indexOf('пропуск') !== -1) {
-      // ИСПРАВЛЕНИЕ: Ищем по имени "modalUrgencyRadio", как и прописано у вас в HTML-разметке формы
       const urgencyRadio = document.querySelector('input[name="modalUrgencyRadio"]:checked');
       selectedUrgency = urgencyRadio ? urgencyRadio.value : 'urgent';
       basePricePerPack = (selectedUrgency === 'urgent') ? 150 : 75;
 
       if (countValue > 10) {
-        const nickValue = playerGameNickInput ? playerGameNickInput.value.trim() : "";
+        const nickInput = document.getElementById('playerGameNick');
+        const nickValue = nickInput ? nickInput.value.trim() : "";
         if (nickValue === "") {
           alert("Для заказов от 11 пакетов пропусков необходимо указать игровой ник!");
           return;
@@ -1044,465 +1048,93 @@ if (confirmCurrencyBtn) {
 
     localStorage.setItem('lowadi_cart', JSON.stringify(cart));
     window.pendingCurrencyItem = null;
-    if (currencyOrderModal) currencyOrderModal.classList.remove('active');
+    
+    const orderModal = document.getElementById('currencyOrderModal');
+    if (orderModal) orderModal.classList.remove('active');
+    
     closeAllDrawers();
     updateCartUI();
     renderItems();
     showToast(`Валюта успешно добавлена в корзину!`);
   });
 }
-
 // ИСПРАВЛЕНИЕ: Переписана кнопка переадресации из окна Яблок, чтобы она точно открывала вкладку ИЗЯ
-if (modalGoCatalogBtn) {
-  modalGoCatalogBtn.addEventListener('click', () => {
+// НАДЕЖНАЯ ПЕРЕАДРЕСАЦИЯ ИЗ ОКНА ЯБЛОК В КАТАЛОГ ИЗЯ / ЗЯ
+const goCatalogBtnEl = document.getElementById('modalGoCatalogBtn');
+if (goCatalogBtnEl) {
+  goCatalogBtnEl.addEventListener('click', () => {
     closeAllDrawers();
-    filterBtns.forEach(b => b.classList.remove('active'));
-    const colorsBtn = Array.from(filterBtns).find(b => b.getAttribute('data-category') === 'Окрасы');
-    if (colorsBtn) {
-      colorsBtn.classList.add('active');
-      currentCategory = 'Окрасы';
-      if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
-    }
-    subFilterBtns.forEach(sb => sb.classList.remove('active'));
     
-    // Если тип "изыя", открываем вкладку ИЗЯ, иначе — ЗЯ
+    // 1. Активируем кнопку "Окрасы" в верхнем меню
+    const allFilterButtons = document.querySelectorAll('.filter-btn');
+    allFilterButtons.forEach(b => b.classList.remove('active'));
+    
+    const targetCategoryBtn = Array.from(allFilterButtons).find(b => b.getAttribute('data-category') === 'Окрасы');
+    if (targetCategoryBtn) {
+      targetCategoryBtn.classList.add('active');
+      currentCategory = 'Окрасы';
+      
+      // Показываем подменю (ЗЯ / ИЗЯ)
+      const subMenuContainer = document.getElementById('subFiltersContainer');
+      if (subMenuContainer) subMenuContainer.style.display = 'flex';
+    }
+    
+    // 2. Сбрасываем подкатегории
+    const allSubFilterButtons = document.querySelectorAll('.sub-filter-btn');
+    allSubFilterButtons.forEach(sb => sb.classList.remove('active'));
+    
+    // 3. Прямая жесткая проверка: если кликнули по Исчезнувшему яблоку — включаем ИЗЯ
     if (currentAppleType === 'изыя') {
-      const izyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
+      const izyaBtn = Array.from(allSubFilterButtons).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
       if (izyaBtn) izyaBtn.classList.add('active');
       currentSubCategory = 'ИЗЯ';
     } else {
-      const zyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ЗЯ');
+      // Иначе включаем обычное ЗЯ
+      const zyaBtn = Array.from(allSubFilterButtons).find(sb => sb.getAttribute('data-subcategory') === 'ЗЯ');
       if (zyaBtn) zyaBtn.classList.add('active');
       currentSubCategory = 'ЗЯ';
     }
-    currentPage = 1;
-    loadAndRenderCategory();
-  });
-}
-function executeAddToCartFinal(item) {
-  let selectedCr = "none";
-  let selectedFk = "none";
-  let selectedSkills = "none";
-  let extraCost = 0;
-
-  if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
-    selectedCr = optCrSelect ? optCrSelect.value : "none";
-    selectedFk = optFkSelect ? optFkSelect.value : "none";
-    selectedSkills = optSkillsSelect ? optSkillsSelect.value : "none";
-
-    if (optCrSelect) {
-      const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
-      if (chosenCrOpt) extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
-    }
-    if (selectedFk !== 'none') extraCost += 30;
-    if (selectedSkills !== 'none') extraCost += 20;
-  }
-
-  const uniqueCartKey = `${item.id}_${selectedCr}_${selectedFk}_${selectedSkills}`;
-  const existingProduct = cart.find(cartItem => cartItem.cartKey === uniqueCartKey);
-  const maxStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
-
-  if (existingProduct) {
-    if (existingProduct.quantity >= maxStock) {
-      showToast(`На сервере ${currentServer} доступно всего ${maxStock} шт.`);
-      return;
-    }
-    existingProduct.quantity++;
-  } else {
-    cart.push({ 
-      ...item, 
-      cartKey: uniqueCartKey,
-      price: item.price + extraCost, 
-      chosenCr: selectedCr,
-      chosenFk: selectedFk,
-      chosenSkills: selectedSkills,
-      quantity: 1 
-    });
-  }
-  
-  localStorage.setItem('lowadi_cart', JSON.stringify(cart));
-  updateCartUI();
-  renderItems();
-  showToast(`Товар "${item.name}" добавлен в корзину!`);
-}
-
-function updateCartUI() {
-  if (!cartItemsContainer) return;
-  cartItemsContainer.innerHTML = '';
-  let total = 0;
-  let totalItemsCount = 0;
-
-  cart.forEach(item => {
-    total += item.price * item.quantity;
-    totalItemsCount += item.quantity;
-
-    const cartItemEl = document.createElement('div');
-    cartItemEl.className = 'cart-item';
-
-    const itemNameLower = item.name.toLowerCase();
-    const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
     
-    let displayTitle = item.name;
-    let currencyCalcHtml = '';
-
-    if (isCurrency) {
-      if (itemNameLower.indexOf('пропуск') !== -1) {
-        displayTitle = `${item.quantity}.000 пропусков`;
-        if (item.quantity > 10) {
-          const urgencyBadge = item.urgency === 'urgent' ? '<span style="color:#d32f2f; font-weight:bold; display:block; margin-bottom:4px;">🔥 Срочно</span>' : '';
-          currencyCalcHtml = `
-            <div class="cart-currency-calc">
-              <strong>👑 Командный заказ</strong><br>
-              ${urgencyBadge}
-              Ник для приглашения: <strong>${item.playerNick || 'Не указан'}</strong>
-            </div>
-          `;
-        } else {
-          const urgencyBadge = item.urgency === 'urgent' ? '<span style="color:#d32f2f; font-weight:bold; display:block; margin-bottom:4px;">🔥 Срочно</span>' : '';
-          const cleanPassesTotal = item.quantity * 1000;
-          currencyCalcHtml = `
-            <div class="cart-currency-calc">
-              ${urgencyBadge}
-              🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
-              Поставить коня на продажу за: <strong>1.112 пропусков</strong> (за 1 шт.)<br>
-              <span style="font-size:11px; opacity:0.85;">(Итого чистыми: ${cleanPassesTotal.toLocaleString('ru-RU')})</span>
-            </div>
-          `;
-        }
-      } else if (itemNameLower.indexOf('экю') !== -1) {
-        displayTitle = `${item.quantity}.000.000 экю`;
-        const cleanEcuTotal = item.quantity * 1000000;
-        currencyCalcHtml = `
-          <div class="cart-currency-calc">
-            🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
-            Поставить коня на продажу за: <strong>1.111.112 экю</strong> (за 1 шт.)<br>
-            <span style="font-size:11px; opacity:0.85;">(Итого чистыми: ${cleanEcuTotal.toLocaleString('ru-RU')})</span>
-          </div>
-        `;
-      }
-    }
-
-    let optionsMetaHtml = '';
-    if (item.category && item.category.toLowerCase() === 'окрасы') {
-      const type = (item.colorType || 'ЗЯ').toUpperCase();
-      let extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
-      let addons = [];
-      if (item.chosenCr !== 'none') addons.push(`Доп ЧР: ${item.chosenCr} х1`);
-      if (item.chosenFk !== 'none') addons.push(`ФК: Да`);
-      if (item.chosenSkills !== 'none') addons.push(`Навыки: Да`);
-      let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">${addons.join('<br>')}</div>` : '';
-      optionsMetaHtml = `<div class="cart-item-meta" style="color:#b17a53; font-weight:bold; margin-top:4px;">Категория: ${type}</div>${extraInfo}${addonsText}`;
-    }
-
-    let quantityControlsHtml = `
-      <div class="quantity-controls">
-        <button class="qty-btn" onclick="changeQtyByKey('${item.cartKey}', -1)">-</button>
-        <span style="font-size: 13px; font-weight: bold; min-width: 15px; text-align: center;">${item.quantity}</span>
-        <button class="qty-btn" onclick="changeQtyByKey('${item.cartKey}', 1)">+</button>
-      </div>
-    `;
-    if (isCurrency) {
-      quantityControlsHtml = `<div style="font-size: 12px; color: #666; margin-top: 6px; font-weight: bold;">Объем заказа: х${item.quantity}</div>`;
-    }
-
-    cartItemEl.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      <div class="cart-item-details">
-        <div class="cart-item-name">${displayTitle}</div>
-        ${optionsMetaHtml}
-        ${currencyCalcHtml}
-        <div class="cart-item-price" style="margin-top:6px;">${item.price * item.quantity} ₽</div>
-        ${quantityControlsHtml}
-      </div>
-      <button class="remove-item-btn" onclick="removeFromCartByKey('${item.cartKey}')">&times;</button>
-    `;
-    cartItemsContainer.appendChild(cartItemEl);
-  });
-
-  if (cartTotalPrice) cartTotalPrice.innerText = `${total} ₽`;
-  if (cartBadge) cartBadge.innerText = totalItemsCount;
-}
-
-window.changeQtyByKey = function(key, change) {
-  const item = cart.find(i => i.cartKey === key);
-  if (!item) return;
-  
-  let originalItem = null;
-  Object.keys(cachedCatalogs).forEach(cat => {
-    const found = cachedCatalogs[cat].find(i => i.id === item.id);
-    if (found) originalItem = found;
-  });
-  
-  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-  const maxStock = isCurrency ? 999999 : (originalItem ? ((originalItem.stocks && originalItem.stocks[currentServer]) || 0) : 999);
-  const newQty = item.quantity + change;
-
-  if (newQty <= 0) {
-    removeFromCartByKey(key);
-    return;
-  }
-  if (newQty > maxStock) {
-    showToast(`Доступный лимит на этом сервере: ${maxStock} шт.`);
-    return;
-  }
-
-  item.quantity = newQty;
-  localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
-  updateCartUI();
-  renderItems();
-};
-
-window.changeQty = function(id, change) {
-  const item = cart.find(i => i.id === id);
-  if (item) changeQtyByKey(item.cartKey, change);
-};
-
-window.removeFromCartByKey = function(key) {
-  cart = cart.filter(i => i.cartKey !== key);
-  localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
-  updateCartUI();
-  renderItems();
-  showToast('Товар удален из корзины.');
-};
-if (clearCartBtn) {
-  clearCartBtn.addEventListener('click', () => {
-    if (cart.length === 0) return;
-    if (confirmClearCartModal) {
-      if (overlay) overlay.classList.add('active');
-      confirmClearCartModal.classList.add('active');
-    }
-  });
-}
-
-if (confirmClearCartBtnEl) {
-  confirmClearCartBtnEl.addEventListener('click', () => {
-    cart = [];
-    localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
-    updateCartUI();
-    renderItems();
-    closeAllDrawers();
-    showToast('Корзина полностью очищена.');
-  });
-}
-
-if (cancelClearCartBtn) {
-  cancelClearCartBtn.addEventListener('click', () => {
-    if (confirmClearCartModal) confirmClearCartModal.classList.remove('active');
-    if (cartDrawer) cartDrawer.classList.add('active');
-    if (overlay && !productDrawer.classList.contains('active')) overlay.classList.add('active');
-  });
-}
-
-if (checkoutBtn) {
-  checkoutBtn.addEventListener('click', () => {
-    if (cart.length === 0) {
-      showToast('Ваша корзина пуста!');
-      return;
-    }
-    alert('Заказ успешно оформлен! Спасибо за покупку.');
-    cart = [];
-    localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
-    updateCartUI();
-    renderItems();
-    closeAllDrawers();
-  });
-}
-
-function showToast(msg) {
-  if (!cartToast || !toastMessage) return;
-  clearTimeout(toastTimeout);
-  toastMessage.innerText = msg;
-  cartToast.classList.add('show');
-  toastTimeout = setTimeout(hideToast, 1500);
-}
-function hideToast() { if (cartToast) cartToast.classList.remove('show'); }
-if (closeToastBtn) closeToastBtn.addEventListener('click', hideToast);
-
-function openProductDrawer(item) {
-  activeItemForDrawer = item;
-  if (cartDrawer) cartDrawer.classList.remove('active');
-  
-  const dImg = getEl('d-image'); if (dImg) dImg.src = item.image;
-  const dName = getEl('d-name'); if (dName) dName.innerText = item.name;
-  const tagEl = getEl('d-tag');
-  if (tagEl) {
-    tagEl.innerText = item.category || 'Другое';
-    tagEl.className = 'tag ' + (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
-  }
-
-  const noteContainer = getEl('d-note-container');
-  const noteText = getEl('d-note-text');
-  const adminIconsGrid = getEl('d-admin-icons');
-  if (adminIconsGrid) adminIconsGrid.innerHTML = ''; 
-
-  const itemNameNormalized = item.name.trim().toLowerCase();
-  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-
-  if (itemNameNormalized.includes('золотое яблоко') || itemNameNormalized.includes('исчезнувшее золотое яблоко')) {
-    if (noteText) noteText.innerText = '⚠️ Покупка только навесом';
-    if (noteContainer) noteContainer.style.display = 'block';
-  } else if (item.adminIcons && item.adminIcons.length > 0) {
-    if (noteText) noteText.innerText = 'В комплекте с этим окрасом идут предметы:';
-    if (adminIconsGrid) {
-      item.adminIcons.forEach(iconUrl => {
-        const img = document.createElement('img');
-        img.className = 'admin-mini-icon'; img.src = iconUrl;
-        adminIconsGrid.appendChild(img);
-      });
-    }
-    if (noteContainer) noteContainer.style.display = 'block';
-  } else {
-    if (noteContainer) noteContainer.style.display = 'none';
-  }
-
-  const metaContainer = getEl('d-meta-container');
-  if (item.category && item.category.toLowerCase() === 'окрасы') {
-    const dBreed = getEl('d-breed'); if (dBreed) dBreed.innerText = item.breed || 'Не указана';
-    const dType = getEl('d-type'); if (dType) dType.innerText = item.type || 'Обычный';
-    const dAffix = getEl('d-affix'); if (dAffix) dAffix.innerText = item.affix ? 'Да' : 'Нет';
-    const dChk = getEl('d-chk'); if (dChk) dChk.innerText = item.chk ? 'Да' : 'Нет';
-    const companionSpan = getEl('d-companion');
-    if (companionSpan) {
-      if (item.companionImage && item.companionImage.trim() !== "") {
-        companionSpan.innerHTML = `<img class="companion-img" src="${item.companionImage}" alt="Спутник">`;
-      } else {
-        companionSpan.innerText = 'Нет';
-      }
-    }
-    if (metaContainer) metaContainer.style.display = 'block';
-  } else {
-    if (metaContainer) metaContainer.style.display = 'none';
-  }
-
-  const optionsContainer = getEl('d-options-container');
-  if (item.category && item.category.toLowerCase() === 'окрасы') {
-    if (optCrSelect) optCrSelect.value = 'none';
-    if (optFkSelect) optFkSelect.value = 'none';
-    if (optSkillsSelect) optSkillsSelect.value = 'none';
-    if (optionsContainer) optionsContainer.style.display = 'block';
-  } else {
-    if (optionsContainer) optionsContainer.style.display = 'none';
-  }
-  const descLabel = getEl('d-desc-label');
-  const descBox = getEl('d-description');
-  const getLabel = getEl('d-get-label');
-  const getBox = getEl('d-get');
-
-  if (item.category && item.category.toLowerCase() === 'окрасы') {
-    if (descLabel) descLabel.style.display = 'none';
-    if (descBox) descBox.style.display = 'none';
-    if (getLabel) getLabel.style.display = 'none';
-    if (getBox) getBox.style.display = 'none';
-  } else {
-    if (descLabel) descLabel.style.display = 'block';
-    if (descBox) { descBox.style.display = 'block'; descBox.innerText = item.description || 'Нет описания'; }
-    if (getLabel) getLabel.style.display = 'block';
-    if (getBox) { getBox.style.display = 'block'; getBox.innerText = item.howto || 'Не указано'; }
-  }
-
-  let availableFlags = [];
-  if (item.stocks) {
-    Object.keys(item.stocks).forEach(flag => {
-      if (item.stocks[flag] > 0) availableFlags.push(flag);
-    });
-  }
-  const dFlags = getEl('d-flags');
-  if (dFlags) dFlags.innerText = availableFlags.length > 0 ? availableFlags.join(' ') : 'Нет в наличии';
-  
-  const serverStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
-  const dCount = getEl('d-count'); if (dCount) dCount.innerText = isCurrency ? 'Бесконечно' : `${serverStock} шт`;
-  const dPrice = getEl('d-price'); if (dPrice) dPrice.innerText = `${item.price || 0} ₽`;
-  
-  if (overlay) overlay.classList.add('active');
-  if (productDrawer) productDrawer.classList.add('active');
-  recalcDrawerPrice(); 
-}
-
-function closeAllDrawers() {
-  if (overlay) overlay.classList.remove('active');
-  if (productDrawer) productDrawer.classList.remove('active');
-  if (cartDrawer) cartDrawer.classList.remove('active');
-  if (appleModal) appleModal.classList.remove('active');
-  if (confirmClearCartModal) confirmClearCartModal.classList.remove('active');
-  if (serverWelcomeModal) serverWelcomeModal.classList.remove('active');
-  if (currencyOrderModal) currencyOrderModal.classList.remove('active');
-  activeItemForDrawer = null; 
-  window.pendingCurrencyItem = null;
-}
-
-if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeAllDrawers);
-if (closeCartDrawerBtn) closeCartDrawerBtn.addEventListener('click', closeAllDrawers);
-if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeAllDrawers);
-if (overlay) overlay.addEventListener('click', closeAllDrawers);
-
-if (openCartBtn) {
-  openCartBtn.addEventListener('click', () => {
-    if (productDrawer) productDrawer.classList.remove('active'); 
-    if (overlay) overlay.classList.add('active');
-    if (cartDrawer) cartDrawer.classList.add('active');
-  });
-}
-
-if (drawerAddCartBtn) {
-  drawerAddCartBtn.addEventListener('click', () => {
-    if (!activeItemForDrawer) return;
-    const item = activeItemForDrawer;
-    addToCart(item);
-  });
-}
-
-if (modalGoCatalogBtn) {
-  modalGoCatalogBtn.addEventListener('click', () => {
-    closeAllDrawers();
-    filterBtns.forEach(b => b.classList.remove('active'));
-    const colorsBtn = Array.from(filterBtns).find(b => b.getAttribute('data-category') === 'Окрасы');
-    if (colorsBtn) {
-      colorsBtn.classList.add('active');
-      currentCategory = 'Окрасы';
-      if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
-    }
-    subFilterBtns.forEach(sb => sb.classList.remove('active'));
-    if (currentAppleType === 'изя') {
-      const izyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
-      if (izyaBtn) izyaBtn.classList.add('active');
-      currentSubCategory = 'ИЗЯ';
-    } else {
-      const zyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ЗЯ');
-      if (zyaBtn) zyaBtn.classList.add('active');
-      currentSubCategory = 'ЗЯ';
-    }
     currentPage = 1;
     loadAndRenderCategory();
   });
 }
-if (openFavBtn) {
-  openFavBtn.addEventListener('click', () => {
+
+// Переключение Избранного
+const favPageBtnEl = document.getElementById('openFavBtn');
+if (favPageBtnEl) {
+  favPageBtnEl.addEventListener('click', () => {
     isFavoritesPage = !isFavoritesPage; 
     if (isFavoritesPage) {
-      openFavBtn.classList.add('fav-page-active'); 
+      favPageBtnEl.classList.add('fav-page-active'); 
       showToast('Переход на страницу Избранного ❤️');
     } else {
-      openFavBtn.classList.remove('fav-page-active');
+      favPageBtnEl.classList.remove('fav-page-active');
       showToast('Возврат в общий каталог товаров');
     }
     currentPage = 1;
     renderItems(); 
   });
 }
-
+// Живой поиск по строке ввода и фильтрам наличия/меток
 if (searchInput) searchInput.addEventListener('input', () => { currentPage = 1; renderItems(); });
 if (stockFilter) stockFilter.addEventListener('change', () => { currentPage = 1; renderItems(); });
 if (tagFilter) tagFilter.addEventListener('change', () => { currentPage = 1; renderItems(); });
 
-filterBtns.forEach(btn => {
+// Логика кликов по Главным Категориям витрины
+const mainFilterButtons = document.querySelectorAll('.filter-btn');
+mainFilterButtons.forEach(btn => {
   btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
+    mainFilterButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     currentCategory = btn.getAttribute('data-category');
+    
+    // Если выбрали окрасы — показываем подкатегории ЗЯ/ИЗЯ, иначе прячем
+    const subMenuEl = document.getElementById('subFiltersContainer');
     if (currentCategory.toLowerCase() === 'окрасы') {
-      if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
+      if (subMenuEl) subMenuEl.style.display = 'flex';
     } else {
-      if (subFiltersContainer) subFiltersContainer.style.display = 'none';
+      if (subMenuEl) subMenuEl.style.display = 'none';
       currentSubCategory = 'all';
     }
     currentPage = 1;
@@ -1510,9 +1142,11 @@ filterBtns.forEach(btn => {
   });
 });
 
-subFilterBtns.forEach(sBtn => {
+// Логика кликов по подстраницам Окрасов (Все окрасы / ЗЯ / ИЗЯ)
+const subFilterButtons = document.querySelectorAll('.sub-filter-btn');
+subFilterButtons.forEach(sBtn => {
   sBtn.addEventListener('click', () => {
-    subFilterBtns.forEach(b => b.classList.remove('active'));
+    subFilterButtons.forEach(b => b.classList.remove('active'));
     sBtn.classList.add('active');
     currentSubCategory = sBtn.getAttribute('data-subcategory');
     currentPage = 1;
@@ -1520,19 +1154,25 @@ subFilterBtns.forEach(sBtn => {
   });
 });
 
-if (cancelCurrencyBtn) {
-  cancelCurrencyBtn.addEventListener('click', () => {
+// Кнопка отмены внутри всплывающего окна Валюты
+const closeCurrencyBtnEl = document.getElementById('cancelCurrencyBtn');
+if (closeCurrencyBtnEl) {
+  closeCurrencyBtnEl.addEventListener('click', () => {
     window.pendingCurrencyItem = null;
-    if (currencyOrderModal) currencyOrderModal.classList.remove('active');
+    const orderModal = document.getElementById('currencyOrderModal');
+    if (orderModal) orderModal.classList.remove('active');
     closeAllDrawers();
   });
 }
 </script>
+
 <style>
-  .tag.услуги{background-color:#8338ec;}
-  .tag.спутники{background-color:#ff007f;}
-  .tag.трофеи{background-color:#ffb703;}
-  .tag.объявления{background-color:#02c39a;}
+  /* Фиксация стилей тегов категорий */
+  .tag.услуги { background-color: #8338ec; }
+  .tag.спутники { background-color: #ff007f; }
+  .tag.трофеи { background-color: #ffb703; }
+  .tag.объявления { background-color: #02c39a; }
 </style>
+
 </body>
 </html>
