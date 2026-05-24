@@ -14,7 +14,7 @@
   "isNaves": false,
   "isAvailableForNaves": false,
   "stocks": {
-    "🇷🇺": "неограниченно",
+    "🇷🇺": "∞",
     "🇺🇳": 29,
     "🇪🇦": 0,
     "🇫🇷": 1
@@ -37,7 +37,7 @@
   "isNaves": false,
   "isAvailableForNaves": false,
   "stocks": {
-    "🇷🇺": "неограниченно",
+    "🇷🇺": "∞",
     "🇺🇳": 47,
     "🇪🇦": 0,
     "🇫🇷": 0
