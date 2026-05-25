@@ -1006,6 +1006,15 @@ if (!isCurrency && stock <= 0) {
   let selectedFk = "none";
   let selectedSkills = "none";
   let extraCost = 0;
+if (item.category?.toLowerCase() === 'экю') {
+  openEcuModal(item);
+  return;
+}
+
+  updateCartUI();
+  renderItems();
+  return;
+}
 
   if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
     selectedCr = optCrSelect ? optCrSelect.value : "none";
@@ -1509,6 +1518,68 @@ subFilterBtns.forEach(sBtn => {
     renderItems();
   });
 });
+const ecuModal = document.getElementById('ecuModal');
+const ecuHorses = document.getElementById('ecuHorses');
+const ecuPrice = document.getElementById('ecuPrice');
+const ecuResult = document.getElementById('ecuResult');
+
+const ecuOk = document.getElementById('ecuOk');
+const ecuCancel = document.getElementById('ecuCancel');
+
+let pendingEcuItem = null;
+function openEcuModal(item) {
+  pendingEcuItem = item;
+
+  ecuHorses.value = '';
+  ecuPrice.value = '';
+  ecuResult.innerHTML = '';
+
+  ecuModal.classList.remove('hidden');
+}
+
+function closeEcuModal() {
+  ecuModal.classList.add('hidden');
+  pendingEcuItem = null;
+}
+function updateEcu() {
+  const h = Number(ecuHorses.value);
+  const p = Number(ecuPrice.value);
+
+  if (!h || !p) return;
+
+  const data = EcoCalculator.calculate(h, p);
+
+  ecuResult.innerHTML = `
+    <div>Потребуется лошадей: <b>${data.horses}</b></div>
+    <div>Цена 1 лошади с комиссией: <b>${data.priceWithFee}</b></div>
+    <div>Вы получите чистыми: <b>${data.total}</b></div>
+  `;
+}
+
+ecuHorses.addEventListener('input', updateEcu);
+ecuPrice.addEventListener('input', updateEcu);
+ecuOk.addEventListener('click', () => {
+  const h = Number(ecuHorses.value);
+  const p = Number(ecuPrice.value);
+
+  if (!h || !p) return;
+
+  const ecoData = EcoCalculator.calculate(h, p);
+
+  cart.push({
+    ...pendingEcuItem,
+    quantity: 1,
+    ecoData
+  });
+
+  localStorage.setItem('lowadi_cart', JSON.stringify(cart));
+  updateCartUI();
+  renderItems();
+
+  closeEcuModal();
+});
+
+ecuCancel.addEventListener('click', closeEcuModal);
 </script>
 <style>
   .tag.услуги{background-color:#8338ec;}
@@ -1516,5 +1587,6 @@ subFilterBtns.forEach(sBtn => {
   .tag.трофеи{background-color:#ffb703;}
   .tag.объявления{background-color:#02c39a;}
 </style>
+<script src="./eco-calculator.js"></script>
 </body>
 </html>
