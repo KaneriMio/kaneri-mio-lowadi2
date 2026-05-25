@@ -926,7 +926,7 @@ function addToCart(item) {
     if (modalText) modalText.innerHTML = 'Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
     if (overlay) overlay.classList.add('active');
     if (appleModal) appleModal.classList.add('active');
-    return;
+    return; // Тут return легален, так как он внутри функции
   }
 
   // 2. Проверка блокировки для Исчезнувшего золотого яблока
@@ -937,34 +937,37 @@ function addToCart(item) {
     if (modalText) modalText.innerHTML = 'Товар <strong>Исчезнувшее золотое яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
     if (overlay) overlay.classList.add('active');
     if (appleModal) appleModal.classList.add('active');
-    return;
+    return; // Тут тоже легален
   }
-
-  // Находим, сколько штук ЭТОГО ТОВАРА УЖЕ лежит в корзине (чтобы правильно посчитать общий объем)
-  let existingQtyInCart = 0;
-  cart.forEach(c => { if (c.id === item.id) existingQtyInCart += c.quantity; });
 
   // 3. ПЕРЕХВАТ ДЛЯ КАЛЬКУЛЯТОРОВ ВАЛЮТЫ (ЭКЮ И ПРОПУСКИ)
   if (item.category && item.category.toLowerCase() === 'валюта') {
-    closeAllDrawers();
+    if (typeof closeAllDrawers === 'function') closeAllDrawers();
     
-    // Передаем товар в наш новый изолированный модуль управления модалками
     if (itemNameNormalized.includes('экю')) {
-      openEcuCalculatorModal(item);
+      if (typeof window.openEcuCalculatorModal === 'function') {
+        window.openEcuCalculatorModal(item);
+      }
       return;
     }
     
     if (itemNameNormalized.includes('пропуск')) {
-      openPassesCalculatorModal(item);
+      if (typeof window.openPassesCalculatorModal === 'function') {
+        window.openPassesCalculatorModal(item);
+      }
       return;
     }
   }
 
-  // Ниже остается ваш стандартный неизмененный код добавления обычных товаров:
-  // (Здесь идет ваш push в массив cart, вызов updateCartUI() и т.д.)
-  // cart.push(item); ...
+  // 4. Обычное добавление товаров (если это не Валюта и не Яблоки)
+  if (typeof cart !== 'undefined') {
+    cart.push(item);
+  }
+  
+  if (typeof updateCartUI === 'function') {
+    updateCartUI();
+  }
 }
-
 
   // Расчет дополнительных опций окрасов
   let selectedCr = "none";
