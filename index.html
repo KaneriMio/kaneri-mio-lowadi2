@@ -1138,13 +1138,16 @@ if (item.chosenCr && item.chosenCr !== 'none' && item.chosenCr.trim() !== '') {
   addons.push(`Доп ЧР: ${item.chosenCr} х1`);
 }
 
-  if (item.hasFk === true) {
-    addons.push(`С ФК: Да`);
-  }
+  const fk = item.hasFk === true || item.hasFk === 'С ФК';
+const skills = item.hasSkills === true || item.hasSkills === 'С навыками';
 
-  if (item.hasSkills === true) {
-    addons.push(`С навыками: Да`);
-  }
+if (fk) {
+  addons.push(`С ФК: Да`);
+}
+
+if (skills) {
+  addons.push(`С навыками: Да`);
+}
 
   const author = item.author || 'Не указан';
 
