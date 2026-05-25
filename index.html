@@ -590,8 +590,8 @@ const currencyTeamModal = getEl('currencyTeamModal'); // Новое окно в�
 const playerGameNickInput = getEl('playerGameNick'); // Поле ввода ника
 const cancelTeamOrderBtn = getEl('cancelTeamOrderBtn'); // Кнопка отмены опта
 const confirmTeamOrderBtn = getEl('confirmTeamOrderBtn'); // Кнопка подтверждения опта
-const currencyInputCount = getEl('currencyInputCount');
-const currencyOrderModal = getEl('currencyOrderModal');
+let currencyOrderModal = null;
+let currencyInputCount = null;
 
 const closeDrawerBtn = getEl('closeDrawer');
 const openCartBtn = getEl('openCartBtn');
@@ -617,6 +617,10 @@ const checkoutBtn = getEl('checkoutBtn');
 const cartToast = getEl('cartToast');
 const toastMessage = getEl('toastMessage');
 const closeToastBtn = getEl('closeToastBtn');
+window.addEventListener('DOMContentLoaded', () => {
+  currencyOrderModal = document.getElementById('currencyOrderModal');
+  currencyInputCount = document.getElementById('currencyInputCount');
+});
 
 let currentCategory = 'all';
 let currentSubCategory = 'all'; 
