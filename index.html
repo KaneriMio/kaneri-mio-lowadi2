@@ -966,7 +966,6 @@ if (
   // Находим, сколько штук ЭТОГО ТОВАРА УЖЕ лежит в корзине (чтобы правильно посчитать общий объем)
   let existingQtyInCart = 0;
   cart.forEach(c => { if (c.id === item.id) existingQtyInCart += c.quantity; });
-  }
 
   // Расчет дополнительных опций окрасов
   let selectedCr = null;
