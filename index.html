@@ -959,22 +959,20 @@ function addToCart(item) {
   }
 
   // Расчет дополнительных опций окрасов
-  let selectedCr = "none";
+  let selectedCr = null;
   let selectedFk = "none";
   let selectedSkills = "none";
   let extraCost = 0;
 
   if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
-    selectedCr = optCrSelect ? optCrSelect.value : "none";
+    selectedCr = optCrSelect?.value || null;
     selectedFk = optFkSelect ? optFkSelect.value : "none";
     selectedSkills = optSkillsSelect ? optSkillsSelect.value : "none";
 
-    if (optCrSelect) {
-      const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
-      if (chosenCrOpt) {
-        extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
-      }
-    }
+    if (selectedCr && selectedCr !== 'none') {
+    const opt = optCrSelect.options[optCrSelect.selectedIndex];
+    if (opt) extraCost += Number(opt.dataset.price || 0);
+  }
     if (selectedFk !== 'none') extraCost += 30;
     if (selectedSkills !== 'none') extraCost += 20;
   }
@@ -996,18 +994,17 @@ function addToCart(item) {
     }
     existingProduct.quantity++;
   } else {
-    cart.push({
-  ...item,
-  cartKey: finalCartKey,
-  price: item.price + extraCost,
-
-  chosenCr: selectedCr !== 'none' ? selectedCr : null,
-  hasFk: selectedFk !== 'none',
-  hasSkills: selectedSkills !== 'none',
-
-  quantity: 1,
-  playerNick: item.playerNick || null
-});
+console.log('chosenCr:', selectedCr);
+    cart.push({ 
+      ...item, 
+      cartKey: finalCartKey,
+      price: item.price + extraCost, 
+      chosenCr: selectedCr !== 'none' ? selectedCr : null,
+      chosenFk: selectedFk,
+      chosenSkills: selectedSkills,
+      quantity: 1,
+      playerNick: item.playerNick || null // привязываем ник игрока к объекту корзины
+    });
   }
   
   localStorage.setItem('lowadi_cart', JSON.stringify(cart));
