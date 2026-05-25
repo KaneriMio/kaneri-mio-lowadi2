@@ -690,11 +690,14 @@ function loadAndRenderCategory() {
 function buildNavesDropdown(dataList) {
   if (!optCrSelect) return;
 
-  optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
-
   const navesItems = dataList.filter(item => item.isNaves);
 
-  console.log('navesItems:', navesItems); // ВАЖНО ДЛЯ ДИАГНОСТИКИ
+  console.log('navesItems:', navesItems);
+
+  // ❗ НЕ ПЕРЕСТРАИВАЕМ ПУСТЫМ МАССИВОМ
+  if (!navesItems.length) return;
+
+  optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
 
   navesItems.forEach(item => {
     const opt = document.createElement('option');
