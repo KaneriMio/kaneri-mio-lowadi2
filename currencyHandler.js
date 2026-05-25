@@ -23,65 +23,6 @@ export function openEcuCalculatorModal(item) {
   }
 }
 
-// Вызывается по OnInput или при клике на "Подтвердить" в модалке Экю
-export function handleEcuCalculation() {
-  const inputVal = document.getElementById('ecuAmountInput').value;
-  const amount = parseInt(inputVal, 10);
-  
-  if (isNaN(amount) || amount <= 0) {
-    document.getElementById('ecuInstructionText').innerText = "Введите корректное количество";
-    return false;
-  }
-
-  // Расчет: комиссия Lowadi +10% за каждую лошадь (округление вниз)
-  const finalPriceWithCommission = Math.floor(amount * 1.1);
-  
-  const instruction = `Поставьте X коней на продажу за <strong>${finalPriceWithCommission.toLocaleString()}</strong> экю`;
-  document.getElementById('ecuInstructionText').innerHTML = instruction;
-  
-  return finalPriceWithCommission;
-}
-
-// Клик на кнопку "Добавить в корзину" внутри модалки Экю
-export function submitEcuToCart() {
-  const finalEcu = handleEcuCalculation();
-  if (!finalEcu) return alert('Проверьте введенные данные');
-
-  const amount = parseInt(document.getElementById('ecuAmountInput').value, 10);
-
-  // Формируем специальный объект для корзины на основе базового товара
-  const customEcuItem = {
-    ...currentCurrencyItem,
-    quantity: 1, // Добавляем как 1 позицию услуги/пакета
-    customAmount: amount, // Сколько ввел пользователь
-    totalEcuToSet: finalEcu, // Сумма с комиссией для инструкции
-    // Считаем итоговую стоимость в рублях (базовая цена пакета * количество единиц, если применимо)
-    price: currentCurrencyItem.price * amount 
-  };
-
-  // Вызываем стандартное добавление в корзину (код, который шел в самом конце вашей addToCart)
-  // Например: cart.push(customEcuItem); updateCartUI();
-  pushToCartAndCloseModals(customEcuItem);
-}
-
-
-// --- ЛОГИКА ДЛЯ ПРОПУСКОВ ---
-export function openPassesCalculatorModal(item) {
-  currentCurrencyItem = item;
-  
-  const passesModal = document.getElementById('passesCalculatorModal');
-  const overlay = document.getElementById('overlay');
-  
-  if (passesModal && overlay) {
-    document.getElementById('passesQuantityInput').value = '';
-    document.getElementById('passesNicknameInput').value = '';
-    document.getElementById('passesNicknameBlock').style.display = 'block'; // по умолчанию показываем
-    
-    overlay.classList.add('active');
-    passesModal.classList.add('active');
-  }
-}
-
 // Вызывается при изменении количества пропусков (чтобы скрывать/показывать поле Никнейма)
 export function handlePassesInputChange() {
   const quantity = parseInt(document.getElementById('passesQuantityInput').value, 10);
@@ -142,3 +83,10 @@ function pushToCartAndCloseModals(finalItem) {
     updateCartUI();
   }
 }
+window.openEcuCalculatorModal = openEcuCalculatorModal;
+window.handleEcuCalculation = handleEcuCalculation;
+window.submitEcuToCart = submitEcuToCart;
+
+window.openPassesCalculatorModal = openPassesCalculatorModal;
+window.handlePassesInputChange = handlePassesInputChange;
+window.submitPassesToCart = submitPassesToCart;
