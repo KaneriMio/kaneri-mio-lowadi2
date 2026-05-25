@@ -940,7 +940,69 @@ window.clearAllFavorites = function(e) {
   showToast('Список Избранного полностью очищен ❤️');
   renderItems();
 };
+function updateCartUI() {
+  if (!cartItemsContainer) return;
 
+  cartItemsContainer.innerHTML = '';
+
+  let total = 0;
+  let totalItemsCount = 0;
+
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+    totalItemsCount += item.quantity;
+
+    const cartItemEl = document.createElement('div');
+    cartItemEl.className = 'cart-item';
+
+    const itemNameLower = item.name.toLowerCase();
+    const isCurrency = item.category?.toLowerCase() === 'валюта';
+
+    let displayTitle = item.name;
+    let currencyCalcHtml = '';
+
+    if (isCurrency && itemNameLower.includes('пропуск')) {
+      displayTitle = `${item.quantity}.000 пропусков`;
+
+      currencyCalcHtml = `
+        <div class="cart-currency-calc">
+          <strong>Пакет пропусков</strong><br>
+          Количество: ${item.quantity}
+        </div>
+      `;
+    }
+
+    let quantityControlsHtml = `
+      <div class="quantity-controls">
+        <button onclick="changeQtyByKey('${item.cartKey}', -1)">-</button>
+        <span>${item.quantity}</span>
+        <button onclick="changeQtyByKey('${item.cartKey}', 1)">+</button>
+      </div>
+    `;
+
+    if (isCurrency) {
+      quantityControlsHtml = `
+        <div style="font-size:12px;color:#777;">Пакет х${item.quantity}</div>
+      `;
+    }
+
+    cartItemEl.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <div class="cart-item-details">
+        <div class="cart-item-name">${displayTitle}</div>
+        ${currencyCalcHtml}
+        <div class="cart-item-price">${item.price * item.quantity} ₽</div>
+        ${quantityControlsHtml}
+      </div>
+      <button onclick="removeFromCartByKey('${item.cartKey}')">&times;</button>
+    `;
+
+    cartItemsContainer.appendChild(cartItemEl);
+  });
+
+  if (cartTotalPrice) cartTotalPrice.innerText = `${total} ₽`;
+  if (cartBadge) cartBadge.innerText = totalItemsCount;
+}
 function renderPaginationControls(totalPages) {
   if (!paginationContainer) return;
   paginationContainer.innerHTML = '';
@@ -998,11 +1060,11 @@ function addToCart(item) {
     if (overlay) overlay.classList.add('active');
     if (currencyInfoModal) currencyInfoModal.classList.add('active');
 
-    return; // ❗ СТОП — дальше корзину не трогаем
+    return;
   }
 
   // =========================
-  // ОСНОВНАЯ ЛОГИКА КОРЗИНЫ
+  // ОБЫЧНАЯ КОРЗИНА
   // =========================
 
   let existingQtyInCart = 0;
@@ -1035,7 +1097,7 @@ function addToCart(item) {
     ? `${cartItemId}_nick_${item.playerNick}`
     : cartItemId;
 
-  const existingProduct = cart.find(cartItem => cartItem.cartKey === finalCartKey);
+  const existingProduct = cart.find(i => i.cartKey === finalCartKey);
 
   const maxStock = isCurrency
     ? 999999
@@ -1072,8 +1134,6 @@ function addToCart(item) {
   renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
-
-
 // =========================
 // МОДАЛКА "ПРОПУСКИ → ОЗНАКОМЛЕН"
 // =========================
@@ -1081,28 +1141,32 @@ if (confirmCurrencyInfoBtn) {
   confirmCurrencyInfoBtn.addEventListener('click', () => {
     if (!pendingCurrency) return;
 
-    const item = pendingCurrency;
-
     cart.push({
-      ...item,
+      ...pendingCurrency,
       quantity: 1,
-      price: 75
+      price: pendingCurrency.price
     });
 
     localStorage.setItem('lowadi_cart', JSON.stringify(cart));
+
     updateCartUI();
     renderItems();
 
     if (currencyInfoModal) currencyInfoModal.classList.remove('active');
     if (overlay) overlay.classList.remove('active');
 
+    showToast('Товар добавлен в корзину!');
     pendingCurrency = null;
-
-    showToast('Товар добавлен в корзину');
   });
 }
 
-
+if (cancelCurrencyInfoBtn) {
+  cancelCurrencyInfoBtn.addEventListener('click', () => {
+    pendingCurrency = null;
+    if (currencyInfoModal) currencyInfoModal.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+  });
+}
 // =========================
 // TOAST
 // =========================
