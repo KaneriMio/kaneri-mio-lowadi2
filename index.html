@@ -940,31 +940,24 @@ function addToCart(item) {
     return;
   }
 
-// 3. УНИВЕРСАЛЬНОЕ ОПРЕДЕЛЕНИЕ ВАЛЮТЫ
-const isCurrency =
-  (item.category || '').toLowerCase().trim() === 'валюта' ||
-  item.type === 'currency' ||
-  item.currencyType === true;
+  // Находим, сколько штук ЭТОГО ТОВАРА УЖЕ лежит в корзине (чтобы правильно посчитать общий объем)
+  let existingQtyInCart = 0;
+  cart.forEach(c => { if (c.id === item.id) existingQtyInCart += c.quantity; });
 
-if (isCurrency) {
-  closeAllDrawers?.();
-
-  const name = (item.name || '').toLowerCase();
-
-  if (name.includes('экю')) {
-    window.openEcuCalculatorModal?.(item);
-    return;
+  // 3. ПРОВЕРКА ОПТА ДЛЯ ВАЛЮТЫ "ПРОПУСКИ" (> 10 штук суммарно)
+  if (itemNameNormalized.includes('пропуск') && item.category && item.category.toLowerCase() === 'валюта') {
+    // Если добавляется товар, который поднимет общее кол-во выше 10 штук, а ник еще не сохранен
+    if ((existingQtyInCart + 1) > 10 && !item.playerNick) {
+      // Сохраняем временную ссылку на товар, который пользователь хотел положить
+      window.pendingCurrencyItem = item;
+      closeAllDrawers();
+      if (playerGameNickInput) playerGameNickInput.value = '';
+      if (overlay) overlay.classList.add('active');
+      if (currencyTeamModal) currencyTeamModal.classList.add('active');
+      return;
+    }
   }
 
-  if (name.includes('пропуск')) {
-    window.openPassesCalculatorModal?.(item);
-    return;
-  }
-
-  return; // важно: не даём уйти дальше в корзину
-}
-
-  // 4. Обычное добавление товаров (если это не Валюта и не Яблоки)
   // Расчет дополнительных опций окрасов
   let selectedCr = "none";
   let selectedFk = "none";
@@ -1017,187 +1010,9 @@ if (isCurrency) {
   
   localStorage.setItem('lowadi_cart', JSON.stringify(cart));
   updateCartUI();
-  if (typeof renderItems === 'function') renderItems();
+  renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
-// ==========================================
-// ИЗОЛИРОВАННАЯ ЛОГИКА КАЛЬКУЛЯТОРОВ ВАЛЮТЫ
-// ==========================================
-window.currentCurrencyItem = null;
-
-// 1. Открытие модалки Экю
-window.openEcuCalculatorModal = function(item) {
-  window.currentCurrencyItem = item;
-  const ecuModal = document.getElementById('ecuCalculatorModal');
-  const overlay = document.getElementById('overlay');
-  
-  if (ecuModal && overlay) {
-    const amountInput = document.getElementById('ecuAmountInput');
-    const instructionText = document.getElementById('ecuInstructionText');
-    if (amountInput) amountInput.value = '';
-    if (instructionText) instructionText.innerHTML = '';
-    
-    overlay.classList.add('active');
-    ecuModal.classList.add('active');
-  } else {
-    // Если разметки модалки еще нет в HTML, временно выводим стандартное окно ввода
-    const amount = prompt("Введите желаемое количество Экю:");
-    if (amount) window.submitEcuDirectly(item, amount);
-  }
-};
-
-// 2. Расчет комиссии Экю (вызывать на событие oninput инпута количества)
-window.handleEcuCalculation = function() {
-  const amountInput = document.getElementById('ecuAmountInput');
-  const instructionText = document.getElementById('ecuInstructionText');
-  if (!amountInput || !instructionText) return false;
-
-  const amount = parseInt(amountInput.value, 10);
-  if (isNaN(amount) || amount <= 0) {
-    instructionText.innerText = "Введите корректное количество";
-    return false;
-  }
-
-  // Комиссия +10% (округление вниз)
-  const finalPriceWithCommission = Math.floor(amount * 1.1);
-  instructionText.innerHTML = `Поставьте X коней на продажу за <strong>${finalPriceWithCommission.toLocaleString()}</strong> экю`;
-  return finalPriceWithCommission;
-};
-
-// 3. Сохранение Экю из модалки в корзину
-window.submitEcuToCart = function() {
-  const finalEcu = window.handleEcuCalculation();
-  const amountInput = document.getElementById('ecuAmountInput');
-  if (!finalEcu || !amountInput) return alert('Проверьте введенные данные');
-
-  const amount = parseInt(amountInput.value, 10);
-  window.submitEcuDirectly(window.currentCurrencyItem, amount, finalEcu);
-};
-
-// Вспомогательный метод записи Экю в массив корзины
-window.submitEcuDirectly = function(item, amount, finalEcu) {
-  const parsedAmount = parseInt(amount, 10);
-  const totalEcu = finalEcu || Math.floor(parsedAmount * 1.1);
-  
-  const customEcuItem = {
-    ...item,
-    cartKey: `${item.id}_ecu_${parsedAmount}`,
-    quantity: parsedAmount, // Сохраняем введенное количество
-    price: item.price * parsedAmount, // Считаем общую цену в рублях
-    totalEcuToSet: totalEcu,
-    isEcuCurrency: true
-  };
-
-  window.saveCurrencyToCart(customEcuItem);
-};
-
-// 4. Открытие модалки Пропусков
-window.openPassesCalculatorModal = function(item) {
-  window.currentCurrencyItem = item;
-  const passesModal = document.getElementById('passesCalculatorModal');
-  const overlay = document.getElementById('overlay');
-  
-  if (passesModal && overlay) {
-    const qtyInput = document.getElementById('passesQuantityInput');
-    const nickInput = document.getElementById('passesNicknameInput');
-    const nickBlock = document.getElementById('passesNicknameBlock');
-    
-    if (qtyInput) qtyInput.value = '';
-    if (nickInput) nickInput.value = '';
-    if (nickBlock) nickBlock.style.display = 'block';
-    
-    overlay.classList.add('active');
-    passesModal.classList.add('active');
-  } else {
-    // Альтернативный ввод, если модалки в HTML еще нет
-    const qty = prompt("Введите количество пропусков:");
-    if (!qty) return;
-    const isUrgent = confirm("Заказ срочный? (ОК - Срочно [150р], Отмена - Не срочно [75р])");
-    let nick = "";
-    if (parseInt(qty, 10) < 10) {
-      nick = prompt("Для заказа менее 10 пропусков введите игровой ник:");
-      if (!nick) return alert("Ник обязателен!");
-    }
-    window.submitPassesDirectly(item, qty, isUrgent, nick);
-  }
-};
-
-// 5. Переключение отображения Ника для Пропусков (вызывать на oninput инпута количества)
-window.handlePassesInputChange = function() {
-  const qtyInput = document.getElementById('passesQuantityInput');
-  const nickBlock = document.getElementById('passesNicknameBlock');
-  if (!qtyInput || !nickBlock) return;
-
-  const quantity = parseInt(qtyInput.value, 10);
-  if (!isNaN(quantity) && quantity >= 10) {
-    nickBlock.style.display = 'none';
-  } else {
-    nickBlock.style.display = 'block';
-  }
-};
-
-// 6. Сохранение Пропусков из модалки в корзину
-window.submitPassesToCart = function() {
-  const qtyInput = document.getElementById('passesQuantityInput');
-  const nickInput = document.getElementById('passesNicknameInput');
-  const urgentCheckbox = document.getElementById('passesUrgentCheckbox');
-  
-  if (!qtyInput || !nickInput || !urgentCheckbox) return;
-
-  const quantity = qtyInput.value;
-  const isUrgent = urgentCheckbox.checked;
-  const nickname = nickInput.value.trim();
-
-  if (parseInt(quantity, 10) < 10 && !nickname) {
-    return alert('Для заказа менее 10 пропусков обязательно введите игровой ник!');
-  }
-
-  window.submitPassesDirectly(window.currentCurrencyItem, quantity, isUrgent, nickname);
-};
-
-// Вспомогательный метод записи Пропусков в массив корзины
-window.submitPassesDirectly = function(item, quantity, isUrgent, nickname) {
-  const parsedQuantity = parseInt(quantity, 10);
-  if (isNaN(parsedQuantity) || parsedQuantity <= 0) return alert('Укажите корректное количество');
-
-  const pricePerUnit = isUrgent ? 150 : 75;
-  const totalPrice = parsedQuantity * pricePerUnit;
-  const urgencyStatus = isUrgent ? 'Срочно' : 'Не срочно';
-
-  const customPassItem = {
-    ...item,
-    cartKey: `${item.id}_passes_${parsedQuantity}_${isUrgent ? 'u' : 'n'}_${nickname || 'none'}`,
-    quantity: parsedQuantity,
-    price: totalPrice,
-    urgency: urgencyStatus,
-    playerNick: parsedQuantity < 10 ? nickname : null,
-    isPassesCurrency: true
-  };
-
-  window.saveCurrencyToCart(customPassItem);
-};
-
-// Универсальное сохранение в localStorage и обновление UI
-window.saveCurrencyToCart = function(finalItem) {
-  if (typeof cart !== 'undefined') {
-    cart.push(finalItem);
-    localStorage.setItem('lowadi_cart', JSON.stringify(cart));
-  }
-  
-  // Закрываем окна
-  const overlay = document.getElementById('overlay');
-  const ecuModal = document.getElementById('ecuCalculatorModal');
-  const passesModal = document.getElementById('passesCalculatorModal');
-  
-  if (ecuModal) ecuModal.classList.remove('active');
-  if (passesModal) passesModal.classList.remove('active');
-  if (overlay) overlay.classList.remove('active');
-  
-  // Обновляем корзину на сайте
-  if (typeof updateCartUI === 'function') updateCartUI();
-  if (typeof showToast === 'function') showToast(`Товар добавлен в корзину!`);
-};
-
 function updateCartUI() {
   if (!cartItemsContainer) return;
   cartItemsContainer.innerHTML = '';
@@ -1212,6 +1027,7 @@ function updateCartUI() {
     cartItemEl.className = 'cart-item';
 
     const itemNameLower = item.name.toLowerCase();
+    const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
     
     // Переменные для калькулятора Lowadi
     let displayTitle = item.name;
@@ -1654,7 +1470,5 @@ subFilterBtns.forEach(sBtn => {
   .tag.трофеи{background-color:#ffb703;}
   .tag.объявления{background-color:#02c39a;}
 </style>
-//<script src="currencyCalculator.js"></script>
-//<script src="currencyHandler.js"></script>
 </body>
 </html>
