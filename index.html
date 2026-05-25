@@ -687,22 +687,16 @@ function loadAndRenderCategory() {
   });
 }
 
-function buildNavesDropdown(dataList) {
+function buildNavesDropdown() {
   if (!optCrSelect) return;
 
   optCrSelect.innerHTML =
     '<option value="none" data-price="0">Без предметов</option>';
 
-  let searchSource =
-    currentCategory.toLowerCase() === 'all'
-      ? dataList
-      : (cachedCatalogs["черный рынок"] || []);
+  const blackMarket =
+    cachedCatalogs["черный рынок"] || [];
 
-  if (currentCategory.toLowerCase() === 'черный рынок') {
-    searchSource = dataList;
-  }
-
-  const navesItems = searchSource.filter(item => Boolean(item.isNaves));
+  const navesItems = blackMarket.filter(item => item.isNaves === true);
 
   navesItems.forEach(item => {
     const opt = document.createElement('option');
@@ -712,7 +706,6 @@ function buildNavesDropdown(dataList) {
     optCrSelect.appendChild(opt);
   });
 }
-
 function recalcDrawerPrice() {
   if (!activeItemForDrawer) return;
   let currentPrice = activeItemForDrawer.price || 0;
@@ -1130,23 +1123,28 @@ function updateCartUI() {
     }
 
     // Рендер мета-опций для окрасов
-    let optionsMetaHtml = '';
-    if (item.category && item.category.toLowerCase() === 'окрасы') {
-      const type = (item.colorType || 'ЗЯ').toUpperCase();
-      let extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
-      
-      let addons = [];
+let optionsMetaHtml = '';
 
-if (item.chosenCr) {
+let addons = [];
+
+if (item.chosenCr && item.chosenCr !== 'none') {
   addons.push(`Доп ЧР: ${item.chosenCr} х1`);
 }
 
-if (item.hasFk) {
-  addons.push(`ФК: Да`);
+if (item.hasFk === true) {
+  addons.push(`С ФК: Да`);
 }
 
-if (item.hasSkills) {
-  addons.push(`Навыки: Да`);
+if (item.hasSkills === true) {
+  addons.push(`С навыками: Да`);
+}
+
+if (addons.length > 0) {
+  optionsMetaHtml = `
+    <div class="cart-item-meta">
+      ${addons.join('<br>')}
+    </div>
+  `;
 }
       
       let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">${addons.join('<br>')}</div>` : '';
