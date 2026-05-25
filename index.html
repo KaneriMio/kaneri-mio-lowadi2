@@ -987,9 +987,20 @@ function addToCart(item) {
   const existingProduct = cart.find(cartItem => cartItem.cartKey === finalCartKey);
   
   // Проверяем остаток строго под текущий регион (у Валюты остатки игнорируем, считая их бесконечными)
-  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-  const maxStock = isCurrency ? 999999 : ((item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0);
+// Проверяем остаток строго под текущий регион
+const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
 
+const maxStock = isCurrency
+  ? 999999
+  : ((item.stocks && item.stocks[currentServer]) !== undefined
+      ? item.stocks[currentServer]
+      : 0);
+
+// ❗ БЛОК ПРОВЕРКИ НАЛИЧИЯ
+if (!isCurrency && maxStock <= 0) {
+  showToast('Товар не в наличии');
+  return;
+}
   if (existingProduct) {
     if (!isCurrency && existingProduct.quantity >= maxStock) {
       showToast(`На сервере ${currentServer} доступно всего ${maxStock} шт.`);
