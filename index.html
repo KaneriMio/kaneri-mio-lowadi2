@@ -1041,13 +1041,18 @@ if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
     }
     existingProduct.quantity++;
   } else {
-    cart.push({
+console.log('chosenCr:', selectedCr);
+console.log('hasFk:', selectedFk);
+console.log('hasSkills:', selectedSkills);
+cart.push({
   ...item,
   cartKey: finalCartKey,
   price: item.price + extraCost,
-  chosenCr: selectedCr,
-  hasFk: selectedFk,
-  hasSkills: selectedSkills,
+
+  chosenCr: selectedCr !== 'none' ? selectedCr : null,
+  hasFk: selectedFk !== 'none',
+  hasSkills: selectedSkills !== 'none',
+
   quantity: 1,
   playerNick: item.playerNick || null
 });
@@ -1126,9 +1131,9 @@ let optionsMetaHtml = '';
 if (item.category && item.category.toLowerCase() === 'окрасы') {
   let addons = [];
 
-  if (item.chosenCr && item.chosenCr !== 'none') {
-    addons.push(`Доп ЧР: ${item.chosenCr} х1`);
-  }
+if (item.chosenCr && item.chosenCr !== 'none' && item.chosenCr.trim() !== '') {
+  addons.push(`Доп ЧР: ${item.chosenCr} х1`);
+}
 
   if (item.hasFk === true) {
     addons.push(`С ФК: Да`);
