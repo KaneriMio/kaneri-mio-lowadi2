@@ -601,6 +601,7 @@ const currencyTeamModal = getEl('currencyTeamModal'); // Новое окно в�
 const playerGameNickInput = getEl('playerGameNick'); // Поле ввода ника
 const cancelTeamOrderBtn = getEl('cancelTeamOrderBtn'); // Кнопка отмены опта
 const confirmTeamOrderBtn = getEl('confirmTeamOrderBtn'); // Кнопка подтверждения опта
+let pendingCurrency = null;
 
 const closeDrawerBtn = getEl('closeDrawer');
 const openCartBtn = getEl('openCartBtn');
@@ -985,25 +986,15 @@ function addToCart(item) {
     return;
   }
 // ПРОПУСКИ → открываем модалку, НЕ добавляем в корзину сразу
-if (
-  item.category &&
-  item.category.toLowerCase() === 'валюта' &&
-  itemNameNormalized.includes('пропуск')
-) {
-  window.pendingCurrencyItem = item;
-
+if (item.category?.toLowerCase() === 'валюта' && itemNameNormalized.includes('пропуск')) {
   closeAllDrawers();
 
-  // значение по умолчанию
-  if (currencyInputCount) currencyInputCount.value = "1";
+  pendingCurrency = {
+    item,
+    count: 1
+  };
 
-  const normalRadio = document.querySelector('input[value="normal"]');
-  if (normalRadio) normalRadio.checked = true;
-
-  if (overlay) overlay.classList.add('active');
-  initCurrencyModal();
-if (currencyOrderModal) currencyOrderModal.classList.add('active');
-
+  renderCurrencyInlineCard(item);
   return;
 }
   // Находим, сколько штук ЭТОГО ТОВАРА УЖЕ лежит в корзине (чтобы правильно посчитать общий объем)
