@@ -919,8 +919,9 @@ function addToCart(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
 
   // 0. ЖЁСТКАЯ ПРОВЕРКА НАЛИЧИЯ (НОВЫЙ ФИКС)
-  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-  const serverKeyMap = {
+const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
+
+const serverKeyMap = {
   RU: "🇷🇺",
   UN: "🇺🇳",
   ES: "🇪🇸",
@@ -933,10 +934,16 @@ const stock = isCurrency
   ? Infinity
   : (item.stocks?.[serverKey] ?? 0);
 
-  if (!isCurrency && stock <= 0) {
-    showToast("Товар не в наличии");
-    return;
-  }
+// ⚠️ ВАЖНО: stock НЕ может быть undefined в твоей логике,
+// потому что ты уже подставил ?? 0
+if (!isCurrency && item.stocks && !(serverKey in item.stocks)) {
+  console.warn("Нет данных по складу для сервера:", currentServer, item);
+}
+
+if (!isCurrency && stock <= 0) {
+  showToast("Товар не в наличии");
+  return;
+}
 
   // 1. Золотое яблоко
   if (itemNameNormalized === 'золотое яблоко') {
