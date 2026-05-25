@@ -1001,38 +1001,34 @@ if (!isCurrency && stock <= 0) {
     }
   }
 
-  // 5. Окрасы / доп. опции
+// 5. Окрасы / доп. опции
 let selectedCr = "none";
 let selectedFk = "none";
 let selectedSkills = "none";
 let extraCost = 0;
 
+// Экю → открываем модалку и выходим
 if (item.category?.toLowerCase() === 'экю') {
   openEcuModal(item);
   return;
 }
 
-updateCartUI();
-renderItems();
-return;
-}
-
+// дальше идёт логика выбора опций (окрасы)
 if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
-    selectedCr = optCrSelect ? optCrSelect.value : "none";
-    selectedFk = optFkSelect ? optFkSelect.value : "none";
-    selectedSkills = optSkillsSelect ? optSkillsSelect.value : "none";
+  selectedCr = optCrSelect ? optCrSelect.value : "none";
+  selectedFk = optFkSelect ? optFkSelect.value : "none";
+  selectedSkills = optSkillsSelect ? optSkillsSelect.value : "none";
 
-    if (optCrSelect) {
-      const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
-      if (chosenCrOpt) {
-        extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
-      }
+  if (optCrSelect) {
+    const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
+    if (chosenCrOpt) {
+      extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
     }
-
-    if (selectedFk !== 'none') extraCost += 30;
-    if (selectedSkills !== 'none') extraCost += 20;
   }
 
+  if (selectedFk !== 'none') extraCost += 30;
+  if (selectedSkills !== 'none') extraCost += 20;
+}
   const cartItemId = `${item.id}_${selectedCr}_${selectedFk}_${selectedSkills}`;
   const finalCartKey = item.playerNick
     ? `${cartItemId}_nick_${item.playerNick}`
