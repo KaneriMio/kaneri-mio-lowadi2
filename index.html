@@ -996,16 +996,18 @@ function addToCart(item) {
     }
     existingProduct.quantity++;
   } else {
-    cart.push({ 
-      ...item, 
-      cartKey: finalCartKey,
-      price: item.price + extraCost, 
-      chosenCr: selectedCr,
-      chosenFk: selectedFk,
-      chosenSkills: selectedSkills,
-      quantity: 1,
-      playerNick: item.playerNick || null // привязываем ник игрока к объекту корзины
-    });
+    cart.push({
+  ...item,
+  cartKey: finalCartKey,
+  price: item.price + extraCost,
+
+  chosenCr: selectedCr !== 'none' ? selectedCr : null,
+  hasFk: selectedFk !== 'none',
+  hasSkills: selectedSkills !== 'none',
+
+  quantity: 1,
+  playerNick: item.playerNick || null
+});
   }
   
   localStorage.setItem('lowadi_cart', JSON.stringify(cart));
