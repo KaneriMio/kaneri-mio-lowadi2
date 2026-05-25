@@ -940,23 +940,29 @@ function addToCart(item) {
     return;
   }
 
-  // 3. ПЕРЕХВАТ ДЛЯ КАЛЬКУЛЯТОРОВ ВАЛЮТЫ (ЭКЮ И ПРОПУСКИ)
-  if (item.category && item.category.toLowerCase() === 'валюта') {
-    if (typeof closeAllDrawers === 'function') closeAllDrawers();
-    
-    if (itemNameNormalized.includes('экю')) {
-      if (typeof window.openEcuCalculatorModal === 'function') {
-        window.openEcuCalculatorModal(item);
-      }
-      return; // Останавливаем обычное добавление, ждем ввода в модалке
-    }
-    
-    if (itemNameNormalized.includes('пропуск')) {
-      if (typeof window.openPassesCalculatorModal === 'function') {
-        window.openPassesCalculatorModal(item);
-      }
-      return; // Останавливаем обычное добавление, ждем ввода в модалке
-    }
+// 3. УНИВЕРСАЛЬНОЕ ОПРЕДЕЛЕНИЕ ВАЛЮТЫ
+const isCurrency =
+  (item.category || '').toLowerCase().trim() === 'валюта' ||
+  item.type === 'currency' ||
+  item.currencyType === true;
+
+if (isCurrency) {
+  closeAllDrawers?.();
+
+  const name = (item.name || '').toLowerCase();
+
+  if (name.includes('экю')) {
+    window.openEcuCalculatorModal?.(item);
+    return;
+  }
+
+  if (name.includes('пропуск')) {
+    window.openPassesCalculatorModal?.(item);
+    return;
+  }
+
+  return; // важно: не даём уйти дальше в корзину
+}
   }
 
   // 4. Обычное добавление товаров (если это не Валюта и не Яблоки)
@@ -1650,5 +1656,7 @@ subFilterBtns.forEach(sBtn => {
   .tag.трофеи{background-color:#ffb703;}
   .tag.объявления{background-color:#02c39a;}
 </style>
+<script src="currencyCalculator.js"></script>
+<script src="currencyHandler.js"></script>
 </body>
 </html>
