@@ -590,8 +590,9 @@ const currencyTeamModal = getEl('currencyTeamModal'); // Новое окно в�
 const playerGameNickInput = getEl('playerGameNick'); // Поле ввода ника
 const cancelTeamOrderBtn = getEl('cancelTeamOrderBtn'); // Кнопка отмены опта
 const confirmTeamOrderBtn = getEl('confirmTeamOrderBtn'); // Кнопка подтверждения опта
-let currencyOrderModal = null;
-let currencyInputCount = null;
+const currencyOrderModal = getEl('currencyOrderModal');
+const currencyInputCount = getEl('currencyInputCount');
+const confirmCurrencyBtn = getEl('confirmCurrencyBtn');
 
 const closeDrawerBtn = getEl('closeDrawer');
 const openCartBtn = getEl('openCartBtn');
@@ -989,8 +990,8 @@ if (
 
   closeAllDrawers();
 
-  const input = getEl('currencyInputCount');
-if (input) input.value = "1";
+  // значение по умолчанию
+  if (currencyInputCount) currencyInputCount.value = "1";
 
   const normalRadio = document.querySelector('input[value="normal"]');
   if (normalRadio) normalRadio.checked = true;
@@ -1264,7 +1265,60 @@ if (checkoutBtn) {
     closeAllDrawers();
   });
 }
+if (confirmCurrencyBtn) {
+  confirmCurrencyBtn.addEventListener('click', () => {
 
+    if (!window.pendingCurrencyItem) return;
+
+    const item = window.pendingCurrencyItem;
+
+    const count = parseInt(currencyInputCount?.value || '0', 10);
+
+    if (count <= 0) {
+      showToast('Введите количество');
+      return;
+    }
+
+    const urgency =
+      document.querySelector('input[name="modalUrgencyRadio"]:checked')?.value || 'normal';
+
+    const pricePerItem = urgency === 'urgent' ? 150 : 75;
+
+    const cartItemId = `${item.id}_currency_${urgency}`;
+
+    const finalCartKey = item.playerNick
+      ? `${cartItemId}_nick_${item.playerNick}`
+      : cartItemId;
+
+    const existing = cart.find(i => i.cartKey === finalCartKey);
+
+    if (existing) {
+      existing.quantity += count;
+      existing.price = pricePerItem;
+      existing.urgency = urgency;
+    } else {
+      cart.push({
+        ...item,
+        cartKey: finalCartKey,
+        quantity: count,
+        price: pricePerItem,
+        urgency: urgency
+      });
+    }
+
+    localStorage.setItem('lowadi_cart', JSON.stringify(cart));
+
+    updateCartUI();
+    renderItems();
+
+    if (currencyOrderModal) currencyOrderModal.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+
+    window.pendingCurrencyItem = null;
+
+    showToast('Товар добавлен в корзину');
+  });
+}
 function showToast(msg) {
   if (!cartToast || !toastMessage) return;
   clearTimeout(toastTimeout);
