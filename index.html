@@ -1051,12 +1051,12 @@ function updateCartUI() {
         } else {
           // Розница для пропусков (<= 10 штук) — считаем коней и 10% комиссию (прибавляем её)
           const cleanPasses = item.quantity * 1000;
-          const totalWithCommission = item.quantity * 1112; // 1112 пропусков за каждого коня
+          const totalWithCommission = 1112; // 1112 пропусков за каждого коня
           currencyCalcHtml = `
             <div class="cart-currency-calc">
               🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
-              Сумма на продажу с комиссией: <strong>${totalWithCommission.toLocaleString('ru-RU')} пропусков</strong><br>
-              <span style="font-size:11px; opacity:0.8;">(Вы получите чистыми: ${cleanPasses.toLocaleString('ru-RU')})</span>
+              Стоимость 1 лошади на продажу: <strong>${totalWithCommission.toLocaleString('ru-RU')} пропусков</strong><br>
+              <span style="font-size:11px; opacity:0.8;">Вы получите чистыми: ${cleanPasses.toLocaleString('ru-RU')}</span>
             </div>
           `;
         }
@@ -1066,12 +1066,12 @@ function updateCartUI() {
         
         // Для Экю комиссия считается всегда при любом количестве предметов
         const cleanEcu = item.quantity * 1000000;
-        const totalWithCommission = item.quantity * 1111112; // 1.111.112 экю за каждого коня
+        const totalWithCommission = 1111112; // 1.111.112 экю за каждого коня
         currencyCalcHtml = `
           <div class="cart-currency-calc">
             🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
-            Сумма на продажу с комиссией: <strong>${totalWithCommission.toLocaleString('ru-RU')} экю</strong><br>
-            <span style="font-size:11px; opacity:0.8;">(Вы получите чистыми: ${cleanEcu.toLocaleString('ru-RU')})</span>
+            Стоимость 1 лошади на продажу: <strong>${totalWithCommission.toLocaleString('ru-RU')} экю</strong><br>
+            <span style="font-size:11px; opacity:0.8;">Вы получите чистыми: ${cleanEcu.toLocaleString('ru-RU')}</span>
           </div>
         `;
       }
