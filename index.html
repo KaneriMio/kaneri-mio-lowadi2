@@ -944,19 +944,27 @@ function addToCart(item) {
   let existingQtyInCart = 0;
   cart.forEach(c => { if (c.id === item.id) existingQtyInCart += c.quantity; });
 
-  // 3. ПРОВЕРКА ОПТА ДЛЯ ВАЛЮТЫ "ПРОПУСКИ" (> 10 штук суммарно)
-  if (itemNameNormalized.includes('пропуск') && item.category && item.category.toLowerCase() === 'валюта') {
-    // Если добавляется товар, который поднимет общее кол-во выше 10 штук, а ник еще не сохранен
-    if ((existingQtyInCart + 1) > 10 && !item.playerNick) {
-      // Сохраняем временную ссылку на товар, который пользователь хотел положить
-      window.pendingCurrencyItem = item;
-      closeAllDrawers();
-      if (playerGameNickInput) playerGameNickInput.value = '';
-      if (overlay) overlay.classList.add('active');
-      if (currencyTeamModal) currencyTeamModal.classList.add('active');
+  // 3. ПЕРЕХВАТ ДЛЯ КАЛЬКУЛЯТОРОВ ВАЛЮТЫ (ЭКЮ И ПРОПУСКИ)
+  if (item.category && item.category.toLowerCase() === 'валюта') {
+    closeAllDrawers();
+    
+    // Передаем товар в наш новый изолированный модуль управления модалками
+    if (itemNameNormalized.includes('экю')) {
+      openEcuCalculatorModal(item);
+      return;
+    }
+    
+    if (itemNameNormalized.includes('пропуск')) {
+      openPassesCalculatorModal(item);
       return;
     }
   }
+
+  // Ниже остается ваш стандартный неизмененный код добавления обычных товаров:
+  // (Здесь идет ваш push в массив cart, вызов updateCartUI() и т.д.)
+  // cart.push(item); ...
+}
+
 
   // Расчет дополнительных опций окрасов
   let selectedCr = "none";
