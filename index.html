@@ -1077,7 +1077,7 @@ function updateCartUI() {
         
         // Для Экю комиссия считается всегда при любом количестве предметов
         const cleanEcu = item.quantity * 1000000;
-        const totalWithCommission = item.quantity * 1111112; // 1.111.112 экю за каждого коня
+        const totalWithCommission = 1111112; // 1.111.112 экю за каждого коня
         currencyCalcHtml = `
           <div class="cart-currency-calc">
             🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
