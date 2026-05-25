@@ -511,27 +511,24 @@
 <script>
 // Глобальный кэш каталогов
 let cachedCatalogs = {
-  "all": [], "черный рынок": [], "валюта": [], "окрасы": [], 
+  "all": [], "черный рынок": [], "валюта": [], "окрасы": [],
   "спутники": [], "трофеи": [], "объявления": [], "услуги": [], "другое": []
 };
 
-// Хранилища данных сессии
-let currentServer = localStorage.getItem('lowadi_server') || ''; 
-let cart = JSON.parse(localStorage.getItem('lowadi_cart')) || []; 
+// Хранилища данных
+let currentServer = localStorage.getItem('lowadi_server') || '';
+let cart = JSON.parse(localStorage.getItem('lowadi_cart')) || [];
 
-// ЖЕСТКОЕ ИСПРАВЛЕНИЕ БАГА: Фильтруем избранное от пустых элементов при загрузке
 let rawFavorites = JSON.parse(localStorage.getItem('lowadi_favorites')) || [];
 let favorites = rawFavorites.filter(id => id && String(id).trim() !== "");
 
-let isFavoritesPage = false; 
+let isFavoritesPage = false;
 let activeItemForDrawer = null;
-let currentAppleType = ''; 
+let currentAppleType = '';
 
-// Строгая пагинация по 30 штук
 let currentPage = 1;
 const itemsPerPage = 20;
 
-// Защитный метод безопасного поиска элементов
 const getEl = (id) => document.getElementById(id);
 
 const container = getEl('products');
@@ -548,31 +545,7 @@ const overlay = getEl('overlay');
 const productDrawer = getEl('drawer');
 const cartDrawer = getEl('cartDrawer');
 const appleModal = getEl('appleModal');
-const confirmClearCartModal = getEl('confirmClearCartModal'); // Новое окно подтверждения
-const serverWelcomeModal = getEl('serverWelcomeModal');
-const welcomeServerSelect = getEl('welcomeServerSelect');
-const submitServerBtn = getEl('submitServerBtn');
-const currentServerBtn = getEl('currentServerBtn');
-const currencyTeamModal = getEl('currencyTeamModal'); // Новое окно ввода ника
-const playerGameNickInput = getEl('playerGameNick'); // Поле ввода ника
-const cancelTeamOrderBtn = getEl('cancelTeamOrderBtn'); // Кнопка отмены опта
-const confirmTeamOrderBtn = getEl('confirmTeamOrderBtn'); // Кнопка подтверждения опта
-
-
-const closeDrawerBtn = getEl('closeDrawer');
-const openCartBtn = getEl('openCartBtn');
-const openFavBtn = getEl('openFavBtn');
-const closeCartDrawerBtn = getEl('closeCartDrawer');
-const drawerAddCartBtn = getEl('drawerAddCartBtn');
-
-const optCrSelect = getEl('opt-cr-select');
-const optFkSelect = getEl('opt-fk-select');
-const optSkillsSelect = getEl('opt-skills-select');
-
-const modalGoCatalogBtn = getEl('modalGoCatalogBtn');
-const modalCloseBtn = getEl('modalCloseBtn');
-const cancelClearCartBtn = getEl('cancelClearCartBtn');
-const confirmClearCartBtnEl = getEl('confirmClearCartBtn');
+const confirmClearCartModal = getEl('confirmClearCartModal');
 
 const cartItemsContainer = getEl('cartItemsContainer');
 const cartTotalPrice = getEl('cartTotalPrice');
@@ -580,13 +553,9 @@ const cartBadge = getEl('cartBadge');
 const favBadge = getEl('favBadge');
 const clearCartBtn = getEl('clearCartBtn');
 const checkoutBtn = getEl('checkoutBtn');
-const cartToast = getEl('cartToast');
-const toastMessage = getEl('toastMessage');
-const closeToastBtn = getEl('closeToastBtn');
 
 let currentCategory = 'all';
-let currentSubCategory = 'all'; 
-let toastTimeout;
+let currentSubCategory = 'all';
 
 const catalogFiles = {
   "черный рынок": "./blackmarket.json",
@@ -600,1063 +569,159 @@ const catalogFiles = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Гарантируем точный и честный счётчик без пустышек
   if (favBadge) favBadge.innerText = favorites.length;
   updateCartUI();
-
-  if (currentServer) {
-    if (currentServerBtn) currentServerBtn.innerText = currentServer + " " + currentServer.replace(/[^A-ZА-Яa-zа-я]/g, '');
-    loadAndRenderCategory();
-  } else {
-    if (overlay) overlay.classList.add('active');
-    if (serverWelcomeModal) serverWelcomeModal.classList.add('active');
-  }
+  loadAndRenderCategory();
 });
 
-if (submitServerBtn) {
-  submitServerBtn.addEventListener('click', () => {
-    if (welcomeServerSelect) changeGlobalServer(welcomeServerSelect.value);
-    closeAllDrawers();
-  });
-}
-window.changeGlobalServer = function(flag) {
-  currentServer = flag;
-  localStorage.setItem('lowadi_server', flag);
-  if (currentServerBtn) currentServerBtn.innerText = flag + " " + flag.replace(/[^A-ZА-Яa-zа-я]/g, '');
-  
-  if (flag !== '🇷🇺' && flag !== '🇺🇳') {
-    const welcomeTitle = getEl('serverModalTitle');
-    const welcomeText = getEl('serverModalText');
-    const welcomeSelectWrap = getEl('serverSelectWrapper');
-    
-    if (welcomeTitle) welcomeTitle.innerText = "Внимание!";
-    if (welcomeText) welcomeText.innerHTML = "Упс! Товары для этих регионов ещё не были добавлены. Попробуйте выбрать другой регион.";
-    if (welcomeSelectWrap) welcomeSelectWrap.style.display = "block";
-    
-    if (overlay) overlay.classList.add('active');
-    if (serverWelcomeModal) serverWelcomeModal.classList.add('active');
-  } else {
-    showToast(`Сервер переключен на ${flag}`);
-  }
-  
-  cachedCatalogs = { "all": [], "черный рынок": [], "валюта": [], "окрасы": [], "спутники": [], "трофеи": [], "объявления": [], "услуги": [], "другое": [] };
-  currentPage = 1; 
-  loadAndRenderCategory();
-};
-
+// ================= FETCH =================
 function safeFetch(url) {
   return fetch(url)
     .then(res => res.ok ? res.json() : [])
     .catch(() => []);
 }
 
+// ================= LOAD =================
 function loadAndRenderCategory() {
   const cat = currentCategory.toLowerCase();
 
   if (cat === 'all') {
-    if (cachedCatalogs["all"].length > 0) {
-      renderItems();
-      return;
-    }
-    const promises = Object.values(catalogFiles).map(file => safeFetch(file));
-    Promise.all(promises).then(results => {
-      cachedCatalogs["all"] = results.flat();
-      buildNavesDropdown(cachedCatalogs["all"]);
-      renderItems();
-    });
-    return;
-  }
-
-  if (cachedCatalogs[cat] && cachedCatalogs[cat].length > 0) {
-    buildNavesDropdown(cachedCatalogs[cat]);
-    renderItems();
+    Promise.all(Object.values(catalogFiles).map(safeFetch))
+      .then(res => {
+        cachedCatalogs["all"] = res.flat();
+        renderItems();
+      });
     return;
   }
 
   const fileUrl = catalogFiles[cat];
-  if (!fileUrl) {
-    if (container) container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; font-weight: bold; margin-top: 40px; color: #4a2810;">Раздел находится в разработке 🐴</div>`;
-    if (paginationContainer) paginationContainer.innerHTML = '';
-    return;
-  }
+  if (!fileUrl) return;
 
   safeFetch(fileUrl).then(data => {
     cachedCatalogs[cat] = data;
-    buildNavesDropdown(data);
     renderItems();
   });
 }
 
-function buildNavesDropdown(dataList) {
-  if (!optCrSelect) return;
-  optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
-  let searchSource = currentCategory.toLowerCase() === 'all' ? dataList : (cachedCatalogs["черный рынок"] || []);
-  if (currentCategory.toLowerCase() === 'черный рынок') searchSource = dataList;
-
-  searchSource.forEach(item => {
-    if (item.isNaves === true) {
-      const opt = document.createElement('option');
-      opt.value = item.name;
-      opt.setAttribute('data-price', item.price || 0);
-      opt.innerText = `${item.name} (+${item.price || 0}₽)`;
-      optCrSelect.appendChild(opt);
-    }
-  });
-}
-
-function recalcDrawerPrice() {
-  if (!activeItemForDrawer) return;
-  let currentPrice = activeItemForDrawer.price || 0;
-  if (optCrSelect) {
-    const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
-    if (chosenCrOpt) currentPrice += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
-  }
-  if (optFkSelect && optFkSelect.value !== 'none') currentPrice += 30;
-  if (optSkillsSelect && optSkillsSelect.value !== 'none') currentPrice += 20;
-  const priceBox = document.getElementById('d-price');
-  if (priceBox) priceBox.innerText = `${currentPrice} ₽`;
-}
-
-if (optCrSelect) optCrSelect.addEventListener('change', recalcDrawerPrice);
-if (optFkSelect) optFkSelect.addEventListener('change', recalcDrawerPrice);
-if (optSkillsSelect) optSkillsSelect.addEventListener('change', recalcDrawerPrice);
+// ================= RENDER =================
 function renderItems() {
   if (!container) return;
-  container.innerHTML = '';
-  const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
-  const stockValue = stockFilter ? stockFilter.value : 'all';
-  const tagValue = tagFilter ? tagFilter.value : 'all';
 
+  container.innerHTML = '';
+
+  const query = searchInput?.value.toLowerCase().trim() || '';
   const catData = cachedCatalogs[currentCategory.toLowerCase()] || [];
 
   const filtered = catData.filter(item => {
-    if (isFavoritesPage && !favorites.includes(item.id)) return false;
-
-    const matchesName = item.name.toLowerCase().includes(query);
-    const matchesKeywords = item.keywords && item.keywords.some(k => k.toLowerCase().includes(query));
-    if (!matchesName && !matchesKeywords) return false;
-
-    if (currentCategory.toLowerCase() === 'окрасы' && currentSubCategory !== 'all') {
-      if (!item.colorType || item.colorType.toLowerCase() !== currentSubCategory.toLowerCase()) return false;
-    }
-
-    const serverStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
-    if (stockValue === 'available' && serverStock <= 0) return false;
-    
-    if (tagValue === 'new' && item.isNew !== true) return false;
-    if (tagValue === 'limited' && item.isRare !== true) return false;
-    if (tagValue === 'hot' && item.isHot !== true) return false;
-
-    return true;
+    return item.name.toLowerCase().includes(query);
   });
 
-  // Если мы на странице избранного, добавляем сверху кнопку "Очистить всё"
-  if (isFavoritesPage && filtered.length > 0) {
-    const clearFavDiv = document.createElement('div');
-    clearFavDiv.className = 'clear-fav-container';
-    clearFavDiv.innerHTML = `<button class="clear-fav-btn" onclick="clearAllFavorites(event)">Очистить избранное ❤️</button>`;
-    container.appendChild(clearFavDiv);
-  }
-
-  if (isFavoritesPage && filtered.length === 0) {
-    container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: #4a2810; font-weight: bold; margin-top: 40px; font-size: 16px;">Список избранных товаров пуст ❤️</div>`;
-    if (paginationContainer) paginationContainer.innerHTML = '';
-    return;
-  }
-
-  const totalItems = filtered.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
-  if (currentPage > totalPages) currentPage = totalPages;
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const pageItems = filtered.slice(startIndex, endIndex);
-
-  renderPaginationControls(totalPages);
-
-  pageItems.forEach(item => {
+  filtered.forEach(item => {
     const card = document.createElement('div');
     card.className = 'card';
-    const tagClass = (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
-    
-    const currentStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
-    const isOutOfStock = currentStock <= 0;
 
-    let badgeHtml = '';
-    if (item.isNew) badgeHtml = '<span class="badge new">NEW</span>';
-    else if (item.isHot) badgeHtml = '<span class="badge hot">Hot</span>';
-    else if (item.isRare) badgeHtml = '<span class="badge limited">Limited</span>';
-
-    // РЕНДЕР ОПИСАНИЯ КАРТОЧКИ: "В наличии" перенесено внутрь тела описания для ВСЕХ товаров
-    let cardContentHtml = '';
-    if (item.category && item.category.toLowerCase() === 'окрасы') {
-      const type = (item.colorType || 'ЗЯ').toUpperCase();
-      cardContentHtml = `
-        <div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>
-        <div class="card-meta-text">Вид: <span>${item.type || 'Обычный'}</span></div>
-        <div class="card-meta-text">Копии: <span>${item.copies || 'Не ограничены'}</span></div>
-      `;
-    }
-    cardContentHtml += `<div class="card-meta-stock-line">В наличии: <span style="color:${isOutOfStock ? '#d32f2f':'#2e7d32'}">${currentStock} шт.</span></div>`;
-
-    const inCart = cart.find(c => c.id === item.id);
-    const isLiked = favorites.includes(item.id);
-
-    // Кнопка корзины на витрине
-    let actionHtml = '';
-    if (isOutOfStock) {
-      actionHtml = `<button class="cart-btn" style="background:#ccc; cursor:not-allowed;" disabled><svg viewBox="0 0 24 24"><path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" fill="none"/></svg></button>`;
-    } else if (inCart) {
-      actionHtml = `
-        <div class="card-qty-controls" onclick="event.stopPropagation();">
-          <button class="card-qty-btn" onclick="changeQty('${item.id}', -1)">-</button>
-          <span class="card-qty-value">${inCart.quantity}</span>
-          <button class="card-qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
-        </div>
-      `;
-    } else {
-      actionHtml = `
-        <button class="cart-btn font-add-btn" title="Добавить в корзину">
-          <svg viewBox="0 0 24 24">
-            <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M7 14h12M7 16h12M7 18h12" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <circle cx="8" cy="21" r="1.5" fill="#fff"/>
-            <circle cx="18" cy="21" r="1.5" fill="#fff"/>
-          </svg>
-        </button>
-      `;
-    }
-
-    // Итоговая разметка карточки: Цена перенесена в самый низ (в футер) на место наличия
     card.innerHTML = `
-      <div class="image-wrapper">
-        <button class="card-fav-btn ${isLiked ? 'active' : ''}" title="Добавить в избранное" onclick="event.stopPropagation(); toggleFavorite('${item.id}')">
-          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        </button>
-        ${badgeHtml}
-        <img src="${item.image}" alt="${item.name}">
-      </div>
       <div class="card-body">
-        <div class="tag ${tagClass}">${item.category || 'Другое'}</div>
-        <h3 class="card-title">${item.name}</h3>
-        ${cardContentHtml}
-        <p class="card-description">${item.description || ''}</p>
-        <div class="card-footer ${isOutOfStock ? 'out-of-stock' : ''}">
-          <span class="card-footer-price">${item.price || 0} ₽</span>
-          ${actionHtml}
-        </div>
+        <h3>${item.name}</h3>
+        <p>${item.price} ₽</p>
+        <button class="add-btn">В корзину</button>
       </div>
     `;
 
-    if (!isOutOfStock && !inCart) {
-      const cartBtn = card.querySelector('.font-add-btn');
-      if (cartBtn) {
-        cartBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          addToCart(item);
-        });
-      }
-    }
+    card.querySelector('.add-btn').addEventListener('click', () => addToCart(item));
 
-    card.addEventListener('click', () => openProductDrawer(item));
     container.appendChild(card);
   });
 }
-// Функция полной очистки Избранного по клику на новую кнопку
-window.clearAllFavorites = function(e) {
-  if (e) e.stopPropagation();
-  favorites = [];
-  localStorage.setItem('lowadi_favorites', JSON.stringify(favorites));
-  if (favBadge) favBadge.innerText = 0;
-  showToast('Список Избранного полностью очищен ❤️');
-  renderItems();
-};
 
-function renderPaginationControls(totalPages) {
-  if (!paginationContainer) return;
-  paginationContainer.innerHTML = '';
-  if (totalPages <= 1) return;
-
-  const prevBtn = document.createElement('button');
-  prevBtn.className = 'page-btn';
-  prevBtn.innerText = '◀';
-  prevBtn.disabled = currentPage === 1;
-  prevBtn.addEventListener('click', () => { currentPage--; renderItems(); window.scrollTo({top: 0, behavior: 'smooth'}); });
-  paginationContainer.appendChild(prevBtn);
-
-  for (let i = 1; i <= totalPages; i++) {
-    const pageBtn = document.createElement('button');
-    pageBtn.className = `page-btn ${currentPage === i ? 'active' : ''}`;
-    pageBtn.innerText = i;
-    pageBtn.addEventListener('click', () => { currentPage = i; renderItems(); window.scrollTo({top: 0, behavior: 'smooth'}); });
-    paginationContainer.appendChild(pageBtn);
-  }
-
-  const nextBtn = document.createElement('button');
-  nextBtn.className = 'page-btn';
-  nextBtn.innerText = '▶';
-  nextBtn.disabled = currentPage === totalPages;
-  nextBtn.addEventListener('click', () => { currentPage++; renderItems(); window.scrollTo({top: 0, behavior: 'smooth'}); });
-  paginationContainer.appendChild(nextBtn);
-}
-
-function toggleFavorite(id) {
-  const index = favorites.indexOf(id);
-  if (index > -1) {
-    favorites.splice(index, 1);
-    showToast('Товар удален из Избранного');
-  } else {
-    favorites.push(id);
-    showToast('Товар добавлен в Избранное ❤️');
-  }
-  // Перепроверка массива на пустоту, чтобы исключить баги счётчика
-  favorites = favorites.filter(item => item && String(item).trim() !== "");
-  if (favBadge) favBadge.innerText = favorites.length;
-  localStorage.setItem('lowadi_favorites', JSON.stringify(favorites));
-  renderItems();
-}
+// ================= FIXED ADD TO CART =================
 function addToCart(item) {
-  const itemNameNormalized = item.name.trim().toLowerCase();
 
-  // 1. Проверка блокировки для Золотого Яблока
-  if (itemNameNormalized === 'золотое яблоко') {
-    currentAppleType = 'зя';
-    closeAllDrawers();
-    const modalText = document.getElementById('appleModalText');
-    if (modalText) modalText.innerHTML = 'Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
-    if (overlay) overlay.classList.add('active');
-    if (appleModal) appleModal.classList.add('active');
+  const name = item.name?.trim().toLowerCase();
+
+  // Золотое яблоко
+  if (name === 'золотое яблоко') {
+    alert('Товар продаётся только навесом');
     return;
   }
 
-  // 2. Проверка блокировки для Исчезнувшего золотого яблока
-  if (itemNameNormalized === 'исчезнувшее золотое яблоко') {
-    currentAppleType = 'ися'; 
-    closeAllDrawers();
-    const modalText = document.getElementById('appleModalText');
-    if (modalText) modalText.innerHTML = 'Товар <strong>Исчезнувшее золотое яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
-    if (overlay) overlay.classList.add('active');
-    if (appleModal) appleModal.classList.add('active');
+  // Исчезнувшее яблоко
+  if (name === 'исчезнувшее золотое яблоко') {
+    alert('Товар продаётся только навесом');
     return;
   }
 
-// 3. УНИВЕРСАЛЬНОЕ ОПРЕДЕЛЕНИЕ ВАЛЮТЫ
-const isCurrency =
-  (item.category || '').toLowerCase().trim() === 'валюта' ||
-  item.type === 'currency' ||
-  item.currencyType === true;
+  // ВАЛЮТА
+  const isCurrency =
+    (item.category || '').toLowerCase() === 'валюта';
 
-if (isCurrency) {
-  closeAllDrawers?.();
+  if (isCurrency) {
 
-  const name = (item.name || '').toLowerCase();
-
-  if (name.includes('экю')) {
-    window.openEcuCalculatorModal?.(item);
-    return;
-  }
-
-  if (name.includes('пропуск')) {
-    window.openPassesCalculatorModal?.(item);
-    return;
-  }
-
-  return; // важно: не даём уйти дальше в корзину
-}
-  }
-
-  // 4. Обычное добавление товаров (если это не Валюта и не Яблоки)
-  // Расчет дополнительных опций окрасов
-  let selectedCr = "none";
-  let selectedFk = "none";
-  let selectedSkills = "none";
-  let extraCost = 0;
-
-  if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
-    selectedCr = optCrSelect ? optCrSelect.value : "none";
-    selectedFk = optFkSelect ? optFkSelect.value : "none";
-    selectedSkills = optSkillsSelect ? optSkillsSelect.value : "none";
-
-    if (optCrSelect) {
-      const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
-      if (chosenCrOpt) {
-        extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
-      }
-    }
-    if (selectedFk !== 'none') extraCost += 30;
-    if (selectedSkills !== 'none') extraCost += 20;
-  }
-
-  const cartItemId = `${item.id}_${selectedCr}_${selectedFk}_${selectedSkills}`;
-  
-  // Для валюты с разным статусом ника создаем независимые ключи, чтобы они корректно разделялись
-  const finalCartKey = item.playerNick ? `${cartItemId}_nick_${item.playerNick}` : cartItemId;
-  const existingProduct = cart.find(cartItem => cartItem.cartKey === finalCartKey);
-  
-  // Проверяем остаток строго под текущий регион (у Валюты остатки игнорируем, считая их бесконечными)
-  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-  const maxStock = isCurrency ? 999999 : ((item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0);
-
-  if (existingProduct) {
-    if (!isCurrency && existingProduct.quantity >= maxStock) {
-      showToast(`На сервере ${currentServer} доступно всего ${maxStock} шт.`);
+    if (name.includes('экю')) {
+      window.openEcuCalculatorModal?.(item);
       return;
     }
-    existingProduct.quantity++;
+
+    if (name.includes('пропуск')) {
+      window.openPassesCalculatorModal?.(item);
+      return;
+    }
+
+    return;
+  }
+
+  // обычные товары
+  const existing = cart.find(i => i.id === item.id);
+
+  if (existing) {
+    existing.quantity += 1;
   } else {
-    cart.push({ 
-      ...item, 
-      cartKey: finalCartKey,
-      price: item.price + extraCost, 
-      chosenCr: selectedCr,
-      chosenFk: selectedFk,
-      chosenSkills: selectedSkills,
+    cart.push({
+      ...item,
       quantity: 1,
-      playerNick: item.playerNick || null // привязываем ник игрока к объекту корзины
+      cartKey: item.id + '_' + Date.now()
     });
   }
-  
+
   localStorage.setItem('lowadi_cart', JSON.stringify(cart));
-  updateCartUI();
-  if (typeof renderItems === 'function') renderItems();
-  showToast(`Товар "${item.name}" добавлен в корзину!`);
+  updateCartUI?.();
+  renderItems?.();
 }
-// ==========================================
-// ИЗОЛИРОВАННАЯ ЛОГИКА КАЛЬКУЛЯТОРОВ ВАЛЮТЫ
-// ==========================================
-window.currentCurrencyItem = null;
 
-// 1. Открытие модалки Экю
-window.openEcuCalculatorModal = function(item) {
-  window.currentCurrencyItem = item;
-  const ecuModal = document.getElementById('ecuCalculatorModal');
-  const overlay = document.getElementById('overlay');
-  
-  if (ecuModal && overlay) {
-    const amountInput = document.getElementById('ecuAmountInput');
-    const instructionText = document.getElementById('ecuInstructionText');
-    if (amountInput) amountInput.value = '';
-    if (instructionText) instructionText.innerHTML = '';
-    
-    overlay.classList.add('active');
-    ecuModal.classList.add('active');
-  } else {
-    // Если разметки модалки еще нет в HTML, временно выводим стандартное окно ввода
-    const amount = prompt("Введите желаемое количество Экю:");
-    if (amount) window.submitEcuDirectly(item, amount);
-  }
-};
-
-// 2. Расчет комиссии Экю (вызывать на событие oninput инпута количества)
-window.handleEcuCalculation = function() {
-  const amountInput = document.getElementById('ecuAmountInput');
-  const instructionText = document.getElementById('ecuInstructionText');
-  if (!amountInput || !instructionText) return false;
-
-  const amount = parseInt(amountInput.value, 10);
-  if (isNaN(amount) || amount <= 0) {
-    instructionText.innerText = "Введите корректное количество";
-    return false;
-  }
-
-  // Комиссия +10% (округление вниз)
-  const finalPriceWithCommission = Math.floor(amount * 1.1);
-  instructionText.innerHTML = `Поставьте X коней на продажу за <strong>${finalPriceWithCommission.toLocaleString()}</strong> экю`;
-  return finalPriceWithCommission;
-};
-
-// 3. Сохранение Экю из модалки в корзину
-window.submitEcuToCart = function() {
-  const finalEcu = window.handleEcuCalculation();
-  const amountInput = document.getElementById('ecuAmountInput');
-  if (!finalEcu || !amountInput) return alert('Проверьте введенные данные');
-
-  const amount = parseInt(amountInput.value, 10);
-  window.submitEcuDirectly(window.currentCurrencyItem, amount, finalEcu);
-};
-
-// Вспомогательный метод записи Экю в массив корзины
-window.submitEcuDirectly = function(item, amount, finalEcu) {
-  const parsedAmount = parseInt(amount, 10);
-  const totalEcu = finalEcu || Math.floor(parsedAmount * 1.1);
-  
-  const customEcuItem = {
-    ...item,
-    cartKey: `${item.id}_ecu_${parsedAmount}`,
-    quantity: parsedAmount, // Сохраняем введенное количество
-    price: item.price * parsedAmount, // Считаем общую цену в рублях
-    totalEcuToSet: totalEcu,
-    isEcuCurrency: true
-  };
-
-  window.saveCurrencyToCart(customEcuItem);
-};
-
-// 4. Открытие модалки Пропусков
-window.openPassesCalculatorModal = function(item) {
-  window.currentCurrencyItem = item;
-  const passesModal = document.getElementById('passesCalculatorModal');
-  const overlay = document.getElementById('overlay');
-  
-  if (passesModal && overlay) {
-    const qtyInput = document.getElementById('passesQuantityInput');
-    const nickInput = document.getElementById('passesNicknameInput');
-    const nickBlock = document.getElementById('passesNicknameBlock');
-    
-    if (qtyInput) qtyInput.value = '';
-    if (nickInput) nickInput.value = '';
-    if (nickBlock) nickBlock.style.display = 'block';
-    
-    overlay.classList.add('active');
-    passesModal.classList.add('active');
-  } else {
-    // Альтернативный ввод, если модалки в HTML еще нет
-    const qty = prompt("Введите количество пропусков:");
-    if (!qty) return;
-    const isUrgent = confirm("Заказ срочный? (ОК - Срочно [150р], Отмена - Не срочно [75р])");
-    let nick = "";
-    if (parseInt(qty, 10) < 10) {
-      nick = prompt("Для заказа менее 10 пропусков введите игровой ник:");
-      if (!nick) return alert("Ник обязателен!");
-    }
-    window.submitPassesDirectly(item, qty, isUrgent, nick);
-  }
-};
-
-// 5. Переключение отображения Ника для Пропусков (вызывать на oninput инпута количества)
-window.handlePassesInputChange = function() {
-  const qtyInput = document.getElementById('passesQuantityInput');
-  const nickBlock = document.getElementById('passesNicknameBlock');
-  if (!qtyInput || !nickBlock) return;
-
-  const quantity = parseInt(qtyInput.value, 10);
-  if (!isNaN(quantity) && quantity >= 10) {
-    nickBlock.style.display = 'none';
-  } else {
-    nickBlock.style.display = 'block';
-  }
-};
-
-// 6. Сохранение Пропусков из модалки в корзину
-window.submitPassesToCart = function() {
-  const qtyInput = document.getElementById('passesQuantityInput');
-  const nickInput = document.getElementById('passesNicknameInput');
-  const urgentCheckbox = document.getElementById('passesUrgentCheckbox');
-  
-  if (!qtyInput || !nickInput || !urgentCheckbox) return;
-
-  const quantity = qtyInput.value;
-  const isUrgent = urgentCheckbox.checked;
-  const nickname = nickInput.value.trim();
-
-  if (parseInt(quantity, 10) < 10 && !nickname) {
-    return alert('Для заказа менее 10 пропусков обязательно введите игровой ник!');
-  }
-
-  window.submitPassesDirectly(window.currentCurrencyItem, quantity, isUrgent, nickname);
-};
-
-// Вспомогательный метод записи Пропусков в массив корзины
-window.submitPassesDirectly = function(item, quantity, isUrgent, nickname) {
-  const parsedQuantity = parseInt(quantity, 10);
-  if (isNaN(parsedQuantity) || parsedQuantity <= 0) return alert('Укажите корректное количество');
-
-  const pricePerUnit = isUrgent ? 150 : 75;
-  const totalPrice = parsedQuantity * pricePerUnit;
-  const urgencyStatus = isUrgent ? 'Срочно' : 'Не срочно';
-
-  const customPassItem = {
-    ...item,
-    cartKey: `${item.id}_passes_${parsedQuantity}_${isUrgent ? 'u' : 'n'}_${nickname || 'none'}`,
-    quantity: parsedQuantity,
-    price: totalPrice,
-    urgency: urgencyStatus,
-    playerNick: parsedQuantity < 10 ? nickname : null,
-    isPassesCurrency: true
-  };
-
-  window.saveCurrencyToCart(customPassItem);
-};
-
-// Универсальное сохранение в localStorage и обновление UI
-window.saveCurrencyToCart = function(finalItem) {
-  if (typeof cart !== 'undefined') {
-    cart.push(finalItem);
-    localStorage.setItem('lowadi_cart', JSON.stringify(cart));
-  }
-  
-  // Закрываем окна
-  const overlay = document.getElementById('overlay');
-  const ecuModal = document.getElementById('ecuCalculatorModal');
-  const passesModal = document.getElementById('passesCalculatorModal');
-  
-  if (ecuModal) ecuModal.classList.remove('active');
-  if (passesModal) passesModal.classList.remove('active');
-  if (overlay) overlay.classList.remove('active');
-  
-  // Обновляем корзину на сайте
-  if (typeof updateCartUI === 'function') updateCartUI();
-  if (typeof showToast === 'function') showToast(`Товар добавлен в корзину!`);
-};
-
+// ================= CART UI =================
 function updateCartUI() {
   if (!cartItemsContainer) return;
+
   cartItemsContainer.innerHTML = '';
+
   let total = 0;
-  let totalItemsCount = 0;
+  let count = 0;
 
   cart.forEach(item => {
     total += item.price * item.quantity;
-    totalItemsCount += item.quantity;
+    count += item.quantity;
 
-    const cartItemEl = document.createElement('div');
-    cartItemEl.className = 'cart-item';
-
-    const itemNameLower = item.name.toLowerCase();
-    const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-    
-    // Переменные для калькулятора Lowadi
-    let displayTitle = item.name;
-    let currencyCalcHtml = '';
-
-    if (isCurrency) {
-      if (itemNameLower.includes('пропуск')) {
-        // Форматируем заголовок как "1.000 пропусков" умноженное на количество штук
-        displayTitle = `${item.quantity}.000 пропусков`;
-        
-        if (item.quantity > 10) {
-          // Опт для пропусков (> 10 штук) — выводим только ник для приглашения в команду
-          currencyCalcHtml = `
-            <div class="cart-currency-calc">
-              <strong>👑 Командный заказ</strong><br>
-              Приглашение будет отправлено на ник: <strong>${item.playerNick || 'Не указан'}</strong>
-            </div>
-          `;
-        } else {
-          // Розница для пропусков (<= 10 штук) — считаем коней и 10% комиссию (прибавляем её)
-          const cleanPasses = item.quantity * 1000;
-          const totalWithCommission = item.quantity * 1112; // 1112 пропусков за каждого коня
-          currencyCalcHtml = `
-            <div class="cart-currency-calc">
-              🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
-              Сумма на продажу с комиссией: <strong>${totalWithCommission.toLocaleString('ru-RU')} пропусков</strong><br>
-              <span style="font-size:11px; opacity:0.8;">(Вы получите чистыми: ${cleanPasses.toLocaleString('ru-RU')})</span>
-            </div>
-          `;
-        }
-      } else if (itemNameLower.includes('экю')) {
-        // Форматируем заголовок как "1.000.000 экю" умноженное на количество штук
-        displayTitle = `${item.quantity}.000.000 экю`;
-        
-        // Для Экю комиссия считается всегда при любом количестве предметов
-        const cleanEcu = item.quantity * 1000000;
-        const totalWithCommission = item.quantity * 1111112; // 1.111.112 экю за каждого коня
-        currencyCalcHtml = `
-          <div class="cart-currency-calc">
-            🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
-            Сумма на продажу с комиссией: <strong>${totalWithCommission.toLocaleString('ru-RU')} экю</strong><br>
-            <span style="font-size:11px; opacity:0.8;">(Вы получите чистыми: ${cleanEcu.toLocaleString('ru-RU')})</span>
-          </div>
-        `;
-      }
-    }
-
-    // Рендер мета-опций для окрасов
-    let optionsMetaHtml = '';
-    if (item.category && item.category.toLowerCase() === 'окрасы') {
-      const type = (item.colorType || 'ЗЯ').toUpperCase();
-      let extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
-      
-      let addons = [];
-      if (item.chosenCr !== 'none') addons.push(`Доп ЧР: ${item.chosenCr} х1`);
-      if (item.chosenFk !== 'none') addons.push(`ФК: Да`);
-      if (item.chosenSkills !== 'none') addons.push(`Навыки: Да`);
-      
-      let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">${addons.join('<br>')}</div>` : '';
-      optionsMetaHtml = `<div class="cart-item-meta" style="color:#b17a53; font-weight:bold; margin-top:4px;">Категория: ${type}</div>${extraInfo}${addonsText}`;
-    }
-
-    // Для валюты скрываем кнопки "+" и "-", так как её количество регулируется основным каталогом
-    let quantityControlsHtml = `
-      <div class="quantity-controls">
-        <button class="qty-btn" onclick="changeQtyByKey('${item.cartKey}', -1)">-</button>
-        <span style="font-size: 13px; font-weight: bold; min-width: 15px; text-align: center;">${item.quantity}</span>
-        <button class="qty-btn" onclick="changeQtyByKey('${item.cartKey}', 1)">+</button>
-      </div>
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <div>${item.name}</div>
+      <div>${item.quantity} × ${item.price} ₽</div>
     `;
-    if (isCurrency) {
-      quantityControlsHtml = `<div style="font-size: 12px; color: #777; margin-top: 6px; font-weight: 600;">Пакет валюты х${item.quantity}</div>`;
-    }
 
-    cartItemEl.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      <div class="cart-item-details">
-        <div class="cart-item-name">${displayTitle}</div>
-        ${optionsMetaHtml}
-        ${currencyCalcHtml}
-        <div class="cart-item-price" style="margin-top:6px;">${item.price * item.quantity} ₽</div>
-        ${quantityControlsHtml}
-      </div>
-      <button class="remove-item-btn" onclick="removeFromCartByKey('${item.cartKey}')">&times;</button>
-    `;
-    cartItemsContainer.appendChild(cartItemEl);
+    cartItemsContainer.appendChild(div);
   });
 
-  if (cartTotalPrice) cartTotalPrice.innerText = `${total} ₽`;
-  if (cartBadge) cartBadge.innerText = totalItemsCount;
-}
-window.changeQtyByKey = function(key, change) {
-  const item = cart.find(i => i.cartKey === key);
-  if (!item) return;
-  
-  const catKey = currentCategory.toLowerCase();
-  const searchPool = cachedCatalogs[catKey] || [];
-  const originalItem = searchPool.find(i => i.id === item.id);
-  
-  const maxStock = originalItem ? ((originalItem.stocks && originalItem.stocks[currentServer]) || 0) : 999;
-  const newQty = item.quantity + change;
-
-  if (newQty <= 0) {
-    removeFromCartByKey(key);
-    return;
-  }
-  if (newQty > maxStock) {
-    showToast(`Доступный лимит на этом сервере: ${maxStock} шт.`);
-    return;
-  }
-
-  item.quantity = newQty;
-  localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
-  updateCartUI();
-  renderItems();
-};
-
-window.changeQty = function(id, change) {
-  const item = cart.find(i => i.id === id);
-  if (item) {
-    changeQtyByKey(item.cartKey, change);
-  }
-};
-
-window.removeFromCartByKey = function(key) {
-  cart = cart.filter(i => i.cartKey !== key);
-  localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
-  updateCartUI();
-  renderItems();
-  showToast('Товар удален из корзины.');
-};
-
-// ОБНОВЛЕНО: Вызов стилизованного окна подтверждения вместо системного confirm
-if (clearCartBtn) {
-  clearCartBtn.addEventListener('click', () => {
-    if (cart.length === 0) return;
-    if (confirmClearCartModal) {
-      if (overlay) overlay.classList.add('active');
-      confirmClearCartModal.classList.add('active');
-    }
-  });
+  if (cartTotalPrice) cartTotalPrice.innerText = total + ' ₽';
+  if (cartBadge) cartBadge.innerText = count;
 }
 
-// Клик по кнопке "Да, очистить" на стилизованной плашке
-if (confirmClearCartBtnEl) {
-  confirmClearCartBtnEl.addEventListener('click', () => {
-    cart = [];
-    localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
-    updateCartUI();
-    renderItems();
-    closeAllDrawers();
-    showToast('Корзина полностью очищена.');
-  });
-}
-
-// Клик по кнопке "Отмена" на стилизованной плашке
-if (cancelClearCartBtn) {
-  cancelClearCartBtn.addEventListener('click', () => {
-    if (confirmClearCartModal) confirmClearCartModal.classList.remove('active');
-    if (cartDrawer) cartDrawer.classList.add('active'); // возвращаем фокус на корзину
-    if (overlay && !productDrawer.classList.contains('active')) overlay.classList.add('active');
-  });
-}
-
-if (checkoutBtn) {
-  checkoutBtn.addEventListener('click', () => {
-    if (cart.length === 0) {
-      showToast('Ваша корзина пуста!');
-      return;
-    }
-    alert('Заказ успешно оформлен! Спасибо за покупку.');
-    cart = [];
-    localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
-    updateCartUI();
-    renderItems();
-    closeAllDrawers();
-  });
-}
-
-function showToast(msg) {
-  if (!cartToast || !toastMessage) return;
-  clearTimeout(toastTimeout);
-  toastMessage.innerText = msg;
-  cartToast.classList.add('show');
-  toastTimeout = setTimeout(hideToast, 1500);
-}
-
-function hideToast() { if (cartToast) cartToast.classList.remove('show'); }
-if (closeToastBtn) closeToastBtn.addEventListener('click', hideToast);
-
-function openProductDrawer(item) {
-  activeItemForDrawer = item;
-  if (cartDrawer) cartDrawer.classList.remove('active');
-  
-  const dImg = getEl('d-image'); if (dImg) dImg.src = item.image;
-  const dName = getEl('d-name'); if (dName) dName.innerText = item.name;
-  
-  const tagEl = getEl('d-tag');
-  if (tagEl) {
-    tagEl.innerText = item.category || 'Другое';
-    tagEl.className = 'tag ' + (item.category || 'другое').toLowerCase().replace(/\s+/g, '-');
-  }
-
-  const noteContainer = getEl('d-note-container');
-  const noteText = getEl('d-note-text');
-  const adminIconsGrid = getEl('d-admin-icons');
-  if (adminIconsGrid) adminIconsGrid.innerHTML = ''; 
-
-  const itemNameNormalized = item.name.trim().toLowerCase();
-
-  if (itemNameNormalized === 'золотое яблоко' || itemNameNormalized === 'исчезнувшее золотое яблоко') {
-    if (noteText) noteText.innerText = '⚠️ Покупка только навесом';
-    if (noteContainer) noteContainer.style.display = 'block';
-  } else if (item.adminIcons && item.adminIcons.length > 0) {
-    if (noteText) noteText.innerText = 'В комплекте с этим окрасом идут предметы:';
-    if (adminIconsGrid) {
-      item.adminIcons.forEach(iconUrl => {
-        const img = document.createElement('img');
-        img.className = 'admin-mini-icon';
-        img.src = iconUrl;
-        adminIconsGrid.appendChild(img);
-      });
-    }
-    if (noteContainer) noteContainer.style.display = 'block';
-  } else {
-    if (noteContainer) noteContainer.style.display = 'none';
-  }
-
-  const metaContainer = getEl('d-meta-container');
-  if (item.category && item.category.toLowerCase() === 'окрасы') {
-    const dBreed = getEl('d-breed'); if (dBreed) dBreed.innerText = item.breed || 'Не указана';
-    const dType = getEl('d-type'); if (dType) dType.innerText = item.type || 'Обычный';
-    const dAffix = getEl('d-affix'); if (dAffix) dAffix.innerText = item.affix ? 'Да' : 'Нет';
-    const dChk = getEl('d-chk'); if (dChk) dChk.innerText = item.chk ? 'Да' : 'Нет';
-    
-    const companionSpan = getEl('d-companion');
-    if (companionSpan) {
-      if (item.companionImage && item.companionImage.trim() !== "") {
-        companionSpan.innerHTML = `<img class="companion-img" src="${item.companionImage}" alt="Спутник">`;
-      } else {
-        companionSpan.innerText = 'Нет';
-      }
-    }
-    if (metaContainer) metaContainer.style.display = 'block';
-  } else {
-    if (metaContainer) metaContainer.style.display = 'none';
-  }
-
-  const optionsContainer = getEl('d-options-container');
-  if (item.category && item.category.toLowerCase() === 'окрасы') {
-    if (optCrSelect) optCrSelect.value = 'none';
-    if (optFkSelect) optFkSelect.value = 'none';
-    if (optSkillsSelect) optSkillsSelect.value = 'none';
-    if (optionsContainer) optionsContainer.style.display = 'block';
-  } else {
-    if (optionsContainer) optionsContainer.style.display = 'none';
-  }
-
-  const descLabel = getEl('d-desc-label');
-  const descBox = getEl('d-description');
-  const getLabel = getEl('d-get-label');
-  const getBox = getEl('d-get');
-
-  if (item.category && item.category.toLowerCase() === 'окрасы') {
-    if (descLabel) descLabel.style.display = 'none';
-    if (descBox) descBox.style.display = 'none';
-    if (getLabel) getLabel.style.display = 'none';
-    if (getBox) getBox.style.display = 'none';
-  } else {
-    if (descLabel) descLabel.style.display = 'block';
-    if (descBox) { descBox.style.display = 'block'; descBox.innerText = item.description || 'Нет описания'; }
-    if (getLabel) getLabel.style.display = 'block';
-    if (getBox) { getBox.style.display = 'block'; getBox.innerText = item.howto || 'Не указано'; }
-  }
-
-  let availableFlags = [];
-  if (item.stocks) {
-    Object.keys(item.stocks).forEach(flag => {
-      if (item.stocks[flag] > 0) availableFlags.push(flag);
-    });
-  }
-  const dFlags = getEl('d-flags');
-  if (dFlags) dFlags.innerText = availableFlags.length > 0 ? availableFlags.join(' ') : 'Нет в наличии';
-  
-  const serverStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
-  const dCount = getEl('d-count'); if (dCount) dCount.innerText = `${serverStock} шт`;
-  const dPrice = getEl('d-price'); if (dPrice) dPrice.innerText = `${item.price || 0} ₽`;
-  
-  if (overlay) overlay.classList.add('active');
-  if (productDrawer) productDrawer.classList.add('active');
-  recalcDrawerPrice(); 
-}
-// Слушатель кнопки подтверждения командного оптового заказа валюты
-if (confirmTeamOrderBtn) {
-  confirmTeamOrderBtn.addEventListener('click', () => {
-    if (!playerGameNickInput) return;
-    const nickValue = playerGameNickInput.value.trim();
-
-    if (nickValue === "") {
-      alert("Пожалуйста, введите ваш игровой ник для приглашения в команду!");
-      return;
-    }
-
-    // Если ник успешно введен, достаем сохраненный временный товар
-    if (window.pendingCurrencyItem) {
-      const updatedItem = { ...window.pendingCurrencyItem, playerNick: nickValue };
-      window.pendingCurrencyItem = null;
-      
-      // Закрываем модалку опта
-      if (currencyTeamModal) currencyTeamModal.classList.remove('active');
-      
-      // Вызываем базовую функцию добавления уже с ником внутри
-      addToCart(updatedItem);
-    }
-  });
-}
-
-// Слушатель кнопки отмены командного оптового заказа
-if (cancelTeamOrderBtn) {
-  cancelTeamOrderBtn.addEventListener('click', () => {
-    window.pendingCurrencyItem = null;
-    if (currencyTeamModal) currencyTeamModal.classList.remove('active');
-    closeAllDrawers();
-    showToast('Добавление оптового заказа отменено.');
-  });
-}
-
-// Расширяем общую функцию закрытия всех окон для нового окна валюты
-const originalCloseAllDrawers = window.closeAllDrawers;
-window.closeAllDrawers = function() {
-  if (originalCloseAllDrawers) originalCloseAllDrawers();
-  if (currencyTeamModal) currencyTeamModal.classList.remove('active');
-  window.pendingCurrencyItem = null;
-};
-function closeAllDrawers() {
-  if (overlay) overlay.classList.remove('active');
-  if (productDrawer) productDrawer.classList.remove('active');
-  if (cartDrawer) cartDrawer.classList.remove('active');
-  if (appleModal) appleModal.classList.remove('active');
-  if (confirmClearCartModal) confirmClearCartModal.classList.remove('active');
-  if (serverWelcomeModal) serverWelcomeModal.classList.remove('active');
-  activeItemForDrawer = null; 
-}
-
-if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeAllDrawers);
-if (closeCartDrawerBtn) closeCartDrawerBtn.addEventListener('click', closeAllDrawers);
-if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeAllDrawers);
-if (overlay) overlay.addEventListener('click', closeAllDrawers);
-
-if (openCartBtn) {
-  openCartBtn.addEventListener('click', () => {
-    if (productDrawer) productDrawer.classList.remove('active'); 
-    if (overlay) overlay.classList.add('active');
-    if (cartDrawer) cartDrawer.classList.add('active');
-  });
-}
-
-if (drawerAddCartBtn) {
-  drawerAddCartBtn.addEventListener('click', () => {
-    if (activeItemForDrawer) addToCart(activeItemForDrawer);
-  });
-}
-
-if (modalGoCatalogBtn) {
-  modalGoCatalogBtn.addEventListener('click', () => {
-    closeAllDrawers();
-    filterBtns.forEach(b => b.classList.remove('active'));
-    const colorsBtn = Array.from(filterBtns).find(b => b.getAttribute('data-category') === 'Окрасы');
-    if (colorsBtn) {
-      colorsBtn.classList.add('active');
-      currentCategory = 'Окрасы';
-      if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
-    }
-    
-    subFilterBtns.forEach(sb => sb.classList.remove('active'));
-    
-    if (currentAppleType === 'ися') {
-      const izyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ИЗЯ');
-      if (izyaBtn) izyaBtn.classList.add('active');
-      currentSubCategory = 'ИЗЯ';
-    } else {
-      const zyaBtn = Array.from(subFilterBtns).find(sb => sb.getAttribute('data-subcategory') === 'ЗЯ');
-      if (zyaBtn) zyaBtn.classList.add('active');
-      currentSubCategory = 'ЗЯ';
-    }
-    currentPage = 1;
-    loadAndRenderCategory();
-  });
-}
-
-if (openFavBtn) {
-  openFavBtn.addEventListener('click', () => {
-    isFavoritesPage = !isFavoritesPage; 
-    if (isFavoritesPage) {
-      openFavBtn.classList.add('fav-page-active'); 
-      showToast('Переход на страницу Избранного ❤️');
-    } else {
-      openFavBtn.classList.remove('fav-page-active');
-      showToast('Возврат в общий каталог товаров');
-    }
-    currentPage = 1;
-    renderItems(); 
-  });
-}
-
-if (searchInput) searchInput.addEventListener('input', () => { currentPage = 1; renderItems(); });
-if (stockFilter) stockFilter.addEventListener('change', () => { currentPage = 1; renderItems(); });
-if (tagFilter) tagFilter.addEventListener('change', () => { currentPage = 1; renderItems(); });
-
+// ================= FILTERS =================
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    currentCategory = btn.getAttribute('data-category');
-    
-    if (currentCategory.toLowerCase() === 'окрасы') {
-      if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
-    } else {
-      if (subFiltersContainer) subFiltersContainer.style.display = 'none';
-      currentSubCategory = 'all';
-    }
-    currentPage = 1;
+
+    currentCategory = btn.dataset.category;
     loadAndRenderCategory();
   });
 });
-
-subFilterBtns.forEach(sBtn => {
-  sBtn.addEventListener('click', () => {
-    subFilterBtns.forEach(b => b.classList.remove('active'));
-    sBtn.classList.add('active');
-    currentSubCategory = sBtn.getAttribute('data-subcategory');
-    currentPage = 1;
-    renderItems();
-  });
-});
 </script>
-<style>
-  .tag.услуги{background-color:#8338ec;}
-  .tag.спутники{background-color:#ff007f;}
-  .tag.трофеи{background-color:#ffb703;}
-  .tag.объявления{background-color:#02c39a;}
-</style>
-<script src="currencyCalculator.js"></script>
-<script src="currencyHandler.js"></script>
-</body>
-</html>
