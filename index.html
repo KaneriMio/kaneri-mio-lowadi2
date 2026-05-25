@@ -1134,9 +1134,11 @@ function updateCartUI() {
       let extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
       
       let addons = [];
-      if (item.chosenCr !== 'none') addons.push(`Доп ЧР: ${item.chosenCr} х1`);
-      if (item.chosenFk !== 'none') addons.push(`ФК: Да`);
-      if (item.chosenSkills !== 'none') addons.push(`Навыки: Да`);
+if (item.chosenFk === 'yes') addons.push('ФК: Да');
+if (item.chosenSkills === 'yes') addons.push('Навыки: Да');
+if (item.chosenCr && item.chosenCr !== 'none') {
+  addons.push(`Доп ЧР: ${item.chosenCr} х1`);
+}
       
       let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">${addons.join('<br>')}</div>` : '';
       optionsMetaHtml = `<div class="cart-item-meta" style="color:#b17a53; font-weight:bold; margin-top:4px;">Категория: ${type}</div>${extraInfo}${addonsText}`;
