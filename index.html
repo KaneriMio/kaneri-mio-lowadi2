@@ -689,18 +689,27 @@ function loadAndRenderCategory() {
 
 function buildNavesDropdown(dataList) {
   if (!optCrSelect) return;
-  optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
-  let searchSource = currentCategory.toLowerCase() === 'all' ? dataList : (cachedCatalogs["черный рынок"] || []);
-  if (currentCategory.toLowerCase() === 'черный рынок') searchSource = dataList;
 
-  searchSource.forEach(item => {
-    if (item.isNaves === true) {
-      const opt = document.createElement('option');
-      opt.value = item.name;
-      opt.setAttribute('data-price', item.price || 0);
-      opt.innerText = `${item.name} (+${item.price || 0}₽)`;
-      optCrSelect.appendChild(opt);
-    }
+  optCrSelect.innerHTML =
+    '<option value="none" data-price="0">Без предметов</option>';
+
+  let searchSource =
+    currentCategory.toLowerCase() === 'all'
+      ? dataList
+      : (cachedCatalogs["черный рынок"] || []);
+
+  if (currentCategory.toLowerCase() === 'черный рынок') {
+    searchSource = dataList;
+  }
+
+  const navesItems = searchSource.filter(item => Boolean(item.isNaves));
+
+  navesItems.forEach(item => {
+    const opt = document.createElement('option');
+    opt.value = item.name;
+    opt.setAttribute('data-price', item.price || 0);
+    opt.innerText = `${item.name} (+${item.price || 0}₽)`;
+    optCrSelect.appendChild(opt);
   });
 }
 
@@ -1002,32 +1011,25 @@ if (!isCurrency && stock <= 0) {
   }
 
 // 5. Окрасы / доп. опции
-let selectedCr = "none";
-let selectedFk = "none";
-let selectedSkills = "none";
+let selectedCr = null;
+let selectedFk = false;
+let selectedSkills = false;
 let extraCost = 0;
 
-// Экю → открываем модалку и выходим
-if (item.category?.toLowerCase() === 'экю') {
-  openEcuModal(item);
-  return;
-}
-
-// дальше идёт логика выбора опций (окрасы)
 if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
-  selectedCr = optCrSelect ? optCrSelect.value : "none";
-  selectedFk = optFkSelect ? optFkSelect.value : "none";
-  selectedSkills = optSkillsSelect ? optSkillsSelect.value : "none";
 
-  if (optCrSelect) {
-    const chosenCrOpt = optCrSelect.options[optCrSelect.selectedIndex];
-    if (chosenCrOpt) {
-      extraCost += parseFloat(chosenCrOpt.getAttribute('data-price') || 0);
-    }
+  selectedCr = optCrSelect?.value || null;
+
+  selectedFk = optFkSelect?.value === 'yes';
+  selectedSkills = optSkillsSelect?.value === 'yes';
+
+  if (selectedCr && selectedCr !== 'none') {
+    const opt = optCrSelect.options[optCrSelect.selectedIndex];
+    if (opt) extraCost += Number(opt.dataset.price || 0);
   }
 
-  if (selectedFk !== 'none') extraCost += 30;
-  if (selectedSkills !== 'none') extraCost += 20;
+  if (selectedFk) extraCost += 30;
+  if (selectedSkills) extraCost += 20;
 }
   const cartItemId = `${item.id}_${selectedCr}_${selectedFk}_${selectedSkills}`;
   const finalCartKey = item.playerNick
@@ -1049,15 +1051,15 @@ if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
     existingProduct.quantity++;
   } else {
     cart.push({
-      ...item,
-      cartKey: finalCartKey,
-      price: item.price + extraCost,
-      selectedCr,
-      selectedFk,
-      selectedSkills,
-      quantity: 1,
-      playerNick: item.playerNick || null
-    });
+  ...item,
+  cartKey: finalCartKey,
+  price: item.price + extraCost,
+  chosenCr: selectedCr,
+  hasFk: selectedFk,
+  hasSkills: selectedSkills,
+  quantity: 1,
+  playerNick: item.playerNick || null
+});
   }
 
   localStorage.setItem('lowadi_cart', JSON.stringify(cart));
@@ -1134,10 +1136,17 @@ function updateCartUI() {
       let extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
       
       let addons = [];
-if (item.chosenFk === 'yes') addons.push('ФК: Да');
-if (item.chosenSkills === 'yes') addons.push('Навыки: Да');
-if (item.chosenCr && item.chosenCr !== 'none') {
+
+if (item.chosenCr) {
   addons.push(`Доп ЧР: ${item.chosenCr} х1`);
+}
+
+if (item.hasFk) {
+  addons.push(`ФК: Да`);
+}
+
+if (item.hasSkills) {
+  addons.push(`Навыки: Да`);
 }
       
       let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">${addons.join('<br>')}</div>` : '';
