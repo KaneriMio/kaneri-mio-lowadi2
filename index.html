@@ -1014,8 +1014,8 @@ if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
 
   selectedCr = optCrSelect?.value || null;
 
-  selectedFk = optFkSelect?.value === 'yes';
-  selectedSkills = optSkillsSelect?.value === 'yes';
+  selectedFk = optFkSelect?.value !== 'none';
+  selectedSkills = optSkillsSelect?.value !== 'none';
 
   if (selectedCr && selectedCr !== 'none') {
     const opt = optCrSelect.options[optCrSelect.selectedIndex];
