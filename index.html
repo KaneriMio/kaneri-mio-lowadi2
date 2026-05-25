@@ -557,7 +557,7 @@ const currencyTeamModal = getEl('currencyTeamModal'); // Новое окно в�
 const playerGameNickInput = getEl('playerGameNick'); // Поле ввода ника
 const cancelTeamOrderBtn = getEl('cancelTeamOrderBtn'); // Кнопка отмены опта
 const confirmTeamOrderBtn = getEl('confirmTeamOrderBtn'); // Кнопка подтверждения опта
-
+const currencyInputCount = getEl('currencyInputCount');
 
 const closeDrawerBtn = getEl('closeDrawer');
 const openCartBtn = getEl('openCartBtn');
@@ -951,7 +951,8 @@ if (
 
   closeAllDrawers();
 
-  if (currencyInputCount) currencyInputCount.value = "1";
+  const input = getEl('currencyInputCount');
+if (input) input.value = "1";
 
   const normalRadio = document.querySelector('input[value="normal"]');
   if (normalRadio) normalRadio.checked = true;
@@ -1071,7 +1072,7 @@ function updateCartUI() {
             <div class="cart-currency-calc">
               🐴 Потребуется лошадей: <strong>${item.quantity} шт.</strong><br>
               Сумма на продажу с комиссией: <strong>${totalWithCommission.toLocaleString('ru-RU')} пропусков</strong><br>
-              <span style="font-size:11px; opacity:0.8;">(Вы получите чистыми: ${cleanPasses.toLocaleString('ru-RU')})</span>
+              <span style="font-size:11px; opacity:0.8;">Вы получите чистыми: ${cleanPasses.toLocaleString('ru-RU')})</span>
             </div>
           `;
         }
