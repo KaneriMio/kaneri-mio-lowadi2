@@ -1134,20 +1134,20 @@ let optionsMetaHtml = '';
 if (item.category && item.category.toLowerCase() === 'окрасы') {
   let addons = [];
 
-if (item.chosenCr && item.chosenCr !== 'none' && item.chosenCr.trim() !== '') {
-  addons.push(`Доп ЧР: ${item.chosenCr} х1`);
-}
+  if (item.chosenCr && item.chosenCr !== 'none' && item.chosenCr.trim() !== '') {
+    addons.push(`Доп ЧР: ${item.chosenCr} х1`);
+  }
 
-  const fk = item.hasFk === true || item.hasFk === 'С ФК';
-const skills = item.hasSkills === true || item.hasSkills === 'С навыками';
+  const hasFk = item.hasFk === true;
+  const hasSkills = item.hasSkills === true;
 
-if (fk) {
-  addons.push(`С ФК: Да`);
-}
+  if (hasFk) {
+    addons.push(`С ФК: Да`);
+  }
 
-if (skills) {
-  addons.push(`С навыками: Да`);
-}
+  if (hasSkills) {
+    addons.push(`С навыками: Да`);
+  }
 
   const author = item.author || 'Не указан';
 
