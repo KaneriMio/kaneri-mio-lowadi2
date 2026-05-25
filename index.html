@@ -921,122 +921,75 @@ function toggleFavorite(id) {
 function addToCart(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
 
-  // 0. ЖЁСТКАЯ ПРОВЕРКА НАЛИЧИЯ (НОВЫЙ ФИКС)
-const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-
-const serverKeyMap = {
-  RU: "🇷🇺",
-  UN: "🇺🇳",
-  ES: "🇪🇸",
-  FR: "🇫🇷"
-};
-
-const serverKey = serverKeyMap[currentServer] || currentServer;
-
-const stock = isCurrency
-  ? Infinity
-  : (item.stocks?.[serverKey] ?? 0);
-
-// ⚠️ ВАЖНО: stock НЕ может быть undefined в твоей логике,
-// потому что ты уже подставил ?? 0
-if (!isCurrency && item.stocks && !(serverKey in item.stocks)) {
-  console.warn("Нет данных по складу для сервера:", currentServer, item);
-}
-
-if (!isCurrency && stock <= 0) {
-  showToast("Товар не в наличии");
-  return;
-}
-
-  // 1. Золотое яблоко
+  // 1. Проверка блокировки для Золотого Яблока
   if (itemNameNormalized === 'золотое яблоко') {
     currentAppleType = 'зя';
     closeAllDrawers();
-
     const modalText = document.getElementById('appleModalText');
-    if (modalText) {
-      modalText.innerHTML =
-        'Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
-    }
-
+    if (modalText) modalText.innerHTML = 'Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
     if (overlay) overlay.classList.add('active');
     if (appleModal) appleModal.classList.add('active');
     return;
   }
 
-  // 2. Исчезнувшее золотое яблоко
+  // 2. Проверка блокировки для Исчезнувшего золотого яблока
   if (itemNameNormalized === 'исчезнувшее золотое яблоко') {
-    currentAppleType = 'ися';
+    currentAppleType = 'ися'; 
     closeAllDrawers();
-
     const modalText = document.getElementById('appleModalText');
-    if (modalText) {
-      modalText.innerHTML =
-        'Товар <strong>Исчезнувшее Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
-    }
-
+    if (modalText) modalText.innerHTML = 'Товар <strong>Исчезнувшее золотое яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
     if (overlay) overlay.classList.add('active');
     if (appleModal) appleModal.classList.add('active');
     return;
   }
 
-  // 3. Считаем уже добавленное количество
+  // Находим, сколько штук ЭТОГО ТОВАРА УЖЕ лежит в корзине (чтобы правильно посчитать общий объем)
   let existingQtyInCart = 0;
-  cart.forEach(c => {
-    if (c.id === item.id) existingQtyInCart += c.quantity;
-  });
+  cart.forEach(c => { if (c.id === item.id) existingQtyInCart += c.quantity; });
 
-  // 4. ПРОПУСКИ (ник при >10)
-  if (
-    itemNameNormalized.includes('пропуск') &&
-    item.category &&
-    item.category.toLowerCase() === 'валюта'
-  ) {
+  // 3. ПРОВЕРКА ОПТА ДЛЯ ВАЛЮТЫ "ПРОПУСКИ" (> 10 штук суммарно)
+  if (itemNameNormalized.includes('пропуск') && item.category && item.category.toLowerCase() === 'валюта') {
+    // Если добавляется товар, который поднимет общее кол-во выше 10 штук, а ник еще не сохранен
     if ((existingQtyInCart + 1) > 10 && !item.playerNick) {
+      // Сохраняем временную ссылку на товар, который пользователь хотел положить
       window.pendingCurrencyItem = item;
       closeAllDrawers();
-
       if (playerGameNickInput) playerGameNickInput.value = '';
-
       if (overlay) overlay.classList.add('active');
       if (currencyTeamModal) currencyTeamModal.classList.add('active');
       return;
     }
   }
 
-// 5. Окрасы / доп. опции
-let selectedCr = null;
+  // Расчет дополнительных опций окрасов
+  let selectedCr = null;
   let selectedFk = "none";
   let selectedSkills = "none";
   let extraCost = 0;
 
-if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
-
-  selectedCr = optCrSelect?.value || null;
-
+  if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
+    selectedCr = optCrSelect?.value || null;
     selectedFk = optFkSelect ? optFkSelect.value : "none";
     selectedSkills = optSkillsSelect ? optSkillsSelect.value : "none";
 
-   if (selectedCr && selectedCr !== 'none') {
+    if (selectedCr && selectedCr !== 'none') {
     const opt = optCrSelect.options[optCrSelect.selectedIndex];
     if (opt) extraCost += Number(opt.dataset.price || 0);
   }
-
     if (selectedFk !== 'none') extraCost += 30;
     if (selectedSkills !== 'none') extraCost += 20;
-}
+  }
+
   const cartItemId = `${item.id}_${selectedCr}_${selectedFk}_${selectedSkills}`;
-  const finalCartKey = item.playerNick
-    ? `${cartItemId}_nick_${item.playerNick}`
-    : cartItemId;
+  
+  // Для валюты с разным статусом ника создаем независимые ключи, чтобы они корректно разделялись
+  const finalCartKey = item.playerNick ? `${cartItemId}_nick_${item.playerNick}` : cartItemId;
+  const existingProduct = cart.find(cartItem => cartItem.cartKey === finalCartKey);
+  
+  // Проверяем остаток строго под текущий регион (у Валюты остатки игнорируем, считая их бесконечными)
+  const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
+  const maxStock = isCurrency ? 999999 : ((item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0);
 
-  const existingProduct = cart.find(
-    cartItem => cartItem.cartKey === finalCartKey
-  );
-
-  const maxStock = isCurrency ? Infinity : stock;
-
-  // 6. ДОБАВЛЕНИЕ В КОРЗИНУ
   if (existingProduct) {
     if (!isCurrency && existingProduct.quantity >= maxStock) {
       showToast(`На сервере ${currentServer} доступно всего ${maxStock} шт.`);
@@ -1045,20 +998,18 @@ if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
     existingProduct.quantity++;
   } else {
 console.log('chosenCr:', selectedCr);
-cart.push({
-  ...item,
-  cartKey: finalCartKey,
-  price: item.price + extraCost,
-
-  chosenCr: selectedCr !== 'none' ? selectedCr : null,
+    cart.push({ 
+      ...item, 
+      cartKey: finalCartKey,
+      price: item.price + extraCost, 
+      chosenCr: selectedCr !== 'none' ? selectedCr : null,
       chosenFk: selectedFk,
       chosenSkills: selectedSkills,
-
-  quantity: 1,
-  playerNick: item.playerNick || null
-});
+      quantity: 1,
+      playerNick: item.playerNick || null // привязываем ник игрока к объекту корзины
+    });
   }
-
+  
   localStorage.setItem('lowadi_cart', JSON.stringify(cart));
   updateCartUI();
   renderItems();
@@ -1127,21 +1078,22 @@ function updateCartUI() {
     }
 
     // Рендер мета-опций для окрасов
-let optionsMetaHtml = '';
-
-if (item.category && item.category.toLowerCase() === 'окрасы') {
-  let addons = [];
-
-  if (item.chosenCr && item.chosenCr !== 'none' && item.chosenCr.trim() !== '') {
+    let optionsMetaHtml = '';
+    if (item.category && item.category.toLowerCase() === 'окрасы') {
+      const type = (item.colorType || 'ЗЯ').toUpperCase();
+      let extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
+      
+      let addons = [];
+       if (item.chosenCr && item.chosenCr !== 'none' && item.chosenCr.trim() !== '') {
     addons.push(`Доп ЧР: ${item.chosenCr} х1`);
   }
-
       if (item.chosenFk !== 'none') addons.push(`ФК: Да`);
       if (item.chosenSkills !== 'none') addons.push(`Навыки: Да`);
       
       let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">${addons.join('<br>')}</div>` : '';
       optionsMetaHtml = `<div class="cart-item-meta" style="color:#b17a53; font-weight:bold; margin-top:4px;">Категория: ${type}</div>${extraInfo}${addonsText}`;
     }
+
     // Для валюты скрываем кнопки "+" и "-", так как её количество регулируется основным каталогом
     let quantityControlsHtml = `
       <div class="quantity-controls">
@@ -1515,68 +1467,6 @@ subFilterBtns.forEach(sBtn => {
     renderItems();
   });
 });
-const ecuModal = document.getElementById('ecuModal');
-const ecuHorses = document.getElementById('ecuHorses');
-const ecuPrice = document.getElementById('ecuPrice');
-const ecuResult = document.getElementById('ecuResult');
-
-const ecuOk = document.getElementById('ecuOk');
-const ecuCancel = document.getElementById('ecuCancel');
-
-let pendingEcuItem = null;
-function openEcuModal(item) {
-  pendingEcuItem = item;
-
-  ecuHorses.value = '';
-  ecuPrice.value = '';
-  ecuResult.innerHTML = '';
-
-  ecuModal.classList.remove('hidden');
-}
-
-function closeEcuModal() {
-  ecuModal.classList.add('hidden');
-  pendingEcuItem = null;
-}
-function updateEcu() {
-  const h = Number(ecuHorses.value);
-  const p = Number(ecuPrice.value);
-
-  if (!h || !p) return;
-
-  const data = EcoCalculator.calculate(h, p);
-
-  ecuResult.innerHTML = `
-    <div>Потребуется лошадей: <b>${data.horses}</b></div>
-    <div>Цена 1 лошади с комиссией: <b>${data.priceWithFee}</b></div>
-    <div>Вы получите чистыми: <b>${data.total}</b></div>
-  `;
-}
-
-ecuHorses.addEventListener('input', updateEcu);
-ecuPrice.addEventListener('input', updateEcu);
-ecuOk.addEventListener('click', () => {
-  const h = Number(ecuHorses.value);
-  const p = Number(ecuPrice.value);
-
-  if (!h || !p) return;
-
-  const ecoData = EcoCalculator.calculate(h, p);
-
-  cart.push({
-    ...pendingEcuItem,
-    quantity: 1,
-    ecoData
-  });
-
-  localStorage.setItem('lowadi_cart', JSON.stringify(cart));
-  updateCartUI();
-  renderItems();
-
-  closeEcuModal();
-});
-
-ecuCancel.addEventListener('click', closeEcuModal);
 </script>
 <style>
   .tag.услуги{background-color:#8338ec;}
@@ -1584,6 +1474,5 @@ ecuCancel.addEventListener('click', closeEcuModal);
   .tag.трофеи{background-color:#ffb703;}
   .tag.объявления{background-color:#02c39a;}
 </style>
-<script src="./eco-calculator.js"></script>
 </body>
 </html>
