@@ -1146,10 +1146,6 @@ if (addons.length > 0) {
     </div>
   `;
 }
-      
-      let addonsText = addons.length > 0 ? `<div style="color: #2e7d32; font-weight: 500; margin-top: 2px;">${addons.join('<br>')}</div>` : '';
-      optionsMetaHtml = `<div class="cart-item-meta" style="color:#b17a53; font-weight:bold; margin-top:4px;">Категория: ${type}</div>${extraInfo}${addonsText}`;
-    }
 
     // Для валюты скрываем кнопки "+" и "-", так как её количество регулируется основным каталогом
     let quantityControlsHtml = `
