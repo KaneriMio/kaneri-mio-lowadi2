@@ -566,9 +566,17 @@ const itemsPerPage = 20;
 
 // Защитный метод безопасного поиска элементов
 const getEl = (id) => document.getElementById(id);
-const currencyOrderModal = getEl('currencyOrderModal');
-const currencyInputCount = getEl('currencyInputCount');
-const confirmCurrencyBtn = getEl('confirmCurrencyBtn');
+let currencyOrderModal;
+let currencyInputCount;
+let confirmCurrencyBtn;
+
+function initCurrencyModal() {
+  currencyOrderModal = document.getElementById('currencyOrderModal');
+  currencyInputCount = document.getElementById('currencyInputCount');
+  confirmCurrencyBtn = document.getElementById('confirmCurrencyBtn');
+}
+
+document.addEventListener('DOMContentLoaded', initCurrencyModal);
 
 const container = getEl('products');
 const paginationContainer = getEl('pagination');
@@ -993,7 +1001,8 @@ if (
   if (normalRadio) normalRadio.checked = true;
 
   if (overlay) overlay.classList.add('active');
-  if (currencyOrderModal) currencyOrderModal.classList.add('active');
+  initCurrencyModal();
+if (currencyOrderModal) currencyOrderModal.classList.add('active');
 
   return;
 }
@@ -1448,19 +1457,16 @@ if (cancelTeamOrderBtn) {
 // Расширяем общую функцию закрытия всех окон для нового окна валюты
 const originalCloseAllDrawers = window.closeAllDrawers;
 window.closeAllDrawers = function() {
-  if (originalCloseAllDrawers) originalCloseAllDrawers();
-  if (currencyTeamModal) currencyTeamModal.classList.remove('active');
-  window.pendingCurrencyItem = null;
-};
-function closeAllDrawers() {
   if (overlay) overlay.classList.remove('active');
   if (productDrawer) productDrawer.classList.remove('active');
   if (cartDrawer) cartDrawer.classList.remove('active');
   if (appleModal) appleModal.classList.remove('active');
   if (confirmClearCartModal) confirmClearCartModal.classList.remove('active');
   if (serverWelcomeModal) serverWelcomeModal.classList.remove('active');
-  activeItemForDrawer = null; 
-}
+  if (currencyTeamModal) currencyTeamModal.classList.remove('active'); // если есть
+  activeItemForDrawer = null;
+  window.pendingCurrencyItem = null;
+};
 
 if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeAllDrawers);
 if (closeCartDrawerBtn) closeCartDrawerBtn.addEventListener('click', closeAllDrawers);
