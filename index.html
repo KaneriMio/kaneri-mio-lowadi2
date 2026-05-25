@@ -920,27 +920,6 @@ function toggleFavorite(id) {
 }
 function addToCart(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
-// ПРОПУСКИ → открываем модалку, НЕ добавляем в корзину сразу
-if (
-  item.category &&
-  item.category.toLowerCase() === 'валюта' &&
-  itemNameNormalized.includes('пропуск')
-) {
-  window.pendingCurrencyItem = item;
-
-  closeAllDrawers();
-
-  if (currencyInputCount) currencyInputCount.value = "1";
-
-  const normalRadio = document.querySelector('input[value="normal"]');
-  if (normalRadio) normalRadio.checked = true;
-
-  if (overlay) overlay.classList.add('active');
-  if (currencyOrderModal) currencyOrderModal.classList.add('active');
-
-  return;
-}
-
   // 1. Проверка блокировки для Золотого Яблока
   if (itemNameNormalized === 'золотое яблоко') {
     currentAppleType = 'зя';
@@ -962,6 +941,25 @@ if (
     if (appleModal) appleModal.classList.add('active');
     return;
   }
+//3. ПРОПУСКИ → открываем модалку, НЕ добавляем в корзину сразу
+if (
+  item.category?.toLowerCase().trim() === 'валюта'
+  itemNameNormalized.includes('пропуск')
+) {
+  window.pendingCurrencyItem = item;
+
+  closeAllDrawers();
+
+  if (currencyInputCount) currencyInputCount.value = "1";
+
+  const normalRadio = document.querySelector('input[value="normal"]');
+  if (normalRadio) normalRadio.checked = true;
+
+  if (overlay) overlay.classList.add('active');
+  if (currencyOrderModal) currencyOrderModal.classList.add('active');
+
+  return;
+}
 
   // Находим, сколько штук ЭТОГО ТОВАРА УЖЕ лежит в корзине (чтобы правильно посчитать общий объем)
   let existingQtyInCart = 0;
