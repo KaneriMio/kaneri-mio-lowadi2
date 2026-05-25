@@ -1002,21 +1002,22 @@ if (!isCurrency && stock <= 0) {
   }
 
   // 5. Окрасы / доп. опции
-  let selectedCr = "none";
-  let selectedFk = "none";
-  let selectedSkills = "none";
-  let extraCost = 0;
+let selectedCr = "none";
+let selectedFk = "none";
+let selectedSkills = "none";
+let extraCost = 0;
+
 if (item.category?.toLowerCase() === 'экю') {
   openEcuModal(item);
   return;
 }
 
-  updateCartUI();
-  renderItems();
-  return;
+updateCartUI();
+renderItems();
+return;
 }
 
-  if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
+if (activeItemForDrawer && activeItemForDrawer.id === item.id) {
     selectedCr = optCrSelect ? optCrSelect.value : "none";
     selectedFk = optFkSelect ? optFkSelect.value : "none";
     selectedSkills = optSkillsSelect ? optSkillsSelect.value : "none";
