@@ -689,21 +689,24 @@ function loadAndRenderCategory() {
 
 function buildNavesDropdown(dataList) {
   if (!optCrSelect) return;
-  optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
-  let searchSource = currentCategory.toLowerCase() === 'all' ? dataList : (cachedCatalogs["черный рынок"] || []);
-  if (currentCategory.toLowerCase() === 'черный рынок') searchSource = dataList;
 
-  searchSource.forEach(item => {
-    if (item.isNaves === true) {
-      const opt = document.createElement('option');
-      opt.value = item.name;
-      opt.setAttribute('data-price', item.price || 0);
-      opt.innerText = `${item.name} (+${item.price || 0}₽)`;
-      optCrSelect.appendChild(opt);
-    }
+  const navesItems = dataList.filter(item => item.isNaves);
+
+  console.log('navesItems:', navesItems);
+
+  // ❗ НЕ ПЕРЕСТРАИВАЕМ ПУСТЫМ МАССИВОМ
+  if (!navesItems.length) return;
+
+  optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
+
+  navesItems.forEach(item => {
+    const opt = document.createElement('option');
+    opt.value = item.name;
+    opt.setAttribute('data-price', item.price || 0);
+    opt.innerText = `${item.name} (+${item.price || 0}₽)`;
+    optCrSelect.appendChild(opt);
   });
 }
-
 function recalcDrawerPrice() {
   if (!activeItemForDrawer) return;
   let currentPrice = activeItemForDrawer.price || 0;
@@ -1081,7 +1084,9 @@ function updateCartUI() {
       let extraInfo = `<div>Автор: ${item.author || 'Не указан'}</div>`;
       
       let addons = [];
-      if (item.chosenCr !== 'none') addons.push(`Доп ЧР: ${item.chosenCr} х1`);
+       if (item.chosenCr && item.chosenCr !== 'none' && item.chosenCr.trim() !== '') {
+    addons.push(`Доп ЧР: ${item.chosenCr} х1`);
+  }
       if (item.chosenFk !== 'none') addons.push(`ФК: Да`);
       if (item.chosenSkills !== 'none') addons.push(`Навыки: Да`);
       
