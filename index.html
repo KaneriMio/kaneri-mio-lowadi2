@@ -687,16 +687,14 @@ function loadAndRenderCategory() {
   });
 }
 
-function buildNavesDropdown() {
+function buildNavesDropdown(dataList) {
   if (!optCrSelect) return;
 
-  optCrSelect.innerHTML =
-    '<option value="none" data-price="0">Без предметов</option>';
+  optCrSelect.innerHTML = '<option value="none" data-price="0">Без предметов</option>';
 
-  const blackMarket =
-    cachedCatalogs["черный рынок"] || [];
+  const navesItems = dataList.filter(item => item.isNaves);
 
-  const navesItems = blackMarket.filter(item => item.isNaves === true);
+  console.log('navesItems:', navesItems); // ВАЖНО ДЛЯ ДИАГНОСТИКИ
 
   navesItems.forEach(item => {
     const opt = document.createElement('option');
@@ -1125,24 +1123,27 @@ function updateCartUI() {
     // Рендер мета-опций для окрасов
 let optionsMetaHtml = '';
 
-let addons = [];
+if (item.category && item.category.toLowerCase() === 'окрасы') {
+  let addons = [];
 
-if (item.chosenCr && item.chosenCr !== 'none') {
-  addons.push(`Доп ЧР: ${item.chosenCr} х1`);
-}
+  if (item.chosenCr && item.chosenCr !== 'none') {
+    addons.push(`Доп ЧР: ${item.chosenCr} х1`);
+  }
 
-if (item.hasFk === true) {
-  addons.push(`С ФК: Да`);
-}
+  if (item.hasFk === true) {
+    addons.push(`С ФК: Да`);
+  }
 
-if (item.hasSkills === true) {
-  addons.push(`С навыками: Да`);
-}
+  if (item.hasSkills === true) {
+    addons.push(`С навыками: Да`);
+  }
 
-if (addons.length > 0) {
+  const author = item.author || 'Не указан';
+
   optionsMetaHtml = `
     <div class="cart-item-meta">
-      ${addons.join('<br>')}
+      <div>Автор: ${author}</div>
+      ${addons.length > 0 ? addons.join('<br>') : ''}
     </div>
   `;
 }
