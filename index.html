@@ -920,7 +920,18 @@ function addToCart(item) {
 
   // 0. ЖЁСТКАЯ ПРОВЕРКА НАЛИЧИЯ (НОВЫЙ ФИКС)
   const isCurrency = item.category && item.category.toLowerCase() === 'валюта';
-  const stock = isCurrency ? Infinity : (item.stocks?.[currentServer] ?? 0);
+  const serverKeyMap = {
+  RU: "🇷🇺",
+  UN: "🇺🇳",
+  ES: "🇪🇸",
+  FR: "🇫🇷"
+};
+
+const serverKey = serverKeyMap[currentServer] || currentServer;
+
+const stock = isCurrency
+  ? Infinity
+  : (item.stocks?.[serverKey] ?? 0);
 
   if (!isCurrency && stock <= 0) {
     showToast("Товар не в наличии");
