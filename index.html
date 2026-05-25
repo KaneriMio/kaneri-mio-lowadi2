@@ -926,7 +926,7 @@ function addToCart(item) {
     if (modalText) modalText.innerHTML = 'Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
     if (overlay) overlay.classList.add('active');
     if (appleModal) appleModal.classList.add('active');
-    return; // Тут return легален, так как он внутри функции
+    return;
   }
 
   // 2. Проверка блокировки для Исчезнувшего золотого яблока
@@ -937,7 +937,7 @@ function addToCart(item) {
     if (modalText) modalText.innerHTML = 'Товар <strong>Исчезнувшее золотое яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
     if (overlay) overlay.classList.add('active');
     if (appleModal) appleModal.classList.add('active');
-    return; // Тут тоже легален
+    return;
   }
 
   // 3. ПЕРЕХВАТ ДЛЯ КАЛЬКУЛЯТОРОВ ВАЛЮТЫ (ЭКЮ И ПРОПУСКИ)
@@ -948,27 +948,18 @@ function addToCart(item) {
       if (typeof window.openEcuCalculatorModal === 'function') {
         window.openEcuCalculatorModal(item);
       }
-      return;
+      return; // Останавливаем обычное добавление, ждем ввода в модалке
     }
     
     if (itemNameNormalized.includes('пропуск')) {
       if (typeof window.openPassesCalculatorModal === 'function') {
         window.openPassesCalculatorModal(item);
       }
-      return;
+      return; // Останавливаем обычное добавление, ждем ввода в модалке
     }
   }
 
   // 4. Обычное добавление товаров (если это не Валюта и не Яблоки)
-  if (typeof cart !== 'undefined') {
-    cart.push(item);
-  }
-  
-  if (typeof updateCartUI === 'function') {
-    updateCartUI();
-  }
-}
-
   // Расчет дополнительных опций окрасов
   let selectedCr = "none";
   let selectedFk = "none";
@@ -1021,9 +1012,10 @@ function addToCart(item) {
   
   localStorage.setItem('lowadi_cart', JSON.stringify(cart));
   updateCartUI();
-  renderItems();
+  if (typeof renderItems === 'function') renderItems();
   showToast(`Товар "${item.name}" добавлен в корзину!`);
 }
+
 function updateCartUI() {
   if (!cartItemsContainer) return;
   cartItemsContainer.innerHTML = '';
