@@ -245,6 +245,56 @@
       </div>
     </div>
 
+<!-- ДИНАМИЧЕСКИЙ БЛОК ДЛЯ СПУТНИКОВ -->
+<div id="companionFieldsBlock" style="display: none; background: #eef7ff; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #cfe2ff;">
+  
+  <h3 style="margin-top:0; color:#1d4e89; font-size:16px;">
+    Специфичные поля для спутников
+  </h3>
+
+  <div class="form-group">
+    <label for="companionCollection">Коллекция спутника</label>
+    <input type="text" id="companionCollection" placeholder="Например: Хэллоуин 2025">
+  </div>
+
+  <h4 style="margin-bottom:10px;">Бонусы спутника</h4>
+
+  <div class="stocks-grid">
+
+    <div class="form-group">
+      <label for="bonusStamina">Выносливость</label>
+      <input type="number" id="bonusStamina" placeholder="0">
+    </div>
+
+    <div class="form-group">
+      <label for="bonusSpeed">Скорость</label>
+      <input type="number" id="bonusSpeed" placeholder="0">
+    </div>
+
+    <div class="form-group">
+      <label for="bonusDressage">Выездка</label>
+      <input type="number" id="bonusDressage" placeholder="0">
+    </div>
+
+    <div class="form-group">
+      <label for="bonusGallop">Галоп</label>
+      <input type="number" id="bonusGallop" placeholder="0">
+    </div>
+
+    <div class="form-group">
+      <label for="bonusTrot">Рысь</label>
+      <input type="number" id="bonusTrot" placeholder="0">
+    </div>
+
+    <div class="form-group">
+      <label for="bonusJump">Прыжки</label>
+      <input type="number" id="bonusJump" placeholder="0">
+    </div>
+
+  </div>
+
+</div>
+
     <!-- ДИНАМИЧЕСКИЙ БЛОК ОПИСАНИЙ ДЛЯ ПРЕДМЕТОВ ЧЕРНОГО РЫНКА (И ДРУГИХ) -->
     <div id="itemFieldsBlock">
     <!-- ДИНАМИЧЕСКИЙ БЛОК ДЛЯ ВАЛЮТЫ (Скрыт по умолчанию) -->
@@ -364,6 +414,7 @@ function toggleFormFields() {
   const itemFieldsBlock = document.getElementById('itemFieldsBlock');
   const coatAddonsBlock = document.getElementById('coatAddonsBlock');
   const currencyFieldsBlock = document.getElementById('currencyFieldsBlock');
+  const companionFieldsBlock = document.getElementById('companionFieldsBlock');
   
   const itemCategory = document.getElementById('itemCategory');
   const navesWrap = document.getElementById('navesWrap');
@@ -377,6 +428,7 @@ function toggleFormFields() {
   if (mainType === 'coat') {
     // Режим Окрасов мастей
     if (coatFieldsBlock) coatFieldsBlock.style.display = 'block';
+    if (companionFieldsBlock) companionFieldsBlock.style.display = 'none';
     if (coatAddonsBlock) coatAddonsBlock.style.display = 'block';
     if (itemFieldsBlock) itemFieldsBlock.style.display = 'none';
     if (currencyFieldsBlock) currencyFieldsBlock.style.display = 'none';
@@ -394,6 +446,7 @@ function toggleFormFields() {
     if (coatAddonsBlock) coatAddonsBlock.style.display = 'none';
     if (itemFieldsBlock) itemFieldsBlock.style.display = 'none';
     if (currencyFieldsBlock) currencyFieldsBlock.style.display = 'block';
+    if (companionFieldsBlock) companionFieldsBlock.style.display = 'none';
     if (navesWrap) navesWrap.style.display = 'none';
     if (availableNavesWrap) availableNavesWrap.style.display = 'none';
     
@@ -408,6 +461,11 @@ function toggleFormFields() {
     if (coatFieldsBlock) coatFieldsBlock.style.display = 'none';
     if (coatAddonsBlock) coatAddonsBlock.style.display = 'none';
     if (itemFieldsBlock) itemFieldsBlock.style.display = 'block';
+    if (itemCategory && itemCategory.value === 'Спутники') {
+    if (companionFieldsBlock) companionFieldsBlock.style.display = 'block';
+} else {
+    if (companionFieldsBlock) companionFieldsBlock.style.display = 'none';
+}
     if (currencyFieldsBlock) currencyFieldsBlock.style.display = 'none';
     if (navesWrap) navesWrap.style.display = 'flex';
     if (availableNavesWrap) availableNavesWrap.style.display = 'flex';
@@ -529,11 +587,37 @@ function generateJson(event) {
       keywords = name.toLowerCase().split(' ');
     }
   } else {
-    resultObject.description = document.getElementById('itemDescription').value.trim() || '';
-    resultObject.howto = document.getElementById('itemHowto').value.trim() || '';
-    resultObject.isNaves = document.getElementById('checkNaves').checked;
-    resultObject.isAvailableForNaves = document.getElementById('checkAvailableNaves').checked;
+
+  resultObject.description = document.getElementById('itemDescription').value.trim() || '';
+  resultObject.howto = document.getElementById('itemHowto').value.trim() || '';
+  resultObject.isNaves = document.getElementById('checkNaves').checked;
+  resultObject.isAvailableForNaves = document.getElementById('checkAvailableNaves').checked;
+
+  // ДОП. ДАННЫЕ ДЛЯ СПУТНИКОВ
+  if (category === 'Спутники') {
+
+    resultObject.collection =
+      document.getElementById('companionCollection').value.trim() || '';
+
+    const bonuses = {};
+
+    const stamina = parseInt(document.getElementById('bonusStamina').value) || 0;
+    const speed = parseInt(document.getElementById('bonusSpeed').value) || 0;
+    const dressage = parseInt(document.getElementById('bonusDressage').value) || 0;
+    const gallop = parseInt(document.getElementById('bonusGallop').value) || 0;
+    const trot = parseInt(document.getElementById('bonusTrot').value) || 0;
+    const jump = parseInt(document.getElementById('bonusJump').value) || 0;
+
+    if (stamina > 0) bonuses.stamina = stamina;
+    if (speed > 0) bonuses.speed = speed;
+    if (dressage > 0) bonuses.dressage = dressage;
+    if (gallop > 0) bonuses.gallop = gallop;
+    if (trot > 0) bonuses.trot = trot;
+    if (jump > 0) bonuses.jump = jump;
+
+    resultObject.bonuses = bonuses;
   }
+}
 
   // Дописываем остатки, поиск и админ-иконки в конец объекта
   resultObject.stocks = stocks;
