@@ -1,3 +1,27 @@
 [
-
+{
+  "id": "bm_1779821220545",
+  "name": "Шика",
+  "count": 23,
+  "price": 18,
+  "image": "https://i.ibb.co/spnY40bB/compagnon-shika.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Божественные существа",
+  "bonuses": {
+    "trot": 8
+  },
+  "stocks": {
+    "🇷🇺": 23,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+}
 ]
