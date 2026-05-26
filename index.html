@@ -529,7 +529,7 @@ let currentAppleType = '';
 
 // Строгая пагинация по 30 штук
 let currentPage = 1;
-const itemsPerPage = 21;
+const itemsPerPage = 20;
 
 // Защитный метод безопасного поиска элементов
 const getEl = (id) => document.getElementById(id);
@@ -789,18 +789,69 @@ function renderItems() {
     if (item.isNew) badgeHtml = '<span class="badge new">NEW</span>';
     else if (item.isHot) badgeHtml = '<span class="badge hot">Hot</span>';
     else if (item.isRare) badgeHtml = '<span class="badge limited">Limited</span>';
+let cardContentHtml = '';
 
-    // РЕНДЕР ОПИСАНИЯ КАРТОЧКИ: "В наличии" перенесено внутрь тела описания для ВСЕХ товаров
-    let cardContentHtml = '';
-    if (item.category && item.category.toLowerCase() === 'окрасы') {
-      const type = (item.colorType || 'ЗЯ').toUpperCase();
-      cardContentHtml = `
-        <div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>
-        <div class="card-meta-text">Вид: <span>${item.type || 'Обычный'}</span></div>
-        <div class="card-meta-text">Копии: <span>${item.copies || 'Не ограничены'}</span></div>
-      `;
+// =========================
+// ОКРАСЫ
+// =========================
+if (item.category && item.category.toLowerCase() === 'окрасы') {
+
+  cardContentHtml += `
+    <div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>
+    <div class="card-meta-text">Вид: <span>${item.type || 'Обычный'}</span></div>
+    <div class="card-meta-text">Копии: <span>${item.copies || 'Не ограничены'}</span></div>
+  `;
+}
+
+// =========================
+// СПУТНИКИ
+// =========================
+if (item.category && item.category.toLowerCase() === 'спутники') {
+
+  const collection = item.collection || 'Не указана';
+
+  let bonusText = 'Нет бонусов';
+
+  if (item.bonuses && typeof item.bonuses === 'object') {
+
+    const bonusMap = {
+      stamina: 'Выносливость',
+      speed: 'Скорость',
+      dressage: 'Выездка',
+      gallop: 'Галоп',
+      trot: 'Рысь',
+      jump: 'Прыжки'
+    };
+
+    const bonusesArr = Object.entries(item.bonuses)
+      .map(([key, value]) => {
+        if (!value) return null; // если 0/пусто — не показываем
+        return `${bonusMap[key] || key} +${value}`;
+      })
+      .filter(Boolean);
+
+    if (bonusesArr.length > 0) {
+      bonusText = bonusesArr.join(', ');
     }
-    cardContentHtml += `<div class="card-meta-stock-line">В наличии: <span style="color:${isOutOfStock ? '#d32f2f':'#2e7d32'}">${currentStock} шт.</span></div>`;
+  }
+
+  cardContentHtml += `
+    <div class="card-meta-text">Коллекция: <span>${collection}</span></div>
+    <div class="card-meta-text">Бонусы: <span>${bonusText}</span></div>
+  `;
+}
+
+// =========================
+// В НАЛИЧИИ (ВСЕГДА В КОНЦЕ)
+// =========================
+cardContentHtml += `
+  <div class="card-meta-stock-line">
+    В наличии:
+    <span style="color:${isOutOfStock ? '#d32f2f':'#2e7d32'}">
+      ${currentStock} шт.
+    </span>
+  </div>
+`;
 
     const inCart = cart.find(c => c.id === item.id);
     const isLiked = favorites.includes(item.id);
