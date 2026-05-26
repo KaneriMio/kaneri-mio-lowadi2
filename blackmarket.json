@@ -692,5 +692,179 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+  {
+  "id": "bm_1779815054780",
+  "name": "Набор гармонии",
+  "count": 0,
+  "price": 25,
+  "image": "https://i.ibb.co/jPVcH8cb/pack-harmonie.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": true,
+  "isRare": false,
+  "description": "Полностью преобразите лошадь. Экономьте на предметах, купленных по отдельности. Можно применить с 1 года и 6 месяцев.",
+  "howto": "Купить на Черном рынке за 190 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": [
+    "https://i.ibb.co/HjnRzzb/rayon-helios-illimite.png",
+    "https://i.ibb.co/dwtryG3B/pomme-or.png",
+    "https://i.ibb.co/1tbFpB7S/lyre-apollon.png"
+  ]
+},
+  {
+  "id": "bm_1779815171340",
+  "name": "Винтажное яблоко",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/MxtYvr6p/pomme-vintage.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": true,
+  "isRare": false,
+  "description": "Измените вашу лошадь при помощи одной из особых мастей в игре. Можно применить с 1 года и 6 месяцев",
+  "howto": "Купить на Черном рынке за 85 пропусков, выиграть в акциях",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779815337795",
+  "name": "Луч Гелиоса",
+  "count": 58,
+  "price": 12,
+  "image": "https://i.ibb.co/ynw1nXmW/rayon-helios.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Даёт возможность дать лошади уникальный фон созданный другими игроками. Настроение вашей лошади при любых обстоятельствах остается на 100%",
+  "howto": "Купить на Черном рынке за 95 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 58,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779816203896",
+  "name": "Бонус-набор",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/qFRdmvTy/pack-bonus.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Даёт вашей лошади все бонусы из магазина",
+  "howto": "Купить на Черном рынке за 145 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": [
+    "https://i.ibb.co/zHSzyT7Y/cure-pied.png",
+    "https://i.ibb.co/ks1wNLVK/pot-graisse.png",
+    "https://i.ibb.co/DD1snHBs/peigne.png",
+    "https://i.ibb.co/zWzDRqZ7/cloches.png",
+    "https://i.ibb.co/ycjXWYjs/cravache.png",
+    "https://i.ibb.co/sJ1bG0y4/eperons.png",
+    "https://i.ibb.co/cKGqvXV7/longe.png",
+    "https://i.ibb.co/Nd82WpnS/crampons.png"
+  ]
+},
+  {
+  "id": "bm_1779816336992",
+  "name": "Хвост, заплетенный в косичку",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/cKGv8S6M/tail-braid-2.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Выберите фасон косы для хвоста. Можно применить с 1 года и 6 месяцев.",
+  "howto": "Купить на Черном рынке за 60 пропусков, выиграть в акциях",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779816431767",
+  "name": "Плетение хвоста",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/60JH92r8/tail-braid-1.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Выберите фасон косы для хвоста. Можно применить с 1 года и 6 месяцев.",
+  "howto": "Купить на Черном рынке за 60 пропусков, выиграть в акциях",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779816565360",
+  "name": "Кровь Медузы",
+  "count": 47,
+  "price": 13,
+  "image": "https://i.ibb.co/NdXjtgrG/sang-meduse.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Превратите одну из своих лошадей в Пегаса. Можно применить с 1 года 6 месяцев. Крылья не передаются жеребятам, родившимся от крылатых лошадей",
+  "howto": "Купить на Черном рынке за 95 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 47,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
 }
 ]
