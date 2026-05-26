@@ -411,5 +411,148 @@
     "https://i.ibb.co/W76Zxhf/sablier-chronos.png",
     "https://i.ibb.co/pvNTnrCk/etoile-nyx.png"
   ]
+},
+  {
+  "id": "bm_1779806406240",
+  "name": "Посох плодовитости",
+  "count": 53,
+  "price": 13,
+  "image": "https://i.ibb.co/7xS8X9Qs/baton-fertilite.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Рождение идентичных близнецов, действует на следующую случку вашей кобылы. Можно приметь с 2 лет и 6 месяцев.",
+  "howto": "Купить на Черном рынке за 95 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 53,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779807068326",
+  "name": "Дар Гестии",
+  "count": 53,
+  "price": 35,
+  "image": "https://i.ibb.co/nsVLBrq2/don-hestia.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "100% гарантия рождения единорога. Действует на следующую случку вашей кобылы.\nМожно использовать с 2 лет и 6 месяцев.",
+  "howto": "Выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 53,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779807215861",
+  "name": "Сизифов камень",
+  "count": 0,
+  "price": 35,
+  "image": "https://i.ibb.co/yFnr5bCy/sisyphus-boulder.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Получайте вдвое больше навыков и экю, когда ваша лошадь будет выполнять миссии",
+  "howto": "Купить на Черном рынке за 100 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779807276116",
+  "name": "Ахиллесова пята",
+  "count": 74,
+  "price": 10,
+  "image": "https://i.ibb.co/Y6nP4DZ/talon-achille.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Ваша лошадь всегда будет просыпаться на пике формы, независимо от того, сколько энергии у нее было и когда она уснула.",
+  "howto": "Купить на Черном рынке за 85 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 74,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779807458172",
+  "name": "Слезы Афродиты",
+  "count": 22,
+  "price": 13,
+  "image": "https://i.ibb.co/TB5DkHBh/larmes-aphrodite.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Врожденные навыки новорожденного жеребенка повысятся на 50%. Действует на следующую случку вашей кобылы. Можно применить с 2 лет и 6 месяцев",
+  "howto": "Купить на Черном рынке за 100 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 22,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779807555924",
+  "name": "Набор Геры",
+  "count": 22,
+  "price": 24,
+  "image": "https://i.ibb.co/C5xxBXKr/pack-hera.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Экономьте на предметах, купленных по отдельности, и получите эксклюзивный предмет. Действует на следующую случку вашей кобылы. Можно применить с 2 лет и 6 месяцев.",
+  "howto": "Купить на Черном рынке за 275 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 22,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": [
+    "https://i.ibb.co/VcVRyftg/fleche-artemis.png",
+    "https://i.ibb.co/RxWPkcs/lys-hera.png",
+    "https://i.ibb.co/7xS8X9Qs/baton-fertilite.png",
+    "https://i.ibb.co/TB5DkHBh/larmes-aphrodite.png
+    ]
 }
 ]
