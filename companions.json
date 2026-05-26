@@ -1022,5 +1022,545 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+  {
+  "id": "bm_1779825922473",
+  "name": "Pudding",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/XfQ871KZ/compagnon-halloween-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Призывающий фонарь",
+  "bonuses": {
+    "jump": 14
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825967289",
+  "name": "Mummygnon",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/YTLbf1QH/compagnon-halloween-3.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Призывающий фонарь",
+  "bonuses": {
+    "speed": 14
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825998873",
+  "name": "Chonkpy",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/gZJKX6n3/compagnon-halloween-4.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Призывающий фонарь",
+  "bonuses": {
+    "trot": 14
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826028049",
+  "name": "Bulby",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/zW9qd53x/compagnon-halloween-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Призывающий фонарь",
+  "bonuses": {
+    "gallop": 14
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826121321",
+  "name": "Кричащее привидение",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/HD2rNmdL/compagnon-fantome-3.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Привидения",
+  "bonuses": {
+    "dressage": 18
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826146728",
+  "name": "Привидение в цепях",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/XkSv2NZd/compagnon-fantome-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Привидения",
+  "bonuses": {
+    "dressage": 18
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826170953",
+  "name": "Гримасничающее привидение",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/1t7LS0r7/compagnon-fantome-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Привидения",
+  "bonuses": {
+    "dressage": 18
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826363488",
+  "name": "Кат Ши — пантера",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Xkb6TPwG/compagnon-cat-sidhe-6.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826392000",
+  "name": "Кат Ши — пампасская кошка",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/n8VQcsxy/compagnon-cat-sidhe-11.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826433896",
+  "name": "Кат Ши — манул",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/3mhNbmYT/compagnon-cat-sidhe-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826526423",
+  "name": "Кат Ши — львица",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/84rPjZfb/compagnon-cat-sidhe-13.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826554008",
+  "name": "Кат Ши — лев",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/4RPTkr29/compagnon-cat-sidhe-8.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826575783",
+  "name": "Кат Ши — кошка",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Y7nctXb8/compagnon-cat-sidhe-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826640615",
+  "name": "Кат Ши — котенок",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/MkGHybF7/compagnon-cat-sidhe-9.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826666455",
+  "name": "Кат Ши — каракал",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/nNKJ8n9V/compagnon-cat-sidhe-3.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826697479",
+  "name": "Кат Ши — белый тигр",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/ZpfZc26T/compagnon-cat-sidhe-12.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826797102",
+  "name": "Кат Ши — ягуар",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/h1t5bsk1/compagnon-cat-sidhe-5.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826818950",
+  "name": "Кат Ши — тигр",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/C3B3wMm6/compagnon-cat-sidhe-7.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826840886",
+  "name": "Кат Ши — рысь",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Jwhj4vxv/compagnon-cat-sidhe-4.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779826866342",
+  "name": "Кат Ши — перс",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/chypGRGw/compagnon-cat-sidhe-10.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
 }
 ]
