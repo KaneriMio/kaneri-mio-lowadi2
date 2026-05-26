@@ -23,5 +23,410 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+  {
+  "id": "bm_1779823106467",
+  "name": "Сколль и Хати",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/KpDSVwdg/compagnon-skoll-hati.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Божественные существа",
+  "bonuses": {
+    "speed": 10
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823165266",
+  "name": "Плюшевый единорог",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Csw990sN/compagnon-peluche-licorne.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Божественные существа",
+  "bonuses": {
+    "stamina": 6
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823198618",
+  "name": "Намадзу",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/5XSkWZ9p/compagnon-namazu.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Божественные существа",
+  "bonuses": {
+    "jump": 9
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823246826",
+  "name": "Грифон",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/hxTDxVJY/compagnon-griffon.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Божественные существа",
+  "bonuses": {
+    "dressage": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823284265",
+  "name": "Ow",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/sM9s1Vz/compagnon-ow.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Божественные существа",
+  "bonuses": {
+    "stamina": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823319682",
+  "name": "Kyūbiko",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/kbC6BXY/compagnon-kyubiko.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Божественные существа",
+  "bonuses": {
+    "trot": 9
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823501858",
+  "name": "Snashes",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/PGhFhDf5/compagnon-fire-sidhe-5.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Адский зверинец",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823539761",
+  "name": "Lumeetle",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Vc7WYz9z/compagnon-fire-sidhe-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Адский зверинец",
+  "bonuses": {
+    "trot": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823581137",
+  "name": "Lucy Flare",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/yn1CdW6C/compagnon-fire-sidhe-3.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Адский зверинец",
+  "bonuses": {
+    "dressage": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823616489",
+  "name": "Leon Flameleon",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/mVNdnn6H/compagnon-fire-sidhe-4.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Адский зверинец",
+  "bonuses": {
+    "dressage": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823656505",
+  "name": "Glow Codile",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/B5bmfqRW/compagnon-fire-sidhe-6.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Адский зверинец",
+  "bonuses": {
+    "dressage": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823686864",
+  "name": "Flænix",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/JjfjVZC0/compagnon-fire-sidhe-8.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Адский зверинец",
+  "bonuses": {
+    "stamina": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823717080",
+  "name": "Firennec",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Fb8DF5Td/compagnon-fire-sidhe-10.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Адский зверинец",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823774016",
+  "name": "Fireball",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/HLV0ngxv/compagnon-fire-sidhe-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Адский зверинец",
+  "bonuses": {
+    "jump": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779823805336",
+  "name": "Blaze",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/1fx2GM1P/compagnon-fire-sidhe-9.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Адский зверинец",
+  "bonuses": {
+    "stamina": 12
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
 }
 ]
