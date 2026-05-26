@@ -356,8 +356,23 @@
   <!-- Дополнительные Подстраницы Окрасов -->
   <div class="sub-filters" id="subFiltersContainer">
     <button class="sub-filter-btn active" data-subcategory="all">Все окрасы</button>
-    <button class="sub-filter-btn" data-subcategory="ЗЯ">Каталог ЗЯ</button>
-    <button class="sub-filter-btn" data-subcategory="ИЗЯ">Каталог ИЗЯ</button>
+    <button class="sub-filter-btn" data-subcategory="ЗЯ">ЗЯ</button>
+    <button class="sub-filter-btn" data-subcategory="ИЗЯ">ИЗЯ</button>
+    <button class="sub-filter-btn" data-subcategory="ВЯ">ВЯ</button>
+    <button class="sub-filter-btn" data-subcategory="ПЭ">ПЭ</button>
+    <button class="sub-filter-btn" data-subcategory="БК">Брошь</button>
+    <button class="sub-filter-btn" data-subcategory="ВШ">Шляпа</button>
+    <button class="sub-filter-btn" data-subcategory="ДМ">Медальон</button>
+    <button class="sub-filter-btn" data-subcategory="ДП">Дневник</button>
+    <button class="sub-filter-btn" data-subcategory="ДП">Дух</button>
+    <button class="sub-filter-btn" data-subcategory="ЗТ">Тыква</button>
+    <button class="sub-filter-btn" data-subcategory="ЗВ">Ведьмы</button>
+    <button class="sub-filter-btn" data-subcategory="Ист Дух">Ист Дух</button>
+    <button class="sub-filter-btn" data-subcategory="КМ">Монстры</button>
+    <button class="sub-filter-btn" data-subcategory="ПЭ">Пар. Яблоко</button>
+    <button class="sub-filter-btn" data-subcategory="ПЭ">Чернильница</button>
+    <button class="sub-filter-btn" data-subcategory="ПЭ">Печать</button>
+    
   </div>
 
   <!-- Сетка карточек и блок постраничной навигации -->
@@ -1450,37 +1465,6 @@ if (isCoat) {
   const serverStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
   const dCount = getEl('d-count'); if (dCount) dCount.innerText = `${serverStock} шт`;
   const dPrice = getEl('d-price'); if (dPrice) dPrice.innerText = `${item.price || 0} ₽`;
-// =========================
-// БЛОКИРОВКА КНОПКИ ПРИ 0 ШТ
-// =========================
-
-const drawerAddBtn = getEl('drawerAddBtn');
-
-if (drawerAddBtn) {
-
-  if (serverStock <= 0) {
-
-    drawerAddBtn.disabled = true;
-    drawerAddBtn.style.background = '#ccc';
-    drawerAddBtn.style.cursor = 'not-allowed';
-    drawerAddBtn.innerText = 'Нет в наличии';
-
-  } else {
-
-    drawerAddBtn.disabled = false;
-    drawerAddBtn.style.background = '';
-    drawerAddBtn.style.cursor = '';
-    drawerAddBtn.innerHTML = `
-      <svg viewBox="0 0 24 24">
-        <path d="M1 2h3.5l2.5 12h12l2-9H6"
-          stroke="#fff"
-          stroke-width="2"
-          fill="none"/>
-      </svg>
-      Добавить в корзину
-    `;
-  }
-}
   
   if (overlay) overlay.classList.add('active');
   if (productDrawer) productDrawer.classList.add('active');
