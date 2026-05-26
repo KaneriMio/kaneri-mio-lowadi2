@@ -866,5 +866,61 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+  {
+  "id": "bm_1779817504420",
+  "name": "Набор Посейдона",
+  "count": 47,
+  "price": 23,
+  "image": "https://i.ibb.co/99ywwBVV/pack-poseidon.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Оденьте лошадь в цвета Посейдона. Для использования этого набора лошадь должна специализироваться на классической езде или вестерне. Можно применить с 3 лет.",
+  "howto": "Купить на Черном рынке за 275 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 47,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": [
+    "https://ibb.co/zhS8MbSw",
+    "https://ibb.co/DDBXwFRm",
+    "https://ibb.co/XxNZf17G",
+    "https://ibb.co/sJV88kPb",
+    "https://ibb.co/wrR6BLqG"
+  ]
+},
+  {
+  "id": "bm_1779817719843",
+  "name": "Богатство Креза",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/C3hQFj7f/pactole-cresus.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Получите расческу, копытный крючок и бочонок с жиром для вашей лошади. Удвойте свои шансы на конфеты и случайные бонусы при действиях с лошадью.",
+  "howto": "Купить на Черном рынке за 15 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": [
+    "https://i.ibb.co/DD1snHBs/peigne.png",
+    "https://i.ibb.co/zHSzyT7Y/cure-pied.png",
+    "https://i.ibb.co/ks1wNLVK/pot-graisse.png"
+  ]
 }
 ]
