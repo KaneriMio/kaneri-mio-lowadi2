@@ -460,11 +460,10 @@ function toggleFormFields() {
     // Режим остальных предметов
     if (coatFieldsBlock) coatFieldsBlock.style.display = 'none';
     if (coatAddonsBlock) coatAddonsBlock.style.display = 'none';
-    if (itemFieldsBlock) itemFieldsBlock.style.display = 'block';
-    if (itemCategory && itemCategory.value === 'Спутники') {
-    if (companionFieldsBlock) companionFieldsBlock.style.display = 'block';
+if (itemCategory && itemCategory.value === 'Спутники') {
+  if (itemFieldsBlock) itemFieldsBlock.style.display = 'none';
 } else {
-    if (companionFieldsBlock) companionFieldsBlock.style.display = 'none';
+  if (itemFieldsBlock) itemFieldsBlock.style.display = 'block';
 }
     if (currencyFieldsBlock) currencyFieldsBlock.style.display = 'none';
     if (navesWrap) navesWrap.style.display = 'flex';
