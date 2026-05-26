@@ -554,5 +554,143 @@
     "https://i.ibb.co/7xS8X9Qs/baton-fertilite.png",
     "https://i.ibb.co/TB5DkHBh/larmes-aphrodite.png"
     ]
+},
+  {
+  "id": "bm_1779808006939",
+  "name": "Стрела Артемиды",
+  "count": 22,
+  "price": 7,
+  "image": "https://i.ibb.co/VcVRyftg/fleche-artemis.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Ваша кобыла будет стареть вдвое быстрее во время беременности. В течение этого времени весь заработок от уроков будет удвоен. Действует на следующую случку вашей кобылы. Можно применить с 2 лет и 6 месяцев.",
+  "howto": "Купить на Черном рынке за 25 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 22,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779808090978",
+  "name": "Молния Зевса",
+  "count": 22,
+  "price": 13,
+  "image": "https://i.ibb.co/jq7cRp2/eclair-zeus.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Изменяет пол вашей лошади. Не распространяется на меринов и беременных кобыл",
+  "howto": "Купить на Черном рынке за 95 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 22,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779808262090",
+  "name": "Лира Аполлона",
+  "count": 22,
+  "price": 7,
+  "image": "https://i.ibb.co/1tbFpB7S/lyre-apollon.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Даёт возможность изменить имя лошади. Добавляйте изображения и меняйте цвет и форматирование текста столько раз, сколько захотите",
+  "howto": "Купить на Черном рынке за 40 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 22,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779808381594",
+  "name": "Одеяние Ириды",
+  "count": 22,
+  "price": 0,
+  "image": "https://i.ibb.co/3myGRfMJ/iris-coat.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Покрасьте масть вашей лошади в цвета радуги. Две лошади радужной масти с 50% вероятности могут передать предмет своему жеребенку, если кобыла будет покрыта в возрасте 30 лет. Можно применить с 1 года и 6 месяцев",
+  "howto": "Купить на Черном рынке за 145 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 22,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779808465697",
+  "name": "Плетение кос-пуговичек",
+  "count": 22,
+  "price": 0,
+  "image": "https://i.ibb.co/8nV3cpQT/button-braided-mane.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Создавайте косы-пуговички в гриве своей лошади. Можно применить с 1 года и 6 месяцев",
+  "howto": "Купить на Черном рынке за 60 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "stocks": {
+    "🇷🇺": 22,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779808533209",
+  "name": "5-й элемент",
+  "count": 22,
+  "price": 20,
+  "image": "https://i.ibb.co/yMWfwCJ/5th-element.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Пробудите силу стихий для вашей лошади. Можно применить с 1 года и 6 месяцев.",
+  "howto": "Купить на Черном рынке за 145 пропусков, выиграть в акциях, обмен предметами",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 22,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
 }
 ]
