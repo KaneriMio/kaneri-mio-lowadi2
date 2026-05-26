@@ -428,5 +428,599 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+  {
+  "id": "bm_1779824088743",
+  "name": "Кошка Палуга",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/1GsTqfDp/compagnon-cat-palug.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Анимированные спутники",
+  "bonuses": {
+    "speed": 14
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779824197583",
+  "name": "Armadilla",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/gM0DJK2C/companion-armadillo-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "dressage": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779824232615",
+  "name": "Alebrijow",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/XxHGrCV7/companion-alebrijow.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "stamina": 6
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779824314446",
+  "name": "Ajolote",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/FMQDNXz/companion-axolotl-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "stamina": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779824363262",
+  "name": "Ajolota",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/60kMLLpd/companion-axolotl-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "stamina": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779824493278",
+  "name": "Geco",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/dwk0xn6n/companion-gecko-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "gallop": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779824625581",
+  "name": "Geca",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/CxJXVcQ/companion-gecko-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "gallop": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779824666549",
+  "name": "Delfín",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/yBB5Jjkx/companion-dauphin.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "dressage": 6
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779824704813",
+  "name": "Cardenala",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/MDRFh7vV/companion-cardinal-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "jump": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779824762709",
+  "name": "Cardenal",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/GvYtrBmZ/companion-cardinal-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "jump": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779824841805",
+  "name": "Armadillo",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Y7RR2FMv/companion-armadillo-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "dressage": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825106988",
+  "name": "Mapache",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/G4sjhSVn/companion-raton-laveur-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "trot": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825158756",
+  "name": "Mapacha",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/CKNvvJgN/companion-raton-laveur-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "trot": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825202499",
+  "name": "Mantarrayo",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/hRqFm9Jt/companion-raie-manta-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "jump": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825238644",
+  "name": "Mantarraya",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/h1n3ZJZ5/companion-raie-manta-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "jump": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825271408",
+  "name": "Jaguar",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/B5W8wKV3/companion-jaguar.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "speed": 6
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825348421",
+  "name": "Iguano",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/xqGqmXhh/companion-iguane-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "gallop": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825370747",
+  "name": "Iguana",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/7dHJnfZW/companion-iguane-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "gallop": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825519075",
+  "name": "Puercoespína",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/5gvV5KWj/companion-porc-epic-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "trot": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825543970",
+  "name": "Puercoespín",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/9HqSk6Z4/companion-porc-epic-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "trot": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825571595",
+  "name": "Muerciélago",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/cKB7jWXq/companion-chauve-souris-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "speed": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779825599626",
+  "name": "Muerciélaga",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/4RGPtDN0/companion-chauve-souris-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Алебрихе",
+  "bonuses": {
+    "speed": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
 }
 ]
