@@ -799,6 +799,7 @@ if (item.category && item.category.toLowerCase() === 'окрасы') {
   cardContentHtml += `
     <div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>
     <div class="card-meta-text">Вид: <span>${item.type || 'Обычный'}</span></div>
+    <div class="card-meta-text">Копии: <span>${item.copies || 'Не ограничены'}</span></div>
   `;
 }
 
@@ -1292,7 +1293,11 @@ function openProductDrawer(item) {
 
   const itemNameNormalized = item.name.trim().toLowerCase();
 
-  if (itemNameNormalized === 'золотое яблоко' || itemNameNormalized === 'исчезнувшее золотое яблоко') {
+  if (
+  itemNameNormalized === 'золотое яблоко' ||
+  itemNameNormalized === 'исчезнувшее золотое яблоко' ||
+  (item.category && item.category.toLowerCase() === 'спутники')
+) {
     if (noteText) noteText.innerText = '⚠️ Покупка только навесом';
     if (noteContainer) noteContainer.style.display = 'block';
   } else if (item.adminIcons && item.adminIcons.length > 0) {
@@ -1345,17 +1350,93 @@ function openProductDrawer(item) {
   const getLabel = getEl('d-get-label');
   const getBox = getEl('d-get');
 
-  if (item.category && item.category.toLowerCase() === 'окрасы') {
-    if (descLabel) descLabel.style.display = 'none';
-    if (descBox) descBox.style.display = 'none';
-    if (getLabel) getLabel.style.display = 'none';
-    if (getBox) getBox.style.display = 'none';
-  } else {
-    if (descLabel) descLabel.style.display = 'block';
-    if (descBox) { descBox.style.display = 'block'; descBox.innerText = item.description || 'Нет описания'; }
-    if (getLabel) getLabel.style.display = 'block';
-    if (getBox) { getBox.style.display = 'block'; getBox.innerText = item.howto || 'Не указано'; }
+const isCoat =
+  item.category &&
+  item.category.toLowerCase() === 'окрасы';
+
+const isCompanion =
+  item.category &&
+  item.category.toLowerCase() === 'спутники';
+
+if (isCoat) {
+
+  if (descLabel) descLabel.style.display = 'none';
+  if (descBox) descBox.style.display = 'none';
+
+  if (getLabel) getLabel.style.display = 'none';
+  if (getBox) getBox.style.display = 'none';
+
+} else if (isCompanion) {
+
+  // =========================
+  // СПУТНИКИ
+  // =========================
+
+  let bonusText = 'Нет бонусов';
+
+  if (item.bonuses && typeof item.bonuses === 'object') {
+
+    const bonusMap = {
+      stamina: 'Выносливость',
+      speed: 'Скорость',
+      dressage: 'Выездка',
+      gallop: 'Галоп',
+      trot: 'Рысь',
+      jump: 'Прыжки'
+    };
+
+    const bonusesArr = Object.entries(item.bonuses)
+      .map(([key, value]) => {
+        if (!value) return null;
+        return `${bonusMap[key] || key} +${value}`;
+      })
+      .filter(Boolean);
+
+    if (bonusesArr.length > 0) {
+      bonusText = bonusesArr.join(', ');
+    }
   }
+
+  if (descLabel) {
+    descLabel.style.display = 'block';
+    descLabel.innerText = 'КОЛЛЕКЦИЯ';
+  }
+
+  if (descBox) {
+    descBox.style.display = 'block';
+    descBox.innerText = item.collection || 'Не указана';
+  }
+
+  if (getLabel) {
+    getLabel.style.display = 'block';
+    getLabel.innerText = 'БОНУСЫ';
+  }
+
+  if (getBox) {
+    getBox.style.display = 'block';
+    getBox.innerText = bonusText;
+  }
+
+} else {
+
+  // =========================
+  // ОБЫЧНЫЕ ТОВАРЫ
+  // =========================
+
+  if (descLabel) descLabel.style.display = 'block';
+
+  if (descBox) {
+    descBox.style.display = 'block';
+    descBox.innerText = item.description || 'Нет описания';
+  }
+
+  if (getLabel) getLabel.style.display = 'block';
+
+  if (getBox) {
+    getBox.style.display = 'block';
+    getBox.innerText = item.howto || 'Не указано';
+  }
+}
 
   let availableFlags = [];
   if (item.stocks) {
