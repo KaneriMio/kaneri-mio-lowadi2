@@ -2678,5 +2678,556 @@
     "Дарумы"
   ],
   "adminIcons": []
+},
+  {
+  "id": "bm_1779998418124",
+  "name": "Silksnow",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/6csJCQHq/compagnon-ice-sidhe-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Зимний зверинец",
+  "bonuses": {
+    "stamina": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Зимний зверинец"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998472804",
+  "name": "Post Owl",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/zTzJmJbK/compagnon-ice-sidhe-5.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Зимний зверинец",
+  "bonuses": {
+    "stamina": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Зимний зверинец"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998501060",
+  "name": "Penglide",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Nn3ySzH4/compagnon-ice-sidhe-6.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Зимний зверинец",
+  "bonuses": {
+    "gallop": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Зимний зверинец"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998539596",
+  "name": "M.Ice",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/21p1pPwB/compagnon-ice-sidhe-3.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Зимний зверинец",
+  "bonuses": {
+    "trot": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Зимний зверинец"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998567259",
+  "name": "Icy Seal",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/M5BHb4Xr/compagnon-ice-sidhe-8.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Зимний зверинец",
+  "bonuses": {
+    "jump": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Зимний зверинец"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998589172",
+  "name": "Frostbun",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/PvySN6G8/compagnon-ice-sidhe-4.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Зимний зверинец",
+  "bonuses": {
+    "jump": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Зимний зверинец"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998614259",
+  "name": "Coldfish",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/hJwZtp46/compagnon-ice-sidhe-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Зимний зверинец",
+  "bonuses": {
+    "gallop": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Зимний зверинец"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998659635",
+  "name": "Buffalow",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/99q4c7BJ/compagnon-ice-sidhe-9.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Зимний зверинец",
+  "bonuses": {
+    "speed": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Зимний зверинец"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998690491",
+  "name": "Beeeeell",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Rp7mjK2T/compagnon-ice-sidhe-7.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Зимний зверинец",
+  "bonuses": {
+    "trot": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Зимний зверинец"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998842955",
+  "name": "Сенбернар — ку ши",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/wZg3VYBZ/compagnon-cu-sidhe-8.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Ку ши",
+  "bonuses": {
+    "stamina": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Ку ши"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998872043",
+  "name": "Немецкий дог — ку ши",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/HLrQ83Qy/compagnon-cu-sidhe-7.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Ку ши",
+  "bonuses": {
+    "stamina": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Ку ши"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998935315",
+  "name": "Корги пемброк — ку ши",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/99vnDQP3/compagnon-cu-sidhe-9.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Ку ши",
+  "bonuses": {
+    "trot": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Ку ши"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779998966747",
+  "name": "Кокер-спаниель — ку ши",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/21vWDxnZ/compagnon-cu-sidhe-3.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Ку ши",
+  "bonuses": {
+    "jump": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Ку ши"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999000802",
+  "name": "Бордер-колли — ку ши",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/rGKRDxX1/compagnon-cu-sidhe-4.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Ку ши",
+  "bonuses": {
+    "jump": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Ку ши"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999037786",
+  "name": "Американский стафф терьер — ку ши",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/7d4mZdjF/compagnon-cu-sidhe-10.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Ку ши",
+  "bonuses": {
+    "gallop": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Ку ши"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999284585",
+  "name": "Шарпей — ку ши",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/bMy1Wb2k/compagnon-cu-sidhe-5.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Ку ши",
+  "bonuses": {
+    "jump": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Ку ши"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999309113",
+  "name": "Чихуахуа — ку ши",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/RTK3b1zW/compagnon-cu-sidhe-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Ку ши",
+  "bonuses": {
+    "trot": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Ку ши"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999331522",
+  "name": "Скотчтерьер — ку ши",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/C3bBHYTh/compagnon-cu-sidhe-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Ку ши",
+  "bonuses": {
+    "trot": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Ку ши"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999361529",
+  "name": "Сибирский хаски — ку ши",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/m5FjWTL6/compagnon-cu-sidhe-6.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Ку ши",
+  "bonuses": {
+    "stamina": 13
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Ку ши"
+  ],
+  "adminIcons": []
 }
 ]
