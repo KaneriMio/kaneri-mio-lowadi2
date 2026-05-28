@@ -3229,5 +3229,585 @@
     "Ку ши"
   ],
   "adminIcons": []
+},
+  {
+  "id": "bm_1779999659032",
+  "name": "Морская черепаха",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/JRdGmM1C/compagnon-sea-turtle.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Морские пиньяты",
+  "bonuses": {
+    "stamina": 10
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Морские пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999735432",
+  "name": "Медуза",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/XxzZ9vN9/compagnon-jellyfish.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Морские пиньяты",
+  "bonuses": {
+    "gallop": 5
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Морские пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999783048",
+  "name": "Кузовок",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/27y3VLVB/compagnon-cow-fish.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Морские пиньяты",
+  "bonuses": {
+    "stamina": 6
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Морские пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999845080",
+  "name": "Криль",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/TBhX2WW3/compagnon-krill.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Морские пиньяты",
+  "bonuses": {
+    "trot": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Морские пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999884272",
+  "name": "Краб",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/3yLZCwD9/compagnon-crab.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Морские пиньяты",
+  "bonuses": {
+    "trot": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Морские пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999909280",
+  "name": "Гиппокампус",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/7J2M92Tf/compagnon-seahorse.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Морские пиньяты",
+  "bonuses": {
+    "gallop": 3
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Морские пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779999998719",
+  "name": "Спрут",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/wZQwKHMP/compagnon-giant-squid.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Морские пиньяты",
+  "bonuses": {
+    "trot": 14
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Морские пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780000033455",
+  "name": "Рыба-хирург",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/pBnZdYP2/compagnon-surgeon-fish.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Морские пиньяты",
+  "bonuses": {
+    "gallop": 7
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Морские пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780000079663",
+  "name": "Рыба-лев",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/chdD0kMP/compagnon-lion-fish.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Морские пиньяты",
+  "bonuses": {
+    "speed": 8
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Морские пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780000108887",
+  "name": "Рыба-клоун",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/WpKbn3m8/compagnon-clownfish.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Морские пиньяты",
+  "bonuses": {
+    "jump": 3
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Морские пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780000300038",
+  "name": "Курчавый арасари",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/SwR3cZbc/compagnon-pinata-curl-crested-aracari.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Небесные пиньяты",
+  "bonuses": {
+    "stamina": 5
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Небесные пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780000328135",
+  "name": "Колибри",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/zVjR0K4r/compagnon-pinata-colibri.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Небесные пиньяты",
+  "bonuses": {
+    "dressage": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Небесные пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780000357535",
+  "name": "Кардинал",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/xVFvSv2/compagnon-pinata-cardinal.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Небесные пиньяты",
+  "bonuses": {
+    "trot": 3
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Небесные пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780000390086",
+  "name": "Каракара",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/BV4HZ9Dp/compagnon-pinata-caracara.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Небесные пиньяты",
+  "bonuses": {
+    "speed": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Небесные пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780000415390",
+  "name": "Гульдова амадина",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/zV7kZfF3/compagnon-pinata-gouldian-finch.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Небесные пиньяты",
+  "bonuses": {
+    "jump": 6
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Небесные пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780000441854",
+  "name": "Великолепный фрегат",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/HpMRrwf5/compagnon-pinata-magnificent-frigate-bird.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Небесные пиньяты",
+  "bonuses": {
+    "speed": 7
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Небесные пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780000510622",
+  "name": "Скальный петушок",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/KzshyjZT/compagnon-pinata-cock-of-the-rock.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Небесные пиньяты",
+  "bonuses": {
+    "gallop": 3
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Небесные пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780000531758",
+  "name": "Попугайчик",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/JR5rftGr/compagnon-pinata-parakeet.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Небесные пиньяты",
+  "bonuses": {
+    "gallop": 8
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Небесные пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780002381408",
+  "name": "Попугай",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/m5qDdDbG/compagnon-pinata-parrot.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Небесные пиньяты",
+  "bonuses": {
+    "trot": 10
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Небесные пиньяты"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1780002406472",
+  "name": "Пиньята с фениксом",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/F43khwh9/compagnon-pinata-phenix.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Небесные пиньяты",
+  "bonuses": {
+    "stamina": 14
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Небесные пиньяты"
+  ],
+  "adminIcons": []
 }
 ]
