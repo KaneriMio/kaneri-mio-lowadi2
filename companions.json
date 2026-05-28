@@ -1685,5 +1685,999 @@
     "Кат Ши"
   ],
   "adminIcons": []
-}
+},
+  {
+  "id": "bm_1779995518509",
+  "name": "Феникс",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/5WLFyXCZ/compagnon-phenix.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Божественные существа",
+  "bonuses": {
+    "dressage": 12
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "божественные существа"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779995615533",
+  "name": "Фея",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/VcVQWMnh/compagnon-fee.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Божественные существа",
+  "bonuses": {
+    "jump": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "божественные существа"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779995666989",
+  "name": "Синий дракон",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/4R4WfcsT/compagnon-dragon-2.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Драконы",
+  "bonuses": {
+    "dressage": 16
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Драконы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779995788460",
+  "name": "Фиолетовый дракон",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/7JWxmH4q/compagnon-dragon-1.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Драконы",
+  "bonuses": {
+    "dressage": 16
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Драконы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779995819964",
+  "name": "Красный дракон",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/9BbYRCg/compagnon-dragon-3.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Драконы",
+  "bonuses": {
+    "dressage": 16
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Драконы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779995847132",
+  "name": "Зеленый дракон",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/TqkdzDrK/compagnon-dragon-4.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Драконы",
+  "bonuses": {
+    "dressage": 16
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Драконы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779995887932",
+  "name": "Дракон Аксолотль",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/DPHZgx2q/compagnon-dragon-axolotl.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Драконы",
+  "bonuses": {
+    "dressage": 16
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Драконы",
+    "Дракон",
+    "Аксолотль"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996025459",
+  "name": "Ящерок",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Q4PyqtH/compagnon-kaijoon-lizard.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Мультяшные животные",
+  "bonuses": {
+    "stamina": 12
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Мультяшные животные",
+    "ящер"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996069075",
+  "name": "Крабик",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/chSLy7jb/compagnon-crabbie.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Мультяшные животные",
+  "bonuses": {
+    "speed": 11
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Мультяшные животные",
+    "краб"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996110147",
+  "name": "Імператор Мороз",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/SXqhq8s2/compagnon-emperor-penguin.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Мультяшные животные",
+  "bonuses": {
+    "trot": 15
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Мультяшные животные",
+    "пингвин"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996163195",
+  "name": "Lil' Octopus",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/VYB9kKSQ/compagnon-poulpy.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Мультяшные животные",
+  "bonuses": {
+    "dressage": 11
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Мультяшные животные",
+    "осьминог",
+    "кальмар"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996428667",
+  "name": "Kamaitachi",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/cXLNWnHR/compagnon-kamaitachi.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "speed": 6
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996502770",
+  "name": "Kaeru no Senshi",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Ldk2Vfh3/compagnon-kaeru-no-senshi.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "jump": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996537034",
+  "name": "Kaeru",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/G4rnR7PC/compagnon-kaeru.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "jump": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996569058",
+  "name": "Itachi",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/DH4GXFJV/compagnon-itachi.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "speed": 3
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996613210",
+  "name": "Ezoshika",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/TDkDtpyz/compagnon-ezoshika.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "gallop": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996645777",
+  "name": "Banken",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/qYDv50ny/compagnon-banken.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "speed": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996806665",
+  "name": "Kyuubi no kitsune",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/cSX8VQdw/compagnon-kyuubi-no-kitsune.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "trot": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996837881",
+  "name": "Komainu",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/B5HgRmzL/compagnon-komainu.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "stamina": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996873624",
+  "name": "Kojika",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/XrhJCMSx/compagnon-kojika.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "gallop": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996918953",
+  "name": "Koi",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/bMkJzzqs/compagnon-koi.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "trot": 3
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996957921",
+  "name": "Kitsune",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/R4Sk9VFm/compagnon-kitsune.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "trot": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779996986224",
+  "name": "Kingyo",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Fbgv2LQ3/compagnon-kingyo.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "trot": 6
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779997130720",
+  "name": "Shiba Inu",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/K1mfNmz/compagnon-shiba-inu.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "speed": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779997174232",
+  "name": "Ryū",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/JWGwnsTL/compagnon-ryu.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "stamina": 8
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779997203232",
+  "name": "Okuri Inu",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/gLLCd34H/compagnon-okuri-inu.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "jump": 6
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779997233336",
+  "name": "Ōkami",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/YB3j9xfF/compagnon-okami.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "jump": 3
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779997277591",
+  "name": "Nekomata",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/0R0FyWQQ/compagnon-nekomata.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "stamina": 4
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779997315967",
+  "name": "Neko",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/dw6Bc6xm/compagnon-neko.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "stamina": 2
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779997471223",
+  "name": "Tsuru",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/pjyRGhx2/compagnon-tsuru.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "gallop": 3
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779997557351",
+  "name": "Tsuchinoko",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/XkGj95DK/compagnon-tsuchinoko.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "speed": 8
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779997588582",
+  "name": "Tora",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/RGGnhWft/compagnon-tora.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "stamina": 3
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779997618950",
+  "name": "Tengu",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/SXb4FvGW/compagnon-tengu.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "gallop": 6
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1779997646102",
+  "name": "Sown Goku",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/NnN3r110/compagnon-sown-goku.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "collection": "Дарумы",
+  "bonuses": {
+    "gallop": 10
+  },
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дарумы"
+  ],
+  "adminIcons": []
+},
+  
 ]
