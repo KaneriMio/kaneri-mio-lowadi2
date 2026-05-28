@@ -1465,6 +1465,34 @@ if (isCoat) {
   const serverStock = (item.stocks && item.stocks[currentServer]) !== undefined ? item.stocks[currentServer] : 0;
   const dCount = getEl('d-count'); if (dCount) dCount.innerText = `${serverStock} шт`;
   const dPrice = getEl('d-price'); if (dPrice) dPrice.innerText = `${item.price || 0} ₽`;
+/* БЛОКИРОВКА КНОПКИ ЕСЛИ НЕТ В НАЛИЧИИ */
+if (drawerAddCartBtn) {
+
+  if (serverStock <= 0) {
+    drawerAddCartBtn.disabled = true;
+    drawerAddCartBtn.innerText = 'Нет в наличии';
+    drawerAddCartBtn.style.opacity = '0.6';
+    drawerAddCartBtn.style.cursor = 'not-allowed';
+  } else {
+    drawerAddCartBtn.disabled = false;
+    drawerAddCartBtn.innerHTML = `
+      <svg viewBox="0 0 24 24">
+        <path d="M1 2h3.5l2.5 12h12l2-9H6"
+        stroke="#fff"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+        <circle cx="8" cy="21" r="1.5" fill="#fff"/>
+        <circle cx="18" cy="21" r="1.5" fill="#fff"/>
+      </svg>
+      Добавить в корзину
+    `;
+    drawerAddCartBtn.style.opacity = '1';
+    drawerAddCartBtn.style.cursor = 'pointer';
+  }
+
+}
   
   if (overlay) overlay.classList.add('active');
   if (productDrawer) productDrawer.classList.add('active');
