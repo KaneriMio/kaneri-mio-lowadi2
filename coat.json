@@ -1996,5 +1996,814 @@
     "Дух путешествий \"Бабочки\""
   ],
   "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304303505",
+  "name": "Мрачный Жнец",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/G4W0X3np/faucheuse.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Городские легенды»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "легенды",
+    "дух легенды",
+    "Дух путешествий \"Городские легенды\"",
+    "Дух путешествий «Городские легенды»"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304336597",
+  "name": "Чупакабра",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/PZw8Xy2n/chupacabra.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Городские легенды»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "легенды",
+    "дух легенды",
+    "Дух путешествий \"Городские легенды\"",
+    "Дух путешествий «Городские легенды»"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304353399",
+  "name": "Банши",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/M37t40w/banshee.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Городские легенды»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "легенды",
+    "дух легенды",
+    "Дух путешествий \"Городские легенды\"",
+    "Дух путешествий «Городские легенды»"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304374097",
+  "name": "Призрачная кукла",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/N2n8XBqB/poupee-hantee.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Городские легенды»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "легенды",
+    "дух легенды",
+    "Дух путешествий \"Городские легенды\"",
+    "Дух путешествий «Городские легенды»"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304393276",
+  "name": "Страшилище",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/0pLS83Q6/croque-mitaine.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Городские легенды»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "легенды",
+    "дух легенды",
+    "Дух путешествий \"Городские легенды\"",
+    "Дух путешествий «Городские легенды»"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304418654",
+  "name": "Барон Суббота",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/VWwWFd6N/baron-samedi.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Городские легенды»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "легенды",
+    "дух легенды",
+    "Дух путешествий \"Городские легенды\"",
+    "Дух путешествий «Городские легенды»"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304438488",
+  "name": "Баба-Яга",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/spRgt8B0/baba-yaga.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Городские легенды»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "легенды",
+    "дух легенды",
+    "Дух путешествий \"Городские легенды\"",
+    "Дух путешествий «Городские легенды»"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304457634",
+  "name": "Кровавая Мэри",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/DgDpfH4S/bloody-mary.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Городские легенды»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "легенды",
+    "дух легенды",
+    "Дух путешествий \"Городские легенды\"",
+    "Дух путешествий «Городские легенды»"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304482557",
+  "name": "Злой клоун",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/dsdz1fJZ/clown-malefique.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Городские легенды»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "легенды",
+    "дух легенды",
+    "Дух путешествий \"Городские легенды\"",
+    "Дух путешествий «Городские легенды»"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304527185",
+  "name": "Дама в белом",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/4nbnmsbw/dame-blanche.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Городские легенды»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "легенды",
+    "дух легенды",
+    "Дух путешествий \"Городские легенды\"",
+    "Дух путешествий «Городские легенды»"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304549403",
+  "name": "Вендиго",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/pjYYmcj6/wendigo.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Городские легенды»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "легенды",
+    "дух легенды",
+    "Дух путешествий \"Городские легенды\"",
+    "Дух путешествий «Городские легенды»"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304789269",
+  "name": "Афродита",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Z6B2MVZf/aphrodite.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие боги»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие боги",
+    "боги",
+    "дух боги",
+    "Дух путешествий «Греческие боги»",
+    "Дух путешествий \"Греческие боги\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304808366",
+  "name": "Аполлон",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/bg76P067/apollon.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие боги»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие боги",
+    "боги",
+    "дух боги",
+    "Дух путешествий «Греческие боги»",
+    "Дух путешествий \"Греческие боги\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304828937",
+  "name": "Афина",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/d4H1CZ3d/athena.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие боги»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие боги",
+    "боги",
+    "дух боги",
+    "Дух путешествий «Греческие боги»",
+    "Дух путешествий \"Греческие боги\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304846434",
+  "name": "Дионис",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/7Nd80bGz/dionysos.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие боги»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие боги",
+    "боги",
+    "дух боги",
+    "Дух путешествий «Греческие боги»",
+    "Дух путешествий \"Греческие боги\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304870749",
+  "name": "Аид",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/6JZcwqsX/hades.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие боги»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие боги",
+    "боги",
+    "дух боги",
+    "Дух путешествий «Греческие боги»",
+    "Дух путешествий \"Греческие боги\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304888135",
+  "name": "Гелиос",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/fzVrbsjC/helios.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие боги»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие боги",
+    "боги",
+    "дух боги",
+    "Дух путешествий «Греческие боги»",
+    "Дух путешествий \"Греческие боги\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304905345",
+  "name": "Гефест",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/bgbynk6Y/hephaistos.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие боги»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие боги",
+    "боги",
+    "дух боги",
+    "Дух путешествий «Греческие боги»",
+    "Дух путешествий \"Греческие боги\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304922650",
+  "name": "Посейдон",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/8ndn9vMV/poseidon.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие боги»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие боги",
+    "боги",
+    "дух боги",
+    "Дух путешествий «Греческие боги»",
+    "Дух путешествий \"Греческие боги\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780304942213",
+  "name": "Зевс",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/hFBSfY8D/zeus.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие боги»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие боги",
+    "боги",
+    "дух боги",
+    "Дух путешествий «Греческие боги»",
+    "Дух путешествий \"Греческие боги\""
+  ],
+  "adminIcons": []
 }
 ]
