@@ -5978,7 +5978,7 @@
   "id": "bm_1780246955277",
   "name": "Акита-ину",
   "count": 0,
-  "price": 0,
+  "price": 10,
   "image": "https://i.ibb.co/cKSSPSwk/compagnon-akita-inu.png",
   "category": "Спутники",
   "isNew": false,
@@ -5993,7 +5993,7 @@
     "stamina": 11
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 24,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6612,7 +6612,7 @@
   "id": "bm_1780249097534",
   "name": "Снежная обезьяна",
   "count": 0,
-  "price": 0,
+  "price": 15,
   "image": "https://i.ibb.co/dqV8Qms/compagnon-singe-neige.png",
   "category": "Спутники",
   "isNew": false,
@@ -6627,7 +6627,7 @@
     "jump": 12
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 15,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
