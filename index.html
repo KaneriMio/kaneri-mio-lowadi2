@@ -819,12 +819,24 @@ let cardContentHtml = '';
 // =========================
 if (item.category && item.category.toLowerCase() === 'окрасы') {
 
-  cardContentHtml += `
-    <div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>
-    <div class="card-meta-text">Вид: <span>${item.type || 'Обычный'}</span></div>
-    <div class="card-meta-text">Копии: <span>${item.copies || 'Не ограничены'}</span></div>
-  `;
+  // Проверяем: если это НЕ ЗЯ и НЕ ИЗЯ, значит это спец-окрас (ВЯ, ПЭ, ВШ, БК...)
+  if (item.colorType && item.colorType !== 'ЗЯ' && item.colorType !== 'ИЗЯ') {
+    
+    cardContentHtml += `
+      <div class="card-meta-text">Категория: <span>${item.colorType}</span></div>
+      <div class="card-meta-text">Вид: <span>уточнять у продавца</span></div>
+    `;
+    
+  } else {
+    // Стандартный вывод для базовых мастей (ЗЯ и ИЗЯ)
+    cardContentHtml += `
+      <div class="card-meta-text">Автор: <span>${item.author || 'Не указан'}</span></div>
+      <div class="card-meta-text">Вид: <span>${item.type || 'Обычный'}</span></div>
+      <div class="card-meta-text">Копии: <span>${item.copies || 'Не ограничены'}</span></div>
+    `;
+  }
 }
+
 
 // =========================
 // СПУТНИКИ
