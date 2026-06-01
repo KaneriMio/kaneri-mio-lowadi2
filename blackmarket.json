@@ -203,7 +203,7 @@
 {
   "id": "bm_1779647594044",
   "name": "Ласка Филотес",
-  "count": 26,
+  "count": 100,
   "price": 6,
   "image": "https://i.ibb.co/v4yr59Zn/caresse-philotes.png",
   "category": "Черный рынок",
@@ -215,7 +215,7 @@
   "isNaves": true,
   "isAvailableForNaves": true,
   "stocks": {
-    "🇷🇺": 26,
+    "🇷🇺": 100,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
