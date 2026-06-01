@@ -57,5 +57,176 @@
     "adminIcons": [
       "https://i.ibb.co/k2vNDdKr/couverture-hypnos.png"
     ]
-  }
+  },
+  {
+  "id": "specialcoat_1780297733783",
+  "name": "Огонь",
+  "count": 14,
+  "price": 15,
+  "image": "https://i.ibb.co/xqBf9RdK/normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ПЭ",
+  "collection": "5-й элемент",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 14,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 14,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "пятый элемент",
+    "стихия огня"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780297801806",
+  "name": "Земля",
+  "count": 15,
+  "price": 15,
+  "image": "https://i.ibb.co/NdpswwXc/normal-1.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ПЭ",
+  "collection": "5-й элемент",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 14,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 15,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "пятый элемент",
+    "стихия земля",
+    "стихия земли"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780297847499",
+  "name": "Воздух",
+  "count": 19,
+  "price": 15,
+  "image": "https://i.ibb.co/ycSt6vJ5/normal-2.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ПЭ",
+  "collection": "5-й элемент",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 14
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 19,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "пятый элемент",
+    "стихия воздух"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780297902081",
+  "name": "Вода",
+  "count": 22,
+  "price": 15,
+  "image": "https://i.ibb.co/fG4GkxYr/normal-3.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ПЭ",
+  "collection": "5-й элемент",
+  "bonuses": {
+    "stamina": 14,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 22,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "пятый элемент",
+    "стихия воды"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780297956206",
+  "name": "Металл",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/zW2VF33w/normal-4.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": true,
+  "isRare": true,
+  "colorType": "ПЭ",
+  "collection": "5-й элемент",
+  "bonuses": {
+    "stamina": 14,
+    "speed": 14,
+    "dressage": 14,
+    "gallop": 14,
+    "trot": 14,
+    "jump": 14
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "пятый элемент",
+    "стихия металла"
+  ],
+  "adminIcons": []
+}
 ]
