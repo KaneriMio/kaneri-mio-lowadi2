@@ -2805,5 +2805,3272 @@
     "Дух путешествий \"Греческие боги\""
   ],
   "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780307981817",
+  "name": "Ехидна",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/sJ5sytGs/echidna.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие существа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие существа",
+    "существа",
+    "дух существа",
+    "Дух путешествий «Греческие существа»",
+    "Дух путешествий \"Греческие существа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308006468",
+  "name": "Русалка",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/7dyMgj1z/sirene.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие существа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие существа",
+    "существа",
+    "дух существа",
+    "Дух путешествий «Греческие существа»",
+    "Дух путешествий \"Греческие существа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308024717",
+  "name": "Минотавр",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/bRrYJbYp/minotaure.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие существа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие существа",
+    "существа",
+    "дух существа",
+    "Дух путешествий «Греческие существа»",
+    "Дух путешествий \"Греческие существа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308046600",
+  "name": "Горгона",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/B52nx9gk/gorgone.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие существа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие существа",
+    "существа",
+    "дух существа",
+    "Дух путешествий «Греческие существа»",
+    "Дух путешествий \"Греческие существа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308070754",
+  "name": "Фавн",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/RpQ3wXWG/faune.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие существа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие существа",
+    "существа",
+    "дух существа",
+    "Дух путешествий «Греческие существа»",
+    "Дух путешествий \"Греческие существа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308096157",
+  "name": "Гарпия",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/QFSmcC7p/harpie.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие существа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие существа",
+    "существа",
+    "дух существа",
+    "Дух путешествий «Греческие существа»",
+    "Дух путешествий \"Греческие существа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308117167",
+  "name": "Кентавр",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/TDkJ11Y8/centaure.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие существа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие существа",
+    "существа",
+    "дух существа",
+    "Дух путешествий «Греческие существа»",
+    "Дух путешествий \"Греческие существа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308136497",
+  "name": "Химера",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/dsSn0vLD/chimere.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие существа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие существа",
+    "существа",
+    "дух существа",
+    "Дух путешествий «Греческие существа»",
+    "Дух путешествий \"Греческие существа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308157923",
+  "name": "Сфинкс",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/vCpNhjWX/sphynx.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие существа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие существа",
+    "существа",
+    "дух существа",
+    "Дух путешествий «Греческие существа»",
+    "Дух путешествий \"Греческие существа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308176997",
+  "name": "Цербер",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/b5zBGkTG/cerbere.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие существа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие существа",
+    "существа",
+    "дух существа",
+    "Дух путешествий «Греческие существа»",
+    "Дух путешествий \"Греческие существа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308206008",
+  "name": "Сцилла",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/t9sCkYC/scylla.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Греческие существа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "греческие существа",
+    "существа",
+    "дух существа",
+    "Дух путешествий «Греческие существа»",
+    "Дух путешествий \"Греческие существа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308330357",
+  "name": "Отмель",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/FLVdy8Hd/estran.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780308420703",
+  "name": "Тайга",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/hFCvD7qB/taiga.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780309233499",
+  "name": "Тропический лес",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/HTy7cy6w/sylve.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780309257950",
+  "name": "Буш",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/nMFjLSdn/bush.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780309278616",
+  "name": "Тундра",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/vxLfRYWh/toundra.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780309301026",
+  "name": "Пустыня",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/JR1gsvqW/desert.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780309322325",
+  "name": "Мангровый лес",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/x8gt99Sz/mangrove.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780309342303",
+  "name": "Пустошь",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/GQ9mHY5L/lande.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780309887320",
+  "name": "Роща",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/xqRvKH5W/foret.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780309992042",
+  "name": "Риф",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/m5t59wVg/corail.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780310018229",
+  "name": "Болото",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/1fszqD02/marais.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780310042289",
+  "name": "Бездна",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/3mRsmBhj/abysses.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780310061281",
+  "name": "Льдина",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/zVjb01tH/banquise.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780310081700",
+  "name": "Саванна",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/9kwjLy4F/savane.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780310103174",
+  "name": "Степь",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Ldmvs8PF/steppe.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780310124665",
+  "name": "Атолл",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/N2Qr4qPM/atoll.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Природа»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "природа",
+    "дух природа",
+    "Дух путешествий «Природа»",
+    "Дух путешествий \"Природа\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780311307892",
+  "name": "Средиземка",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/vvrNzYNS/mediterraneo.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Семь морей»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "семь морей",
+    "море",
+    "дух семь морей",
+    "дух море",
+    "Дух путешествий «Семь морей»",
+    "Дух путешествий \"Семь морей\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780311328941",
+  "name": "Индиана",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/21QmDSqD/indiana.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Семь морей»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "семь морей",
+    "море",
+    "дух семь морей",
+    "дух море",
+    "Дух путешествий «Семь морей»",
+    "Дух путешествий \"Семь морей\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780311352657",
+  "name": "Карибиана",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/7dg53Sct/caraibiana.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Семь морей»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "семь морей",
+    "море",
+    "дух семь морей",
+    "дух море",
+    "Дух путешествий «Семь морей»",
+    "Дух путешествий \"Семь морей\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780311429640",
+  "name": "Арктика",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/b5Jjk3jG/arctica.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Семь морей»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "семь морей",
+    "море",
+    "дух семь морей",
+    "дух море",
+    "Дух путешествий «Семь морей»",
+    "Дух путешествий \"Семь морей\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780311449218",
+  "name": "Атлантико",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/0j4XBPXP/atlantico.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Семь морей»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "семь морей",
+    "море",
+    "дух семь морей",
+    "дух море",
+    "Дух путешествий «Семь морей»",
+    "Дух путешествий \"Семь морей\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780311469076",
+  "name": "Антарктико",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/zWpkbGM6/antarctico.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Семь морей»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "семь морей",
+    "море",
+    "дух семь морей",
+    "дух море",
+    "Дух путешествий «Семь морей»",
+    "Дух путешествий \"Семь морей\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780311489567",
+  "name": "Пасифико",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/1YGgjk7y/pacifico.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий «Семь морей»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "семь морей",
+    "море",
+    "дух семь морей",
+    "дух море",
+    "Дух путешествий «Семь морей»",
+    "Дух путешествий \"Семь морей\""
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780313793526",
+  "name": "Сильванный единорог",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/gbQk3p6R/sylvecorne.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий единорогов",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "единорог",
+    "дух единорогов",
+    "дух единорог",
+    "Дух путешествий единорогов"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780314208250",
+  "name": "Единорог-пегас",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/N6hsr70W/alicorne.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий единорогов",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "единорог",
+    "дух единорогов",
+    "дух единорог",
+    "Дух путешествий единорогов"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780314251062",
+  "name": "Единорог-нарвал",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/B2GWjnR8/cornaval.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий единорогов",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "единорог",
+    "дух единорогов",
+    "дух единорог",
+    "Дух путешествий единорогов"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780314391781",
+  "name": "Единорог-зебра",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/8nXXSynj/zebracorne.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий единорогов",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "единорог",
+    "дух единорогов",
+    "дух единорог",
+    "Дух путешествий единорогов"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780314414799",
+  "name": "Единорог-грифон",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/bVBYbxJ/corniffon.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий единорогов",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "единорог",
+    "дух единорогов",
+    "дух единорог",
+    "Дух путешествий единорогов"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780314442242",
+  "name": "Единорог-осел",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/5gwyY36L/anicorne.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий единорогов",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "единорог",
+    "дух единорогов",
+    "дух единорог",
+    "Дух путешествий единорогов"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780314463084",
+  "name": "Морской единорог",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/WWX8dR6C/hippocorne.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий единорогов",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "единорог",
+    "дух единорогов",
+    "дух единорог",
+    "Дух путешествий единорогов"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780315039816",
+  "name": "Единорог-лама",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/WpdzHgnQ/lamacorne.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий единорогов",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "единорог",
+    "дух единорогов",
+    "дух единорог",
+    "Дух путешествий единорогов"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780315061274",
+  "name": "Темный единорог",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/0gVBXp5/sombrecorne.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий единорогов",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "единорог",
+    "дух единорогов",
+    "дух единорог",
+    "Дух путешествий единорогов"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780315083318",
+  "name": "Сказочный единорог",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Xkfx5bDx/fairycorne.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий единорогов",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "единорог",
+    "дух единорогов",
+    "дух единорог",
+    "Дух путешествий единорогов"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780315101832",
+  "name": "Пиньяторог",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/tMyqmD4L/pinacorne.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Дух путешествий единорогов",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Дух",
+    "ДП",
+    "дп",
+    "путешествия",
+    "единорог",
+    "дух единорогов",
+    "дух единорог",
+    "Дух путешествий единорогов"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780315265992",
+  "name": "Летучая Мышь",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/ymG1QD3C/normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ЗТ",
+  "collection": "Заколдованная тыква",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "ЗТ",
+    "зт",
+    "Заколдованная тыква",
+    "мышь"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780315292404",
+  "name": "Привидение",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/pvMQf0Ft/normal-1.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ЗТ",
+  "collection": "Заколдованная тыква",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "ЗТ",
+    "зт",
+    "Заколдованная тыква"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780315314533",
+  "name": "Скелет",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/tTBJCHqr/normal-2.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ЗТ",
+  "collection": "Заколдованная тыква",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "ЗТ",
+    "зт",
+    "Заколдованная тыква"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780315335127",
+  "name": "Вампир",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Mkg7Vq8f/normal-3.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ЗТ",
+  "collection": "Заколдованная тыква",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "ЗТ",
+    "зт",
+    "Заколдованная тыква"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780315360585",
+  "name": "Тыква",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/mVPJ515x/normal-4.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ЗТ",
+  "collection": "Заколдованная тыква",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "ЗТ",
+    "зт",
+    "Заколдованная тыква"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316021142",
+  "name": "Ведьма-алхимик",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/1pdB0Vq/normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ЗВ",
+  "collection": "Зелье ведьмы",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "ЗВ",
+    "зв",
+    "ведьмы",
+    "ведьма"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316129434",
+  "name": "Ведьма-травница",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/wFGcLstG/normal-1.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ЗВ",
+  "collection": "Зелье ведьмы",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "ЗВ",
+    "зв",
+    "ведьмы",
+    "ведьма"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316158061",
+  "name": "Грибная ведьма",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/WvRXQKdm/normal-2.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ЗВ",
+  "collection": "Зелье ведьмы",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "ЗВ",
+    "зв",
+    "ведьмы",
+    "ведьма"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316181407",
+  "name": "Ведьма с книгой заклинаний",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/6cCRmf3L/normal-3.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ЗВ",
+  "collection": "Зелье ведьмы",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "ЗВ",
+    "зв",
+    "ведьмы",
+    "ведьма"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316340303",
+  "name": "Рамзес",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/mCvnzm67/ramses.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Ист Дух",
+  "collection": "Исторический Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Исторический Дух путешествий",
+    "Ист Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316361274",
+  "name": "Колумб",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Qvp33GwH/colomb.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Ист Дух",
+  "collection": "Исторический Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Исторический Дух путешествий",
+    "Ист Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316381108",
+  "name": "Кочис",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/N2nyHdK0/cochise.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Ист Дух",
+  "collection": "Исторический Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Исторический Дух путешествий",
+    "Ист Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316401022",
+  "name": "Люси",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Z6cmwt5m/lucy.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Ист Дух",
+  "collection": "Исторический Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Исторический Дух путешествий",
+    "Ист Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316426905",
+  "name": "Капак",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/ymMKM0dn/capac.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Ист Дух",
+  "collection": "Исторический Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Исторический Дух путешествий",
+    "Ист Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316451771",
+  "name": "Хан",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/hS69tjr/khan.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Ист Дух",
+  "collection": "Исторический Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Исторический Дух путешествий",
+    "Ист Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316491424",
+  "name": "Цезарь",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/jPwxX46c/cesar.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Ист Дух",
+  "collection": "Исторический Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Исторический Дух путешествий",
+    "Ист Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780316511473",
+  "name": "Харальд",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/7t3nYcyz/harald.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Ист Дух",
+  "collection": "Исторический Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Исторический Дух путешествий",
+    "Ист Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780317116168",
+  "name": "Клякса",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/PsbdGs0M/normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "КМ",
+  "collection": "Книга монстров",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Книга монстров",
+    "КМ",
+    "Монстры",
+    "Монстр"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780317149508",
+  "name": "Призрачный гонщик",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/fVkDP4kR/normal-1.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "КМ",
+  "collection": "Книга монстров",
+  "bonuses": {
+    "stamina": 14,
+    "speed": 14,
+    "dressage": 14,
+    "gallop": 14,
+    "trot": 14,
+    "jump": 14
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Книга монстров",
+    "КМ",
+    "Монстры",
+    "Монстр"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780317205090",
+  "name": "Мумия",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/zWyQMZKX/normal-2.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "КМ",
+  "collection": "Книга монстров",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Книга монстров",
+    "КМ",
+    "Монстры",
+    "Монстр"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780317223812",
+  "name": "Йети",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/bgrtmZmC/normal-3.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "КМ",
+  "collection": "Книга монстров",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Книга монстров",
+    "КМ",
+    "Монстры",
+    "Монстр"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780317249302",
+  "name": "Тритон",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/FkG4JKMK/normal-4.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "КМ",
+  "collection": "Книга монстров",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Книга монстров",
+    "КМ",
+    "Монстры",
+    "Монстр"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780317654891",
+  "name": "Хип-хоп",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/TxGzfcW0/hip-hop.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Музыкальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Музыкальный Дух путешествий",
+    "Муз Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "музыкальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780317790967",
+  "name": "Панк-рок",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Xkxgq6Sh/punk-rock.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Музыкальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Музыкальный Дух путешествий",
+    "Муз Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "музыкальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780317815417",
+  "name": "Блюз",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/XkrHBxGv/blues.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Музыкальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Музыкальный Дух путешествий",
+    "Муз Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "музыкальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780317918660",
+  "name": "Регги",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/MFsWfr6/reggae.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Музыкальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Музыкальный Дух путешествий",
+    "Муз Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "музыкальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780317939894",
+  "name": "Ритм-энд-блюз",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/WvWZnxh0/rnb.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Музыкальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Музыкальный Дух путешествий",
+    "Муз Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "музыкальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780317974002",
+  "name": "Металл",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/W9X2g6K/metal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Музыкальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Музыкальный Дух путешествий",
+    "Муз Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "музыкальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780318004541",
+  "name": "Опера",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/XxtP3jhG/opera.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Музыкальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Музыкальный Дух путешествий",
+    "Муз Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "музыкальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780318028271",
+  "name": "Кантри",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/GvFfd7mj/country.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Музыкальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Музыкальный Дух путешествий",
+    "Муз Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "музыкальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780318047761",
+  "name": "Электро",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/TqgKYcLy/electro.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Музыкальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Музыкальный Дух путешествий",
+    "Муз Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "музыкальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780318136387",
+  "name": "Фанк",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/XZC8HKTm/funk.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Музыкальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Музыкальный Дух путешествий",
+    "Муз Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "музыкальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780318156773",
+  "name": "Джаз",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/rf2QxBTf/jazz.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Музыкальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Музыкальный Дух путешествий",
+    "Муз Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "музыкальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780318336415",
+  "name": "Фортуна",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/FkrqyMz6/fortune.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Оригинальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Оригинальный Дух путешествий",
+    "Ориг Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "оригинальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780318356090",
+  "name": "Пионер",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/wF9SmVj0/pionnier.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Оригинальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Оригинальный Дух путешествий",
+    "Ориг Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "оригинальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780318386021",
+  "name": "Верный",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Tf0j5p7/fidele.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Оригинальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Оригинальный Дух путешествий",
+    "Ориг Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "оригинальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780318411303",
+  "name": "Терпеливая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/KzLWzV6C/patience.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Оригинальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Оригинальный Дух путешествий",
+    "Ориг Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "оригинальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780318431201",
+  "name": "Чемпион",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Q3ZygdMF/champion.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Оригинальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Оригинальный Дух путешествий",
+    "Ориг Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "оригинальный"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780318449059",
+  "name": "Скромная",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/PG746jpD/timide.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Оригинальный Дух путешествий",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Оригинальный Дух путешествий",
+    "Ориг Дух",
+    "Дух путешествий",
+    "ДП",
+    "дп",
+    "оригинальный"
+  ],
+  "adminIcons": []
 }
 ]
