@@ -199,7 +199,7 @@
   "id": "specialcoat_1780297956206",
   "name": "Металл",
   "count": 0,
-  "price": 0,
+  "price": 120,
   "image": "https://i.ibb.co/zW2VF33w/normal-4.png",
   "category": "Окрасы",
   "isNew": false,
@@ -218,7 +218,7 @@
   "isNaves": false,
   "isAvailableForNaves": false,
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 1,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
