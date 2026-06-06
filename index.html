@@ -822,10 +822,38 @@ if (item.category && item.category.toLowerCase() === 'окрасы') {
   // Проверяем: если это НЕ ЗЯ и НЕ ИЗЯ, значит это спец-окрас (ВЯ, ПЭ, ВШ, БК...)
   if (item.colorType && item.colorType !== 'ЗЯ' && item.colorType !== 'ИЗЯ') {
     
-    cardContentHtml += `
-      <div class="card-meta-text">Категория: <span>${item.colorType}</span></div>
-      <div class="card-meta-text">Вид: <span>уточнять у продавца</span></div>
-    `;
+  let bonusText = 'Нет бонусов';
+
+if (item.bonuses) {
+
+  const bonusMap = {
+    stamina: 'Выносливость',
+    speed: 'Скорость',
+    dressage: 'Выездка',
+    gallop: 'Галоп',
+    trot: 'Рысь',
+    jump: 'Прыжки'
+  };
+
+  const bonusesArr = Object.entries(item.bonuses)
+    .map(([key, value]) => `${bonusMap[key] || key} +${value}`);
+
+  if (bonusesArr.length) {
+    bonusText = bonusesArr.join(', ');
+  }
+}
+
+cardContentHtml += `
+  <div class="card-meta-text">
+    Коллекция:
+    <span>${item.collection || 'Не указана'}</span>
+  </div>
+
+  <div class="card-meta-text">
+    Бонусы:
+    <span>${bonusText}</span>
+  </div>
+`;
     
   } else {
     // Стандартный вывод для базовых мастей (ЗЯ и ИЗЯ)
