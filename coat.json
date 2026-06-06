@@ -7814,5 +7814,319 @@
     "шуточный"
   ],
   "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780767133427",
+  "name": "Осел Вороной",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/mFb1b0DM/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя",
+    "обычный осел",
+    "вороная"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780767166562",
+  "name": "Осел Бурый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/YB6854Vd/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя",
+    "обычный осел",
+    "бурая"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780767196322",
+  "name": "Осел Белый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/G4b9nr6G/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя",
+    "обычный осел",
+    "белая"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780767232939",
+  "name": "Фризская",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/JjbCmCXq/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя",
+    "Фризская Вороная"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780767303354",
+  "name": "Фьорд Буро-Буланая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/mChG1T87/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780767324770",
+  "name": "Фьорд Серый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/rKKJmbrz/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя",
+    "серая"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780767350009",
+  "name": "Фьорд Бело-буланая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/GQzXTPwK/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780767397474",
+  "name": "Фьорд Жёлто-буланая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/FkwgWNQR/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780768042343",
+  "name": "Фьорд Рыже-буланая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/gb8SNphM/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
 }
 ]
