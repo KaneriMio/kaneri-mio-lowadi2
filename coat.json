@@ -8128,5 +8128,1467 @@
     "вя"
   ],
   "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773110953",
+  "name": "Нокота Рыжая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/B2K02Rqr/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773163528",
+  "name": "Нокота Вороная",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/mFvWgLWV/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773194888",
+  "name": "Нокота Пегая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/RTskCV2z/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773217263",
+  "name": "Нокота Гнедая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/JFrj4N67/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773265935",
+  "name": "Нокота Огненно-гнедой",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/zWx5P9WF/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773294936",
+  "name": "Нокота Пегий чёрный оверо",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Df66sgvQ/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773321647",
+  "name": "Нокота Серебристо-буланая типа оверо",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/dwGhvRdZ/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773347030",
+  "name": "Нокота Пегий огненно-гнедой оверо",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/wN0Td4n9/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773370831",
+  "name": "Нокота Пегий гнедой оверо",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/N2ycMKDK/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773570814",
+  "name": "Арабская Рыжая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/VY2RBN56/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773590533",
+  "name": "Арабская Вороная",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/35xtMpgm/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773609294",
+  "name": "Арабская Красно-гнедая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/q3qzNCBr/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773627350",
+  "name": "Арабская Изабелловая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/HfbvdKZR/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773647918",
+  "name": "Арабская Рыже-чалая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Q4NXBg9/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780773666135",
+  "name": "Арабская Пегая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/4nF4t1NS/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774337251",
+  "name": "Арабская Соловая (Паломино)",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/JWJSH7J3/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774355459",
+  "name": "Арабская Гнедая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/FqcYK1xf/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774390867",
+  "name": "Арабская Огненно-рыжая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/JwG60zvp/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774434059",
+  "name": "Арабская Огненно-рыжая с лавовой гривой",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/LDdMn5TK/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774463643",
+  "name": "Арабская Рыжая с лавовой гривой",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/7N1hT4bq/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774489363",
+  "name": "Арабская Огненно-гнедой",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/hJjCzsNZ/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774580147",
+  "name": "Арабская Кремелло",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/jZbk755D/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774601426",
+  "name": "Арабская Светло-серый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/tpWJMXqj/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774631923",
+  "name": "Арабская Серый в яблоках",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/S4Nt05tM/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774650546",
+  "name": "Арабская Серый форелевый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/ynrS1gN8/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774676252",
+  "name": "Арабская Мышино-серый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/nqN55knP/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774829178",
+  "name": "Ахалтекинская Рыжая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/zh7ysztt/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774901337",
+  "name": "Ахалтекинская Вороная",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/S7GG3jmv/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774919385",
+  "name": "Ахалтекинская Красно-гнедая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/9kY7tQP7/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774940993",
+  "name": "Ахалтекинская Изабелловая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/8gZH83YZ/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774958212",
+  "name": "Ахалтекинская Рыже-чалая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Xx7K9fZ2/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780774993394",
+  "name": "Ахалтекинская Пегая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/9H3bn5kP/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780775023737",
+  "name": "Ахалтекинская Соловая (Паломино)",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/XfqDv1bb/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780775043361",
+  "name": "Ахалтекинская Гнедая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/PZngGKmz/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780775062841",
+  "name": "Ахалтекинская Огненно-рыжая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/1fx29KzF/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780775081561",
+  "name": "Ахалтекинская Огненно-рыжая с лавовой гривой",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/QjMSpGnh/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780775102489",
+  "name": "Ахалтекинская Рыжая с лавовой гривой",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/DfsFtq8H/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780775127577",
+  "name": "Ахалтекинская Огненно-гнедой",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/ksfC0hGG/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780775213954",
+  "name": "Ахалтекинская Кремелло",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/JWG99JdK/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780775229121",
+  "name": "Ахалтекинская Светло-серый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/YB1RhpLN/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780775257969",
+  "name": "Ахалтекинская Серый в яблоках",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/vCt4Y1tv/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780775284465",
+  "name": "Ахалтекинская Серый форелевый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/CK716Qhj/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780775304544",
+  "name": "Ахалтекинская Мышино-серый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/hxTM5WcQ/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
 }
 ]
