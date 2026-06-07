@@ -1430,7 +1430,13 @@ const isCompanion =
   item.category &&
   item.category.toLowerCase() === 'спутники';
 
-if (isCoat) {
+const isSpecialCoat =
+  isCoat &&
+  item.colorType &&
+  item.colorType !== 'ЗЯ' &&
+  item.colorType !== 'ИЗЯ';
+
+if (isCoat && !isSpecialCoat) {
 
   if (descLabel) descLabel.style.display = 'none';
   if (descBox) descBox.style.display = 'none';
@@ -1438,7 +1444,7 @@ if (isCoat) {
   if (getLabel) getLabel.style.display = 'none';
   if (getBox) getBox.style.display = 'none';
 
-} else if (isCompanion) {
+} else if (isCompanion || isSpecialCoat) {
 
   // =========================
   // СПУТНИКИ
