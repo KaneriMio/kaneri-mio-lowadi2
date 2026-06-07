@@ -1388,11 +1388,27 @@ function openProductDrawer(item) {
   }
 
   const metaContainer = getEl('d-meta-container');
-  if (item.category && item.category.toLowerCase() === 'окрасы') {
-    const dBreed = getEl('d-breed'); if (dBreed) dBreed.innerText = item.breed || 'Не указана';
-    const dType = getEl('d-type'); if (dType) dType.innerText = item.type || 'Обычный';
-    const dAffix = getEl('d-affix'); if (dAffix) dAffix.innerText = item.affix ? 'Да' : 'Нет';
-    const dChk = getEl('d-chk'); if (dChk) dChk.innerText = item.chk ? 'Да' : 'Нет';
+  const isBaseCoat =
+  item.category &&
+  item.category.toLowerCase() === 'окрасы' &&
+  (
+    item.colorType === 'ЗЯ' ||
+    item.colorType === 'ИЗЯ'
+  );
+
+if (isBaseCoat) {
+
+  const dBreed = getEl('d-breed');
+  if (dBreed) dBreed.innerText = item.breed || 'Не указана';
+
+  const dType = getEl('d-type');
+  if (dType) dType.innerText = item.type || 'Обычный';
+
+  const dAffix = getEl('d-affix');
+  if (dAffix) dAffix.innerText = item.affix ? 'Да' : 'Нет';
+
+  const dChk = getEl('d-chk');
+  if (dChk) dChk.innerText = item.chk ? 'Да' : 'Нет';
     
     const companionSpan = getEl('d-companion');
     if (companionSpan) {
@@ -1408,14 +1424,19 @@ function openProductDrawer(item) {
   }
 
   const optionsContainer = getEl('d-options-container');
-  if (item.category && item.category.toLowerCase() === 'окрасы') {
+  if (isBaseCoat) {
+
     if (optCrSelect) optCrSelect.value = 'none';
     if (optFkSelect) optFkSelect.value = 'none';
     if (optSkillsSelect) optSkillsSelect.value = 'none';
+
     if (optionsContainer) optionsContainer.style.display = 'block';
-  } else {
+
+} else {
+
     if (optionsContainer) optionsContainer.style.display = 'none';
-  }
+
+}
 
   const descLabel = getEl('d-desc-label');
   const descBox = getEl('d-description');
