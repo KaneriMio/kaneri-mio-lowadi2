@@ -10440,6 +10440,311 @@
     "вя"
   ],
   "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780906395738",
+  "name": "Примитивная Огненно-рыжая",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/6RDLVytQ/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780906425281",
+  "name": "Примитивная Огненно-рыжая с лавовой гривой",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/RpgVBfTv/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780906442977",
+  "name": "Примитивная Рыжая с лавовой гривой",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/RpnSjZ3w/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780906464202",
+  "name": "Примитивная Огненно-гнедой",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/v8D7f6x/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780907256454",
+  "name": "Примитивная Кремелло",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Qjcq02B1/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780907277751",
+  "name": "Примитивная Светло-серый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/Vck0NnQg/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780907297135",
+  "name": "Примитивная Серый в яблоко",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/0pRry36B/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780907316670",
+  "name": "Примитивная Серый форелевый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/FL17BCp1/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1780907333759",
+  "name": "Примитивная Мышино-серый",
+  "count": 0,
+  "price": 0,
+  "image": "https://i.ibb.co/7tMVW3t0/image.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ВЯ",
+  "collection": "Винтажное Яблоко",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 0,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Винтажное Яблоко",
+    "вя"
+  ],
+  "adminIcons": []
 }
-  
 ]
