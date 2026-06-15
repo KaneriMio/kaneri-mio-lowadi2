@@ -285,110 +285,39 @@
     .cart-currency-calc strong {
       color: #4a2810;
     }
-/* 1. Затемняющий фон на весь экран */
-#socialModal.modal-overlay {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  background-color: rgba(0, 0, 0, 0.6) !important; /* Полупрозрачный темный фон */
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  /* Ставим слой выше корзины, чтобы плашка перекрывала её */
-  z-index: 99999 !important; 
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* 2. Сама белая плашка (в стиле вашего сайта) */
-#socialModal .modal-window {
-  background-color: #ffffff !important; /* Полностью непрозрачный белый цвет */
-  border: 2px solid #5d3826;            /* Шоколадная рамка в цвет шапки */
-  border-radius: 12px;                  /* Мягкие скругления углов */
-  padding: 30px;
-  max-width: 420px;
-  width: 90%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Красивая глубокая тень */
-  font-family: Arial, sans-serif;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-/* Заголовок плашки */
-#socialModal .modal-window h3 {
-  color: #5d3826; /* Шоколадный цвет */
-  font-size: 22px;
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-weight: bold;
-}
-
-/* Текст описания */
-#socialModal .modal-window p {
-  color: #555555;
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 25px;
-}
-
-/* Контейнер для кнопок */
-#socialModal .social-buttons {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-/* Общий стиль для кнопок Telegram и ВК */
-#socialModal .social-btn {
-  display: inline-flex;
+    #socialModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: none;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 15px;
-  color: #ffffff;
-  border: none;
+  z-index: 9999;
+}
+
+#socialModal.active {
+  display: flex;
+}
+
+.modal-window {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 12px;
   cursor: pointer;
-  width: 140px;
-  transition: transform 0.1s, opacity 0.2s;
 }
-
-#socialModal .social-btn:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-/* Кнопка Telegram */
-#socialModal #goTelegram {
-  background-color: #229ED9;
-}
-
-/* Кнопка ВКонтакте */
-#socialModal #goVk {
-  background-color: #0077FF;
-}
-
-/* Кнопка «Закрыть» */
-#socialModal .modal-close-btn {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  color: #555;
-  padding: 8px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s;
-}
-
-#socialModal .modal-close-btn:hover {
-  background-color: #e8e8e8;
-}
-
   </style>
 </head>
 <body>
@@ -615,26 +544,16 @@
   <div class="modal-overlay" id="socialModal">
   <div class="modal-content">
 
-    <h3>Оформление заказа</h3>
+    <h3>Выберите способ связи</h3>
 
     <p>
       Содержимое корзины уже скопировано в буфер обмена.
-      Выберите удобный способ связи с продавцом.
     </p>
 
     <div class="social-grid">
-      <button id="goTelegram">
-        📱 Написать в Telegram
-      </button>
-
-      <button id="goVk">
-        🔵 Написать ВКонтакте
-      </button>
+      <button id="goTelegram">📱 Telegram</button>
+      <button id="goVk">🔵 ВКонтакте</button>
     </div>
-
-    <button id="closeSocialModal">
-      Отмена
-    </button>
 
   </div>
 </div>
@@ -1493,11 +1412,6 @@ if (goTelegram) {
 if (goVk) {
   goVk.addEventListener('click', () => {
     window.open(VK_LINK, '_blank');
-  });
-}
-  if (closeSocialModal) {
-  closeSocialModal.addEventListener('click', () => {
-    socialModal.classList.remove('active');
   });
 }
 
