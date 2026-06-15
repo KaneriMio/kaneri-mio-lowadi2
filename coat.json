@@ -10746,5 +10746,42 @@
     "вя"
   ],
   "adminIcons": []
+}, 
+  {
+  "id": "coat_1781536042929",
+  "name": "Дыхание воды",
+  "count": 1,
+  "price": 1100,
+  "image": "https://i.ibb.co/zTXybNm7/94-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": true,
+  "colorType": "ЗЯ",
+  "author": "Олик",
+  "breed": "Арабская Чистокровная",
+  "type": "Верховой Пегас",
+  "companionImage": "",
+  "hasExtraCr": false,
+  "hasFk": false,
+  "hasSkills": false,
+  "affix": true,
+  "chk": false,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "редкие",
+    "пегас",
+    "мало копий"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/NdXjtgrG/sang-meduse.png",
+    "https://i.ibb.co/0pGSWmCj/pierre-philosophale.png"
+  ]
 }
 ]
