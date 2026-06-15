@@ -285,6 +285,39 @@
     .cart-currency-calc strong {
       color: #4a2810;
     }
+    #socialModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#socialModal.active {
+  display: flex;
+}
+
+.modal-window {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 12px;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
@@ -508,6 +541,22 @@
     </button>
   </div>
 </div>
+  <div class="modal-overlay" id="socialModal">
+  <div class="modal-content">
+
+    <h3>Выберите способ связи</h3>
+
+    <p>
+      Содержимое корзины уже скопировано в буфер обмена.
+    </p>
+
+    <div class="social-grid">
+      <button id="goTelegram">📱 Telegram</button>
+      <button id="goVk">🔵 ВКонтакте</button>
+    </div>
+
+  </div>
+</div>
 
 <!-- ЦЕНТРАЛЬНОЕ ОКНО ПРЕДУПРЕЖДЕНИЯ НАВЕСА ЯБЛОК -->
 <div class="popup-modal" id="appleModal">
@@ -605,7 +654,13 @@ const modalGoCatalogBtn = getEl('modalGoCatalogBtn');
 const modalCloseBtn = getEl('modalCloseBtn');
 const cancelClearCartBtn = getEl('cancelClearCartBtn');
 const confirmClearCartBtnEl = getEl('confirmClearCartBtn');
-
+const TELEGRAM_LINK = 'https://t.me/Kaneri_Mio';
+const VK_LINK = 'https://vk.com/id582816715';
+const socialModal = getEl('socialModal');
+const goTelegram = getEl('goTelegram');
+const goVk = getEl('goVk');
+const closeSocialModal = getEl('closeSocialModal');
+  
 const cartItemsContainer = getEl('cartItemsContainer');
 const cartTotalPrice = getEl('cartTotalPrice');
 const cartBadge = getEl('cartBadge');
@@ -1320,17 +1375,45 @@ if (cancelClearCartBtn) {
 }
 
 if (checkoutBtn) {
-  checkoutBtn.addEventListener('click', () => {
+  checkoutBtn.addEventListener('click', async () => {
+
     if (cart.length === 0) {
       showToast('Ваша корзина пуста!');
       return;
     }
-    alert('Заказ успешно оформлен! Спасибо за покупку.');
-    cart = [];
-    localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
-    updateCartUI();
-    renderItems();
-    closeAllDrawers();
+
+    let orderText = '🛒 Заказ Lowadi Store\n\n';
+
+    cart.forEach(item => {
+      orderText += `• ${item.name} — ${item.price} ₽\n`;
+    });
+
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+    orderText += `\n💰 Итого: ${total} ₽`;
+
+    try {
+      await navigator.clipboard.writeText(orderText);
+    } catch (e) {
+      console.error(e);
+    }
+
+    socialModal.classList.add('active');
+
+  });
+}
+  const TELEGRAM_LINK = 'https://t.me/Kaneri_Mio';
+const VK_LINK = 'https://vk.com/id582816715';
+
+if (goTelegram) {
+  goTelegram.addEventListener('click', () => {
+    window.open(TELEGRAM_LINK, '_blank');
+  });
+}
+
+if (goVk) {
+  goVk.addEventListener('click', () => {
+    window.open(VK_LINK, '_blank');
   });
 }
 
@@ -1732,5 +1815,33 @@ subFilterBtns.forEach(sBtn => {
   .tag.трофеи{background-color:#ffb703;}
   .tag.объявления{background-color:#02c39a;}
 </style>
+  <div class="modal-overlay" id="socialModal">
+  <div class="modal-window">
+
+    <h3>Выберите способ связи</h3>
+
+    <p>
+      Содержимое корзины уже скопировано в буфер обмена.
+      Отправьте его продавцу.
+    </p>
+
+    <div class="social-buttons">
+
+      <button id="goTelegram" class="social-btn">
+        📱 Telegram
+      </button>
+
+      <button id="goVk" class="social-btn">
+        🔵 ВКонтакте
+      </button>
+
+    </div>
+
+    <button id="closeSocialModal" class="modal-close-btn">
+      Закрыть
+    </button>
+
+  </div>
+</div>
 </body>
 </html>
