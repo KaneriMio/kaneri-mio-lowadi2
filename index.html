@@ -285,75 +285,108 @@
     .cart-currency-calc strong {
       color: #4a2810;
     }
-  /* Окно выбора способа связи (подстройте класс/id под ваш HTML) */
-.your-modal-class { 
-  background-color: #ffffff; /* Полностью белый, непрозрачный фон */
-  border: 2px solid #5d3826;  /* Тонкая рамка в цвет шапки сайта */
-  border-radius: 12px;       /* Мягкое скругление углов, как у карточек */
+/* 1. Затемняющий фон на весь экран */
+#socialModal.modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.6) !important; /* Полупрозрачный темный фон */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  /* Ставим слой выше корзины, чтобы плашка перекрывала её */
+  z-index: 99999 !important; 
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* 2. Сама белая плашка (в стиле вашего сайта) */
+#socialModal .modal-window {
+  background-color: #ffffff !important; /* Полностью непрозрачный белый цвет */
+  border: 2px solid #5d3826;            /* Шоколадная рамка в цвет шапки */
+  border-radius: 12px;                  /* Мягкие скругления углов */
   padding: 30px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Объемная тень для отделения от фона */
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Красивая глубокая тень */
   font-family: Arial, sans-serif;
   text-align: center;
-  max-width: 400px;
-  width: 90%;
+  box-sizing: border-box;
 }
 
-/* Заголовок внутри плашки */
-.your-modal-class h3 {
-  color: #5d3826; /* Шоколадный цвет текста */
+/* Заголовок плашки */
+#socialModal .modal-window h3 {
+  color: #5d3826; /* Шоколадный цвет */
+  font-size: 22px;
   margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: bold;
 }
 
-/* Описание (текст про буфер обмена) */
-.your-modal-class p {
-  color: #6d6d6d;
+/* Текст описания */
+#socialModal .modal-window p {
+  color: #555555;
   font-size: 14px;
+  line-height: 1.5;
   margin-bottom: 25px;
 }
 
-/* Контейнер для кнопок соцсетей */
-.social-buttons-container {
+/* Контейнер для кнопок */
+#socialModal .social-buttons {
   display: flex;
   gap: 15px;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
-/* Общие стили для кнопок Telegram и ВК */
-.btn-social {
+/* Общий стиль для кнопок Telegram и ВК */
+#socialModal .social-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 24px;
+  padding: 12px 20px;
   border-radius: 8px;
-  text-decoration: none;
   font-weight: bold;
   font-size: 15px;
   color: #ffffff;
-  transition: transform 0.1s ease, opacity 0.2s ease;
   border: none;
   cursor: pointer;
+  width: 140px;
+  transition: transform 0.1s, opacity 0.2s;
 }
 
-.btn-social:hover {
+#socialModal .social-btn:hover {
   opacity: 0.9;
-  transform: translateY(-1px); /* Легкий эффект приподнимания при наведении */
-}
-
-.btn-social:active {
-  transform: translateY(1px);
+  transform: translateY(-1px);
 }
 
 /* Кнопка Telegram */
-.btn-tg {
+#socialModal #goTelegram {
   background-color: #229ED9;
 }
 
 /* Кнопка ВКонтакте */
-.btn-vk {
+#socialModal #goVk {
   background-color: #0077FF;
+}
+
+/* Кнопка «Закрыть» */
+#socialModal .modal-close-btn {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #555;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+#socialModal .modal-close-btn:hover {
+  background-color: #e8e8e8;
 }
 
   </style>
