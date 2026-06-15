@@ -7,13 +7,12 @@
   <style>
 :root {
 
-  /* Основные цвета Kaneri Mio */
-  --bg-color: #faf7f7;
+  --bg-color: #faf8f8;
 
   --header-bg: #b3002d;
 
   --btn-active: #b3002d;
-  --btn-inactive: #f3e8eb;
+  --btn-inactive: #f5e7eb;
 
   --text-main: #2b2d42;
 
@@ -21,41 +20,44 @@
 
   --section-bg: #fffafb;
 
-  /* Категории */
-  --tag-black-market: #85001f;
+  --tag-black-market: #8f0024;
   --tag-currency: #c22c55;
-  --tag-colors: #d84a73;
-  --tag-services: #9d1239;
-  --tag-companions: #e35b84;
+  --tag-colors: #d34771;
+  --tag-services: #99163b;
+  --tag-companions: #e25f87;
   --tag-trophies: #b3002d;
-  --tag-announcements: #cc365f;
-  --tag-other: #8f5b68;
+  --tag-announcements: #c43c60;
+  --tag-other: #86616b;
 
-  /* Дополнительные */
-  --gold: #d6b36a;
-  --border-color: #f1e3e8;
 }
 
     * { box-sizing: border-box; }
 
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      margin: 0;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      overflow-x: hidden;
-    }
+   body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
 
-    header {
-      background-color: var(--header-bg);
-      color: #fff;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      font-weight: bold;
-      font-size: 18px;
+  background:
+  radial-gradient(
+    circle at top,
+    rgba(179,0,45,.08),
+    transparent 40%
+  ),
+  #faf8f8;
+
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+   header {
+  background:
+  linear-gradient(
+    135deg,
+    #b3002d,
+    #85001f
+  );
+
+  color: #fff;
     }
 
     .header-server-selector { position: relative; display: inline-block; }
@@ -113,9 +115,19 @@
     .sub-filter-btn.active { background-color: #84522b; color: #ffffff; }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    .card { background-color: var(--card-bg); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 6px rgba(0,0,0,0.02); cursor: pointer; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+   .card {
+  background-color: var(--card-bg);
+
+  border: 1px solid #f2e4e8;
+
+  border-radius: 18px;
     .card::after { content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%); transform: skewX(-25deg); transition: none; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(74, 40, 16, 0.15); }
+    .card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+  0 20px 40px rgba(179,0,45,.12);
+}
     .card:hover::after { left: 150%; transition: left 0.6s ease-in-out; }
 
     .image-wrapper { height: 180px; display: flex; align-items: center; justify-content: center; padding: 20px; position: relative; overflow: hidden; }
