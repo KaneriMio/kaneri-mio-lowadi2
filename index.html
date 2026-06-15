@@ -541,7 +541,23 @@
     </button>
   </div>
 </div>
- 
+  <div class="modal-overlay" id="socialModal">
+  <div class="modal-content">
+
+    <h3>Выберите способ связи</h3>
+
+    <p>
+      Содержимое корзины уже скопировано в буфер обмена.
+    </p>
+
+    <div class="social-grid">
+      <button id="goTelegram">📱 Telegram</button>
+      <button id="goVk">🔵 ВКонтакте</button>
+    </div>
+
+  </div>
+</div>
+
 <!-- ЦЕНТРАЛЬНОЕ ОКНО ПРЕДУПРЕЖДЕНИЯ НАВЕСА ЯБЛОК -->
 <div class="popup-modal" id="appleModal">
   <div class="popup-title">Внимание!</div>
@@ -1797,33 +1813,5 @@ subFilterBtns.forEach(sBtn => {
   .tag.трофеи{background-color:#ffb703;}
   .tag.объявления{background-color:#02c39a;}
 </style>
-  <div class="modal-overlay" id="socialModal">
-  <div class="modal-window">
-
-    <h3>Выберите способ связи</h3>
-
-    <p>
-      Содержимое корзины уже скопировано в буфер обмена.
-      Отправьте его продавцу.
-    </p>
-
-    <div class="social-buttons">
-
-      <button id="goTelegram" class="social-btn">
-        📱 Telegram
-      </button>
-
-      <button id="goVk" class="social-btn">
-        🔵 ВКонтакте
-      </button>
-
-    </div>
-
-    <button id="closeSocialModal" class="modal-close-btn">
-      Закрыть
-    </button>
-
-  </div>
-</div>
 </body>
 </html>
