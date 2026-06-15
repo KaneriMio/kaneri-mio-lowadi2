@@ -285,114 +285,77 @@
     .cart-currency-calc strong {
       color: #4a2810;
     }
-    #socialModal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-/* Затемнение */
-
-#socialModal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.65);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-}
-
-#socialModal.active {
-  display: flex;
-}
-
-/* Окно */
-
-#socialModal .modal-content {
-  width: 360px;
-  max-width: 92%;
-  background: #fdf7f1;
-  border: 2px solid #d8c1a8;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 12px 40px rgba(0,0,0,.25);
+  /* Окно выбора способа связи (подстройте класс/id под ваш HTML) */
+.your-modal-class { 
+  background-color: #ffffff; /* Полностью белый, непрозрачный фон */
+  border: 2px solid #5d3826;  /* Тонкая рамка в цвет шапки сайта */
+  border-radius: 12px;       /* Мягкое скругление углов, как у карточек */
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Объемная тень для отделения от фона */
+  font-family: Arial, sans-serif;
   text-align: center;
+  max-width: 400px;
+  width: 90%;
 }
 
-/* Заголовок */
-
-#socialModal h3 {
-  margin: 0 0 12px;
-  color: #4a2810;
-  font-size: 22px;
+/* Заголовок внутри плашки */
+.your-modal-class h3 {
+  color: #5d3826; /* Шоколадный цвет текста */
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
-/* Текст */
-
-#socialModal p {
-  margin: 0 0 20px;
-  color: #6b4c34;
+/* Описание (текст про буфер обмена) */
+.your-modal-class p {
+  color: #6d6d6d;
   font-size: 14px;
-  line-height: 1.5;
+  margin-bottom: 25px;
 }
 
-/* Кнопки соцсетей */
-
-.social-grid {
+/* Контейнер для кнопок соцсетей */
+.social-buttons-container {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  gap: 15px;
+  justify-content: center;
 }
 
-.social-grid button {
-  border: none;
-  border-radius: 10px;
-  padding: 14px;
+/* Общие стили для кнопок Telegram и ВК */
+.btn-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
   font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: .2s;
-}
-
-/* Telegram */
-
-#goTelegram {
-  background: #84522b;
-  color: white;
-}
-
-#goTelegram:hover {
-  transform: translateY(-2px);
-}
-
-/* VK */
-
-#goVk {
-  background: #4a2810;
-  color: white;
-}
-
-#goVk:hover {
-  transform: translateY(-2px);
-}
-
-/* Закрытие */
-
-#closeSocialModal {
-  margin-top: 15px;
-  width: 100%;
-  border: 1px solid #d8c1a8;
-  background: transparent;
-  color: #84522b;
-  border-radius: 10px;
-  padding: 10px;
+  color: #ffffff;
+  transition: transform 0.1s ease, opacity 0.2s ease;
+  border: none;
   cursor: pointer;
 }
+
+.btn-social:hover {
+  opacity: 0.9;
+  transform: translateY(-1px); /* Легкий эффект приподнимания при наведении */
+}
+
+.btn-social:active {
+  transform: translateY(1px);
+}
+
+/* Кнопка Telegram */
+.btn-tg {
+  background-color: #229ED9;
+}
+
+/* Кнопка ВКонтакте */
+.btn-vk {
+  background-color: #0077FF;
+}
+
   </style>
 </head>
 <body>
