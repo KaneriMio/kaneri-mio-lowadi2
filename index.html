@@ -295,27 +295,102 @@
   z-index: 9999;
 }
 
+/* Затемнение */
+
+#socialModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
 #socialModal.active {
   display: flex;
 }
 
-.modal-window {
-  background: white;
+/* Окно */
+
+#socialModal .modal-content {
+  width: 360px;
+  max-width: 92%;
+  background: #fdf7f1;
+  border: 2px solid #d8c1a8;
+  border-radius: 16px;
   padding: 24px;
-  border-radius: 12px;
-  width: 320px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.25);
   text-align: center;
 }
 
-.social-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
+/* Заголовок */
+
+#socialModal h3 {
+  margin: 0 0 12px;
+  color: #4a2810;
+  font-size: 22px;
 }
 
-.social-btn {
-  flex: 1;
-  padding: 12px;
+/* Текст */
+
+#socialModal p {
+  margin: 0 0 20px;
+  color: #6b4c34;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Кнопки соцсетей */
+
+.social-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-grid button {
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+
+/* Telegram */
+
+#goTelegram {
+  background: #84522b;
+  color: white;
+}
+
+#goTelegram:hover {
+  transform: translateY(-2px);
+}
+
+/* VK */
+
+#goVk {
+  background: #4a2810;
+  color: white;
+}
+
+#goVk:hover {
+  transform: translateY(-2px);
+}
+
+/* Закрытие */
+
+#closeSocialModal {
+  margin-top: 15px;
+  width: 100%;
+  border: 1px solid #d8c1a8;
+  background: transparent;
+  color: #84522b;
+  border-radius: 10px;
+  padding: 10px;
   cursor: pointer;
 }
   </style>
@@ -544,16 +619,26 @@
   <div class="modal-overlay" id="socialModal">
   <div class="modal-content">
 
-    <h3>Выберите способ связи</h3>
+    <h3>Оформление заказа</h3>
 
     <p>
       Содержимое корзины уже скопировано в буфер обмена.
+      Выберите удобный способ связи с продавцом.
     </p>
 
     <div class="social-grid">
-      <button id="goTelegram">📱 Telegram</button>
-      <button id="goVk">🔵 ВКонтакте</button>
+      <button id="goTelegram">
+        📱 Написать в Telegram
+      </button>
+
+      <button id="goVk">
+        🔵 Написать ВКонтакте
+      </button>
     </div>
+
+    <button id="closeSocialModal">
+      Отмена
+    </button>
 
   </div>
 </div>
@@ -1412,6 +1497,11 @@ if (goTelegram) {
 if (goVk) {
   goVk.addEventListener('click', () => {
     window.open(VK_LINK, '_blank');
+  });
+}
+  if (closeSocialModal) {
+  closeSocialModal.addEventListener('click', () => {
+    socialModal.classList.remove('active');
   });
 }
 
