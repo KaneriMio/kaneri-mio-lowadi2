@@ -10784,5 +10784,41 @@
     "https://i.ibb.co/NdXjtgrG/sang-meduse.png",
     "https://i.ibb.co/0pGSWmCj/pierre-philosophale.png"
   ]
+},
+  {
+  "id": "coat_1781643760178",
+  "name": "\"Cosy Winters\"",
+  "count": 3,
+  "price": 35,
+  "image": "https://i.ibb.co/x0LLsqK/100485002-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "mihrami",
+  "breed": "Финская лошадь",
+  "type": "Верховая лошадь",
+  "copies": 200,
+  "companionImage": "",
+  "hasExtraCr": false,
+  "hasFk": false,
+  "hasSkills": false,
+  "affix": true,
+  "chk": false,
+  "stocks": {
+    "🇷🇺": 3,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "редкие",
+    "верховая",
+    "зимняя",
+    "зима"
+  ],
+  "adminIcons": []
 }
 ]
