@@ -11288,5 +11288,240 @@
     "милый"
   ],
   "adminIcons": []
+},
+  {
+  "id": "coat_1781772273760",
+  "name": "G A B E",
+  "count": 1,
+  "price": 55,
+  "image": "https://i.ibb.co/Jj7KgkYp/image-Photoroom.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Nephilim.",
+  "breed": "Пони Хайленд",
+  "type": "Пони",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": false,
+  "hasFk": false,
+  "hasSkills": false,
+  "affix": true,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "редкие",
+    "пони"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/HjnRzzb/rayon-helios-illimite.png",
+    "https://i.ibb.co/1tbFpB7S/lyre-apollon.png"
+  ]
+},
+  {
+  "id": "coat_1781772407815",
+  "name": "Geodus KW",
+  "count": 2,
+  "price": 55,
+  "image": "https://i.ibb.co/0pX6MgfM/image-Photoroom-1.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "AcidSuzanne",
+  "breed": "Драмхорс",
+  "type": "Пегас-тяжеловоз",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": false,
+  "hasFk": false,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 2,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "редкие",
+    "тяжеловоз",
+    "пегас"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/NdXjtgrG/sang-meduse.png"
+  ]
+},
+  {
+  "id": "coat_1781772749501",
+  "name": "Happy b-day Hоwrse!!",
+  "count": 11,
+  "price": 55,
+  "image": "https://i.ibb.co/mrMjyK49/image-Photoroom-2.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "FoxX.",
+  "breed": "Уточнять у продавца",
+  "type": "Крылатый единорог-тяжеловоз",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": false,
+  "hasFk": false,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 11,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "редкие",
+    "тяжеловоз",
+    "пегас",
+    "единорог",
+    "аликорн"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/NdXjtgrG/sang-meduse.png",
+    "https://i.ibb.co/HjnRzzb/rayon-helios-illimite.png",
+    "https://i.ibb.co/1tbFpB7S/lyre-apollon.png"
+  ]
+},
+  {
+  "id": "coat_1781772889053",
+  "name": "Harpie Féroce",
+  "count": 4,
+  "price": 55,
+  "image": "https://i.ibb.co/CXf5Bv6/image-Photoroom-3.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Costia",
+  "breed": "Шайр",
+  "type": "Крылатый единорог-тяжеловоз",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": false,
+  "hasFk": false,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 4,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "редкие",
+    "тяжеловоз",
+    "пегас",
+    "единорог",
+    "аликорн",
+    "птица"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/NdXjtgrG/sang-meduse.png"
+  ]
+},
+  {
+  "id": "coat_1781773103140",
+  "name": "Harvest King",
+  "count": 1,
+  "price": 55,
+  "image": "https://i.ibb.co/VWqwVbsj/image-Photoroom-4.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "HarleyQuinn",
+  "breed": "Французский Рысак",
+  "type": "Верховой единорог",
+  "copies": 98,
+  "companionImage": "",
+  "hasExtraCr": false,
+  "hasFk": false,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "редкие",
+    "верховая",
+    "единорог",
+    "тыква",
+    "страшно",
+    "страшная",
+    "хэллоуин"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/HjnRzzb/rayon-helios-illimite.png",
+    "https://i.ibb.co/1tbFpB7S/lyre-apollon.png",
+    "https://i.ibb.co/qYc95xyS/bras-morphee.png",
+    "https://i.ibb.co/W76Zxhf/sablier-chronos.png",
+    "https://i.ibb.co/Y6nP4DZ/talon-achille.png"
+  ]
+},
+  {
+  "id": "coat_1781774081960",
+  "name": "HauntingHour",
+  "count": 3,
+  "price": 55,
+  "image": "https://i.ibb.co/qLDGs7w2/Chat-GPT-Image-18-2026-14-11-41.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Little Boy Blue",
+  "breed": "Уточнять у продавца",
+  "type": "Верховая лошадь",
+  "copies": 97,
+  "companionImage": "https://i.ibb.co/nNKJ8n9V/compagnon-cat-sidhe-3.png",
+  "hasExtraCr": false,
+  "hasFk": false,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 3,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "редкие",
+    "верховая",
+    "спутник"
+  ],
+  "adminIcons": []
 }
 ]
