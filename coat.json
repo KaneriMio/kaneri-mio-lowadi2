@@ -11564,42 +11564,6 @@
   ]
 },
   {
-  "id": "coat_1782212372224",
-  "name": "Ludmila",
-  "count": 1,
-  "price": 55,
-  "image": "https://i.ibb.co/tP8qwvLg/image-Photoroom-12.png",
-  "category": "Окрасы",
-  "isNew": false,
-  "isHot": false,
-  "isRare": false,
-  "colorType": "ИЗЯ",
-  "author": "Noctuarys",
-  "breed": "Чистокровная испанская",
-  "type": "Верховая лошадь",
-  "copies": 300,
-  "companionImage": "",
-  "hasExtraCr": false,
-  "hasFk": false,
-  "hasSkills": false,
-  "affix": false,
-  "chk": true,
-  "stocks": {
-    "🇷🇺": 1,
-    "🇺🇳": 0,
-    "🇪🇦": 0,
-    "🇫🇷": 0
-  },
-  "keywords": [
-    "редкие",
-    "верховая",
-    "красивая",
-    "аппалуза",
-    "пятна"
-  ],
-  "adminIcons": []
-},
-  {
   "id": "coat_1782212483008",
   "name": "Marble statue",
   "count": 1,
@@ -11929,43 +11893,6 @@
   ]
 },
   {
-  "id": "coat_1782223193982",
-  "name": "Fandango",
-  "count": 1,
-  "price": 550,
-  "image": "https://i.ibb.co/d4szGbsD/image-Photoroom-21.png",
-  "category": "Окрасы",
-  "isNew": false,
-  "isHot": false,
-  "isRare": false,
-  "colorType": "ИЗЯ",
-  "author": "Rigardatta",
-  "breed": "Фриз, Фризская",
-  "type": "Верховая лошадь",
-  "copies": 175,
-  "companionImage": "",
-  "hasExtraCr": false,
-  "hasFk": false,
-  "hasSkills": false,
-  "affix": true,
-  "chk": true,
-  "stocks": {
-    "🇷🇺": 1,
-    "🇺🇳": 0,
-    "🇪🇦": 0,
-    "🇫🇷": 0
-  },
-  "keywords": [
-    "редкие",
-    "верховая"
-  ],
-  "adminIcons": [
-    "https://i.ibb.co/v4yr59Zn/caresse-philotes.png",
-    "https://i.ibb.co/ynw1nXmW/rayon-helios.png",
-    "https://i.ibb.co/qYc95xyS/bras-morphee.png"
-  ]
-},
-  {
   "id": "coat_1782223643156",
   "name": "Captain Andaluz",
   "count": 1,
@@ -12055,77 +11982,6 @@
     "https://i.ibb.co/ynw1nXmW/rayon-helios.png",
     "https://i.ibb.co/Y6nP4DZ/talon-achille.png",
     "https://i.ibb.co/C3hQFj7f/pactole-cresus.png"
-  ]
-},
-  {
-  "id": "coat_1782224087410",
-  "name": "Alex",
-  "count": 1,
-  "price": 80,
-  "image": "https://i.ibb.co/DDwB1LDC/image-Photoroom-24.png",
-  "category": "Окрасы",
-  "isNew": false,
-  "isHot": false,
-  "isRare": false,
-  "colorType": "ИЗЯ",
-  "author": "Furmanek",
-  "breed": "Драмхорс",
-  "type": "Тяжеловоз",
-  "copies": 100,
-  "companionImage": "",
-  "hasExtraCr": false,
-  "hasFk": false,
-  "hasSkills": false,
-  "affix": false,
-  "chk": true,
-  "stocks": {
-    "🇷🇺": 1,
-    "🇺🇳": 0,
-    "🇪🇦": 0,
-    "🇫🇷": 0
-  },
-  "keywords": [
-    "редкие",
-    "тяжеловоз"
-  ],
-  "adminIcons": []
-},
-  {
-  "id": "coat_1782224271041",
-  "name": "Forest Soul.",
-  "count": 1,
-  "price": 720,
-  "image": "https://i.ibb.co/0jWsSZHK/image-Photoroom-25.png",
-  "category": "Окрасы",
-  "isNew": false,
-  "isHot": false,
-  "isRare": false,
-  "colorType": "ИЗЯ",
-  "author": "karma",
-  "breed": "Фриз, Фризская",
-  "type": "Верховой единорог",
-  "copies": 64,
-  "companionImage": "",
-  "hasExtraCr": false,
-  "hasFk": false,
-  "hasSkills": false,
-  "affix": false,
-  "chk": true,
-  "stocks": {
-    "🇷🇺": 1,
-    "🇺🇳": 0,
-    "🇪🇦": 0,
-    "🇫🇷": 0
-  },
-  "keywords": [
-    "редкие",
-    "верховая",
-    "единорог",
-    "аниме",
-    "милый"
-  ],
-  "adminIcons": [
-    "https://i.ibb.co/ynw1nXmW/rayon-helios.png"
   ]
 }
 ]
