@@ -27,42 +27,6 @@
     ]
   },
   {
-  "id": "coat_1781691496811",
-  "name": "Cʀᴇᴀᴍʏ",
-  "count": 2,
-  "price": 35,
-  "image": "https://i.ibb.co/gLFbG0nq/image-Photoroom-3.png",
-  "category": "Окрасы",
-  "isNew": false,
-  "isHot": false,
-  "isRare": false,
-  "colorType": "ИЗЯ",
-  "author": "Fubuki Shirou",
-  "breed": "Фьорд",
-  "type": "Пони-единорог",
-  "copies": 100,
-  "companionImage": "",
-  "hasExtraCr": false,
-  "hasFk": false,
-  "hasSkills": false,
-  "affix": false,
-  "chk": true,
-  "stocks": {
-    "🇷🇺": 2,
-    "🇺🇳": 0,
-    "🇪🇦": 0,
-    "🇫🇷": 0
-  },
-  "keywords": [
-    "изя",
-    "редкие",
-    "пони",
-    "единорог",
-    "мороженное"
-  ],
-  "adminIcons": []
-  },
-  {
   "id": "specialcoat_1780297733783",
   "name": "Огонь",
   "count": 14,
