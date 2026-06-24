@@ -673,6 +673,21 @@ const socialModal = getEl('socialModal');
 const goTelegram = getEl('goTelegram');
 const goVk = getEl('goVk');
 const closeSocialModal = getEl('closeSocialModal');
+  // Закрытие по кнопке
+if (closeSocialModal) {
+  closeSocialModal.addEventListener('click', () => {
+    socialModal.classList.remove('active');
+  });
+}
+
+// Закрытие по клику вне окна
+if (socialModal) {
+  socialModal.addEventListener('click', (e) => {
+    if (e.target === socialModal) {
+      socialModal.classList.remove('active');
+    }
+  });
+}
   
 const cartItemsContainer = getEl('cartItemsContainer');
 const cartTotalPrice = getEl('cartTotalPrice');
