@@ -11983,5 +11983,45 @@
     "https://i.ibb.co/Y6nP4DZ/talon-achille.png",
     "https://i.ibb.co/C3hQFj7f/pactole-cresus.png"
   ]
+}, 
+  {
+  "id": "coat_1782296822050",
+  "name": "amissa flos",
+  "count": 1,
+  "price": 930,
+  "image": "https://i.ibb.co/zH8FrXRw/image-Photoroom-29.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": true,
+  "colorType": "ИЗЯ",
+  "author": "Chistokrovka",
+  "breed": "Чистокровная испанская",
+  "type": "Верховой единорог",
+  "copies": 61,
+  "companionImage": "",
+  "hasExtraCr": false,
+  "hasFk": false,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "редкие",
+    "верховая",
+    "единорог",
+    "весна"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co.com/v4yr59Zn/caresse-philotes.png",
+    "https://i.ibb.co/0pGSWmCj/pierre-philosophale.png",
+    "https://i.ibb.co/1tbFpB7S/lyre-apollon.png",
+    "https://i.ibb.co/HjnRzzb/rayon-helios-illimite.png"
+  ]
 }
 ]
