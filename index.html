@@ -285,10 +285,10 @@
     .cart-currency-calc strong {
       color: #4a2810;
     }
-    #socialModal {
+#socialModal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.6);
+  background: rgba(0, 0, 0, 0.6);
   display: none;
   align-items: center;
   justify-content: center;
@@ -300,11 +300,12 @@
 }
 
 .modal-window {
-  background: white;
+  background: #fff;
   padding: 24px;
   border-radius: 12px;
   width: 320px;
   text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,.25);
 }
 
 .social-buttons {
@@ -317,6 +318,18 @@
   flex: 1;
   padding: 12px;
   cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #f2f2f2;
+}
+
+.modal-close-btn {
+  margin-top: 16px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #ddd;
 }
   </style>
 </head>
@@ -1813,32 +1826,18 @@ subFilterBtns.forEach(sBtn => {
   .tag.трофеи{background-color:#ffb703;}
   .tag.объявления{background-color:#02c39a;}
 </style>
-  <div class="modal-overlay" id="socialModal">
+<div class="modal-overlay" id="socialModal">
   <div class="modal-window">
-
     <h3>Выберите способ связи</h3>
-
     <p>
       Содержимое корзины уже скопировано в буфер обмена.
       Отправьте его продавцу.
     </p>
-
     <div class="social-buttons">
-
-      <button id="goTelegram" class="social-btn">
-        📱 Telegram
-      </button>
-
-      <button id="goVk" class="social-btn">
-        🔵 ВКонтакте
-      </button>
-
+      <button id="goTelegram" class="social-btn">📱 Telegram</button>
+      <button id="goVk" class="social-btn">🔵 ВКонтакте</button>
     </div>
-
-    <button id="closeSocialModal" class="modal-close-btn">
-      Закрыть
-    </button>
-
+    <button id="closeSocialModal" class="modal-close-btn">Закрыть</button>
   </div>
 </div>
 </body>
