@@ -382,8 +382,8 @@
     <input type="text" id="search" class="search-input" placeholder="Поиск по названию или ключевым словам...">
     <div class="search-filters">
       <select id="stockFilter" class="search-select">
-        <option value="all">Все (в наличии и нет)</option>
-        <option value="available">Только в наличии</option>
+        <option value="all">Все</option>
+        <option value="available">В наличии</option>
       </select>
       <select id="tagFilter" class="search-select">
         <option value="all">Все метки</option>
@@ -1484,7 +1484,7 @@ function openProductDrawer(item) {
     if (noteText) noteText.innerText = '⚠️ Покупка только навесом';
     if (noteContainer) noteContainer.style.display = 'block';
   } else if (item.adminIcons && item.adminIcons.length > 0) {
-    if (noteText) noteText.innerText = 'В комплекте с этим окрасом идут предметы:';
+    if (noteText) noteText.innerText = 'На окрасе есть эти предметы:';
     if (adminIconsGrid) {
       item.adminIcons.forEach(iconUrl => {
         const img = document.createElement('img');
