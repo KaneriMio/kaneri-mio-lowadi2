@@ -12736,5 +12736,38 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+  {
+  "id": "coat_1782678505957",
+  "name": "Kristian Schulz",
+  "count": 1,
+  "price": 730,
+  "image": "https://i.ibb.co/7xy8D7xp/image-Photoroom.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": true,
+  "colorType": "ИЗЯ",
+  "author": "MUSONART",
+  "breed": "Нокота",
+  "type": "Верховая лошадь",
+  "copies": 212,
+  "companionImage": "",
+  "hasExtraCr": false,
+  "hasFk": false,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": [
+    "https://i.ibb.co/1tbFpB7S/lyre-apollon.png",
+    "https://i.ibb.co/ynw1nXmW/rayon-helios.png"
+  ]
 }
 ]
