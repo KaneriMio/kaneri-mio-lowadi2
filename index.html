@@ -87,14 +87,18 @@
     .filter-btn { background-color: var(--btn-inactive); color: #4a2416; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px; white-space: nowrap; }
     .filter-btn.active { background-color: var(--btn-active); color: #fff; }
 
-    .sub-filters {
-  display: flex;
+.sub-filters {
+  display: none; /* по умолчанию скрыты */
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 30px;
   padding-left: 10px;
   border-left: 3px solid var(--btn-active);
   width: 100%;
+}
+
+.sub-filters.active {
+  display: flex;
 }
     .sub-filter-btn { background-color: #ffffff; color: #84522b; border: 1px solid #84522b; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12px; }
     .sub-filter-btn.active { background-color: #84522b; color: #ffffff; }
@@ -426,6 +430,7 @@
     <button class="sub-filter-btn" data-subcategory="ПЯ">Пар. Яблоко</button>
     <button class="sub-filter-btn" data-subcategory="ЧА">Чернильница</button>
     <button class="sub-filter-btn" data-subcategory="ПТ">Печать</button>
+    <button class="sub-filter-btn" data-subcategory="Боги">Боги</button>
     
   </div>
 
@@ -1772,7 +1777,8 @@ if (modalGoCatalogBtn) {
     if (colorsBtn) {
       colorsBtn.classList.add('active');
       currentCategory = 'Окрасы';
-      if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
+    if (subFiltersContainer)
+    subFiltersContainer.classList.add('active');
     }
     
     subFilterBtns.forEach(sb => sb.classList.remove('active'));
@@ -1816,12 +1822,43 @@ filterBtns.forEach(btn => {
     btn.classList.add('active');
     currentCategory = btn.getAttribute('data-category');
     
-    if (currentCategory.toLowerCase() === 'окрасы') {
-      if (subFiltersContainer) subFiltersContainer.style.display = 'flex';
-    } else {
-      if (subFiltersContainer) subFiltersContainer.style.display = 'none';
-      currentSubCategory = 'all';
-    }
+if (subFiltersContainer) {
+
+  if (currentCategory.toLowerCase() === 'окрасы') {
+
+    subFiltersContainer.classList.add('active');
+
+    subFilterBtns.forEach(btn => {
+      if (btn.dataset.subcategory === 'Боги') {
+        btn.style.display = 'none';
+      } else {
+        btn.style.display = '';
+      }
+    });
+
+  } else if (currentCategory.toLowerCase() === 'другое') {
+
+    subFiltersContainer.classList.add('active');
+
+    subFilterBtns.forEach(btn => {
+      if (
+        btn.dataset.subcategory === 'Боги' ||
+        btn.dataset.subcategory === 'all'
+      ) {
+        btn.style.display = '';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+  } else {
+
+    subFiltersContainer.classList.remove('active');
+    currentSubCategory = 'all';
+
+  }
+
+}
     currentPage = 1;
     loadAndRenderCategory();
   });
