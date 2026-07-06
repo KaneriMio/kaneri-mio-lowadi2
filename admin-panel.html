@@ -522,6 +522,7 @@ function toggleFormFields() {
   const itemCategory = document.getElementById('itemCategory');
   const navesWrap = document.getElementById('navesWrap');
   const availableNavesWrap = document.getElementById('availableNavesWrap');
+  const godFieldsBlock = document.getElementById('godFieldsBlock');
 
   // Находим стандартные контейнеры остатков и ключевых слов для скрытия при валюте
   const stocksGroup = document.querySelector('.stocks-grid') ? document.querySelector('.stocks-grid').parentElement : null;
@@ -791,7 +792,6 @@ function generateJson(event) {
   resultObject.isNaves = false;
   resultObject.isAvailableForNaves = false;
 
-}
   } else {
 
   resultObject.description = document.getElementById('itemDescription').value.trim() || '';
