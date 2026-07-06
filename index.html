@@ -526,7 +526,11 @@
   Коллекция
 </div>
 <div class="info-box" id="d-collection" style="display:none;"></div>
+<div class="section-label" id="d-godbonus-label" style="display:none;">
+  Что даёт
+</div>
 
+<div class="info-box" id="d-godbonus" style="display:none;"></div>
 <div class="section-label" id="d-bonuses-label" style="display:none;">
   Бонусы
 </div>
@@ -1572,6 +1576,10 @@ const isSpecialCoat =
   item.colorType &&
   item.colorType !== 'ЗЯ' &&
   item.colorType !== 'ИЗЯ';
+const isGod =
+  item.category &&
+  item.category.toLowerCase() === 'другое' &&
+  item.subcategory === 'Боги';
 
 if (isCoat && !isSpecialCoat) {
 
@@ -1631,7 +1639,38 @@ if (isCoat && !isSpecialCoat) {
     getBox.style.display = 'block';
     getBox.innerText = bonusText;
   }
+} else if (isGod) {
 
+  // Коллекция
+  if (descLabel) {
+    descLabel.style.display = 'block';
+    descLabel.innerText = 'КОЛЛЕКЦИЯ';
+  }
+
+  if (descBox) {
+    descBox.style.display = 'block';
+    descBox.innerText = item.collection || 'Не указана';
+  }
+
+  // Что даёт
+  if (item.bonus && item.bonus.trim() !== "") {
+
+    if (getLabel) {
+      getLabel.style.display = 'block';
+      getLabel.innerText = 'ЧТО ДАЁТ';
+    }
+
+    if (getBox) {
+      getBox.style.display = 'block';
+      getBox.innerText = item.bonus;
+    }
+
+  } else {
+
+    if (getLabel) getLabel.style.display = 'none';
+    if (getBox) getBox.style.display = 'none';
+
+  }
 } else {
 
   // =========================
