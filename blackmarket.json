@@ -635,8 +635,8 @@
   {
   "id": "bm_1779808381594",
   "name": "Одеяние Ириды",
-  "count": 22,
-  "price": 0,
+  "count": 95,
+  "price": 14,
   "image": "https://i.ibb.co/3myGRfMJ/iris-coat.png",
   "category": "Черный рынок",
   "isNew": false,
@@ -647,7 +647,7 @@
   "isNaves": false,
   "isAvailableForNaves": false,
   "stocks": {
-    "🇷🇺": 22,
+    "🇷🇺": 95,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -658,8 +658,8 @@
   {
   "id": "bm_1779808465697",
   "name": "Плетение кос-пуговичек",
-  "count": 22,
-  "price": 0,
+  "count": 250,
+  "price": 8,
   "image": "https://i.ibb.co/8nV3cpQT/button-braided-mane.png",
   "category": "Черный рынок",
   "isNew": false,
@@ -670,7 +670,7 @@
   "isNaves": true,
   "isAvailableForNaves": true,
   "stocks": {
-    "🇷🇺": 22,
+    "🇷🇺": 250,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -809,8 +809,8 @@
   {
   "id": "bm_1779816336992",
   "name": "Хвост, заплетенный в косичку",
-  "count": 0,
-  "price": 0,
+  "count": 300,
+  "price": 8,
   "image": "https://i.ibb.co/cKGv8S6M/tail-braid-2.png",
   "category": "Черный рынок",
   "isNew": false,
@@ -821,7 +821,7 @@
   "isNaves": true,
   "isAvailableForNaves": true,
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 300,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -832,8 +832,8 @@
   {
   "id": "bm_1779816431767",
   "name": "Плетение хвоста",
-  "count": 0,
-  "price": 0,
+  "count": 300,
+  "price": 8,
   "image": "https://i.ibb.co/60JH92r8/tail-braid-1.png",
   "category": "Черный рынок",
   "isNew": false,
@@ -844,7 +844,7 @@
   "isNaves": true,
   "isAvailableForNaves": true,
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 300,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -1114,5 +1114,314 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+  {
+  "id": "bm_1783960776862",
+  "name": "Двухсторонний медальон",
+  "count": 5,
+  "price": 38,
+  "image": "https://i.ibb.co/7NKNcqs4/double-face.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Узнайте обе стороны характера вашей лошади. При каждом состаривании вашей лошади будет отображаться одна из двух сторон ее характера. Когда ваша лошадь демонстрирует свою темную сторону, она получает особый эффект.",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 5,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1783960914828",
+  "name": "Зелье ведьмы",
+  "count": 1,
+  "price": 35,
+  "image": "https://i.ibb.co/sJ697dtL/coats-bundle-witch.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Превратите лошадь в нежную ведьму",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1783960988948",
+  "name": "Заколдованная тыква",
+  "count": 60,
+  "price": 35,
+  "image": "https://i.ibb.co/3m4xfnT9/citrouille-ensorcelee.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Оденьте свою лошадь к Хэллоуину",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 60,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1783961051179",
+  "name": "Книга монстров",
+  "count": 15,
+  "price": 35,
+  "image": "https://i.ibb.co/WvfrXX6J/livre-monstres.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Превратите вашу лошадь в ужасающее создание.",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 15,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1783961115347",
+  "name": "Луч Гелиоса Ow",
+  "count": 230,
+  "price": 12,
+  "image": "https://i.ibb.co/XZkBkXsG/rayon-helios-ow.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Меняйте пейзаж вокруг лошади с помощью специальных фонов",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 230,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1783961245715",
+  "name": "Походный дневник",
+  "count": 40,
+  "price": 20,
+  "image": "https://i.ibb.co/4RkSwH5x/trail-riding-diary.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Превратите свою лошадь в профессионального походника.",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 40,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1783961353147",
+  "name": "Печать тьмы",
+  "count": 100,
+  "price": 35,
+  "image": "https://i.ibb.co/KxSgsVjF/sceau-apocalypse.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Превратите вашу лошадь в агента Апокалипсиса",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 100,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1783961418042",
+  "name": "Парадное яблоко",
+  "count": 1,
+  "price": 45,
+  "image": "https://i.ibb.co/zT9bJsyW/parade-apple.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Измените вашу лошадь при помощи мастей парада всадников",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1783961568178",
+  "name": "Стихия Огня",
+  "count": 38,
+  "price": 8,
+  "image": "https://i.ibb.co/fYTJTW52/5th-element-fire.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Пробудите силу стихии Огня для вашей лошади",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 38,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1783961635858",
+  "name": "Чернильница Артура Конана Дойла",
+  "count": 1,
+  "price": 35,
+  "image": "https://i.ibb.co/8L1g7f2H/arthur-conan-doyle-inkwell.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Превратите вашу лошадь в героя Артура Конана Дойла",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1783961723330",
+  "name": "Чернильница Александра Дюма",
+  "count": 4,
+  "price": 35,
+  "image": "https://i.ibb.co/4Zd4vHbs/alexandre-dumas-inkwell.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Превратите лошадь в героя Александра Дюма.",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 4,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "bm_1783961908632",
+  "name": "Набор рождественского снаряжения",
+  "count": 55,
+  "price": 11,
+  "image": "https://i.ibb.co/rfk1s0dX/pack-xmas-gear-1.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Оденьте свою лошадь к Рождеству",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 55,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": [
+    "https://i.ibb.co/0yHwv3bz/tapis-3x-noel-1.png",
+    "https://i.ibb.co/1tWJsBvL/bande-3x-noel-1.png",
+    "https://i.ibb.co/1Yrz07jP/bonnet-3x-noel-1.png",
+    "https://i.ibb.co/LXM06Rxx/bonus.png"
+  ]
+},
+  {
+  "id": "bm_1783962038457",
+  "name": "Пакет эльфов",
+  "count": 100,
+  "price": 11,
+  "image": "https://i.ibb.co/LDbNgsCr/pack-xmas-gear-2.png",
+  "category": "Черный рынок",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "Оденьте свою лошадь к Рождеству",
+  "howto": "Получение в акциях, навес",
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 100,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": [
+    "https://i.ibb.co/20MxWD4H/tapis-3x-noel-2.png",
+    "https://i.ibb.co/Ps8KDL7c/bande-3x-noel-2.png",
+    "https://i.ibb.co/22X92GJ/bonnet-3x-noel-2.png",
+    "https://i.ibb.co/LXM06Rxx/bonus.png"
+  ]
 }
 ]
