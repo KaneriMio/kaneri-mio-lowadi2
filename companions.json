@@ -495,8 +495,8 @@
   {
   "id": "bm_1779824197583",
   "name": "Armadilla",
-  "count": 0,
-  "price": 0,
+  "count": 8,
+  "price": 15,
   "image": "https://i.ibb.co/B2QD1qDP/companion-armadillo-2.png",
   "category": "Спутники",
   "isNew": false,
@@ -511,7 +511,7 @@
     "dressage": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 8,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -525,7 +525,7 @@
   "id": "bm_1779824232615",
   "name": "Alebrijow",
   "count": 0,
-  "price": 0,
+  "price": 30,
   "image": "https://i.ibb.co/XxHGrCV7/companion-alebrijow.png",
   "category": "Спутники",
   "isNew": false,
@@ -553,8 +553,8 @@
   {
   "id": "bm_1779824314446",
   "name": "Ajolote",
-  "count": 0,
-  "price": 0,
+  "count": 8,
+  "price": 15,
   "image": "https://i.ibb.co/FMQDNXz/companion-axolotl-1.png",
   "category": "Спутники",
   "isNew": false,
@@ -569,7 +569,7 @@
     "stamina": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 8,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -582,8 +582,8 @@
   {
   "id": "bm_1779824363262",
   "name": "Ajolota",
-  "count": 0,
-  "price": 0,
+  "count": 5,
+  "price": 15,
   "image": "https://i.ibb.co/60kMLLpd/companion-axolotl-2.png",
   "category": "Спутники",
   "isNew": false,
@@ -598,7 +598,7 @@
     "stamina": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 5,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -612,7 +612,7 @@
   "id": "bm_1779824493278",
   "name": "Geco",
   "count": 0,
-  "price": 0,
+  "price": 30,
   "image": "https://i.ibb.co/dwk0xn6n/companion-gecko-1.png",
   "category": "Спутники",
   "isNew": false,
@@ -642,7 +642,7 @@
   "id": "bm_1779824625581",
   "name": "Geca",
   "count": 0,
-  "price": 0,
+  "price": 30,
   "image": "https://i.ibb.co/CxJXVcQ/companion-gecko-2.png",
   "category": "Спутники",
   "isNew": false,
@@ -672,7 +672,7 @@
   "id": "bm_1779824666549",
   "name": "Delfín",
   "count": 0,
-  "price": 0,
+  "price": 30,
   "image": "https://i.ibb.co/wFPhv2Nf/companion-dauphin.png",
   "category": "Спутники",
   "isNew": false,
@@ -702,7 +702,7 @@
   "id": "bm_1779824704813",
   "name": "Cardenala",
   "count": 0,
-  "price": 0,
+  "price": 30,
   "image": "https://i.ibb.co/MDRFh7vV/companion-cardinal-2.png",
   "category": "Спутники",
   "isNew": false,
@@ -732,7 +732,7 @@
   "id": "bm_1779824762709",
   "name": "Cardenal",
   "count": 0,
-  "price": 0,
+  "price": 30,
   "image": "https://i.ibb.co/GvYtrBmZ/companion-cardinal-1.png",
   "category": "Спутники",
   "isNew": false,
@@ -761,8 +761,8 @@
   {
   "id": "bm_1779824841805",
   "name": "Armadillo",
-  "count": 0,
-  "price": 0,
+  "count": 8,
+  "price": 15,
   "image": "https://i.ibb.co/Y7RR2FMv/companion-armadillo-1.png",
   "category": "Спутники",
   "isNew": false,
@@ -777,7 +777,7 @@
     "dressage": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 8,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -790,8 +790,8 @@
   {
   "id": "bm_1779825106988",
   "name": "Mapache",
-  "count": 0,
-  "price": 0,
+  "count": 2,
+  "price": 30,
   "image": "https://i.ibb.co/G4sjhSVn/companion-raton-laveur-1.png",
   "category": "Спутники",
   "isNew": false,
@@ -806,7 +806,7 @@
     "trot": 4
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 2,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -820,7 +820,7 @@
   "id": "bm_1779825158756",
   "name": "Mapacha",
   "count": 0,
-  "price": 0,
+  "price": 30,
   "image": "https://i.ibb.co/CKNvvJgN/companion-raton-laveur-2.png",
   "category": "Спутники",
   "isNew": false,
@@ -849,7 +849,7 @@
   "id": "bm_1779825202499",
   "name": "Mantarrayo",
   "count": 0,
-  "price": 0,
+  "price": 30,
   "image": "https://i.ibb.co/hRqFm9Jt/companion-raie-manta-2.png",
   "category": "Спутники",
   "isNew": false,
@@ -878,7 +878,7 @@
   "id": "bm_1779825238644",
   "name": "Mantarraya",
   "count": 0,
-  "price": 0,
+  "price": 30,
   "image": "https://i.ibb.co/h1n3ZJZ5/companion-raie-manta-1.png",
   "category": "Спутники",
   "isNew": false,
@@ -906,8 +906,8 @@
   {
   "id": "bm_1779825271408",
   "name": "Jaguar",
-  "count": 0,
-  "price": 0,
+  "count": 3,
+  "price": 20,
   "image": "https://i.ibb.co/jvSZFKVf/companion-jaguar.png",
   "category": "Спутники",
   "isNew": false,
@@ -922,7 +922,7 @@
     "speed": 6
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 3,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -935,8 +935,8 @@
   {
   "id": "bm_1779825348421",
   "name": "Iguano",
-  "count": 0,
-  "price": 0,
+  "count": 3,
+  "price": 15,
   "image": "https://i.ibb.co/39nVpDr2/companion-iguane-2.png",
   "category": "Спутники",
   "isNew": false,
@@ -951,7 +951,7 @@
     "gallop": 4
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 3,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -964,8 +964,8 @@
   {
   "id": "bm_1779825370747",
   "name": "Iguana",
-  "count": 0,
-  "price": 0,
+  "count": 4,
+  "price": 15,
   "image": "https://i.ibb.co/7dHJnfZW/companion-iguane-1.png",
   "category": "Спутники",
   "isNew": false,
@@ -980,7 +980,7 @@
     "gallop": 4
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 4,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -993,8 +993,8 @@
   {
   "id": "bm_1779825519075",
   "name": "Puercoespína",
-  "count": 0,
-  "price": 0,
+  "count": 19,
+  "price": 15,
   "image": "https://i.ibb.co/1fzFFT0F/companion-porc-epic-2.png",
   "category": "Спутники",
   "isNew": false,
@@ -1009,7 +1009,7 @@
     "trot": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 19,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -1023,7 +1023,7 @@
   "id": "bm_1779825543970",
   "name": "Puercoespín",
   "count": 0,
-  "price": 0,
+  "price": 20,
   "image": "https://i.ibb.co/RTdrhT6y/companion-porc-epic-1.png",
   "category": "Спутники",
   "isNew": false,
@@ -1051,8 +1051,8 @@
   {
   "id": "bm_1779825571595",
   "name": "Muerciélago",
-  "count": 0,
-  "price": 0,
+  "count": 2,
+  "price": 20,
   "image": "https://i.ibb.co/XkCZBTDP/companion-chauve-souris-1.png",
   "category": "Спутники",
   "isNew": false,
@@ -1067,7 +1067,7 @@
     "speed": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 2,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -1080,8 +1080,8 @@
   {
   "id": "bm_1779825599626",
   "name": "Muerciélaga",
-  "count": 0,
-  "price": 0,
+  "count": 2,
+  "price": 20,
   "image": "https://i.ibb.co/4RGPtDN0/companion-chauve-souris-2.png",
   "category": "Спутники",
   "isNew": false,
@@ -1096,7 +1096,7 @@
     "speed": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 2,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
