@@ -7060,8 +7060,8 @@
   {
   "id": "specialcoat_1780320955648",
   "name": "масть Железная маска",
-  "count": 0,
-  "price": 0,
+  "count": 1,
+  "price": 22,
   "image": "https://i.ibb.co/xt1qrCDW/normal.png",
   "category": "Окрасы",
   "isNew": false,
@@ -7080,7 +7080,7 @@
   "isNaves": false,
   "isAvailableForNaves": false,
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 1,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -12769,5 +12769,67 @@
     "https://i.ibb.co/1tbFpB7S/lyre-apollon.png",
     "https://i.ibb.co/ynw1nXmW/rayon-helios.png"
   ]
+},
+  {
+  "id": "specialcoat_1783960342799",
+  "name": "масть Анимированный аватар",
+  "count": 4,
+  "price": 17,
+  "image": "https://i.ibb.co/wZzF6fHm/animated-avatar-coat.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ПТ",
+  "collection": "Анимированные масти",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 4,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "specialcoat_1783960599605",
+  "name": "масть Первоапрельские шутки",
+  "count": 1,
+  "price": 22,
+  "image": "https://i.ibb.co/Y7vtMdPm/april-fish-2.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "Дух",
+  "collection": "Сообщество «Дух путешествий»",
+  "bonuses": {
+    "stamina": 11,
+    "speed": 11,
+    "dressage": 11,
+    "gallop": 11,
+    "trot": 11,
+    "jump": 11
+  },
+  "isNaves": false,
+  "isAvailableForNaves": false,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
 }
 ]
