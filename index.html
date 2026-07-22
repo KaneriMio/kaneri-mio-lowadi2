@@ -600,18 +600,6 @@
     <button class="popup-btn" id="confirmClearCartBtn" style="background-color: #d32f2f; color: #fff;">Да, очистить</button>
   </div>
 </div>
-<!-- КАСТОМНОЕ ОКНО ПРЕДУПРЕЖДЕНИЯ ДЛЯ ОПТА ПРОПУСКОВ -->
-<div class="popup-modal" id="currencyTeamModal">
-  <div class="popup-title" style="color: #d32f2f;">Внимание! Командный заказ</div>
-  <div class="popup-text">Заказы объемом <strong>более 10 штук (от 10 000 пропусков)</strong> продаются только через команду. Пожалуйста, укажите ваш точный игровой ник для отправки приглашения:</div>
-  
-  <input type="text" id="playerGameNick" class="nick-input-field" placeholder="Введите ваш ник в игре...">
-  
-  <div class="popup-actions">
-    <button class="popup-btn popup-btn-close" id="cancelTeamOrderBtn">Отмена</button>
-    <button class="popup-btn" id="confirmTeamOrderBtn" style="background-color: #2e7d32; color: #fff;">Продолжить</button>
-  </div>
-</div>
 
 <div class="toast" id="cartToast"><span id="toastMessage">Товар добавлен в корзину!</span><button class="toast-close" id="closeToastBtn">&times;</button></div>
 <script>
@@ -1137,17 +1125,6 @@ function toggleFavorite(id) {
 function addToCart(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
 
-  // 1. Проверка блокировки для Золотого Яблока
-  if (itemNameNormalized === 'золотое яблоко') {
-    currentAppleType = 'зя';
-    closeAllDrawers();
-    const modalText = document.getElementById('appleModalText');
-    if (modalText) modalText.innerHTML = 'Товар <strong>Золотое Яблоко</strong> продаётся только навесом. Пожалуйста, выберите нужную масть в нашем каталоге окрасов.';
-    if (overlay) overlay.classList.add('active');
-    if (appleModal) appleModal.classList.add('active');
-    return;
-  }
-
   // 2. Проверка блокировки для Исчезнувшего золотого яблока
   if (itemNameNormalized === 'исчезнувшее золотое яблоко') {
     currentAppleType = 'ися'; 
@@ -1162,19 +1139,7 @@ function addToCart(item) {
   // Находим, сколько штук ЭТОГО ТОВАРА УЖЕ лежит в корзине (чтобы правильно посчитать общий объем)
   let existingQtyInCart = 0;
   cart.forEach(c => { if (c.id === item.id) existingQtyInCart += c.quantity; });
-
-  // 3. ПРОВЕРКА ОПТА ДЛЯ ВАЛЮТЫ "ПРОПУСКИ" (> 10 штук суммарно)
-  if (itemNameNormalized.includes('пропуск') && item.category && item.category.toLowerCase() === 'валюта') {
-    // Если добавляется товар, который поднимет общее кол-во выше 10 штук, а ник еще не сохранен
-    if ((existingQtyInCart + 1) > 10 && !item.playerNick) {
-      // Сохраняем временную ссылку на товар, который пользователь хотел положить
-      window.pendingCurrencyItem = item;
-      closeAllDrawers();
-      if (playerGameNickInput) playerGameNickInput.value = '';
-      if (overlay) overlay.classList.add('active');
-      if (currencyTeamModal) currencyTeamModal.classList.add('active');
-      return;
-    }
+  
   }
 
   // Расчет дополнительных опций окрасов
@@ -1487,9 +1452,7 @@ function openProductDrawer(item) {
   const itemNameNormalized = item.name.trim().toLowerCase();
 
   if (
-  itemNameNormalized === 'золотое яблоко' ||
-  itemNameNormalized === 'исчезнувшее золотое яблоко' ||
-  (item.category && item.category.toLowerCase() === 'спутники')
+  itemNameNormalized === 'исчезнувшее золотое яблоко'
 ) {
     if (noteText) noteText.innerText = '⚠️ Покупка только навесом';
     if (noteContainer) noteContainer.style.display = 'block';
