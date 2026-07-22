@@ -1219,16 +1219,7 @@ function updateCartUI() {
         // Форматируем заголовок как "1.000 пропусков" умноженное на количество штук
         displayTitle = `${item.quantity}.000 пропусков`;
         
-        if (item.quantity > 10) {
-          // Опт для пропусков (> 10 штук) — выводим только ник для приглашения в команду
-          currencyCalcHtml = `
-            <div class="cart-currency-calc">
-              <strong>👑 Командный заказ</strong><br>
-              Приглашение будет отправлено на ник: <strong>${item.playerNick || 'Не указан'}</strong>
-            </div>
-          `;
-        } else {
-          // Розница для пропусков (<= 10 штук) — считаем коней и 10% комиссию (прибавляем её)
+        if (item.quantity) {
           const cleanPasses = item.quantity * 1000;
           const totalWithCommission = 1112; // 1112 пропусков за каждого коня
           currencyCalcHtml = `
