@@ -6948,7 +6948,7 @@
   "isAvailableForNaves": true,
   "collection": "Драконы",
   "bonuses": {
-    "dressage": "На выбор"
+    "На выбор"
   },
   "stocks": {
     "🇷🇺": 999,
@@ -7035,7 +7035,7 @@
   "isAvailableForNaves": true,
   "collection": "Ку ши",
   "bonuses": {
-    "speed": "На выбор"
+    "На выбор"
   },
   "stocks": {
     "🇷🇺": 999,
