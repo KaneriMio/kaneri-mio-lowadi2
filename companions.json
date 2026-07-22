@@ -6944,8 +6944,8 @@
   "isRare": false,
   "description": "",
   "howto": "",
-  "isNaves": true,
-  "isAvailableForNaves": true,
+  "isNaves": false,
+  "isAvailableForNaves": false,
   "collection": "Драконы",
   "bonuses": {
     "stamina": 10,
@@ -6974,8 +6974,8 @@
   "isRare": false,
   "description": "",
   "howto": "",
-  "isNaves": true,
-  "isAvailableForNaves": true,
+  "isNaves": false,
+  "isAvailableForNaves": false,
   "collection": "Монстры",
   "bonuses": {
     "gallop": 13
@@ -7003,8 +7003,8 @@
   "isRare": false,
   "description": "",
   "howto": "",
-  "isNaves": true,
-  "isAvailableForNaves": true,
+  "isNaves": false,
+  "isAvailableForNaves": false,
   "collection": "Кат Ши",
   "bonuses": {
     "speed": 13
@@ -7032,8 +7032,8 @@
   "isRare": false,
   "description": "",
   "howto": "",
-  "isNaves": true,
-  "isAvailableForNaves": true,
+  "isNaves": false,
+  "isAvailableForNaves": false,
   "collection": "Ку ши",
   "bonuses": {
     "gallop": 13,
@@ -7064,8 +7064,8 @@
   "isRare": false,
   "description": "",
   "howto": "",
-  "isNaves": true,
-  "isAvailableForNaves": true,
+  "isNaves": false,
+  "isAvailableForNaves": false,
   "collection": "Привидения",
   "bonuses": {
     "dressage": 18
