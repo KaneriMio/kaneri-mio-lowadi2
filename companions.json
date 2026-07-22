@@ -2,8 +2,8 @@
 {
   "id": "bm_1779821220545",
   "name": "Шика",
-  "count": 23,
-  "price": 18,
+  "count": 25,
+  "price": 15,
   "image": "https://i.ibb.co/spnY40bB/compagnon-shika.png",
   "category": "Спутники",
   "isNew": false,
@@ -16,7 +16,7 @@
     "trot": 8
   },
   "stocks": {
-    "🇷🇺": 23,
+    "🇷🇺": 25,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -30,7 +30,7 @@
   "id": "bm_1779823106467",
   "name": "Сколль и Хати",
   "count": 0,
-  "price": 0,
+  "price": 350,
   "image": "https://i.ibb.co/KpDSVwdg/compagnon-skoll-hati.png",
   "category": "Спутники",
   "isNew": false,
@@ -58,8 +58,8 @@
   {
   "id": "bm_1779823165266",
   "name": "Плюшевый единорог",
-  "count": 0,
-  "price": 0,
+  "count": 12,
+  "price": 55,
   "image": "https://i.ibb.co/Csw990sN/compagnon-peluche-licorne.png",
   "category": "Спутники",
   "isNew": false,
@@ -74,7 +74,7 @@
     "stamina": 6
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 12,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -87,8 +87,8 @@
   {
   "id": "bm_1779823198618",
   "name": "Намадзу",
-  "count": 0,
-  "price": 0,
+  "count": 3,
+  "price": 35,
   "image": "https://i.ibb.co/5XSkWZ9p/compagnon-namazu.png",
   "category": "Спутники",
   "isNew": false,
@@ -103,7 +103,7 @@
     "jump": 9
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 3,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -116,8 +116,8 @@
   {
   "id": "bm_1779823246826",
   "name": "Грифон",
-  "count": 0,
-  "price": 0,
+  "count": 10,
+  "price": 30,
   "image": "https://i.ibb.co/hxTDxVJY/compagnon-griffon.png",
   "category": "Спутники",
   "isNew": false,
@@ -132,7 +132,7 @@
     "dressage": 13
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 10,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -145,8 +145,8 @@
   {
   "id": "bm_1779823284265",
   "name": "Ow",
-  "count": 0,
-  "price": 0,
+  "count": 7,
+  "price": 40,
   "image": "https://i.ibb.co/sM9s1Vz/compagnon-ow.png",
   "category": "Спутники",
   "isNew": false,
@@ -161,7 +161,7 @@
     "stamina": 15
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 7,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -174,8 +174,8 @@
   {
   "id": "bm_1779823319682",
   "name": "Kyūbiko",
-  "count": 0,
-  "price": 0,
+  "count": 1,
+  "price": 200,
   "image": "https://i.ibb.co/kbC6BXY/compagnon-kyubiko.png",
   "category": "Спутники",
   "isNew": false,
@@ -190,7 +190,7 @@
     "trot": 9
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 1,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -993,7 +993,7 @@
   {
   "id": "bm_1779825519075",
   "name": "Puercoespína",
-  "count": 19,
+  "count": 20,
   "price": 15,
   "image": "https://i.ibb.co/1fzFFT0F/companion-porc-epic-2.png",
   "category": "Спутники",
@@ -1009,7 +1009,7 @@
     "trot": 2
   },
   "stocks": {
-    "🇷🇺": 19,
+    "🇷🇺": 20,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -1508,7 +1508,9 @@
     "🇫🇷": 0
   },
   "keywords": [
-    "Кат Ши"
+    "Кат Ши",
+    "Котёнок",
+    "Кат Ши — котенок"
   ],
   "adminIcons": []
 },
@@ -1689,8 +1691,8 @@
   {
   "id": "bm_1779995518509",
   "name": "Феникс",
-  "count": 0,
-  "price": 0,
+  "count": 12,
+  "price": 17,
   "image": "https://i.ibb.co/5WLFyXCZ/compagnon-phenix.png",
   "category": "Спутники",
   "isNew": false,
@@ -1705,7 +1707,7 @@
     "dressage": 12
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 12,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2016,7 +2018,7 @@
   "id": "bm_1779996428667",
   "name": "Kamaitachi",
   "count": 0,
-  "price": 0,
+  "price": 55,
   "image": "https://i.ibb.co/cXLNWnHR/compagnon-kamaitachi.png",
   "category": "Спутники",
   "isNew": false,
@@ -2044,8 +2046,8 @@
   {
   "id": "bm_1779996502770",
   "name": "Kaeru no Senshi",
-  "count": 0,
-  "price": 0,
+  "count": 2,
+  "price": 55,
   "image": "https://i.ibb.co/Ldk2Vfh3/compagnon-kaeru-no-senshi.png",
   "category": "Спутники",
   "isNew": false,
@@ -2060,7 +2062,7 @@
     "jump": 4
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 2,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2073,8 +2075,8 @@
   {
   "id": "bm_1779996537034",
   "name": "Kaeru",
-  "count": 0,
-  "price": 0,
+  "count": 30,
+  "price": 10,
   "image": "https://i.ibb.co/G4rnR7PC/compagnon-kaeru.png",
   "category": "Спутники",
   "isNew": false,
@@ -2089,7 +2091,7 @@
     "jump": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 30,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2102,8 +2104,8 @@
   {
   "id": "bm_1779996569058",
   "name": "Itachi",
-  "count": 0,
-  "price": 0,
+  "count": 7,
+  "price": 35,
   "image": "https://i.ibb.co/DH4GXFJV/compagnon-itachi.png",
   "category": "Спутники",
   "isNew": false,
@@ -2118,7 +2120,7 @@
     "speed": 3
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 7,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2131,8 +2133,8 @@
   {
   "id": "bm_1779996613210",
   "name": "Ezoshika",
-  "count": 0,
-  "price": 0,
+  "count": 11,
+  "price": 11,
   "image": "https://i.ibb.co/TDkDtpyz/compagnon-ezoshika.png",
   "category": "Спутники",
   "isNew": false,
@@ -2147,7 +2149,7 @@
     "gallop": 4
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 11,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2160,8 +2162,8 @@
   {
   "id": "bm_1779996645777",
   "name": "Banken",
-  "count": 0,
-  "price": 0,
+  "count": 3,
+  "price": 35,
   "image": "https://i.ibb.co/qYDv50ny/compagnon-banken.png",
   "category": "Спутники",
   "isNew": false,
@@ -2176,7 +2178,7 @@
     "speed": 4
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 3,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2189,8 +2191,8 @@
   {
   "id": "bm_1779996806665",
   "name": "Kyuubi no kitsune",
-  "count": 0,
-  "price": 0,
+  "count": 1,
+  "price": 110,
   "image": "https://i.ibb.co/cSX8VQdw/compagnon-kyuubi-no-kitsune.png",
   "category": "Спутники",
   "isNew": false,
@@ -2205,7 +2207,7 @@
     "trot": 4
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 1,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2218,8 +2220,8 @@
   {
   "id": "bm_1779996837881",
   "name": "Komainu",
-  "count": 0,
-  "price": 0,
+  "count": 2,
+  "price": 35,
   "image": "https://i.ibb.co/B5HgRmzL/compagnon-komainu.png",
   "category": "Спутники",
   "isNew": false,
@@ -2247,8 +2249,8 @@
   {
   "id": "bm_1779996873624",
   "name": "Kojika",
-  "count": 0,
-  "price": 0,
+  "count": 4,
+  "price": 11,
   "image": "https://i.ibb.co/XrhJCMSx/compagnon-kojika.png",
   "category": "Спутники",
   "isNew": false,
@@ -2263,7 +2265,7 @@
     "gallop": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 4,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2276,8 +2278,8 @@
   {
   "id": "bm_1779996918953",
   "name": "Koi",
-  "count": 0,
-  "price": 0,
+  "count": 4,
+  "price": 11,
   "image": "https://i.ibb.co/bMkJzzqs/compagnon-koi.png",
   "category": "Спутники",
   "isNew": false,
@@ -2292,7 +2294,7 @@
     "trot": 3
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 4,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2305,8 +2307,8 @@
   {
   "id": "bm_1779996957921",
   "name": "Kitsune",
-  "count": 0,
-  "price": 0,
+  "count": 8,
+  "price": 11,
   "image": "https://i.ibb.co/R4Sk9VFm/compagnon-kitsune.png",
   "category": "Спутники",
   "isNew": false,
@@ -2321,7 +2323,7 @@
     "trot": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 8,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2334,8 +2336,8 @@
   {
   "id": "bm_1779996986224",
   "name": "Kingyo",
-  "count": 0,
-  "price": 0,
+  "count": 3,
+  "price": 35,
   "image": "https://i.ibb.co/Fbgv2LQ3/compagnon-kingyo.png",
   "category": "Спутники",
   "isNew": false,
@@ -2350,7 +2352,7 @@
     "trot": 6
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 3,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2363,8 +2365,8 @@
   {
   "id": "bm_1779997130720",
   "name": "Shiba Inu",
-  "count": 0,
-  "price": 0,
+  "count": 10,
+  "price": 11,
   "image": "https://i.ibb.co/K1mfNmz/compagnon-shiba-inu.png",
   "category": "Спутники",
   "isNew": false,
@@ -2379,7 +2381,7 @@
     "speed": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 10,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2392,8 +2394,8 @@
   {
   "id": "bm_1779997174232",
   "name": "Ryū",
-  "count": 0,
-  "price": 0,
+  "count": 4,
+  "price": 55,
   "image": "https://i.ibb.co/JWGwnsTL/compagnon-ryu.png",
   "category": "Спутники",
   "isNew": false,
@@ -2408,7 +2410,7 @@
     "stamina": 8
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 4,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2421,8 +2423,8 @@
   {
   "id": "bm_1779997203232",
   "name": "Okuri Inu",
-  "count": 0,
-  "price": 0,
+  "count": 6,
+  "price": 15,
   "image": "https://i.ibb.co/gLLCd34H/compagnon-okuri-inu.png",
   "category": "Спутники",
   "isNew": false,
@@ -2437,7 +2439,7 @@
     "jump": 6
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 6,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2450,8 +2452,8 @@
   {
   "id": "bm_1779997233336",
   "name": "Ōkami",
-  "count": 0,
-  "price": 0,
+  "count": 11,
+  "price": 11,
   "image": "https://i.ibb.co/YB3j9xfF/compagnon-okami.png",
   "category": "Спутники",
   "isNew": false,
@@ -2466,7 +2468,7 @@
     "jump": 3
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 11,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2479,8 +2481,8 @@
   {
   "id": "bm_1779997277591",
   "name": "Nekomata",
-  "count": 0,
-  "price": 0,
+  "count": 5,
+  "price": 15,
   "image": "https://i.ibb.co/0R0FyWQQ/compagnon-nekomata.png",
   "category": "Спутники",
   "isNew": false,
@@ -2495,7 +2497,7 @@
     "stamina": 4
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 5,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2508,8 +2510,8 @@
   {
   "id": "bm_1779997315967",
   "name": "Neko",
-  "count": 0,
-  "price": 0,
+  "count": 5,
+  "price": 11,
   "image": "https://i.ibb.co/dw6Bc6xm/compagnon-neko.png",
   "category": "Спутники",
   "isNew": false,
@@ -2524,7 +2526,7 @@
     "stamina": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 5,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2537,8 +2539,8 @@
   {
   "id": "bm_1779997471223",
   "name": "Tsuru",
-  "count": 0,
-  "price": 0,
+  "count": 2,
+  "price": 110,
   "image": "https://i.ibb.co/pjyRGhx2/compagnon-tsuru.png",
   "category": "Спутники",
   "isNew": false,
@@ -2553,7 +2555,7 @@
     "gallop": 3
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 2,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2566,8 +2568,8 @@
   {
   "id": "bm_1779997557351",
   "name": "Tsuchinoko",
-  "count": 0,
-  "price": 0,
+  "count": 5,
+  "price": 22,
   "image": "https://i.ibb.co/XkGj95DK/compagnon-tsuchinoko.png",
   "category": "Спутники",
   "isNew": false,
@@ -2582,7 +2584,7 @@
     "speed": 8
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 5,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2595,8 +2597,8 @@
   {
   "id": "bm_1779997588582",
   "name": "Tora",
-  "count": 0,
-  "price": 0,
+  "count": 11,
+  "price": 17,
   "image": "https://i.ibb.co/RGGnhWft/compagnon-tora.png",
   "category": "Спутники",
   "isNew": false,
@@ -2611,7 +2613,7 @@
     "stamina": 3
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 11,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -2625,7 +2627,7 @@
   "id": "bm_1779997618950",
   "name": "Tengu",
   "count": 0,
-  "price": 0,
+  "price": 110,
   "image": "https://i.ibb.co/SXb4FvGW/compagnon-tengu.png",
   "category": "Спутники",
   "isNew": false,
@@ -2653,8 +2655,8 @@
   {
   "id": "bm_1779997646102",
   "name": "Sown Goku",
-  "count": 0,
-  "price": 0,
+  "count": 3,
+  "price": 100,
   "image": "https://i.ibb.co/NnN3r110/compagnon-sown-goku.png",
   "category": "Спутники",
   "isNew": false,
@@ -2669,7 +2671,7 @@
     "gallop": 10
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 3,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -3234,7 +3236,7 @@
   "id": "bm_1779999659032",
   "name": "Морская черепаха",
   "count": 0,
-  "price": 0,
+  "price": 30,
   "image": "https://i.ibb.co/JRdGmM1C/compagnon-sea-turtle.png",
   "category": "Спутники",
   "isNew": false,
@@ -3320,8 +3322,8 @@
   {
   "id": "bm_1779999845080",
   "name": "Криль",
-  "count": 0,
-  "price": 0,
+  "count": 1,
+  "price": 55,
   "image": "https://i.ibb.co/TBhX2WW3/compagnon-krill.png",
   "category": "Спутники",
   "isNew": false,
@@ -3336,7 +3338,7 @@
     "trot": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 1,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -5825,8 +5827,8 @@
   {
   "id": "bm_1780246781405",
   "name": "Горностай",
-  "count": 0,
-  "price": 0,
+  "count": 3,
+  "price": 165,
   "image": "https://i.ibb.co/B2CD84Qk/compagnon-hermine.png",
   "category": "Спутники",
   "isNew": false,
@@ -5841,7 +5843,7 @@
     "stamina": 10
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 3,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -5854,8 +5856,8 @@
   {
   "id": "bm_1780246808821",
   "name": "Верблюд",
-  "count": 0,
-  "price": 0,
+  "count": 4,
+  "price": 100,
   "image": "https://i.ibb.co/W4tD0qwC/compagnon-chameau.png",
   "category": "Спутники",
   "isNew": false,
@@ -5870,7 +5872,7 @@
     "dressage": 6
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 4,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -5883,8 +5885,8 @@
   {
   "id": "bm_1780246851285",
   "name": "Божья коровка",
-  "count": 0,
-  "price": 0,
+  "count": 6,
+  "price": 110,
   "image": "https://i.ibb.co/SX914y7P/compagnon-coccinelle.png",
   "category": "Спутники",
   "isNew": false,
@@ -5899,7 +5901,7 @@
     "dressage": 9
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 6,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -5914,8 +5916,8 @@
   {
   "id": "bm_1780246882797",
   "name": "Бельчонок",
-  "count": 0,
-  "price": 0,
+  "count": 20,
+  "price": 10,
   "image": "https://i.ibb.co/m5gSdNg6/compagnon-ecureuil.png",
   "category": "Спутники",
   "isNew": false,
@@ -5930,7 +5932,7 @@
     "dressage": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 20,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -5946,8 +5948,8 @@
   {
   "id": "bm_1780246906486",
   "name": "Бабочка",
-  "count": 0,
-  "price": 0,
+  "count": 25,
+  "price": 10,
   "image": "https://i.ibb.co/xK9Ly8Pc/compagnon-papillon.png",
   "category": "Спутники",
   "isNew": false,
@@ -5962,7 +5964,7 @@
     "dressage": 3
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 25,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -5977,8 +5979,8 @@
   {
   "id": "bm_1780246955277",
   "name": "Акита-ину",
-  "count": 0,
-  "price": 10,
+  "count": 60,
+  "price": 17,
   "image": "https://i.ibb.co/cKSSPSwk/compagnon-akita-inu.png",
   "category": "Спутники",
   "isNew": false,
@@ -5993,7 +5995,7 @@
     "stamina": 11
   },
   "stocks": {
-    "🇷🇺": 24,
+    "🇷🇺": 60,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6011,8 +6013,8 @@
   {
   "id": "bm_1780247130188",
   "name": "Кенгуру",
-  "count": 0,
-  "price": 0,
+  "count": 20,
+  "price": 17,
   "image": "https://i.ibb.co/sJXwrPzQ/compagnon-kangourou.png",
   "category": "Спутники",
   "isNew": false,
@@ -6027,7 +6029,7 @@
     "dressage": 8
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 20,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6042,8 +6044,8 @@
   {
   "id": "bm_1780247203828",
   "name": "Зебра",
-  "count": 0,
-  "price": 0,
+  "count": 4,
+  "price": 15,
   "image": "https://i.ibb.co/gLBXprvn/compagnon-zebre.png",
   "category": "Спутники",
   "isNew": false,
@@ -6058,7 +6060,7 @@
     "dressage": 10
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 4,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6073,8 +6075,8 @@
   {
   "id": "bm_1780247276500",
   "name": "Жираф",
-  "count": 0,
-  "price": 0,
+  "count": 11,
+  "price": 17,
   "image": "https://i.ibb.co/20j6QGp8/compagnon-girafe.png",
   "category": "Спутники",
   "isNew": false,
@@ -6089,7 +6091,7 @@
     "dressage": 3
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 11,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6105,7 +6107,7 @@
   "id": "bm_1780247315891",
   "name": "Ёж",
   "count": 0,
-  "price": 0,
+  "price": 165,
   "image": "https://i.ibb.co/rf5z2mVZ/compagnon-herisson.png",
   "category": "Спутники",
   "isNew": false,
@@ -6134,8 +6136,8 @@
   {
   "id": "bm_1780247358379",
   "name": "Дикий вепрь",
-  "count": 0,
-  "price": 0,
+  "count": 6,
+  "price": 30,
   "image": "https://i.ibb.co/MDxWXPs4/compagnon-sanglier.png",
   "category": "Спутники",
   "isNew": false,
@@ -6150,7 +6152,7 @@
     "speed": 12
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 6,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6166,8 +6168,8 @@
   {
   "id": "bm_1780247421275",
   "name": "Гризли",
-  "count": 0,
-  "price": 0,
+  "count": 110,
+  "price": 10,
   "image": "https://i.ibb.co/nsZkThz0/compagnon-grizzly.png",
   "category": "Спутники",
   "isNew": false,
@@ -6198,8 +6200,8 @@
   {
   "id": "bm_1780248471456",
   "name": "Лама",
-  "count": 0,
-  "price": 0,
+  "count": 2,
+  "price": 150,
   "image": "https://i.ibb.co/vx0FG1Sb/compagnon-lama.png",
   "category": "Спутники",
   "isNew": false,
@@ -6214,7 +6216,7 @@
     "dressage": 10
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 2,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6229,8 +6231,8 @@
   {
   "id": "bm_1780248501018",
   "name": "Курица",
-  "count": 0,
-  "price": 0,
+  "count": 25,
+  "price": 5,
   "image": "https://i.ibb.co/vxn0fpcW/compagnon-poule.png",
   "category": "Спутники",
   "isNew": false,
@@ -6245,7 +6247,7 @@
     "dressage": 1
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 25,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6260,8 +6262,8 @@
   {
   "id": "bm_1780248537640",
   "name": "Кролик",
-  "count": 0,
-  "price": 0,
+  "count": 75,
+  "price": 5,
   "image": "https://i.ibb.co/DH9F5MdN/compagnon-lapin.png",
   "category": "Спутники",
   "isNew": false,
@@ -6276,7 +6278,7 @@
     "dressage": 3
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 75,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6290,9 +6292,9 @@
 },
   {
   "id": "bm_1780248559592",
-  "name": "Котенок",
-  "count": 0,
-  "price": 0,
+  "name": "Котёнок",
+  "count": 35,
+  "price": 8,
   "image": "https://i.ibb.co/4nKHbb4L/compagnon-chat.png",
   "category": "Спутники",
   "isNew": false,
@@ -6307,7 +6309,7 @@
     "dressage": 9
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 35,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6315,15 +6317,16 @@
   "keywords": [
     "Животные",
     "выездка",
-    "Выездка"
+    "Выездка",
+    "Котенок"
   ],
   "adminIcons": []
 },
   {
   "id": "bm_1780248578944",
   "name": "Косатка",
-  "count": 0,
-  "price": 0,
+  "count": 5,
+  "price": 30,
   "image": "https://i.ibb.co/DfyCRCNk/compagnon-orque.png",
   "category": "Спутники",
   "isNew": false,
@@ -6338,7 +6341,7 @@
     "dressage": 6
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 5,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6352,9 +6355,9 @@
 },
   {
   "id": "bm_1780248609024",
-  "name": "Козленок",
-  "count": 0,
-  "price": 0,
+  "name": "Козлёнок",
+  "count": 40,
+  "price": 5,
   "image": "https://i.ibb.co/TDmYKNry/compagnon-chevre.png",
   "category": "Спутники",
   "isNew": false,
@@ -6369,7 +6372,7 @@
     "dressage": 2
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 40,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6379,15 +6382,16 @@
     "выездка",
     "Выездка",
     "козёл",
-    "коза"
+    "коза",
+    "Козленок"
   ],
   "adminIcons": []
 },
   {
   "id": "bm_1780248758799",
   "name": "Обезьянка",
-  "count": 0,
-  "price": 0,
+  "count": 5,
+  "price": 8,
   "image": "https://i.ibb.co/ynHVfrX3/compagnon-singe.png",
   "category": "Спутники",
   "isNew": false,
@@ -6402,7 +6406,7 @@
     "dressage": 6
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 5,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6418,8 +6422,8 @@
   {
   "id": "bm_1780248788967",
   "name": "Медведь",
-  "count": 0,
-  "price": 0,
+  "count": 20,
+  "price": 15,
   "image": "https://i.ibb.co/DgjFQ1Fr/compagnon-ours.png",
   "category": "Спутники",
   "isNew": false,
@@ -6434,7 +6438,7 @@
     "dressage": 9
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 20,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6450,8 +6454,8 @@
   {
   "id": "bm_1780248825191",
   "name": "Макао",
-  "count": 0,
-  "price": 0,
+  "count": 5,
+  "price": 30,
   "image": "https://i.ibb.co/C5Kq2BTQ/compagnon-ara-ailes-vertes.png",
   "category": "Спутники",
   "isNew": false,
@@ -6466,7 +6470,7 @@
     "speed": 5
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 5,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6483,8 +6487,8 @@
   {
   "id": "bm_1780248862663",
   "name": "Лягушонок",
-  "count": 0,
-  "price": 0,
+  "count": 3,
+  "price": 55,
   "image": "https://i.ibb.co/4G60M5y/compagnon-grenouille.png",
   "category": "Спутники",
   "isNew": false,
@@ -6499,7 +6503,7 @@
     "dressage": 12
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 3,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6547,8 +6551,8 @@
   {
   "id": "bm_1780248936495",
   "name": "Ласточка",
-  "count": 0,
-  "price": 0,
+  "count": 21,
+  "price": 5,
   "image": "https://i.ibb.co/XZDzggXT/compagnon-hirondelle.png",
   "category": "Спутники",
   "isNew": false,
@@ -6563,7 +6567,7 @@
     "dressage": 5
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 21,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6579,8 +6583,8 @@
   {
   "id": "bm_1780249025438",
   "name": "Сова",
-  "count": 0,
-  "price": 0,
+  "count": 21,
+  "price": 15,
   "image": "https://i.ibb.co/ynGcD3ND/compagnon-hibou.png",
   "category": "Спутники",
   "isNew": false,
@@ -6595,7 +6599,7 @@
     "dressage": 13
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 21,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6611,7 +6615,7 @@
   {
   "id": "bm_1780249097534",
   "name": "Снежная обезьяна",
-  "count": 0,
+  "count": 80,
   "price": 15,
   "image": "https://i.ibb.co/dqV8Qms/compagnon-singe-neige.png",
   "category": "Спутники",
@@ -6627,7 +6631,7 @@
     "jump": 12
   },
   "stocks": {
-    "🇷🇺": 15,
+    "🇷🇺": 80,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6643,8 +6647,8 @@
   {
   "id": "bm_1780249134446",
   "name": "Пчела",
-  "count": 0,
-  "price": 0,
+  "count": 4,
+  "price": 110,
   "image": "https://i.ibb.co/LDLbL6hH/compagnon-abeille.png",
   "category": "Спутники",
   "isNew": false,
@@ -6659,7 +6663,7 @@
     "dressage": 15
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 4,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6707,8 +6711,8 @@
   {
   "id": "bm_1780249207462",
   "name": "Пингвин",
-  "count": 0,
-  "price": 0,
+  "count": 30,
+  "price": 15,
   "image": "https://i.ibb.co/9d6WX5M/compagnon-pingouin.png",
   "category": "Спутники",
   "isNew": false,
@@ -6723,7 +6727,7 @@
     "dressage": 10
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 30,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6738,8 +6742,8 @@
   {
   "id": "bm_1780249239150",
   "name": "Панда",
-  "count": 0,
-  "price": 0,
+  "count": 1,
+  "price": 165,
   "image": "https://i.ibb.co/nM7w9D3D/compagnon-panda.png",
   "category": "Спутники",
   "isNew": false,
@@ -6754,7 +6758,7 @@
     "trot": 8
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 1,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6769,8 +6773,8 @@
   {
   "id": "bm_1780249326573",
   "name": "Щенок",
-  "count": 0,
-  "price": 0,
+  "count": 6,
+  "price": 15,
   "image": "https://i.ibb.co/GvM0fW5D/compagnon-chien.png",
   "category": "Спутники",
   "isNew": false,
@@ -6785,7 +6789,7 @@
     "dressage": 15
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 6,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6801,8 +6805,8 @@
   {
   "id": "bm_1780249354549",
   "name": "Ягненок",
-  "count": 0,
-  "price": 0,
+  "count": 8,
+  "price": 15,
   "image": "https://i.ibb.co/fVhKYm6p/compagnon-mouton.png",
   "category": "Спутники",
   "isNew": false,
@@ -6817,7 +6821,7 @@
     "dressage": 8
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 8,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6866,8 +6870,8 @@
   {
   "id": "bm_1780249405437",
   "name": "Уэта",
-  "count": 0,
-  "price": 0,
+  "count": 20,
+  "price": 15,
   "image": "https://i.ibb.co/ksLS1rJt/compagnon-weta.png",
   "category": "Спутники",
   "isNew": false,
@@ -6882,7 +6886,7 @@
     "dressage": 3
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 20,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6899,8 +6903,8 @@
   {
   "id": "bm_1780249435957",
   "name": "Страус",
-  "count": 0,
-  "price": 0,
+  "count": 3,
+  "price": 55,
   "image": "https://i.ibb.co/pjH7Gbyv/compagnon-autruche.png",
   "category": "Спутники",
   "isNew": false,
@@ -6915,7 +6919,7 @@
     "speed": 3
   },
   "stocks": {
-    "🇷🇺": 0,
+    "🇷🇺": 3,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -6925,6 +6929,151 @@
     "скорость",
     "Скорость",
     "птица"
+  ],
+  "adminIcons": []
+},
+   {
+  "id": "bm_1784744220681",
+  "name": "Пламя дракона",
+  "count": 999,
+  "price": 17,
+  "image": "https://i.ibb.co/hJdqpgth/compagnon-dragon.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Драконы",
+  "bonuses": {
+    "dressage": "На выбор"
+  },
+  "stocks": {
+    "🇷🇺": 999,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Драконы"
+  ],
+  "adminIcons": []
+},
+   {
+  "id": "bm_1784744923814",
+  "name": "Яйцо монстра",
+  "count": 30,
+  "price": 35,
+  "image": "https://i.ibb.co/m56f31kB/monster-egg.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Монстры",
+  "bonuses": {
+    "gallop": 13
+  },
+  "stocks": {
+    "🇷🇺": 30,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Монстры"
+  ],
+  "adminIcons": []
+},
+   {
+  "id": "bm_1784745074062",
+  "name": "Кат Ши",
+  "count": 999,
+  "price": 17,
+  "image": "https://i.ibb.co/M5R8ZYDm/cat-sidhe.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Кат Ши",
+  "bonuses": {
+    "speed": 13
+  },
+  "stocks": {
+    "🇷🇺": 999,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Кат Ши"
+  ],
+  "adminIcons": []
+},
+   {
+  "id": "bm_1784745148821",
+  "name": "Ку ши",
+  "count": 999,
+  "price": 17,
+  "image": "https://i.ibb.co/gL2t5srm/cu-sidhe.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Ку ши",
+  "bonuses": {
+    "speed": "На выбор"
+  },
+  "stocks": {
+    "🇷🇺": 999,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Ку Ши"
+  ],
+  "adminIcons": []
+},
+   {
+  "id": "bm_1784745286013",
+  "name": "Призрачный шар",
+  "count": 999,
+  "price": 17,
+  "image": "https://i.ibb.co/1tvyCN84/compagnon-fantome.png",
+  "category": "Спутники",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "description": "",
+  "howto": "",
+  "isNaves": true,
+  "isAvailableForNaves": true,
+  "collection": "Привидения",
+  "bonuses": {
+    "dressage": 18
+  },
+  "stocks": {
+    "🇷🇺": 999,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Привидения"
   ],
   "adminIcons": []
 }
