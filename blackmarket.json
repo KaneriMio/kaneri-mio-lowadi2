@@ -94,29 +94,6 @@
     }
   },
 {
-  "id": "bm_1779646868144",
-  "name": "Корона Тюхе",
-  "count": 0,
-  "price": 50,
-  "image": "https://i.ibb.co/0p7cxbFw/tyche-crown.png",
-  "category": "Черный рынок",
-  "isNew": false,
-  "isHot": false,
-  "isRare": false,
-  "description": "Открывает одно сокровище: экю, снаряжение, божественных лошадей и прочие предметы",
-  "howto": "Купить на Черном рынке за 170 пропусков, выиграть в акциях",
-  "isNaves": false,
-  "isAvailableForNaves": false,
-  "stocks": {
-    "🇷🇺": 0,
-    "🇺🇳": 0,
-    "🇪🇦": 0,
-    "🇫🇷": 0
-  },
-  "keywords": [],
-  "adminIcons": []
-},
-{
   "id": "bm_1779647030614",
   "name": "Золотое руно",
   "count": 20,
