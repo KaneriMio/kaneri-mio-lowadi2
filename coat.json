@@ -1,32 +1,5 @@
 [
-  {
-    "id": "coat_1",
-    "name": "Масть: Звёздный Волк",
-    "count": 4,
-    "price": 45,
-    "image": "https://i.ibb.co/yFF0Sgzp/100105561-normal.png",
-    "category": "Окрасы",
-    "colorType": "ЗЯ",
-    "author": "Kaneri Mio",
-    "hasExtraCr": true,
-    "hasFk": true,
-    "hasSkills": false,
-    "affix": true,
-    "chk": false,
-    "stocks": {
-      "🇷🇺": 2,
-      "🇺🇳": 0,
-      "🇪🇦": 0,
-      "🇫🇷": 1
-    },
-    "keywords": ["волк", "небо", "крылья", "синий", "мистика"],
-    "adminIcons": [
-       "https://i.ibb.co/qYc95xyS/bras-morphee.png",
-       "https://i.ibb.co/v4yr59Zn/caresse-philotes.png",
-       "https://i.ibb.co/tT9K1WzF/eau-jouvence.png"
-    ]
-  },
-  {
+{
   "id": "specialcoat_1780297733783",
   "name": "Огонь",
   "count": 14,
