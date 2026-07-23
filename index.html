@@ -1690,48 +1690,6 @@ if (drawerAddCartBtn) {
   if (productDrawer) productDrawer.classList.add('active');
   recalcDrawerPrice(); 
 }
-// Слушатель кнопки подтверждения командного оптового заказа валюты
-if (confirmTeamOrderBtn) {
-  confirmTeamOrderBtn.addEventListener('click', () => {
-    if (!playerGameNickInput) return;
-    const nickValue = playerGameNickInput.value.trim();
-
-    if (nickValue === "") {
-      alert("Пожалуйста, введите ваш игровой ник для приглашения в команду!");
-      return;
-    }
-
-    // Если ник успешно введен, достаем сохраненный временный товар
-    if (window.pendingCurrencyItem) {
-      const updatedItem = { ...window.pendingCurrencyItem, playerNick: nickValue };
-      window.pendingCurrencyItem = null;
-      
-      // Закрываем модалку опта
-      if (currencyTeamModal) currencyTeamModal.classList.remove('active');
-      
-      // Вызываем базовую функцию добавления уже с ником внутри
-      addToCart(updatedItem);
-    }
-  });
-}
-
-// Слушатель кнопки отмены командного оптового заказа
-if (cancelTeamOrderBtn) {
-  cancelTeamOrderBtn.addEventListener('click', () => {
-    window.pendingCurrencyItem = null;
-    if (currencyTeamModal) currencyTeamModal.classList.remove('active');
-    closeAllDrawers();
-    showToast('Добавление оптового заказа отменено.');
-  });
-}
-
-// Расширяем общую функцию закрытия всех окон для нового окна валюты
-const originalCloseAllDrawers = window.closeAllDrawers;
-window.closeAllDrawers = function() {
-  if (originalCloseAllDrawers) originalCloseAllDrawers();
-  if (currencyTeamModal) currencyTeamModal.classList.remove('active');
-  window.pendingCurrencyItem = null;
-};
 function closeAllDrawers() {
   if (overlay) overlay.classList.remove('active');
   if (productDrawer) productDrawer.classList.remove('active');
