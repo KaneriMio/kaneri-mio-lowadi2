@@ -10760,43 +10760,6 @@
   "adminIcons": []
 },
   {
-  "id": "coat_1781698314130",
-  "name": "Azuriel",
-  "count": 1,
-  "price": 55,
-  "image": "https://i.ibb.co/4RNsx0TQ/image-Photoroom-11.png",
-  "category": "Окрасы",
-  "isNew": false,
-  "isHot": false,
-  "isRare": false,
-  "colorType": "ИЗЯ",
-  "author": "Mishka",
-  "breed": "Хафлингер",
-  "type": "Пони-единорог",
-  "copies": 99,
-  "companionImage": "",
-  "hasExtraCr": false,
-  "hasFk": false,
-  "hasSkills": false,
-  "affix": false,
-  "chk": true,
-  "stocks": {
-    "🇷🇺": 1,
-    "🇺🇳": 0,
-    "🇪🇦": 0,
-    "🇫🇷": 0
-  },
-  "keywords": [
-    "изя",
-    "редкие",
-    "пони",
-    "единорог"
-  ],
-  "adminIcons": [
-    "https://i.ibb.co/1tbFpB7S/lyre-apollon.png"
-  ]
-},
-  {
   "id": "coat_1781698439178",
   "name": "DappleDusk",
   "count": 1,
