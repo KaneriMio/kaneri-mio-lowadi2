@@ -10760,43 +10760,6 @@
   "adminIcons": []
 },
   {
-  "id": "coat_1781698153155",
-  "name": "Azure tit",
-  "count": 1,
-  "price": 55,
-  "image": "https://i.ibb.co/mVrqYdkj/image-Photoroom-10.png",
-  "category": "Окрасы",
-  "isNew": false,
-  "isHot": false,
-  "isRare": false,
-  "colorType": "ИЗЯ",
-  "author": "Aiden",
-  "breed": "Хафлингер",
-  "type": "Пони-Пегас",
-  "copies": 98,
-  "companionImage": "",
-  "hasExtraCr": false,
-  "hasFk": false,
-  "hasSkills": false,
-  "affix": false,
-  "chk": true,
-  "stocks": {
-    "🇷🇺": 1,
-    "🇺🇳": 0,
-    "🇪🇦": 0,
-    "🇫🇷": 0
-  },
-  "keywords": [
-    "изя",
-    "редкие",
-    "пони",
-    "пегас"
-  ],
-  "adminIcons": [
-    "https://i.ibb.co/NdXjtgrG/sang-meduse.png"
-  ]
-},
-  {
   "id": "coat_1781698314130",
   "name": "Azuriel",
   "count": 1,
