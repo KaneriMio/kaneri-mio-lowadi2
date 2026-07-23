@@ -77,6 +77,14 @@
     .page-btn { background-color: #fff; color: #4a2810; border: 1px solid #ddd; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; transition: all 0.2s; }
     .page-btn.active { background-color: var(--btn-active); color: #fff; border-color: var(--btn-active); }
     .page-btn:disabled { background-color: #eee; color: #aaa; cursor: not-allowed; border-color: #ddd; }
+    .page-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    font-weight: bold;
+    color: #777;
+}
 
     .search-panel { background: #fff; padding: 12px 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 20px; }
     .search-input { flex: 1; min-width: 200px; padding: 10px; border: 1px solid #eee; border-radius: 6px; font-size: 14px; outline: none; }
@@ -1081,30 +1089,59 @@ window.clearAllFavorites = function(e) {
 
 function renderPaginationControls(totalPages) {
   if (!paginationContainer) return;
-  paginationContainer.innerHTML = '';
+
+  paginationContainer.innerHTML = "";
+
   if (totalPages <= 1) return;
 
-  const prevBtn = document.createElement('button');
-  prevBtn.className = 'page-btn';
-  prevBtn.innerText = '◀';
-  prevBtn.disabled = currentPage === 1;
-  prevBtn.addEventListener('click', () => { currentPage--; renderItems(); window.scrollTo({top: 0, behavior: 'smooth'}); });
-  paginationContainer.appendChild(prevBtn);
+  function createPageButton(page) {
+    const btn = document.createElement("button");
+    btn.className = "page-btn";
+    if (page === currentPage) btn.classList.add("active");
 
-  for (let i = 1; i <= totalPages; i++) {
-    const pageBtn = document.createElement('button');
-    pageBtn.className = `page-btn ${currentPage === i ? 'active' : ''}`;
-    pageBtn.innerText = i;
-    pageBtn.addEventListener('click', () => { currentPage = i; renderItems(); window.scrollTo({top: 0, behavior: 'smooth'}); });
-    paginationContainer.appendChild(pageBtn);
+    btn.textContent = page;
+
+    btn.onclick = () => {
+      currentPage = page;
+      renderItems();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    paginationContainer.appendChild(btn);
   }
 
-  const nextBtn = document.createElement('button');
-  nextBtn.className = 'page-btn';
-  nextBtn.innerText = '▶';
-  nextBtn.disabled = currentPage === totalPages;
-  nextBtn.addEventListener('click', () => { currentPage++; renderItems(); window.scrollTo({top: 0, behavior: 'smooth'}); });
-  paginationContainer.appendChild(nextBtn);
+  // Первая страница
+  if (currentPage > 5) {
+    createPageButton(1);
+
+    if (currentPage > 6) {
+      const dots = document.createElement("span");
+      dots.className = "page-dots";
+      dots.textContent = "...";
+      paginationContainer.appendChild(dots);
+    }
+  }
+
+  // Страницы вокруг текущей
+  const start = Math.max(1, currentPage - 4);
+  const end = Math.min(totalPages, currentPage + 4);
+
+  for (let i = start; i <= end; i++) {
+    createPageButton(i);
+  }
+
+  // Последняя страница
+  if (currentPage < totalPages - 4) {
+
+    if (currentPage < totalPages - 5) {
+      const dots = document.createElement("span");
+      dots.className = "page-dots";
+      dots.textContent = "...";
+      paginationContainer.appendChild(dots);
+    }
+
+    createPageButton(totalPages);
+  }
 }
 
 function toggleFavorite(id) {
