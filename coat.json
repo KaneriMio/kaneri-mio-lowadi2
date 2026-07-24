@@ -12690,5 +12690,46 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+  {
+  "id": "coat_1784901266390",
+  "name": "A N U B I S",
+  "count": 1,
+  "price": 330,
+  "image": "https://ibb.co/99tkGFZX",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": true,
+  "colorType": "ИЗЯ",
+  "author": "Valuiss",
+  "breed": "Хановериян, Ганноверская",
+  "type": "Верховая лошадь",
+  "copies": 189,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": false,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "анубис",
+    "анх",
+    "анкх"
+  ],
+  "adminIcons": [
+    "https://ibb.co/wF6j4c0G",
+    "https://ibb.co/5hPnRCRS",
+    "https://ibb.co/N6Pcv53M",
+    "https://ibb.co/1fYjkvYH",
+    "https://ibb.co/TMk9yrKS",
+    "https://ibb.co/HTdxg94Z"
+  ]
 }
 ]
