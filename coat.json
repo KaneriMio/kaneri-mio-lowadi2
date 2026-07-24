@@ -11090,8 +11090,8 @@
   {
   "id": "coat_1781772889053",
   "name": "Harpie Féroce",
-  "count": 3,
-  "price": 55,
+  "count": 2,
+  "price": 75,
   "image": "https://i.ibb.co/CXf5Bv6/image-Photoroom-3.png",
   "category": "Окрасы",
   "isNew": false,
@@ -11109,7 +11109,7 @@
   "affix": false,
   "chk": true,
   "stocks": {
-    "🇷🇺": 3,
+    "🇷🇺": 2,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -11724,7 +11724,7 @@
   {
   "id": "coat_1782215100821",
   "name": "Star catcher",
-  "count": 2,
+  "count": 1,
   "price": 55,
   "image": "https://i.ibb.co/F4m3jTTg/image-Photoroom-20.png",
   "category": "Окрасы",
@@ -11733,7 +11733,7 @@
   "isRare": false,
   "colorType": "ИЗЯ",
   "author": "__Фури__",
-  "breed": "Уточнять у продавца",
+  "breed": "Першерон",
   "type": "Тяжеловоз",
   "copies": 100,
   "companionImage": "",
@@ -11743,7 +11743,7 @@
   "affix": false,
   "chk": true,
   "stocks": {
-    "🇷🇺": 2,
+    "🇷🇺": 1,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
