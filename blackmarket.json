@@ -1003,7 +1003,7 @@
   {
   "id": "bm_1783959817122",
   "name": "Дух «Семь морей»",
-  "count": 4,
+  "count": 0,
   "price": 35,
   "image": "https://i.ibb.co/1JpBbv3Y/esprit-nomade-sept-mers.png",
   "category": "Черный рынок",
@@ -1015,7 +1015,7 @@
   "isNaves": true,
   "isAvailableForNaves": false,
   "stocks": {
-    "🇷🇺": 4,
+    "🇷🇺": 0,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -1118,7 +1118,7 @@
   {
   "id": "bm_1783960914828",
   "name": "Зелье ведьмы",
-  "count": 1,
+  "count": 0,
   "price": 35,
   "image": "https://i.ibb.co/sJ697dtL/coats-bundle-witch.png",
   "category": "Черный рынок",
@@ -1130,7 +1130,7 @@
   "isNaves": false,
   "isAvailableForNaves": false,
   "stocks": {
-    "🇷🇺": 1,
+    "🇷🇺": 0,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -1302,7 +1302,7 @@
   {
   "id": "bm_1783961635858",
   "name": "Чернильница Артура Конана Дойла",
-  "count": 1,
+  "count": 0,
   "price": 35,
   "image": "https://i.ibb.co/8L1g7f2H/arthur-conan-doyle-inkwell.png",
   "category": "Черный рынок",
@@ -1314,7 +1314,7 @@
   "isNaves": false,
   "isAvailableForNaves": false,
   "stocks": {
-    "🇷🇺": 1,
+    "🇷🇺": 0,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
