@@ -1049,7 +1049,7 @@
   {
   "id": "bm_1783959938153",
   "name": "Дух путешествий «Греческие боги»",
-  "count": 4,
+  "count": 0,
   "price": 45,
   "image": "https://i.ibb.co/Ndn9fD9f/esprit-nomade-dieux-grecs.png",
   "category": "Черный рынок",
@@ -1061,7 +1061,7 @@
   "isNaves": true,
   "isAvailableForNaves": false,
   "stocks": {
-    "🇷🇺": 4,
+    "🇷🇺": 0,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
