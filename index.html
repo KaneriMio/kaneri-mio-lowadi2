@@ -1411,13 +1411,17 @@ if (checkoutBtn) {
       return;
     }
 
-    let orderText = '🛒 Заказ Lowadi Store\n\n';
+    let orderText = '🛒 Заказ Lowadi|Kaneri Mio Company\n\n';
 
     cart.forEach(item => {
-      orderText += `• ${item.name} — ${item.price} ₽\n`;
+      const itemTotal = item.price * item.quantity;
+
+      orderText += `• ${item.name} ×${item.quantity} — ${itemTotal} ₽\n`;
     });
 
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const total = cart.reduce((sum, item) => {
+      return sum + (item.price * item.quantity);
+    }, 0);
 
     orderText += `\n💰 Итого: ${total} ₽`;
 
