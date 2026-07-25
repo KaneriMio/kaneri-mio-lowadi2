@@ -1256,7 +1256,7 @@
   {
   "id": "bm_1783961418042",
   "name": "Парадное яблоко",
-  "count": 1,
+  "count": 0,
   "price": 45,
   "image": "https://i.ibb.co/zT9bJsyW/parade-apple.png",
   "category": "Черный рынок",
@@ -1268,7 +1268,7 @@
   "isNaves": false,
   "isAvailableForNaves": false,
   "stocks": {
-    "🇷🇺": 1,
+    "🇷🇺": 0,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
