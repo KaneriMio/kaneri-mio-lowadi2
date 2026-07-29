@@ -10720,7 +10720,8 @@
     "редкие",
     "верховая лошадь",
     "собака",
-    "пегая"
+    "пегая",
+    "nash12"
   ],
   "adminIcons": []
 },
@@ -10755,7 +10756,8 @@
     "изя",
     "редкие",
     "верховая лошадь",
-    "карп"
+    "карп",
+    "Drasillia"
   ],
   "adminIcons": []
 },
@@ -10790,6 +10792,7 @@
     "изя",
     "редкие",
     "пони",
+    "Alice Discostone",
     "пегас"
   ],
   "adminIcons": [
@@ -10826,6 +10829,7 @@
   "keywords": [
     "изя",
     "редкие",
+    "Rohanna",
     "пони"
   ],
   "adminIcons": []
@@ -10862,6 +10866,7 @@
     "редкие",
     "пегас",
     "верховая лошадь",
+    "Evilin",
     "дракон"
   ],
   "adminIcons": [
@@ -10899,6 +10904,7 @@
   "keywords": [
     "изя",
     "редкие",
+    "Noctuarys",
     "верховая лошадь"
   ],
   "adminIcons": []
@@ -10933,6 +10939,7 @@
   "keywords": [
     "изя",
     "редкие",
+    "Noctuarys",
     "верховая лошадь"
   ],
   "adminIcons": []
@@ -10968,6 +10975,7 @@
     "изя",
     "редкие",
     "пони",
+    "RumorHasIt",
     "милый"
   ],
   "adminIcons": []
@@ -11002,6 +11010,7 @@
   "keywords": [
     "изя",
     "редкие",
+    "Nephilim.",
     "пони"
   ],
   "adminIcons": [
@@ -11039,6 +11048,7 @@
   "keywords": [
     "изя",
     "редкие",
+    "AcidSuzanne",
     "тяжеловоз",
     "пегас"
   ],
@@ -11079,6 +11089,7 @@
     "тяжеловоз",
     "пегас",
     "единорог",
+    "FoxX.",
     "аликорн"
   ],
   "adminIcons": [
@@ -11121,6 +11132,7 @@
     "пегас",
     "единорог",
     "аликорн",
+    "Costia",
     "птица"
   ],
   "adminIcons": [
@@ -11161,6 +11173,7 @@
     "единорог",
     "тыква",
     "страшно",
+    "HarleyQuinn",
     "страшная",
     "хэллоуин"
   ],
@@ -11177,7 +11190,7 @@
   "name": "HauntingHour",
   "count": 3,
   "price": 55,
-  "image": "https://i.ibb.co/qLDGs7w2/Chat-GPT-Image-18-2026-14-11-41.png",
+  "image": "https://i.ibb.co/JjfKGbdc/100434046-normal.png",
   "category": "Окрасы",
   "isNew": false,
   "isHot": false,
@@ -11202,6 +11215,7 @@
   "keywords": [
     "изя",
     "редкие",
+    "Little Boy Blue",
     "верховая",
     "спутник"
   ],
@@ -11238,6 +11252,7 @@
     "редкие",
     "осел",
     "единорог",
+    "Nescaféine.",
     "милый",
     "весна"
   ],
@@ -11275,6 +11290,7 @@
   "keywords": [
     "редкие",
     "пони",
+    "Aiden",
     "милый",
     "собака"
   ],
@@ -11310,6 +11326,7 @@
   "keywords": [
     "редкие",
     "верховая",
+    "mihrami",
     "болото"
   ],
   "adminIcons": []
@@ -11344,6 +11361,7 @@
   "keywords": [
     "редкие",
     "верховая",
+    "salimzombie",
     "пятна"
   ],
   "adminIcons": []
@@ -11378,6 +11396,7 @@
   "keywords": [
     "редкие",
     "осел",
+    "Nescaféine.",
     "лето",
     "отдых",
     "коктейль"
@@ -11417,6 +11436,7 @@
   "keywords": [
     "редкие",
     "осел",
+    "Nadia Aabo",
     "единорог",
     "бабочки"
   ],
@@ -11455,6 +11475,7 @@
   "keywords": [
     "редкие",
     "тяжеловоз",
+    "Glowpug",
     "бабочка",
     "пегас"
   ],
@@ -11493,6 +11514,7 @@
     "редкие",
     "верховая",
     "красивая",
+    "!ss!W",
     "статуя",
     "мрамор"
   ],
@@ -12721,7 +12743,8 @@
   "keywords": [
     "анубис",
     "анх",
-    "анкх"
+    "анкх",
+    "Valuiss"
   ],
   "adminIcons": [
     "https://i.ibb.co/G4GvXZjM/caresse-philotes.png",
@@ -12730,6 +12753,377 @@
     "https://i.ibb.co/9H9f2Czm/lyre-apollon.png",
     "https://i.ibb.co/ZzBFc9ZR/rayon-helios-illimite.png",
     "https://i.ibb.co/3m0rMCk3/pactole-cresus.png"
+  ]
+},
+  {
+  "id": "coat_1785332104213",
+  "name": "[Fialkový Poutník]",
+  "count": 20,
+  "price": 75,
+  "image": "https://i.ibb.co/ds1FX7wD/2026-07-29-182937-edited-free-carve-photos.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Taiti",
+  "breed": "Обычный осел",
+  "type": "Осел",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 20,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "осел",
+    "милый",
+    "Taiti"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "coat_1785332301484",
+  "name": "ʙʟᴀcᴋ ᴅoʙᴇʀᴍᴀɴ",
+  "count": 13,
+  "price": 75,
+  "image": "https://i.ibb.co/7xk32ZSh/image-Photoroom-3.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Sidney",
+  "breed": "Уточнять у продавца",
+  "type": "Верховой единорог",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 13,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "Sidney",
+    "собака",
+    "собаки",
+    "тёмный",
+    "вороной",
+    "гнедой"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "coat_1785332492371",
+  "name": "024.0102",
+  "count": 6,
+  "price": 75,
+  "image": "https://i.ibb.co/7dYHbMrY/image-Photoroom-4.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Stray",
+  "breed": "Обычный осел",
+  "type": "Осел",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 6,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "Stray",
+    "осел",
+    "вороной"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "coat_1785332642322",
+  "name": "[PDD] Iceberg",
+  "count": 1,
+  "price": 75,
+  "image": "https://i.ibb.co/mCxpKZ9K/image-Photoroom-5.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": true,
+  "colorType": "ИЗЯ",
+  "author": "Nescaféine.",
+  "breed": "Липиццан",
+  "type": "Верховая лошадь",
+  "copies": 99,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": true,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "Nescaféine.",
+    "необычная",
+    "пятна"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "coat_1785332835138",
+  "name": "~GoldenDonkey~",
+  "count": 2,
+  "price": 75,
+  "image": "https://i.ibb.co/Q1q10mp/100479319-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Titamour",
+  "breed": "Обычный осел",
+  "type": "Крылатый осел-единорог",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 2,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "Titamour",
+    "осел",
+    "золото",
+    "золотой",
+    "необычный"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/NdXjtgrG/sang-meduse.png"
+  ]
+},
+  {
+  "id": "coat_1785333246017",
+  "name": "Κόλαση",
+  "count": 1,
+  "price": 75,
+  "image": "https://i.ibb.co/995DPDry/100459987-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": true,
+  "colorType": "ИЗЯ",
+  "author": "FoxX.",
+  "breed": "Обычный осел",
+  "type": "Осел",
+  "copies": 99,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "FoxX.",
+    "осел",
+    "огонь",
+    "огненный"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/1tbFpB7S/lyre-apollon.png",
+    "https://i.ibb.co/HjnRzzb/rayon-helios-illimite.png"
+  ]
+},
+  {
+  "id": "coat_1785338687712",
+  "name": "~Egris",
+  "count": 1,
+  "price": 75,
+  "image": "https://i.ibb.co/ynv40ZDJ/100453029-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": true,
+  "colorType": "ИЗЯ",
+  "author": "herczeg",
+  "breed": "Драмхорс",
+  "type": "Единорог-тяжеловоз",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": true,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "herczeg",
+    "единорог",
+    "тяжеловоз",
+    "тяж",
+    "рога",
+    "олень"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "coat_1785338801933",
+  "name": "[PDD] Yakuza",
+  "count": 2,
+  "price": 75,
+  "image": "https://i.ibb.co/MD0QYY4r/100494524-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Bravado",
+  "breed": "Уточнять у продавца",
+  "type": "Пони",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 2,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "Bravado",
+    "пони"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "coat_1785339849250",
+  "name": "HeartBreaker",
+  "count": 15,
+  "price": 75,
+  "image": "https://i.ibb.co/VWXrvTQK/100489446-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Daschenka",
+  "breed": "Уточнять у продавца",
+  "type": "Единорог-тяжеловоз",
+  "copies": 200,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 15,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "Daschenka",
+    "единорог",
+    "тяжеловоз",
+    "тяж"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "coat_1785340833543",
+  "name": "Celestyn",
+  "count": 2,
+  "price": 75,
+  "image": "https://i.ibb.co/Z161hR60/100383523-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "TomášekJsem",
+  "breed": "Уточнять у продавца",
+  "type": "Верховой единорог",
+  "copies": 272,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 2,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "изя",
+    "TomášekJsem",
+    "единорог"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/0pGSWmCj/pierre-philosophale.png",
+    "https://i.ibb.co/qYc95xyS/bras-morphee.png",
+    "https://i.ibb.co/W76Zxhf/sablier-chronos.png",
+    "https://i.ibb.co/1tbFpB7S/lyre-apollon.png",
+    "https://i.ibb.co/HjnRzzb/rayon-helios-illimite.png",
+    "https://i.ibb.co/Y6nP4DZ/talon-achille.png",
+    "https://i.ibb.co/dwpYKfts/pack-nyx.png"
   ]
 }
 ]
