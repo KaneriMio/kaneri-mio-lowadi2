@@ -52,6 +52,7 @@
     "isHot": false,
     "isNew": false,
     "isNaves": true,
+    "labels": ["Навес", "Обмен"],
     "stocks": {
       "🇷🇺": 70,
       "🇺🇳": 0,
@@ -88,6 +89,7 @@
     "isRare": false,
     "isHot": true,
     "isNew": false,
+    "labels": ["Обмен"],
     "stocks": {
       "🇷🇺": 150,
       "🇺🇳": 0,
@@ -109,6 +111,7 @@
   "howto": "Купить на Черном рынке за 200 пропусков, выиграть в акциях",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Обмен"],
   "stocks": {
     "🇷🇺": 20,
     "🇺🇳": 0,
@@ -132,6 +135,7 @@
   "howto": "Купить на Черном рынке за 295 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 300,
     "🇺🇳": 0,
@@ -155,6 +159,7 @@
   "howto": "Купить на Черном рынке за 100 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 360,
     "🇺🇳": 0,
@@ -178,6 +183,7 @@
   "howto": "Купить на Черном рынке за 20 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 700,
     "🇺🇳": 0,
@@ -201,6 +207,7 @@
   "howto": "Купить на Черном рынке за 60 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 700,
     "🇺🇳": 0,
@@ -224,6 +231,7 @@
   "howto": "Выиграть в акциях",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 80,
     "🇺🇳": 0,
@@ -247,6 +255,7 @@
   "howto": "Купить на Черном рынке за 95 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 250,
     "🇺🇳": 0,
@@ -270,6 +279,7 @@
   "howto": "Купить на Черном рынке за 195 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 550,
     "🇺🇳": 0,
@@ -293,6 +303,7 @@
   "howto": "Купить на Черном рынке за 60 пропусков, выиграть в акциях",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 500,
     "🇺🇳": 0,
@@ -316,6 +327,7 @@
   "howto": "Купить на Черном рынке за 300 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 150,
     "🇺🇳": 0,
@@ -339,6 +351,7 @@
   "howto": "Купить на Черном рынке за 25 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 1500,
     "🇺🇳": 0,
@@ -362,6 +375,7 @@
   "howto": "Купить на Черном рынке за 90 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 350,
     "🇺🇳": 0,
@@ -385,6 +399,7 @@
   "howto": "Купить на Черном рынке за 575 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 300,
     "🇺🇳": 0,
@@ -413,6 +428,7 @@
   "howto": "Купить на Черном рынке за 95 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 750,
     "🇺🇳": 0,
@@ -436,6 +452,7 @@
   "howto": "Выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 30,
     "🇺🇳": 0,
@@ -459,6 +476,7 @@
   "howto": "Купить на Черном рынке за 100 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 300,
     "🇺🇳": 0,
@@ -482,6 +500,7 @@
   "howto": "Купить на Черном рынке за 85 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 1300,
     "🇺🇳": 0,
@@ -505,6 +524,7 @@
   "howto": "Купить на Черном рынке за 100 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 750,
     "🇺🇳": 0,
@@ -528,6 +548,7 @@
   "howto": "Купить на Черном рынке за 275 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 200,
     "🇺🇳": 0,
@@ -556,6 +577,7 @@
   "howto": "Купить на Черном рынке за 25 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 400,
     "🇺🇳": 0,
@@ -579,6 +601,7 @@
   "howto": "Купить на Черном рынке за 95 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 200,
     "🇺🇳": 0,
@@ -602,6 +625,7 @@
   "howto": "Купить на Черном рынке за 40 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 500,
     "🇺🇳": 0,
@@ -625,6 +649,7 @@
   "howto": "Купить на Черном рынке за 145 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 95,
     "🇺🇳": 0,
@@ -648,6 +673,7 @@
   "howto": "Купить на Черном рынке за 60 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 250,
     "🇺🇳": 0,
@@ -671,6 +697,7 @@
   "howto": "Купить на Черном рынке за 145 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 50,
     "🇺🇳": 0,
@@ -694,6 +721,7 @@
   "howto": "Купить на Черном рынке за 190 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 30,
     "🇺🇳": 0,
@@ -721,6 +749,7 @@
   "howto": "Купить на Черном рынке за 85 пропусков, выиграть в акциях",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 400,
     "🇺🇳": 0,
@@ -744,6 +773,7 @@
   "howto": "Купить на Черном рынке за 95 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 300,
     "🇺🇳": 0,
@@ -767,6 +797,7 @@
   "howto": "Купить на Черном рынке за 145 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 800,
     "🇺🇳": 0,
@@ -799,6 +830,7 @@
   "howto": "Купить на Черном рынке за 60 пропусков, выиграть в акциях",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 300,
     "🇺🇳": 0,
@@ -822,6 +854,7 @@
   "howto": "Купить на Черном рынке за 60 пропусков, выиграть в акциях",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 300,
     "🇺🇳": 0,
@@ -845,6 +878,7 @@
   "howto": "Купить на Черном рынке за 95 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 250,
     "🇺🇳": 0,
@@ -868,6 +902,7 @@
   "howto": "Купить на Черном рынке за 275 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 200,
     "🇺🇳": 0,
@@ -897,6 +932,7 @@
   "howto": "Купить на Черном рынке за 15 пропусков, выиграть в акциях, обмен предметами",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес", "Обмен"],
   "stocks": {
     "🇷🇺": 800,
     "🇺🇳": 0,
@@ -924,6 +960,7 @@
   "howto": "В составе набора Геры или навесом",
   "isNaves": true,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 20,
     "🇺🇳": 0,
@@ -947,6 +984,7 @@
   "howto": "Навесом, получение в акциях",
   "isNaves": true,
   "isAvailableForNaves": true,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 70,
     "🇺🇳": 0,
@@ -970,6 +1008,7 @@
   "howto": "Навесом, получение в акциях",
   "isNaves": true,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 15,
     "🇺🇳": 0,
@@ -993,6 +1032,7 @@
   "howto": "Навесом, получение в акциях",
   "isNaves": true,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 90,
     "🇺🇳": 0,
@@ -1016,6 +1056,7 @@
   "howto": "Навесом, получение в акциях",
   "isNaves": true,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 0,
     "🇺🇳": 0,
@@ -1039,6 +1080,7 @@
   "howto": "Навесом, получение в акциях",
   "isNaves": true,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 2,
     "🇺🇳": 0,
@@ -1062,6 +1104,7 @@
   "howto": "Навесом, получение в акциях",
   "isNaves": true,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 0,
     "🇺🇳": 0,
@@ -1085,6 +1128,7 @@
   "howto": "Навесом, получение в акциях",
   "isNaves": true,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 8,
     "🇺🇳": 0,
@@ -1108,6 +1152,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 5,
     "🇺🇳": 0,
@@ -1131,6 +1176,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 0,
     "🇺🇳": 0,
@@ -1154,6 +1200,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 60,
     "🇺🇳": 0,
@@ -1177,6 +1224,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 15,
     "🇺🇳": 0,
@@ -1200,6 +1248,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 230,
     "🇺🇳": 0,
@@ -1223,6 +1272,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 40,
     "🇺🇳": 0,
@@ -1246,6 +1296,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 100,
     "🇺🇳": 0,
@@ -1269,6 +1320,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 0,
     "🇺🇳": 0,
@@ -1292,6 +1344,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 38,
     "🇺🇳": 0,
@@ -1315,6 +1368,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 0,
     "🇺🇳": 0,
@@ -1338,6 +1392,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 4,
     "🇺🇳": 0,
@@ -1361,6 +1416,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 55,
     "🇺🇳": 0,
@@ -1389,6 +1445,7 @@
   "howto": "Получение в акциях, навес",
   "isNaves": false,
   "isAvailableForNaves": false,
+  "labels": ["Навес"],
   "stocks": {
     "🇷🇺": 100,
     "🇺🇳": 0,
