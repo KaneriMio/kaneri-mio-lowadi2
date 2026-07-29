@@ -343,6 +343,17 @@
   cursor: pointer;
   background: #ddd;
 }
+    .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+    .tag.extra-tag {
+    background: #f5f5f5;
+    color: #444;
+    border: 1px solid #ddd;
+}
   </style>
 </head>
 <body>
@@ -1041,7 +1052,13 @@ cardContentHtml += `
         </button>
       `;
     }
+let tagsHtml = `<div class="tag ${tagClass}">${item.category || 'Другое'}</div>`;
 
+if (Array.isArray(item.labels)) {
+  item.labels.forEach(label => {
+    tagsHtml += `<div class="tag extra-tag">${label}</div>`;
+  });
+}
     // Итоговая разметка карточки: Цена перенесена в самый низ (в футер) на место наличия
     card.innerHTML = `
       <div class="image-wrapper">
@@ -1052,7 +1069,9 @@ cardContentHtml += `
         <img src="${item.image}" alt="${item.name}">
       </div>
       <div class="card-body">
-        <div class="tag ${tagClass}">${item.category || 'Другое'}</div>
+        <div class="card-tags">
+  ${tagsHtml}
+</div>
         <h3 class="card-title">${item.name}</h3>
         ${cardContentHtml}
         <p class="card-description">${item.description || ''}</p>
