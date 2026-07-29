@@ -181,6 +181,7 @@
         <option value="specialCoat">Другие окрасы (ПЭ, ВЯ, Брошь и др.)</option>
         <option value="currency">Валюта (Пропуски / Экю)</option>
         <option value="god">Боги</option>
+        <option value="promotion">Акции</option>
       </select>
     </div>
 
@@ -196,6 +197,7 @@
         <option value="Объявления">Объявления (announcements.json)</option>
         <option value="Услуги">Услуги (services.json)</option>
         <option value="Другое">Другое (other.json)</option>
+        <option value="Акции">Акции (promotion.json)</option>
       </select>
     </div>
 
@@ -397,7 +399,38 @@
   </div>
 
 </div>
+<!-- ДИНАМИЧЕСКИЙ БЛОК ДЛЯ АКЦИЙ -->
+<div id="promotionFieldsBlock"
+     style="display:none;
+            background:#fff8e8;
+            padding:20px;
+            border-radius:8px;
+            margin-bottom:20px;
+            border:1px solid #e6cf87;">
 
+  <h3 style="margin-top:0;color:#8a6d1d;">
+    Поля для акции
+  </h3>
+
+  <div class="form-group">
+    <label for="promotionHorseCount">
+      Количество лошадей в наборе
+    </label>
+    <input type="number" id="promotionHorseCount" value="1">
+  </div>
+
+  <div class="form-group">
+    <label for="promotionCompanionImage">
+      Ссылка на спутника (необязательно)
+    </label>
+    <input
+      type="text"
+      id="promotionCompanionImage"
+      placeholder="https://..."
+    >
+  </div>
+
+</div>
     <!-- ДИНАМИЧЕСКИЙ БЛОК ОПИСАНИЙ ДЛЯ ПРЕДМЕТОВ ЧЕРНОГО РЫНКА (И ДРУГИХ) -->
     <div id="itemFieldsBlock">
     <!-- ДИНАМИЧЕСКИЙ БЛОК ДЛЯ ВАЛЮТЫ (Скрыт по умолчанию) -->
@@ -606,6 +639,30 @@ function toggleFormFields() {
     if (itemKeywordsGroup) itemKeywordsGroup.style.display = 'block';
 
     if (itemCategory) itemCategory.value = 'Другое';
+    } else if (mainType === 'promotion') {
+
+    if (coatFieldsBlock) coatFieldsBlock.style.display = 'none';
+    if (specialCoatFieldsBlock) specialCoatFieldsBlock.style.display = 'none';
+    if (companionFieldsBlock) companionFieldsBlock.style.display = 'none';
+    if (godFieldsBlock) godFieldsBlock.style.display = 'none';
+
+    if (promotionFieldsBlock) promotionFieldsBlock.style.display = 'block';
+
+    if (coatAddonsBlock) coatAddonsBlock.style.display = 'none';
+
+    // Показываем обычные поля описания
+    if (itemFieldsBlock) itemFieldsBlock.style.display = 'block';
+
+    if (currencyFieldsBlock) currencyFieldsBlock.style.display = 'none';
+
+    if (navesWrap) navesWrap.style.display = 'none';
+    if (availableNavesWrap) availableNavesWrap.style.display = 'none';
+
+    if (stocksGroup) stocksGroup.style.display = 'block';
+    if (adminIconsGroup) adminIconsGroup.style.display = 'block';
+    if (itemKeywordsGroup) itemKeywordsGroup.style.display = 'block';
+
+    if (itemCategory) itemCategory.value = 'Акции';
   } else {
     // Режим остальных предметов
     if (coatFieldsBlock) coatFieldsBlock.style.display = 'none';
@@ -633,13 +690,21 @@ function checkCategoryType() {
   const itemCategory = document.getElementById('itemCategory').value;
   const itemMainType = document.getElementById('itemMainType');
   
-  if (itemCategory === 'Окрасы') {
-    if (itemMainType) itemMainType.value = 'coat';
-  } else if (itemCategory === 'Валюта') {
-    if (itemMainType) itemMainType.value = 'currency';
-  } else {
-    if (itemMainType) itemMainType.value = 'item';
-  }
+if (itemCategory === 'Окрасы') {
+    itemMainType.value = 'coat';
+
+} else if (itemCategory === 'Валюта') {
+    itemMainType.value = 'currency';
+
+} else if (itemCategory === 'Другое') {
+    itemMainType.value = 'god';
+
+} else if (itemCategory === 'Акции') {
+    itemMainType.value = 'promotion';
+
+} else {
+    itemMainType.value = 'item';
+}
   toggleFormFields();
 }
 // Главная функция генерации JSON
