@@ -11,6 +11,7 @@
     "isRare": false,
     "isHot": true,
     "isNew": false,
+    "labels": ["Обмен"]
     "stocks": {
       "🇷🇺": 260,
       "🇺🇳": 0,
@@ -30,6 +31,7 @@
     "isRare": true,
     "isHot": false,
     "isNew": true,
+    "labels": ["Навес", "Обмен"]
     "stocks": {
       "🇷🇺": 70,
       "🇺🇳": 0,
