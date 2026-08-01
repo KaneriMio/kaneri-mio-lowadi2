@@ -13230,5 +13230,48 @@
     "серая"
   ],
   "adminIcons": []
+},
+  {
+  "id": "coat_1785593414413",
+  "name": "ApricotMagic",
+  "count": 2,
+  "price": 550,
+  "image": "https://i.ibb.co/q3zFWfVT/100172466-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "ЭлегияМарко",
+  "breed": "Орловский рысак, Ахалтекинская",
+  "type": "Верховой Пегас",
+  "copies": 294,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 2,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "пегас",
+    "лежащий пегас",
+    "лежит"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/ccTFPVzF/caresse-philotes.png",
+    "https://i.ibb.co/4wmF2PSK/sang-meduse.png",
+    "https://i.ibb.co/5W0VwQkW/pierre-philosophale.png",
+    "https://i.ibb.co/yn5YGMzq/sablier-chronos.png",
+    "https://i.ibb.co/XxRv3JW9/parchemin-ploutos.png",
+    "https://i.ibb.co/jkv9TJyf/rayon-helios.png",
+    "https://i.ibb.co/JZQcmJV/talon-achille.png",
+    "https://i.ibb.co/ycWH6dxg/pactole-cresus.png"
+  ]
 }
 ]
