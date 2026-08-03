@@ -13230,5 +13230,49 @@
     "серая"
   ],
   "adminIcons": []
+},
+  {
+  "id": "coat_1785740480428",
+  "name": "anutka",
+  "count": 1,
+  "price": 750,
+  "image": "https://i.ibb.co/Cp0nZr98/1000390-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": true,
+  "colorType": "ИЗЯ",
+  "author": "rotten",
+  "breed": "Английская чистокровная",
+  "type": "Верховая лошадь",
+  "copies": 92,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": true,
+  "affix": true,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Satinette.",
+    "-mentor",
+    "roonchi",
+    "Feelin",
+    "irene",
+    "Ира 16",
+    "сати",
+    "сатинет",
+    "ментор",
+    "рончи",
+    "филин",
+    "ирен",
+    "ирэн"
+  ],
+  "adminIcons": []
 }
 ]
