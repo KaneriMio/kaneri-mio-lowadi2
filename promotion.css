@@ -256,10 +256,3 @@ main {
   color: #2e7d32;
   margin-top: auto;
 }
-.brand-title-link {
-  text-decoration: none;
-  color: inherit; /* Сохраняет белый цвет текста */
-}
-.brand-title-link:hover .brand-title {
-  text-decoration: underline; /* Слегка подчеркивает при наведении */
-}
