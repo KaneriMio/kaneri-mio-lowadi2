@@ -1,93 +1,258 @@
-body{
-      :root {
-      --bg-color: #f7ede2;
-      --header-bg: #4a2810;
-      --btn-active: #84522b;
-      --btn-inactive: #eee4dc;
-      --text-main: #2b2d42;
-      --card-bg: #ffffff;
-      --tag-black-market: #a3704c;
-      --tag-currency: #5bc0be;
-      --tag-colors: #cfa846;
-      --tag-services: #8338ec;
-      --tag-companions: #ff007f;
-      --tag-trophies: #ffb703;
-      --tag-announcements: #02c39a;
-      --tag-other: #6c757d;
-      --section-bg: #fdfaf7;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      margin: 0;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      overflow-x: hidden;
-    }
-
-    header {
-      background-color: var(--header-bg);
-      color: #fff;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    background:#f7efe6;
+:root {
+  --bg-color: #f6ecdf;
+  --header-bg: #2d1607;
+  --text-main: #333333;
+  --input-bg: #fcf8f2;
+  --btn-active: #8b5a2b;
+  --btn-inactive: #e8dbcc;
+  --font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-.promotion-page{
-    max-width:1300px;
-    margin:auto;
-    padding:40px;
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
 }
 
-.promo-title{
-    text-align:center;
-    margin:35px 0;
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-main);
 }
 
-.promo-grid{
-    max-width:1400px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-    gap:25px;
+/* ШАПКА САЙТА (HEADER) */
+header {
+  background-color: var(--header-bg);
+  color: #fff;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.promotion-card{
-
-    background:white;
-
-    border-radius:18px;
-
-    padding:20px;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-
+/* Селектор серверов */
+.header-server-selector {
+  position: relative;
+  display: inline-block;
 }
 
-.promotion-card img{
-
-    width:100%;
-
-    border-radius:12px;
-
+.server-current-btn {
+  background: #472c16;
+  border: none;
+  color: #ccc;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.promotion-price{
+.server-dropdown-content, .wiki-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  z-index: 10;
+  top: 100%;
+  left: 0;
+}
 
-    font-size:26px;
+.server-dropdown-content a, .wiki-dropdown-content a {
+  color: #333;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  font-size: 13px;
+  font-weight: normal;
+}
 
-    font-weight:bold;
+.server-dropdown-content a:hover, .wiki-dropdown-content a:hover {
+  background-color: #f5ece2;
+}
 
-    color:#2e7d32;
+.header-server-selector:hover .server-dropdown-content,
+.wiki-dropdown:hover .wiki-dropdown-content {
+  display: block;
+}
 
-    margin-top:15px;
+/* Название бренда */
+.brand-title {
+  font-size: 16px;
+  color: #fff;
+}
 
+/* Правая часть управления */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.wiki-dropdown {
+  position: relative;
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+.header-promo-btn {
+  background: #d87d23;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.header-promo-btn:hover {
+  background: #e58e26;
+}
+
+/* Иконки Избранного и Корзины */
+.header-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-icon-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+#openFavBtn svg {
+  fill: #fff; /* Делаем сердечко залитым, как на оригинале */
+}
+
+.fav-badge, .cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: #c0392b;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* ПАНЕЛЬ ПОИСКА */
+.search-container {
+  max-width: 1220px;
+  margin: 30px auto 10px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.search-input-wrapper {
+  flex: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: var(--input-bg);
+  border: 1px solid #e0d0bd;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #c5b097;
+}
+
+.filter-select {
+  padding: 0 15px;
+  background-color: var(--input-bg);
+  border: 1px solid #e0d0bd;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  min-width: 150px;
+  cursor: pointer;
+}
+
+/* КОНТЕНТ СТРАНИЦЫ И СЕТКА КАРТОЧЕК */
+main {
+  max-width: 1220px;
+  margin: auto;
+  padding: 20px;
+}
+
+.promo-title {
+  text-align: center;
+  margin: 25px 0 35px 0;
+  font-size: 28px;
+  color: var(--header-bg);
+}
+
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+/* Стилизация динамических карточек из вашего JS */
+.promotion-card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.04);
+  border: 1px solid #efe6dc;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.promotion-card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: contain; /* Чтобы изображения лошадей/предметов не растягивались */
+  background: #fdfaf7;
+}
+
+.promotion-card h2 {
+  font-size: 20px;
+  color: var(--header-bg);
+}
+
+/* Счётчик лошадей в стиле тегов из оригинала */
+.promotion-card div:not(.promotion-price) {
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #e8dbcc;
+  color: #4a2810;
+  padding: 4px 10px;
+  border-radius: 4px;
+  width: fit-content;
+  text-transform: uppercase;
+}
+
+.promotion-card p {
+  font-size: 14px;
+  color: #666;
+  flex-grow: 1;
+  line-height: 1.4;
+}
+
+.promotion-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-top: auto;
 }
