@@ -1,8 +1,31 @@
 const promoContainer = document.getElementById("promotionContainer");
 let loadedPromotions = [];
 
-// Массив корзины, который синхронизируется с localStorage
-let globalCart = JSON.parse(localStorage.getItem("globalCart")) || [];
+// УМНЫЙ ПОИСК КЛЮЧА КОРЗИНЫ ИЗ INDEX.HTML
+function getCartKeyFromStorage() {
+    // Перебираем все ключи в LocalStorage, чтобы найти тот, который использует главная страница
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        try {
+            const val = JSON.parse(localStorage.getItem(key));
+            // Если внутри лежит массив, скорее всего это и есть наша корзина с главной страницы
+            if (Array.isArray(val)) {
+                console.log("Успешно найден ключ корзины с главной страницы:", key);
+                return key;
+            }
+        } catch (e) {
+            // Игнорируем ошибки парсинга не-JSON строк
+        }
+    }
+    // Если главная страница ещё не создавала корзину, используем стандартное имя
+    return "cart"; 
+}
+
+// Записываем имя ключа, который использует ваш сайт
+const CART_STORAGE_KEY = getCartKeyFromStorage();
+
+// Подгружаем массив корзины
+let globalCart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
 
 // Переменная для отслеживания текущего открытого товара в шторке
 let currentActiveItem = null;
@@ -84,14 +107,17 @@ function updateCartUI() {
     let total = 0;
 
     globalCart.forEach((item, index) => {
-        total += Number(item.price);
+        // Проверяем цену: у акций это item.price, у обычных товаров из index.html это может быть item.priceNum или item.price
+        const itemPrice = item.priceNum || item.price || 0;
+        total += Number(itemPrice);
+
         const itemEl = document.createElement("div");
         itemEl.className = "cart-item";
         itemEl.innerHTML = `
             <img src="${item.image}" class="cart-item-img">
             <div class="cart-item-info">
                 <div class="cart-item-name">${item.name}</div>
-                <div class="cart-item-price">${item.price} ₽</div>
+                <div class="cart-item-price">${itemPrice} ₽</div>
             </div>
             <button class="remove-cart-item" onclick="removeFromCart(${index})">&times;</button>
         `;
@@ -99,8 +125,11 @@ function updateCartUI() {
     });
 
     if (totalPriceEl) totalPriceEl.innerText = `${total} ₽`;
-    localStorage.setItem("globalCart", JSON.stringify(globalCart));
+    
+    // Сохраняем строго в тот ключ, который использует index.html
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(globalCart));
 }
+
 
 // Функция добавления товара (вызывается из шторки)
 function addToCartFromDrawer() {
