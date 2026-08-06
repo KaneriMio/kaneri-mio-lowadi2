@@ -1,4 +1,43 @@
 body{
+      :root {
+      --bg-color: #f7ede2;
+      --header-bg: #4a2810;
+      --btn-active: #84522b;
+      --btn-inactive: #eee4dc;
+      --text-main: #2b2d42;
+      --card-bg: #ffffff;
+      --tag-black-market: #a3704c;
+      --tag-currency: #5bc0be;
+      --tag-colors: #cfa846;
+      --tag-services: #8338ec;
+      --tag-companions: #ff007f;
+      --tag-trophies: #ffb703;
+      --tag-announcements: #02c39a;
+      --tag-other: #6c757d;
+      --section-bg: #fdfaf7;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      font-weight: bold;
+      font-size: 18px;
+    }
     background:#f7efe6;
 }
 
