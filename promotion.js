@@ -1,12 +1,16 @@
-// Объявляем переменные строго ОДИН раз
-const promoContainer = document.getElementById("promotionContainer");
-let loadedPromotions = [];
+// Проверяем, что объявляем переменные строго один раз на весь файл
+if (typeof promoContainer === 'undefined') {
+    var promoContainer = document.getElementById("promotionContainer");
+}
+if (typeof loadedPromotions === 'undefined') {
+    var loadedPromotions = [];
+}
 
-// Загружаем данные только из файла
+// Загружаем данные из JSON
 fetch("promotion.json")
     .then(r => r.json())
     .then(data => {
-        loadedPromotions = data; // Сохраняем данные для шторки
+        loadedPromotions = data; // Сохраняем данные глобально
         renderPromotions(data);   // Выводим карточки на экран
     })
     .catch(error => {
@@ -16,16 +20,20 @@ fetch("promotion.json")
         }
     });
 
-// Функция отрисовки карточек в каталоге
+// Функция отрисовки карточек в каталоге акций
 function renderPromotions(items) {
     if (!promoContainer) return;
     promoContainer.innerHTML = "";
+
+    if (items.length === 0) {
+        promoContainer.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #666; margin-top: 20px;'>Наборы не найдены</p>";
+        return;
+    }
 
     items.forEach(item => {
         const card = document.createElement("div");
         card.className = "promotion-card";
 
-        // Обратите внимание на openPromoDrawer('${item.id}') — кавычки исправляют ошибку promo_1
         card.innerHTML = `
             <img src="${item.image}" alt="${item.name}">
             <h2>${item.name}</h2>
@@ -40,24 +48,25 @@ function renderPromotions(items) {
     });
 }
 
-// Функции управления шторкой (Drawer)
+// ФУНКЦИЯ ОТКРЫТИЯ ШТОРКИ (С ИСПРАВЛЕННЫМ ВЫВОДОМ ФЛАГОВ > 0)
 function openPromoDrawer(id) {
-    // Ищем нужный товар в массиве загруженных акций
     const item = loadedPromotions.find(p => String(p.id) === String(id));
     if (!item) {
-        console.error("Товар с ID " + id + " не найден в массиве.");
+        console.error("Товар с ID " + id + " не найден.");
         return;
     }
 
-    // Обработка объекта stocks: берем только те флаги, где значение > 0
     let serversString = "Нет доступных серверов";
     
+    // Проверяем, является ли stocks объектом
     if (item.stocks && typeof item.stocks === 'object') {
-        // Фильтруем ключи (флаги), оставляя только те, у которых значение больше 0
-        const availableFlags = Object.keys(item.stocks).filter(flag => item.stocks[flag] > 0);
+        // Фильтруем флаги, оставляя только те, у которых значение строго больше 0
+        const availableFlags = Object.keys(item.stocks).filter(flag => {
+            return Number(item.stocks[flag]) > 0;
+        });
         
         if (availableFlags.length > 0) {
-            serversString = availableFlags.join(", "); // Объединяем выбранные флаги через запятую
+            serversString = availableFlags.join(", "); 
         }
     } else if (typeof item.stocks === 'string' && item.stocks.trim() !== '') {
         serversString = item.stocks;
@@ -75,15 +84,29 @@ function openPromoDrawer(id) {
     const drawer = document.getElementById("promoDrawer");
     if (drawer) {
         drawer.classList.add("active");
-    } else {
-        console.error("Элемент #promoDrawer не найден в HTML!");
     }
 }
-
 
 function closePromoDrawer() {
     const drawer = document.getElementById("promoDrawer");
     if (drawer) {
         drawer.classList.remove("active");
     }
+}
+
+// ЖИВОЙ ПОИСК ПО НАЗВАНИЮ И КЛЮЧЕВЫМ СЛОВАМ
+const searchInput = document.getElementById("promoSearchInput");
+if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        
+        // Фильтруем массив акций по имени или описанию
+        const filtered = loadedPromotions.filter(item => {
+            const nameMatch = item.name ? item.name.toLowerCase().includes(query) : false;
+            const descMatch = item.description ? item.description.toLowerCase().includes(query) : false;
+            return nameMatch || descMatch;
+        });
+        
+        renderPromotions(filtered);
+    });
 }
