@@ -1,78 +1,59 @@
-// Проверяем, что объявляем переменные строго один раз на весь файл
-if (typeof promoContainer === 'undefined') {
-    var promoContainer = document.getElementById("promotionContainer");
-}
-if (typeof loadedPromotions === 'undefined') {
-    var loadedPromotions = [];
-}
+const promoContainer = document.getElementById("promotionContainer");
+let loadedPromotions = [];
+
+// Массив корзины, который синхронизируется с localStorage
+let globalCart = JSON.parse(localStorage.getItem("globalCart")) || [];
+
+// Переменная для отслеживания текущего открытого товара в шторке
+let currentActiveItem = null;
 
 // Загружаем данные из JSON
 fetch("promotion.json")
     .then(r => r.json())
     .then(data => {
-        loadedPromotions = data; // Сохраняем данные глобально
-        renderPromotions(data);   // Выводим карточки на экран
+        loadedPromotions = data;
+        renderPromotions(data);
+        updateCartUI(); // Синхронизируем интерфейс корзины при загрузке
     })
     .catch(error => {
         console.error("Не удалось загрузить акции из JSON:", error);
-        if (promoContainer) {
-            promoContainer.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #666;'>Не удалось загрузить акции. Проверьте консоль.</p>";
-        }
     });
 
-// Функция отрисовки карточек в каталоге акций
 function renderPromotions(items) {
     if (!promoContainer) return;
     promoContainer.innerHTML = "";
-
     if (items.length === 0) {
-        promoContainer.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #666; margin-top: 20px;'>Наборы не найдены</p>";
+        promoContainer.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #666;'>Наборы не найдены</p>";
         return;
     }
-
     items.forEach(item => {
         const card = document.createElement("div");
         card.className = "promotion-card";
-
         card.innerHTML = `
             <img src="${item.image}" alt="${item.name}">
             <h2>${item.name}</h2>
             <div>🐴 ${item.horses} лошадей</div>
             <p>${item.description}</p>
-            <div class="promotion-price">
-                ${item.price} ₽
-            </div>
+            <div class="promotion-price">${item.price} ₽</div>
             <button class="promo-more-btn" onclick="openPromoDrawer('${item.id}')">Подробнее</button>
         `;
         promoContainer.appendChild(card);
     });
 }
 
-// ФУНКЦИЯ ОТКРЫТИЯ ШТОРКИ (С ИСПРАВЛЕННЫМ ВЫВОДОМ ФЛАГОВ > 0)
+// УПРАВЛЕНИЕ ШТОРКОЙ ТОВАРА
 function openPromoDrawer(id) {
     const item = loadedPromotions.find(p => String(p.id) === String(id));
-    if (!item) {
-        console.error("Товар с ID " + id + " не найден.");
-        return;
-    }
+    if (!item) return;
+
+    currentActiveItem = item; // Запоминаем текущий товар для кнопки покупки
 
     let serversString = "Нет доступных серверов";
-    
-    // Проверяем, является ли stocks объектом
     if (item.stocks && typeof item.stocks === 'object') {
-        // Фильтруем флаги, оставляя только те, у которых значение строго больше 0
-        const availableFlags = Object.keys(item.stocks).filter(flag => {
-            return Number(item.stocks[flag]) > 0;
-        });
-        
-        if (availableFlags.length > 0) {
-            serversString = availableFlags.join(", "); 
-        }
-    } else if (typeof item.stocks === 'string' && item.stocks.trim() !== '') {
-        serversString = item.stocks;
+        const availableFlags = Object.keys(item.stocks).filter(flag => Number(item.stocks[flag]) > 0);
+        if (availableFlags.length > 0) serversString = availableFlags.join(", ");
     }
 
-    // Заполняем поля шторки данными конкретной акции
     document.getElementById("drawerImage").src = item.image || '';
     document.getElementById("drawerName").innerText = item.name || '';
     document.getElementById("drawerServers").innerText = serversString; 
@@ -80,33 +61,121 @@ function openPromoDrawer(id) {
     document.getElementById("drawerDescription").innerText = item.description || '';
     document.getElementById("drawerPrice").innerText = item.price ? `${item.price} ₽` : '0 ₽';
 
-    // Показываем шторку
-    const drawer = document.getElementById("promoDrawer");
-    if (drawer) {
-        drawer.classList.add("active");
-    }
+    document.getElementById("promoDrawer").classList.add("active");
 }
 
 function closePromoDrawer() {
-    const drawer = document.getElementById("promoDrawer");
-    if (drawer) {
-        drawer.classList.remove("active");
-    }
+    document.getElementById("promoDrawer").classList.remove("active");
+    currentActiveItem = null;
 }
 
-// ЖИВОЙ ПОИСК ПО НАЗВАНИЮ И КЛЮЧЕВЫМ СЛОВАМ
+// ЛОГИКА ЕДИНОЙ КОРЗИНЫ (LOCALSTORAGE)
+function updateCartUI() {
+    const cartBadge = document.getElementById("cartBadge");
+    const container = document.getElementById("cartItemsContainer");
+    const totalPriceEl = document.getElementById("cartTotalPrice");
+
+    // Обновляем счетчик в шапке
+    if (cartBadge) cartBadge.innerText = globalCart.length;
+
+    if (!container) return;
+    container.innerHTML = "";
+
+    let total = 0;
+
+    globalCart.forEach((item, index) => {
+        total += Number(item.price);
+        const itemEl = document.createElement("div");
+        itemEl.className = "cart-item";
+        itemEl.innerHTML = `
+            <img src="${item.image}" class="cart-item-img">
+            <div class="cart-item-info">
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-price">${item.price} ₽</div>
+            </div>
+            <button class="remove-cart-item" onclick="removeFromCart(${index})">&times;</button>
+        `;
+        container.appendChild(itemEl);
+    });
+
+    if (totalPriceEl) totalPriceEl.innerText = `${total} ₽`;
+    localStorage.setItem("globalCart", JSON.stringify(globalCart));
+}
+
+// Функция добавления товара (вызывается из шторки)
+function addToCartFromDrawer() {
+    if (!currentActiveItem) return;
+    
+    // Добавляем элемент в массив корзины
+    globalCart.push({
+        id: currentActiveItem.id,
+        name: currentActiveItem.name,
+        price: currentActiveItem.price,
+        image: currentActiveItem.image
+    });
+
+    updateCartUI(); // Обновляем интерфейс
+    closePromoDrawer(); // Закрываем шторку товара
+    document.getElementById("cartDrawer").classList.add("active"); // Показываем корзину
+}
+
+// Привязываем клик к зеленой кнопке "В корзину" в шторке
+const drawerBuyBtn = document.querySelector(".drawer-buy-btn");
+if (drawerBuyBtn) {
+    drawerBuyBtn.onclick = addToCartFromDrawer;
+}
+
+function removeFromCart(index) {
+    globalCart.splice(index, 1);
+    updateCartUI();
+}
+
+// Слушатели для открытия/закрытия шторки корзины в шапке
+document.getElementById("openCartBtn").onclick = () => {
+    document.getElementById("cartDrawer").classList.add("active");
+};
+document.getElementById("closeCartDrawer").onclick = () => {
+    document.getElementById("cartDrawer").classList.remove("active");
+};
+document.getElementById("clearCartBtn").onclick = () => {
+    globalCart = [];
+    updateCartUI();
+};
+
+// ОФОРМЛЕНИЕ ЗАКАЗА (КОПИРОВАНИЕ В БУФЕР И ОКНО СОЦСЕТЕЙ)
+document.getElementById("checkoutBtn").onclick = () => {
+    if (globalCart.length === 0) return alert("Корзина пуста!");
+
+    let text = "Здравствуйте! Хочу приобрести следующие товары:\n\n";
+    let total = 0;
+    globalCart.forEach((item, i) => {
+        text += `${i + 1}. ${item.name} — ${item.price} ₽\n`;
+        total += Number(item.price);
+    });
+    text += `\nИтого к оплате: ${total} ₽`;
+
+    navigator.clipboard.writeText(text).then(() => {
+        document.getElementById("socialModal").classList.add("active");
+    }).catch(err => {
+        console.error("Не удалось скопировать текст: ", err);
+    });
+};
+
+document.getElementById("closeSocialModal").onclick = () => {
+    document.getElementById("socialModal").classList.remove("active");
+};
+document.getElementById("goTelegram").onclick = () => window.open("https://t.me", "_blank");
+document.getElementById("goVk").onclick = () => window.open("https://vk.com", "_blank");
+
+// ЖИВОЙ ПОИСК
 const searchInput = document.getElementById("promoSearchInput");
 if (searchInput) {
     searchInput.addEventListener("input", (e) => {
         const query = e.target.value.toLowerCase().trim();
-        
-        // Фильтруем массив акций по имени или описанию
         const filtered = loadedPromotions.filter(item => {
-            const nameMatch = item.name ? item.name.toLowerCase().includes(query) : false;
-            const descMatch = item.description ? item.description.toLowerCase().includes(query) : false;
-            return nameMatch || descMatch;
+            return (item.name && item.name.toLowerCase().includes(query)) || 
+                   (item.description && item.description.toLowerCase().includes(query));
         });
-        
         renderPromotions(filtered);
     });
 }
