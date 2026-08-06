@@ -331,7 +331,7 @@ main {
 }
 .drawer-buy-btn {
   flex: 1.3;
-  background-color: #d87d23;
+  background-color: #2e7d32; /* Красивый зелёный цвет */
   color: white;
   border: none;
   padding: 12px;
@@ -346,7 +346,10 @@ main {
   height: 47px;
   transition: background 0.2s;
 }
-.drawer-buy-btn:hover { background-color: #e58e26; }
+.drawer-buy-btn:hover { 
+  background-color: #1b5e20; /* Более темный зелёный при наведении */
+}
+
 
 /* КНОПКА ПОДРОБНЕЕ НА КАРТОЧКЕ */
 .promo-more-btn {
