@@ -42,17 +42,31 @@ function renderPromotions(items) {
 
 // Функции управления шторкой (Drawer)
 function openPromoDrawer(id) {
-    // Приводим ID к строке для надежности сравнения
+    // Ищем нужный товар в массиве загруженных акций
     const item = loadedPromotions.find(p => String(p.id) === String(id));
     if (!item) {
         console.error("Товар с ID " + id + " не найден в массиве.");
         return;
     }
 
-    // Заполняем поля шторки
+    // Обработка объекта stocks: берем только те флаги, где значение > 0
+    let serversString = "Нет доступных серверов";
+    
+    if (item.stocks && typeof item.stocks === 'object') {
+        // Фильтруем ключи (флаги), оставляя только те, у которых значение больше 0
+        const availableFlags = Object.keys(item.stocks).filter(flag => item.stocks[flag] > 0);
+        
+        if (availableFlags.length > 0) {
+            serversString = availableFlags.join(", "); // Объединяем выбранные флаги через запятую
+        }
+    } else if (typeof item.stocks === 'string' && item.stocks.trim() !== '') {
+        serversString = item.stocks;
+    }
+
+    // Заполняем поля шторки данными конкретной акции
     document.getElementById("drawerImage").src = item.image || '';
     document.getElementById("drawerName").innerText = item.name || '';
-    document.getElementById("drawerServers").innerText = item.stocks || "Все серверы";
+    document.getElementById("drawerServers").innerText = serversString; 
     document.getElementById("drawerHorses").innerText = item.horses ? `${item.horses} шт.` : '0 шт.';
     document.getElementById("drawerDescription").innerText = item.description || '';
     document.getElementById("drawerPrice").innerText = item.price ? `${item.price} ₽` : '0 ₽';
@@ -65,6 +79,7 @@ function openPromoDrawer(id) {
         console.error("Элемент #promoDrawer не найден в HTML!");
     }
 }
+
 
 function closePromoDrawer() {
     const drawer = document.getElementById("promoDrawer");
