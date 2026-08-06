@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Акции</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="promotion.css">
+</head>
+
+<body>
+
+<header>
+  <!-- Выпадающий список серверов вверху слева -->
+  <div class="header-server-selector">
+    <button class="server-current-btn" id="currentServerBtn">🇷🇺 RU</button>
+    <div class="server-dropdown-content">
+      <a href="#" onclick="changeGlobalServer('🇷🇺'); return false;">🇷🇺 RU</a>
+      <a href="#" onclick="changeGlobalServer('🇺🇳'); return false;">🇺🇳 UN</a>
+      <a href="#" onclick="changeGlobalServer('🇪🇦'); return false;">🇪🇦 ES</a>
+      <a href="#" onclick="changeGlobalServer('🇫🇷'); return false;">🇫🇷 FR</a>
+    </div>
+  </div>
+
+  <span class="brand-title">🐴 Lowadi | Kaneri Mio Company</span>
+
+  <div class="header-controls">
+    <!-- Выпадающий список ВИКИ -->
+    <div class="wiki-dropdown">
+      <span class="wiki-btn-text">Вики ▼</span>
+      <div class="wiki-dropdown-content">
+        <a href="./wiki-breeds.html">Породы</a>
+        <a href="./wiki-competitions.html">Схемы соревнований</a>
+        <a href="./wiki-gods.html">Боги</a>
+        <a href="./wiki-faq.html">Часто задаваемые вопросы</a>
+      </div>
+    </div>
+<a href="promotion.html" class="header-promo-btn">
+    🎁 Акции
+</a>
+    <button class="header-icon-btn" id="openFavBtn" title="Посмотреть Избранное">
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      <div class="fav-badge" id="favBadge">0</div>
+    </button>
+
+    <button class="header-icon-btn" id="openCartBtn" title="Открыть корзину">
+      <svg viewBox="0 0 24 24">
+        <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M7 14h12M7 16h12M7 18h12" stroke="#fff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <circle cx="8" cy="21" r="1.5" fill="#fff"/><circle cx="18" cy="21" r="1.5" fill="#fff"/>
+      </svg>
+      <div class="cart-badge" id="cartBadge">0</div>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<h1 class="promo-title">
+    🔥 Акционные наборы
+</h1>
+
+<div id="promoContainer" class="promo-grid"></div>
+
+</main>
+
+<script src="promotion.js"></script>
+
+</body>
+</html>

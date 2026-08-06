@@ -1,0 +1,24 @@
+[
+  {
+    "id": "promo_1",
+    "name": "Стартовый набор",
+    "image": "https://i.ibb.co/zHSzyT7Y/cure-pied.png",
+    "horses": 5,
+    "description": "Лучший старт для нового игрока",
+    "price": 299,
+    "companionImage": "https://i.ibb.co/zWzDRqZ7/cloches.png",
+    "stocks": {
+      "🇷🇺": 3,
+      "🇺🇳": 0,
+      "🇪🇦": 0,
+      "🇫🇷": 0
+    },
+    "labels": [
+      "NEW"
+    ],
+    "keywords": [
+      "старт",
+      "набор"
+    ]
+  }
+]
