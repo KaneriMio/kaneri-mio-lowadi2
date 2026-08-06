@@ -1,45 +1,23 @@
 const container = document.getElementById("promotionContainer");
 
-// Массив данных (добавили поле "stocks" для доступных серверов)
-const backupItems = [
-  {
-    "id": 1,
-    "name": "Стартовый набор",
-    "horses": 5,
-    "stocks": "RU, UN",
-    "description": "Лучший старт для нового игрока. Включает базовые элементы Черного рынка, помогающие быстро вырастить первых чемпионов.",
-    "price": "299",
-    "image": "https://ibb.co" // Примерная иконка крюка/копытного ножа
-  },
-  {
-    "id": 2,
-    "name": "Элитный табун",
-    "horses": 3,
-    "stocks": "RU",
-    "description": "Эксклюзивный набор, содержащий породистых скакунов с высокими генетическими навыками для успешного разведения.",
-    "price": "499",
-    "image": "https://unsplash.com"
-  }
-];
-
-// Глобальная переменная для хранения загруженных товаров
+// Глобальный массив, куда запишутся данные сразу после загрузки из JSON
 let currentPromotions = [];
 
+// Загружаем данные только из файла
 fetch("promotion.json")
-    .then(r => {
-        if (!r.ok) throw new Error("Ошибка загрузки файла");
-        return r.json();
-    })
+    .then(r => r.json())
     .then(data => {
-        currentPromotions = data;
-        renderPromotions(data);
+        currentPromotions = data; // Сохраняем данные для шторки
+        renderPromotions(data);   // Выводим карточки на экран
     })
     .catch(error => {
-        console.warn("Fetch заблокирован или файл не найден. Используем локальные данные.");
-        currentPromotions = backupItems;
-        renderPromotions(backupItems);
+        console.error("Не удалось загрузить акции из JSON:", error);
+        if (container) {
+            container.innerHTML = "<p style='grid-column: 1/-1; text-align: center; color: #666;'>Не удалось загрузить акции. Пожалуйста, запустите сайт через локальный сервер.</p>";
+        }
     });
 
+// Функция отрисовки карточек в каталоге
 function renderPromotions(items) {
     if (!container) return;
     container.innerHTML = "";
@@ -56,19 +34,19 @@ function renderPromotions(items) {
             <div class="promotion-price">
                 ${item.price} ₽
             </div>
-            <!-- Добавлена кнопка "Подробнее" -->
             <button class="promo-more-btn" onclick="openPromoDrawer(${item.id})">Подробнее</button>
         `;
         container.appendChild(card);
     });
 }
 
-// ФУНКЦИИ УПРАВЛЕНИЯ ШТОРКОЙ
+// Функции управления шторкой (Drawer)
 function openPromoDrawer(id) {
+    // Ищем нужный товар в массиве, который загрузился из JSON
     const item = currentPromotions.find(p => p.id === id);
     if (!item) return;
 
-    // Заполняем поля шторки данными конкретной акции
+    // Заполняем поля шторки
     document.getElementById("drawerImage").src = item.image;
     document.getElementById("drawerName").innerText = item.name;
     document.getElementById("drawerServers").innerText = item.stocks || "Все серверы";
