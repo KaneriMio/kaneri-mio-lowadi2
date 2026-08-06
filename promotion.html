@@ -79,6 +79,49 @@
 </main>
 
 <script src="promotion.js"></script>
+<!-- ШТОРКА ПОДРОБНОГО ОПИСАНИЯ АКЦИИ -->
+<div id="promoDrawer" class="promo-drawer">
+  <div class="drawer-overlay" onclick="closePromoDrawer()"></div>
+  <div class="drawer-content">
+    <button class="drawer-close-btn" onclick="closePromoDrawer()">×</button>
+    
+    <div class="drawer-body">
+      <img id="drawerImage" src="" alt="" class="drawer-img">
+      <h2 id="drawerName" class="drawer-title"></h2>
+      <span class="drawer-tag">Акционный набор</span>
 
+      <div class="drawer-section">
+        <div class="drawer-section-title">ДОСТУПНЫЕ СЕРВЕРА</div>
+        <div id="drawerServers" class="drawer-section-value"></div>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-title">ЛОШАДЕЙ В НАБОРЕ</div>
+        <div id="drawerHorses" class="drawer-section-value"></div>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-section-title">ОПИСАНИЕ НАБОРА</div>
+        <div id="drawerDescription" class="drawer-section-block"></div>
+      </div>
+
+      <div class="drawer-footer">
+        <div class="drawer-price-block">
+          <span class="drawer-footer-label">ЦЕНА</span>
+          <div id="drawerPrice" class="drawer-price-value"></div>
+        </div>
+        <button class="drawer-buy-btn" title="Добавить в корзину">
+          <span>В корзину</span>
+          <svg viewBox="0 0 24 24" width="20" height="20">
+            <path d="M1 2h3.5l2.5 12h12l2-9H6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="8" cy="21" r="1.5" fill="#fff"/><circle cx="18" cy="21" r="1.5" fill="#fff"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="promotion.js"></script>
 </body>
 </html>
