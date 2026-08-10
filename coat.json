@@ -13720,5 +13720,295 @@
     "блэк"
   ],
   "adminIcons": []
+},
+  {
+  "id": "coat_1786374153433",
+  "name": "Dulcinea",
+  "count": 2,
+  "price": 220,
+  "image": "https://i.ibb.co/8LcFznjR/100485182-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": true,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Viserys",
+  "breed": "Французская Верховая",
+  "type": "Верховая лошадь",
+  "copies": 98,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": true,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 2,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "висерус",
+    "визарис",
+    "Viserys",
+    "висерис"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "coat_1786374280613",
+  "name": "Dave",
+  "count": 1,
+  "price": 220,
+  "image": "https://i.ibb.co/SYhG7rX/100217817-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Alia64",
+  "breed": "Фриз, Фризская",
+  "type": "Верховой Пегас",
+  "copies": 123,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": [
+    "https://i.ibb.co/4wmF2PSK/sang-meduse.png"
+  ]
+},
+  {
+  "id": "coat_1786374516843",
+  "name": "Dark~",
+  "count": 1,
+  "price": 220,
+  "image": "https://i.ibb.co/933YhMGd/100158031-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Diffary",
+  "breed": "Английская чистокровная",
+  "type": "Верховой Пегас",
+  "copies": 123,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": [
+    "https://i.ibb.co/4wmF2PSK/sang-meduse.png"
+  ]
+},
+  {
+  "id": "coat_1786374994202",
+  "name": "Against The World",
+  "count": 1,
+  "price": 220,
+  "image": "https://i.ibb.co/69F5Mk0/100219756-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Psilone",
+  "breed": "Шагия",
+  "type": "Верховой единорог",
+  "copies": 189,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "псилон"
+  ],
+  "adminIcons": []
+},
+  {
+  "id": "coat_1786375091654",
+  "name": "Addicted to you",
+  "count": 1,
+  "price": 220,
+  "image": "https://i.ibb.co/TDC9s768/100184984-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Leiden",
+  "breed": "Лошадь лузитанской породы",
+  "type": "Верховой единорог",
+  "copies": 121,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "coat_1786375186870",
+  "name": "-Чёртова Дюжина-",
+  "count": 1,
+  "price": 220,
+  "image": "https://i.ibb.co/62g60qY/100250682-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Olirian",
+  "breed": "Французский Рысак",
+  "type": "Верховой единорог",
+  "copies": 126,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": true,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
+},
+  {
+  "id": "coat_1786375559610",
+  "name": "ᴄᴏʟʟᴇᴄᴛᴏʀ ᴏꜰ ʙᴏɴᴇꜱ",
+  "count": 9,
+  "price": 110,
+  "image": "https://i.ibb.co/YFKpkwnb/100494129-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Sovngarde",
+  "breed": "разные",
+  "type": "Верховая лошадь",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": true,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 9,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "совнгард"
+  ],
+  "adminIcons": []
+},{
+  "id": "coat_1786375898446",
+  "name": "With Love",
+  "count": 9,
+  "price": 55,
+  "image": "https://i.ibb.co/tMx4pSFL/100455107-normal.png",
+  "category": "Окрасы",
+  "isNew": true,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Lily",
+  "breed": "разные",
+  "type": "Крылатый пони-единорог",
+  "copies": 97,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 9,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "лилу"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/4wmF2PSK/sang-meduse.png"
+  ]
+},
+  {
+  "id": "coat_1786376662845",
+  "name": "Mingmei",
+  "count": 11,
+  "price": 110,
+  "image": "https://i.ibb.co/fGYKwSJL/100492052-normal.png",
+  "category": "Окрасы",
+  "isNew": true,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Rabastan",
+  "breed": "Обычный осел",
+  "type": "Крылатый осел",
+  "copies": 100,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 11,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "рабастан"
+  ],
+  "adminIcons": [
+    "https://i.ibb.co/4wmF2PSK/sang-meduse.png"
+  ]
 }
 ]
