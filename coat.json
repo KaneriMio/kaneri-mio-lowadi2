@@ -13308,5 +13308,35 @@
     "ригардатта"
   ],
   "adminIcons": []
+},
+  {
+  "id": "coat_1786368069099",
+  "name": "Коловрат",
+  "count": 1,
+  "price": 550,
+  "image": "https://i.ibb.co/bjvW7LFC/100019200-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": true,
+  "colorType": "ИЗЯ",
+  "author": "La Mort",
+  "breed": "Арабская Чистокровная",
+  "type": "Верховой Пегас",
+  "copies": 86,
+  "companionImage": "https://i.ibb.co/fdnw8qtD/compagnon-chevre.png",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
 }
 ]
