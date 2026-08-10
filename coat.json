@@ -13338,5 +13338,35 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+  {
+  "id": "coat_1786368268729",
+  "name": "Златогривая",
+  "count": 1,
+  "price": 550,
+  "image": "https://i.ibb.co/HfHTR9Gz/100234520-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Idioteque",
+  "breed": "Теннесийская прогулочная",
+  "type": "Верховая лошадь",
+  "copies": 61,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
 }
 ]
