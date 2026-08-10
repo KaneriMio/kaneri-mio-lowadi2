@@ -13274,5 +13274,39 @@
     "ирэн"
   ],
   "adminIcons": []
+},
+  {
+  "id": "coat_1786366817000",
+  "name": "Пангур Бан",
+  "count": 3,
+  "price": 550,
+  "image": "https://i.ibb.co/cKgJXzn8/100190005-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Rigardatta",
+  "breed": "Тракененская",
+  "type": "Верховой единорог",
+  "copies": 189,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": true,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 3,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "Rigardatta",
+    "рига",
+    "ригардатта"
+  ],
+  "adminIcons": []
 }
 ]
