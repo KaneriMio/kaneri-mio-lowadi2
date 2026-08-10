@@ -13398,5 +13398,38 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+  {
+  "id": "coat_1786368872864",
+  "name": "Вороный жеребец",
+  "count": 1,
+  "price": 550,
+  "image": "https://i.ibb.co/mx7rTTn/1001013-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": true,
+  "colorType": "ИЗЯ",
+  "author": "Ксюша8",
+  "breed": "Лошадь лузитанской породы",
+  "type": "Верховая лошадь",
+  "copies": 41,
+  "companionImage": "https://i.ibb.co/LzFGnmqZ/compagnon-chien-off.png",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": false,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [
+    "редкий",
+    "мало копий"
+  ],
+  "adminIcons": []
 }
 ]
