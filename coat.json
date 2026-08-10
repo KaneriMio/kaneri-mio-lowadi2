@@ -13368,5 +13368,35 @@
   },
   "keywords": [],
   "adminIcons": []
+},
+  {
+  "id": "coat_1786368429793",
+  "name": "Дитя лилий",
+  "count": 1,
+  "price": 550,
+  "image": "https://i.ibb.co/7NXkB52v/100245751-normal.png",
+  "category": "Окрасы",
+  "isNew": false,
+  "isHot": false,
+  "isRare": false,
+  "colorType": "ИЗЯ",
+  "author": "Idioteque",
+  "breed": "Английская чистокровная",
+  "type": "Верховая лошадь",
+  "copies": 122,
+  "companionImage": "",
+  "hasExtraCr": true,
+  "hasFk": true,
+  "hasSkills": false,
+  "affix": true,
+  "chk": true,
+  "stocks": {
+    "🇷🇺": 1,
+    "🇺🇳": 0,
+    "🇪🇦": 0,
+    "🇫🇷": 0
+  },
+  "keywords": [],
+  "adminIcons": []
 }
 ]
