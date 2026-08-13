@@ -1,456 +1,283 @@
-// =====================================================
-// АКЦИИ
-// =====================================================
+let loadedPromotions = [];
+let selectedPromotionId = null;
+
+
+/* =========================================
+   ЭЛЕМЕНТЫ
+   ========================================= */
 
 const promoContainer = document.getElementById("promotionContainer");
-let loadedPromotions = [];
-let currentPromoItem = null;
+
+const cartDrawer = document.getElementById("cartDrawer");
+const cartDrawerOverlay = document.getElementById("cartDrawerOverlay");
+const closeCartDrawerBtn = document.getElementById("closeCartDrawer");
+
+const cartItemsContainer = document.getElementById("cartItemsContainer");
+const cartTotalPrice = document.getElementById("cartTotalPrice");
+
+const openCartBtn = document.getElementById("openCartBtn");
+const cartBadge = document.getElementById("cartBadge");
+
+const checkoutBtn = document.getElementById("checkoutBtn");
+const clearCartBtn = document.getElementById("clearCartBtn");
+
+const searchInput = document.getElementById("promoSearchInput");
 
 
-// =====================================================
-// КОРЗИНА
-// Используем ту же корзину, что и основной сайт
-// =====================================================
+/* =========================================
+   КОРЗИНА
+   ========================================= */
 
-let cart = JSON.parse(localStorage.getItem('lowadi_cart')) || [];
-
-
-// =====================================================
-// ЗАГРУЗКА АКЦИЙ
-// =====================================================
-
-fetch("promotion.json")
-    .then(r => r.json())
-    .then(data => {
-        loadedPromotions = data;
-        renderPromotions(data);
-        updatePromoCartUI();
-    })
-    .catch(error => {
-        console.error("Не удалось загрузить акции из JSON:", error);
-
-        if (promoContainer) {
-            promoContainer.innerHTML =
-                "<p style='grid-column:1/-1;text-align:center;color:#666;'>Не удалось загрузить акции. Проверьте консоль.</p>";
-        }
-    });
+let cart = JSON.parse(
+    localStorage.getItem("lowadi_cart") || "[]"
+);
 
 
-// =====================================================
-// ОТРИСОВКА КАРТОЧЕК АКЦИЙ
-// =====================================================
+/* Сохраняем корзину */
 
-function renderPromotions(items) {
-
-    if (!promoContainer) return;
-
-    promoContainer.innerHTML = "";
-
-    if (!items || items.length === 0) {
-        promoContainer.innerHTML =
-            "<p style='grid-column:1/-1;text-align:center;color:#666;margin-top:20px;'>Наборы не найдены</p>";
-        return;
-    }
-
-    items.forEach(item => {
-
-        const card = document.createElement("div");
-        card.className = "promotion-card";
-
-        card.innerHTML = `
-            <img src="${item.image || ''}" alt="${item.name || ''}">
-
-            <h2>${item.name || ''}</h2>
-
-            <div>🐴 ${item.horses || 0} лошадей</div>
-
-            <p>${item.description || ''}</p>
-
-            <div class="promotion-price">
-                ${item.price || 0} ₽
-            </div>
-
-            <button class="promo-more-btn">
-                Подробнее
-            </button>
-        `;
-
-        const moreBtn = card.querySelector(".promo-more-btn");
-
-        if (moreBtn) {
-            moreBtn.addEventListener("click", (event) => {
-                event.stopPropagation();
-                openPromoDrawer(item.id);
-            });
-        }
-
-        promoContainer.appendChild(card);
-    });
-}
-
-
-// =====================================================
-// ОТКРЫТИЕ ШТОРКИ АКЦИИ
-// =====================================================
-
-function openPromoDrawer(id) {
-
-    const item = loadedPromotions.find(
-        p => String(p.id) === String(id)
+function saveCart() {
+    localStorage.setItem(
+        "lowadi_cart",
+        JSON.stringify(cart)
     );
 
-    if (!item) {
-        console.error("Товар с ID " + id + " не найден.");
-        return;
-    }
-
-    // Запоминаем открытую акцию
-    currentPromoItem = item;
-
-    let serversString = "Нет доступных серверов";
-
-    if (item.stocks && typeof item.stocks === 'object') {
-
-        const availableFlags = Object.keys(item.stocks).filter(flag => {
-            return Number(item.stocks[flag]) > 0;
-        });
-
-        if (availableFlags.length > 0) {
-            serversString = availableFlags.join(", ");
-        }
-
-    } else if (
-        typeof item.stocks === 'string' &&
-        item.stocks.trim() !== ''
-    ) {
-        serversString = item.stocks;
-    }
-
-
-    // Заполняем шторку
-
-    const drawerImage = document.getElementById("drawerImage");
-    const drawerName = document.getElementById("drawerName");
-    const drawerServers = document.getElementById("drawerServers");
-    const drawerHorses = document.getElementById("drawerHorses");
-    const drawerDescription = document.getElementById("drawerDescription");
-    const drawerPrice = document.getElementById("drawerPrice");
-
-    if (drawerImage) {
-        drawerImage.src = item.image || '';
-    }
-
-    if (drawerName) {
-        drawerName.innerText = item.name || '';
-    }
-
-    if (drawerServers) {
-        drawerServers.innerText = serversString;
-    }
-
-    if (drawerHorses) {
-        drawerHorses.innerText =
-            item.horses ? `${item.horses} шт.` : '0 шт.';
-    }
-
-    if (drawerDescription) {
-        drawerDescription.innerText = item.description || '';
-    }
-
-    if (drawerPrice) {
-        drawerPrice.innerText =
-            item.price ? `${item.price} ₽` : '0 ₽';
-    }
-
-
-    // Проверяем наличие
-    updatePromoDrawerButton();
-
-
-    const drawer = document.getElementById("promoDrawer");
-
-    if (drawer) {
-        drawer.classList.add("active");
-    }
+    updateCartUI();
 }
 
 
-// =====================================================
-// КНОПКА В КОРЗИНУ В ШТОРКЕ
-// =====================================================
+/* =========================================
+   ОБНОВЛЕНИЕ СЧЁТЧИКА
+   ========================================= */
 
-const promoAddToCartBtn =
-    document.getElementById("promoAddToCartBtn");
+function updateCartUI() {
 
+    if (!cartBadge) return;
 
-if (promoAddToCartBtn) {
+    const totalQuantity = cart.reduce(
+        (sum, item) => sum + Number(item.quantity || 0),
+        0
+    );
 
-    promoAddToCartBtn.addEventListener("click", () => {
-
-        if (!currentPromoItem) return;
-
-        addPromotionToCart(currentPromoItem);
-
-    });
-
+    cartBadge.textContent = totalQuantity;
 }
 
 
-// =====================================================
-// ДОБАВЛЕНИЕ АКЦИИ В КОРЗИНУ
-// =====================================================
+/* =========================================
+   ОТКРЫТИЕ / ЗАКРЫТИЕ КОРЗИНЫ
+   ========================================= */
+
+function openCartDrawer() {
+
+    if (!cartDrawer) return;
+
+    renderCart();
+
+    cartDrawer.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeCartDrawer() {
+
+    if (!cartDrawer) return;
+
+    cartDrawer.classList.remove("active");
+
+    document.body.style.overflow = "";
+}
+
+
+if (openCartBtn) {
+    openCartBtn.addEventListener("click", openCartDrawer);
+}
+
+if (closeCartDrawerBtn) {
+    closeCartDrawerBtn.addEventListener(
+        "click",
+        closeCartDrawer
+    );
+}
+
+if (cartDrawerOverlay) {
+    cartDrawerOverlay.addEventListener(
+        "click",
+        closeCartDrawer
+    );
+}
+
+
+/* =========================================
+   ДОБАВЛЕНИЕ АКЦИИ В КОРЗИНУ
+   ========================================= */
 
 function addPromotionToCart(item) {
 
-    // Проверяем наличие на выбранном сервере.
-    // Если в promotion.json stocks пустой/не указан,
-    // считаем набор доступным.
+    if (!item) return;
 
-    const currentServer =
-        localStorage.getItem('lowadi_server') || '🇷🇺';
-
-    let stock = 1;
-
-    if (
-        item.stocks &&
-        typeof item.stocks === 'object'
-    ) {
-        stock = Number(item.stocks[currentServer] || 0);
-    }
-
-    if (stock <= 0) {
-
-        if (typeof showPromoToast === "function") {
-            showPromoToast("Набор недоступен на выбранном сервере.");
-        } else {
-            alert("Набор недоступен на выбранном сервере.");
-        }
-
-        return;
-    }
-
-
-    // Ищем такой набор в корзине
     const existing = cart.find(
-        c => String(c.id) === String(item.id)
+        cartItem => String(cartItem.id) === String(item.id)
     );
-
 
     if (existing) {
 
-        existing.quantity += 1;
+        existing.quantity =
+            Number(existing.quantity || 0) + 1;
 
     } else {
 
         cart.push({
             id: item.id,
             name: item.name,
-            price: Number(item.price) || 0,
+            image: item.image || "",
+            price: Number(item.price || 0),
             quantity: 1,
 
-            // Помечаем, что это акция
+            // Помечаем, что это акционный набор
             isPromotion: true,
 
-            // Дополнительная информация
+            // Сохраняем дополнительные данные
             horses: item.horses || 0,
-            image: item.image || ''
+            description: item.description || ""
         });
-
     }
 
-
-    // Сохраняем общую корзину
-    localStorage.setItem(
-        'lowadi_cart',
-        JSON.stringify(cart)
-    );
-
-
-    updatePromoCartUI();
-    updatePromoDrawerButton();
-
+    saveCart();
 
     showPromoToast(
-        existing
-            ? "Количество набора увеличено."
-            : "Набор добавлен в корзину."
+        `«${item.name}» добавлен в корзину`
     );
 }
 
 
-// =====================================================
-// ОБНОВЛЕНИЕ СЧЁТЧИКА КОРЗИНЫ
-// =====================================================
+/* =========================================
+   ИЗМЕНЕНИЕ КОЛИЧЕСТВА
+   ========================================= */
 
-function updatePromoCartUI() {
+function changePromotionCartQty(id, delta) {
 
-    const cartBadge =
-        document.getElementById("cartBadge");
-
-    if (!cartBadge) return;
-
-
-    const totalQuantity = cart.reduce(
-        (sum, item) =>
-            sum + (Number(item.quantity) || 1),
-        0
+    const item = cart.find(
+        cartItem => String(cartItem.id) === String(id)
     );
 
-    cartBadge.innerText = totalQuantity;
+    if (!item) return;
 
-    cartBadge.style.display =
-        totalQuantity > 0 ? 'block' : 'none';
-}
+    item.quantity =
+        Number(item.quantity || 0) + delta;
 
+    if (item.quantity <= 0) {
 
-// =====================================================
-// ОБНОВЛЕНИЕ КНОПКИ В ШТОРКЕ
-// =====================================================
-
-function updatePromoDrawerButton() {
-
-    if (!promoAddToCartBtn || !currentPromoItem) return;
-
-
-    const existing = cart.find(
-        c => String(c.id) === String(currentPromoItem.id)
-    );
-
-
-    if (existing) {
-
-        promoAddToCartBtn.querySelector("span").innerText =
-            `В корзине: ${existing.quantity}`;
-
-    } else {
-
-        promoAddToCartBtn.querySelector("span").innerText =
-            "В корзину";
+        cart = cart.filter(
+            cartItem =>
+                String(cartItem.id) !== String(id)
+        );
     }
+
+    saveCart();
+
+    renderCart();
 }
 
 
-// =====================================================
-// ЗАКРЫТИЕ ШТОРКИ
-// =====================================================
+/* =========================================
+   УДАЛЕНИЕ ТОВАРА
+   ========================================= */
 
-function closePromoDrawer() {
+function removePromotionFromCart(id) {
 
-    const drawer =
-        document.getElementById("promoDrawer");
+    cart = cart.filter(
+        item =>
+            String(item.id) !== String(id)
+    );
 
-    if (drawer) {
-        drawer.classList.remove("active");
-    }
+    saveCart();
+
+    renderCart();
 }
 
 
-// =====================================================
-// ОТКРЫТИЕ КОРЗИНЫ
-// =====================================================
+/* =========================================
+   ОТРИСОВКА КОРЗИНЫ
+   ========================================= */
 
-const openCartBtn =
-    document.getElementById("openCartBtn");
+function renderCart() {
 
-const cartDrawer =
-    document.getElementById("cartDrawer");
+    if (!cartItemsContainer) return;
 
-const closeCartDrawer =
-    document.getElementById("closeCartDrawer");
+    cartItemsContainer.innerHTML = "";
 
+    if (!cart.length) {
 
-if (openCartBtn) {
-
-    openCartBtn.addEventListener("click", () => {
-
-        renderPromoCart();
-
-        if (cartDrawer) {
-            cartDrawer.classList.add("active");
-        }
-
-    });
-
-}
-
-
-if (closeCartDrawer) {
-
-    closeCartDrawer.addEventListener("click", () => {
-
-        if (cartDrawer) {
-            cartDrawer.classList.remove("active");
-        }
-
-    });
-
-}
-
-
-// =====================================================
-// ОТРИСОВКА КОРЗИНЫ
-// =====================================================
-
-function renderPromoCart() {
-
-    const container =
-        document.getElementById("cartItemsContainer");
-
-    const totalBox =
-        document.getElementById("cartTotalPrice");
-
-
-    if (!container) return;
-
-
-    container.innerHTML = "";
-
-
-    if (cart.length === 0) {
-
-        container.innerHTML = `
-            <div style="text-align:center; padding:30px;">
-                Корзина пуста 🛒
+        cartItemsContainer.innerHTML = `
+            <div class="cart-empty">
+                🛒 Корзина пуста
             </div>
         `;
 
-        if (totalBox) {
-            totalBox.innerText = "0 ₽";
+        if (cartTotalPrice) {
+            cartTotalPrice.textContent = "0 ₽";
         }
 
         return;
     }
 
-
     let total = 0;
 
-
-    cart.forEach((item, index) => {
+    cart.forEach(item => {
 
         const quantity =
-            Number(item.quantity) || 1;
+            Number(item.quantity || 1);
+
+        const price =
+            Number(item.price || 0);
 
         const itemTotal =
-            (Number(item.price) || 0) * quantity;
+            price * quantity;
 
         total += itemTotal;
 
-
-        const row =
+        const cartItem =
             document.createElement("div");
 
-        row.className = "cart-item";
+        cartItem.className = "cart-item";
 
+        cartItem.innerHTML = `
+            <img
+                class="cart-item-image"
+                src="${item.image || ''}"
+                alt="${item.name || ''}"
+            >
 
-        row.innerHTML = `
             <div class="cart-item-info">
 
                 <div class="cart-item-name">
-                    ${item.name}
+                    ${item.name || "Товар"}
                 </div>
 
                 <div class="cart-item-price">
-                    ${item.price} ₽ × ${quantity}
+                    ${price} ₽ × ${quantity}
+                </div>
+
+                <div class="cart-item-controls">
+
+                    <button
+                        class="cart-qty-btn"
+                        onclick="changePromotionCartQty('${item.id}', -1)"
+                    >
+                        −
+                    </button>
+
+                    <span class="cart-qty-value">
+                        ${quantity}
+                    </span>
+
+                    <button
+                        class="cart-qty-btn"
+                        onclick="changePromotionCartQty('${item.id}', 1)"
+                    >
+                        +
+                    </button>
+
                 </div>
 
             </div>
@@ -461,205 +288,425 @@ function renderPromoCart() {
 
             <button
                 class="cart-item-remove"
-                data-index="${index}">
+                title="Удалить"
+                onclick="removePromotionFromCart('${item.id}')"
+            >
                 ×
             </button>
         `;
 
-
-        const removeBtn =
-            row.querySelector(".cart-item-remove");
-
-
-        if (removeBtn) {
-
-            removeBtn.addEventListener("click", () => {
-
-                cart.splice(index, 1);
-
-                savePromoCart();
-
-                renderPromoCart();
-
-            });
-
-        }
-
-
-        container.appendChild(row);
-
+        cartItemsContainer.appendChild(cartItem);
     });
 
-
-    if (totalBox) {
-        totalBox.innerText = `${total} ₽`;
+    if (cartTotalPrice) {
+        cartTotalPrice.textContent =
+            `${total} ₽`;
     }
 }
 
 
-// =====================================================
-// СОХРАНЕНИЕ КОРЗИНЫ
-// =====================================================
-
-function savePromoCart() {
-
-    localStorage.setItem(
-        'lowadi_cart',
-        JSON.stringify(cart)
-    );
-
-    updatePromoCartUI();
-}
-
-
-// =====================================================
-// ОЧИСТКА КОРЗИНЫ
-// =====================================================
-
-const clearCartBtn =
-    document.getElementById("clearCartBtn");
-
+/* =========================================
+   ОЧИСТКА КОРЗИНЫ
+   ========================================= */
 
 if (clearCartBtn) {
 
-    clearCartBtn.addEventListener("click", () => {
+    clearCartBtn.addEventListener(
+        "click",
+        () => {
 
-        if (cart.length === 0) return;
+            if (!cart.length) return;
 
-        cart = [];
+            if (
+                confirm(
+                    "Очистить корзину?"
+                )
+            ) {
 
-        savePromoCart();
+                cart = [];
 
-        renderPromoCart();
+                saveCart();
 
-    });
-
+                renderCart();
+            }
+        }
+    );
 }
 
 
-// =====================================================
-// ПОКУПКА
-// =====================================================
-
-const checkoutBtn =
-    document.getElementById("checkoutBtn");
-
+/* =========================================
+   КНОПКА "ПРИОБРЕСТИ"
+   ========================================= */
 
 if (checkoutBtn) {
 
-    checkoutBtn.addEventListener("click", async () => {
+    checkoutBtn.addEventListener(
+        "click",
+        () => {
 
-        if (cart.length === 0) {
-
-            showPromoToast("Ваша корзина пуста!");
-
-            return;
-        }
-
-
-        let orderText =
-            "🛒 Заказ Lowadi | Kaneri Mio Company\n\n";
-
-
-        cart.forEach(item => {
-
-            const quantity =
-                Number(item.quantity) || 1;
-
-            const itemTotal =
-                (Number(item.price) || 0) * quantity;
-
-
-            orderText +=
-                `• ${item.name}`;
-
-
-            if (quantity > 1) {
-                orderText += ` ×${quantity}`;
+            if (!cart.length) {
+                alert("Корзина пуста.");
+                return;
             }
 
+            const text = cart
+                .map(item => {
 
-            orderText +=
-                ` — ${itemTotal} ₽\n`;
+                    const quantity =
+                        Number(item.quantity || 1);
 
-        });
+                    const total =
+                        Number(item.price || 0) *
+                        quantity;
 
+                    return `${item.name} × ${quantity} — ${total} ₽`;
+                })
+                .join("\n");
 
-        const total =
-            cart.reduce((sum, item) => {
-
-                return sum +
-                    ((Number(item.price) || 0) *
-                    (Number(item.quantity) || 1));
-
-            }, 0);
-
-
-        orderText +=
-            `\n💰 Итого: ${total} ₽`;
-
-
-        try {
-
-            await navigator.clipboard.writeText(orderText);
-
-            showPromoToast(
-                "Содержимое корзины скопировано."
+            const total = cart.reduce(
+                (sum, item) =>
+                    sum +
+                    Number(item.price || 0) *
+                    Number(item.quantity || 1),
+                0
             );
 
-        } catch (e) {
+            const orderText =
+                `Заказ:\n\n${text}\n\nИтого: ${total} ₽`;
 
-            console.error(e);
+            navigator.clipboard
+                .writeText(orderText)
+                .then(() => {
 
+                    alert(
+                        "Содержимое корзины скопировано в буфер обмена."
+                    );
+
+                })
+                .catch(() => {
+
+                    alert(orderText);
+
+                });
         }
-
-
-        const socialModal =
-            document.getElementById("socialModal");
-
-
-        if (socialModal) {
-            socialModal.classList.add("active");
-        }
-
-    });
-
+    );
 }
 
 
-// =====================================================
-// ЗАКРЫТИЕ МОДАЛЬНОГО ОКНА
-// =====================================================
+/* =========================================
+   АКЦИИ — ЗАГРУЗКА JSON
+   ========================================= */
 
-const closeSocialModal =
-    document.getElementById("closeSocialModal");
+fetch("promotion.json")
+    .then(response => {
 
-
-if (closeSocialModal) {
-
-    closeSocialModal.addEventListener("click", () => {
-
-        const socialModal =
-            document.getElementById("socialModal");
-
-        if (socialModal) {
-            socialModal.classList.remove("active");
+        if (!response.ok) {
+            throw new Error(
+                "Ошибка загрузки promotion.json"
+            );
         }
 
+        return response.json();
+    })
+    .then(data => {
+
+        loadedPromotions = Array.isArray(data)
+            ? data
+            : [];
+
+        renderPromotions(
+            loadedPromotions
+        );
+
+    })
+    .catch(error => {
+
+        console.error(
+            "Не удалось загрузить акции:",
+            error
+        );
+
+        if (promoContainer) {
+
+            promoContainer.innerHTML = `
+                <p style="
+                    grid-column:1/-1;
+                    text-align:center;
+                    color:#666;
+                ">
+                    Не удалось загрузить акции.
+                </p>
+            `;
+        }
     });
 
+
+/* =========================================
+   ОТРИСОВКА АКЦИЙ
+   ========================================= */
+
+function renderPromotions(items) {
+
+    if (!promoContainer) return;
+
+    promoContainer.innerHTML = "";
+
+    if (!items.length) {
+
+        promoContainer.innerHTML = `
+            <p style="
+                grid-column:1/-1;
+                text-align:center;
+                color:#666;
+                margin-top:20px;
+            ">
+                Наборы не найдены
+            </p>
+        `;
+
+        return;
+    }
+
+    items.forEach(item => {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "promotion-card";
+
+        card.innerHTML = `
+            <img
+                src="${item.image || ''}"
+                alt="${item.name || ''}"
+            >
+
+            <h2>
+                ${item.name || ''}
+            </h2>
+
+            <div class="promotion-horses">
+                🐴 ${item.horses || 0} лошадей
+            </div>
+
+            <p>
+                ${item.description || ''}
+            </p>
+
+            <div class="promotion-price">
+                ${item.price || 0} ₽
+            </div>
+
+            <button
+                class="promo-more-btn"
+                onclick="openPromoDrawer('${item.id}')"
+            >
+                Подробнее
+            </button>
+        `;
+
+        promoContainer.appendChild(card);
+    });
 }
 
 
-// =====================================================
-// TOAST
-// =====================================================
+/* =========================================
+   ШТОРКА АКЦИИ
+   ========================================= */
 
-function showPromoToast(message) {
+function openPromoDrawer(id) {
+
+    const item =
+        loadedPromotions.find(
+            p => String(p.id) === String(id)
+        );
+
+    if (!item) {
+        console.error(
+            "Акция не найдена:",
+            id
+        );
+        return;
+    }
+
+    selectedPromotionId = item.id;
+
+    let serversString =
+        "Нет доступных серверов";
+
+    if (
+        item.stocks &&
+        typeof item.stocks === "object"
+    ) {
+
+        const availableFlags =
+            Object.keys(item.stocks)
+                .filter(flag =>
+                    Number(item.stocks[flag]) > 0
+                );
+
+        if (availableFlags.length) {
+            serversString =
+                availableFlags.join(", ");
+        }
+
+    } else if (
+        typeof item.stocks === "string" &&
+        item.stocks.trim()
+    ) {
+
+        serversString = item.stocks;
+    }
+
+
+    document.getElementById(
+        "drawerImage"
+    ).src = item.image || "";
+
+
+    document.getElementById(
+        "drawerName"
+    ).innerText = item.name || "";
+
+
+    document.getElementById(
+        "drawerServers"
+    ).innerText = serversString;
+
+
+    document.getElementById(
+        "drawerHorses"
+    ).innerText =
+        item.horses
+            ? `${item.horses} шт.`
+            : "0 шт.";
+
+
+    document.getElementById(
+        "drawerDescription"
+    ).innerText =
+        item.description || "";
+
+
+    document.getElementById(
+        "drawerPrice"
+    ).innerText =
+        item.price
+            ? `${item.price} ₽`
+            : "0 ₽";
+
+
+    const drawer =
+        document.getElementById(
+            "promoDrawer"
+        );
+
+    if (drawer) {
+        drawer.classList.add("active");
+    }
+
+
+    /* Кнопка "В корзину" */
+
+    const buyButton =
+        document.querySelector(
+            ".drawer-buy-btn"
+        );
+
+    if (buyButton) {
+
+        buyButton.onclick = () => {
+
+            addPromotionToCart(item);
+
+            closePromoDrawer();
+
+        };
+    }
+}
+
+
+/* =========================================
+   ЗАКРЫТИЕ ШТОРКИ АКЦИИ
+   ========================================= */
+
+function closePromoDrawer() {
+
+    const drawer =
+        document.getElementById(
+            "promoDrawer"
+        );
+
+    if (drawer) {
+        drawer.classList.remove("active");
+    }
+}
+
+
+/* =========================================
+   ПОИСК
+   ========================================= */
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        event => {
+
+            const query =
+                event.target.value
+                    .toLowerCase()
+                    .trim();
+
+            const filtered =
+                loadedPromotions.filter(
+                    item => {
+
+                        const name =
+                            item.name
+                                ? item.name
+                                    .toLowerCase()
+                                : "";
+
+                        const description =
+                            item.description
+                                ? item.description
+                                    .toLowerCase()
+                                : "";
+
+                        const keywords =
+                            Array.isArray(
+                                item.keywords
+                            )
+                                ? item.keywords
+                                    .join(" ")
+                                    .toLowerCase()
+                                : "";
+
+                        return (
+                            name.includes(query) ||
+                            description.includes(query) ||
+                            keywords.includes(query)
+                        );
+                    }
+                );
+
+            renderPromotions(filtered);
+        }
+    );
+}
+
+
+/* =========================================
+   УВЕДОМЛЕНИЕ
+   ========================================= */
+
+function showPromoToast(text) {
 
     let toast =
-        document.getElementById("promoToast");
-
+        document.getElementById(
+            "promoToast"
+        );
 
     if (!toast) {
 
@@ -668,70 +715,55 @@ function showPromoToast(message) {
 
         toast.id = "promoToast";
 
-        toast.style.position = "fixed";
-        toast.style.bottom = "30px";
-        toast.style.left = "50%";
-        toast.style.transform = "translateX(-50%)";
-        toast.style.background = "#2e7d32";
-        toast.style.color = "#fff";
-        toast.style.padding = "12px 20px";
-        toast.style.borderRadius = "8px";
-        toast.style.zIndex = "99999";
-        toast.style.fontWeight = "bold";
+        toast.style.cssText = `
+            position:fixed;
+            bottom:25px;
+            left:50%;
+            transform:translateX(-50%);
+            background:#2e7d32;
+            color:white;
+            padding:12px 20px;
+            border-radius:8px;
+            font-weight:bold;
+            z-index:10000;
+            box-shadow:0 4px 15px rgba(0,0,0,.2);
+        `;
 
         document.body.appendChild(toast);
     }
 
+    toast.textContent = text;
 
-    toast.innerText = message;
-    toast.style.display = "block";
+    clearTimeout(
+        window.promoToastTimer
+    );
 
+    window.promoToastTimer =
+        setTimeout(() => {
 
-    setTimeout(() => {
+            toast.remove();
 
-        toast.style.display = "none";
-
-    }, 2500);
-
+        }, 2500);
 }
 
 
-// =====================================================
-// ПОИСК
-// =====================================================
+/* =========================================
+   ДЕЛАЕМ ФУНКЦИИ ДОСТУПНЫМИ ИЗ HTML
+   ========================================= */
 
-const searchInput =
-    document.getElementById("promoSearchInput");
+window.openPromoDrawer =
+    openPromoDrawer;
 
+window.closePromoDrawer =
+    closePromoDrawer;
 
-if (searchInput) {
+window.changePromotionCartQty =
+    changePromotionCartQty;
 
-    searchInput.addEventListener("input", (e) => {
-
-        const query =
-            e.target.value.toLowerCase().trim();
-
-
-        const filtered =
-            loadedPromotions.filter(item => {
-
-                const nameMatch =
-                    item.name &&
-                    item.name.toLowerCase().includes(query);
+window.removePromotionFromCart =
+    removePromotionFromCart;
 
 
-                const descMatch =
-                    item.description &&
-                    item.description.toLowerCase().includes(query);
+/* Первоначальное состояние */
 
-
-                return nameMatch || descMatch;
-
-            });
-
-
-        renderPromotions(filtered);
-
-    });
-
-}
+updateCartUI();
