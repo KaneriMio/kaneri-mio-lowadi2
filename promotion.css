@@ -491,4 +491,51 @@ main {
   cursor: pointer;
   color: #666;
 }
+/* =========================
+   ШТОРКА КОРЗИНЫ
+   ========================= */
 
+#cartDrawer {
+    position: fixed;
+    top: 0;
+    right: -450px;
+
+    width: 420px;
+    max-width: 90vw;
+    height: 100vh;
+
+    background: #fff;
+    z-index: 9999;
+
+    box-sizing: border-box;
+    padding: 25px;
+
+    overflow-y: auto;
+
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+
+    transition: right 0.3s ease;
+}
+
+/* Когда корзина открыта */
+#cartDrawer.active {
+    right: 0;
+}
+
+/* Кнопка закрытия */
+#closeCartDrawer {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 30px;
+    cursor: pointer;
+
+    z-index: 2;
+}
