@@ -93,6 +93,28 @@ function closePromoDrawer() {
         drawer.classList.remove("active");
     }
 }
+// ОБНОВЛЕНО: Вызов стилизованного окна подтверждения вместо системного confirm
+if (clearCartBtn) {
+  clearCartBtn.addEventListener('click', () => {
+    if (cart.length === 0) return;
+    if (confirmClearCartModal) {
+      if (overlay) overlay.classList.add('active');
+      confirmClearCartModal.classList.add('active');
+    }
+  });
+}
+
+// Клик по кнопке "Да, очистить" на стилизованной плашке
+if (confirmClearCartBtnEl) {
+  confirmClearCartBtnEl.addEventListener('click', () => {
+    cart = [];
+    localStorage.setItem('lowadi_cart', JSON.stringify(cart)); 
+    updateCartUI();
+    renderItems();
+    closeAllDrawers();
+    showToast('Корзина полностью очищена.');
+  });
+}
 
 // ЖИВОЙ ПОИСК ПО НАЗВАНИЮ И КЛЮЧЕВЫМ СЛОВАМ
 const searchInput = document.getElementById("promoSearchInput");
