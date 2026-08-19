@@ -750,3 +750,536 @@ main {
     color: #777;
     padding: 40px 10px;
 }
+/* =========================================================
+   КОРЗИНА — ОБЩИЕ СТИЛИ
+   ========================================================= */
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -460px;
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  background: #fff;
+  z-index: 1001;
+  box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+  transition: right 0.3s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.drawer.active {
+  right: 0 !important;
+}
+
+.drawer-close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+}
+
+.drawer-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 12px 0;
+  color: #3b2314;
+}
+
+
+/* =========================================================
+   ЭЛЕМЕНТЫ КОРЗИНЫ
+   ========================================================= */
+
+.cart-items-list {
+  flex-grow: 1;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  margin-top: 15px;
+  min-height: 0;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+
+  background: var(--section-bg, #fffaf6);
+  padding: 12px;
+
+  border-radius: 8px;
+  position: relative;
+
+  border: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cart-item-name {
+  font-weight: bold;
+  font-size: 14px;
+  color: #222;
+}
+
+.cart-item-meta {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.cart-item-price {
+  font-weight: bold;
+  color: #2e7d32;
+  font-size: 13px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.qty-btn {
+  background: #fff;
+  border: 1px solid #ddd;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.qty-btn:hover {
+  background: #f5f5f5;
+}
+
+.remove-item-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  background: none;
+  border: none;
+
+  color: #d32f2f;
+  font-size: 18px;
+
+  cursor: pointer;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   НИЗ КОРЗИНЫ
+   ========================================================= */
+
+.cart-footer-actions {
+  border-top: 1px solid #eee;
+
+  padding-top: 15px;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.buy-btn {
+  flex-grow: 1;
+
+  background-color: #2e7d32;
+  color: white;
+
+  border: none;
+  padding: 14px;
+
+  border-radius: 8px;
+
+  font-weight: bold;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  background-color: #215d25;
+}
+
+.clear-cart-btn {
+  background-color: #d32f2f;
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-cart-btn:hover {
+  background-color: #b71c1c;
+}
+
+.clear-cart-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+
+/* =========================================================
+   ЦЕНА
+   ========================================================= */
+
+.price-box {
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+
+  padding: 14px;
+  border-radius: 8px;
+
+  font-weight: bold;
+  font-size: 16px;
+
+  color: #2e7d32;
+  text-align: center;
+}
+
+
+/* =========================================================
+   РАСЧЁТ ВАЛЮТЫ
+   ========================================================= */
+
+.cart-currency-calc {
+  background-color: #fff3e0;
+  border-left: 3px solid #ffb74d;
+
+  padding: 8px 10px;
+  border-radius: 4px;
+
+  margin-top: 6px;
+
+  font-size: 12px;
+  color: #b78103;
+  line-height: 1.4;
+}
+
+.cart-currency-calc strong {
+  color: #4a2810;
+}
+
+
+/* =========================================================
+   TOAST — "ТОВАР ДОБАВЛЕН", "КОРЗИНА ОЧИЩЕНА" И Т.П.
+   ========================================================= */
+
+.toast {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  background: #2e7d32;
+  color: #fff;
+
+  border-left: 5px solid rgba(255, 255, 255, 0.6);
+
+  padding: 14px 20px;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  box-shadow: 0 4px 15px rgba(46,125,50,0.3);
+
+  z-index: 2000;
+
+  transform: translateY(-100px);
+  opacity: 0;
+
+  transition:
+    all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.8);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+}
+
+
+/* =========================================================
+   ОКНО "ОЧИСТИТЬ КОРЗИНУ?"
+   ========================================================= */
+
+#confirmClearCartModal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.6);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 99999;
+}
+
+#confirmClearCartModal.active {
+  display: flex;
+}
+
+.confirm-clear-window {
+  width: 90%;
+  max-width: 420px;
+
+  background: #fff;
+
+  padding: 25px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 10px 35px rgba(0,0,0,.25);
+
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.confirm-clear-window h3 {
+  margin: 0 0 12px;
+  color: #4a2810;
+  font-size: 20px;
+}
+
+.confirm-clear-window p {
+  margin: 0 0 20px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.confirm-clear-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.confirm-clear-btn {
+  flex: 1;
+
+  padding: 11px 16px;
+
+  border: none;
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+}
+
+.confirm-clear-btn.yes {
+  background: #d32f2f;
+  color: #fff;
+}
+
+.confirm-clear-btn.yes:hover {
+  background: #b71c1c;
+}
+
+.confirm-clear-btn.no {
+  background: #eee;
+  color: #333;
+}
+
+.confirm-clear-btn.no:hover {
+  background: #ddd;
+}
+
+
+/* =========================================================
+   МОДАЛКА ВЫБОРА МЕССЕНДЖЕРА
+   ========================================================= */
+
+#socialModal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,.6);
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 99999;
+}
+
+#socialModal.active {
+  display: flex;
+}
+
+.modal-window {
+  background: #fff;
+
+  padding: 24px;
+
+  border-radius: 12px;
+
+  width: 320px;
+  max-width: calc(100% - 30px);
+
+  text-align: center;
+
+  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+
+  box-sizing: border-box;
+}
+
+.modal-window h3 {
+  margin: 0 0 12px;
+  color: #4a2810;
+  font-size: 20px;
+}
+
+.modal-window p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* ВАЖНО:
+   В HTML у вас social-grid, а не social-buttons */
+.social-grid {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-grid button {
+  flex: 1;
+
+  padding: 12px;
+
+  cursor: pointer;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #f2f2f2;
+
+  font-weight: bold;
+  font-size: 14px;
+
+  transition: .2s;
+}
+
+.social-grid button:hover {
+  background: #e5e5e5;
+}
+
+#goTelegram {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+#goTelegram:hover {
+  background: #d7edd9;
+}
+
+#goVk {
+  background: #eef3ff;
+  color: #315caa;
+}
+
+#goVk:hover {
+  background: #dfe8ff;
+}
+
+.modal-close-btn {
+  margin-top: 16px;
+
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  background: #ddd;
+  color: #333;
+
+  font-weight: bold;
+}
+
+.modal-close-btn:hover {
+  background: #ccc;
+}
