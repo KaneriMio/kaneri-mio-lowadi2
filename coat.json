@@ -11637,7 +11637,7 @@
   {
   "id": "coat_1782213013534",
   "name": "Ouranos",
-  "count": 3,
+  "count": 2,
   "price": 55,
   "image": "https://i.ibb.co/fYqQLmP5/image-Photoroom-17.png",
   "category": "Окрасы",
@@ -11656,7 +11656,7 @@
   "affix": false,
   "chk": true,
   "stocks": {
-    "🇷🇺": 3,
+    "🇷🇺": 2,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -13087,7 +13087,7 @@
   {
   "id": "coat_1785340833543",
   "name": "Celestyn",
-  "count": 2,
+  "count": 1,
   "price": 75,
   "image": "https://i.ibb.co/Z161hR60/100383523-normal.png",
   "category": "Окрасы",
@@ -13102,11 +13102,11 @@
   "companionImage": "",
   "hasExtraCr": true,
   "hasFk": true,
-  "hasSkills": false,
+  "hasSkills": true,
   "affix": false,
   "chk": true,
   "stocks": {
-    "🇷🇺": 2,
+    "🇷🇺": 1,
     "🇺🇳": 0,
     "🇪🇦": 0,
     "🇫🇷": 0
@@ -13117,13 +13117,7 @@
     "единорог"
   ],
   "adminIcons": [
-    "https://i.ibb.co/0pGSWmCj/pierre-philosophale.png",
-    "https://i.ibb.co/qYc95xyS/bras-morphee.png",
-    "https://i.ibb.co/W76Zxhf/sablier-chronos.png",
-    "https://i.ibb.co/1tbFpB7S/lyre-apollon.png",
-    "https://i.ibb.co/HjnRzzb/rayon-helios-illimite.png",
-    "https://i.ibb.co/Y6nP4DZ/talon-achille.png",
-    "https://i.ibb.co/dwpYKfts/pack-nyx.png"
+"https://i.ibb.co/ynw1nXmW/rayon-helios.png"
   ]
 },
   {
